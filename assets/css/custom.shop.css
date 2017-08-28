@@ -1,0 +1,384 @@
+body{
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 400;
+	color: #202020;
+	font-size: 16px;
+	background-color: #F3F3F4;
+	padding-top: 5rem;
+}
+
+.bd-example{
+	position:relative;
+	padding:1rem;
+	margin:1rem -1rem;
+	border:solid #f7f7f9;
+	border-width:0 0 0;
+}
+.bd-example::after{
+	display:block;
+	content:"";
+	clear:both
+}
+@media (min-width:576px){
+	.bd-example{
+		padding:1.5rem;
+		margin-right:0;
+		margin-bottom:0;
+		margin-left:0;
+		border-width:0
+	}
+}
+
+img.icon{
+  width: 26px;
+}
+
+.footer{
+	background-color: #1d2023;
+    padding: 80px 0 70px 0;
+    color: #b6b6b6;
+    overflow: visible;
+}
+/*===============================
+=            Buttons            =
+===============================*/
+.nbtn {
+  position: relative;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 46px;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  padding: 0 35px;
+  margin: 0 10px 15px 0;
+  color: #202020;
+  background: #f7c723;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+  -webkit-box-shadow: 0 4px 0 #dfae08;
+  -moz-box-shadow: 0 4px 0 #dfae08;
+  box-shadow: 0 4px 0 #dfae08;
+}
+.nbtn:hover,
+.btn:focus {
+  outline: none;
+  top: 4px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.nbtn:active,
+.nbtn.active {
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+a.nbtn {
+  position: relative;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 46px;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  padding: 16px 35px;
+  margin: 0px 10px 15px 0px;
+  color: #202020;
+  background: #f7c723;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+  -webkit-box-shadow: 0 4px 0 #dfae08;
+  -moz-box-shadow: 0 4px 0 #dfae08;
+  box-shadow: 0 4px 0 #dfae08;
+}
+
+a.nbtn:hover,
+a.btn:visited {
+  color: #202020;
+  text-decoration:none;
+  outline: none;
+  top: 4px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+a.nbtn:active {
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.nbtn i.fa {
+  padding-right: 10px;
+}
+.nbtn b {
+  font-size: 26px;
+  line-height: 48px;
+  vertical-align: bottom;
+  padding: 0 10px 0 0;
+}
+.nbtn span {
+  font-weight: 700;
+  font-size: 24px;
+  margin: 0;
+  vertical-align: middle;
+  display: inline-block;
+  padding: 0 0 5px 5px;
+}
+.nbtn.white {
+  background: #FFF;
+  box-shadow: none;
+  color: #202020;
+  text-decoration: none;
+  -webkit-box-shadow: 0 4px 0 #e0e0e0;
+  -moz-box-shadow: 0 4px 0 #e0e0e0;
+  box-shadow: 0 4px 0 #e0e0e0;
+}
+.nbtn.white:hover,
+.nbtn.white:focus {
+  color: #202020;
+  top: 4px;
+  text-decoration: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.nbtn.dark {
+  background: #202020;
+  box-shadow: none;
+  color: #fff;
+  text-decoration: none;
+  -webkit-box-shadow: 0 4px 0 #000000;
+  -moz-box-shadow: 0 4px 0 #000000;
+  box-shadow: 0 4px 0 #000000;
+}
+.nbtn.dark:hover,
+.nbtn.dark:focus {
+  color: #fff;
+  top: 4px;
+  text-decoration: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+/*===============================
+=            Footer             =
+===============================*/
+.list-group-item{
+	padding: 0.25rem 1.5rem;
+	border:0px;
+	background-color: #1d2023;
+}
+.list-group a{
+	font-size: smaller;
+}
+
+footer .icon{
+	width: 20px;
+}
+/*-----  End of Contents  ------*/
+/*======================================
+=            Call to action            =
+======================================*/
+.cta-1 {
+	margin-bottom: 0rem;
+	margin-top: 5rem;
+}
+.cta-1 span {
+  margin: 0;
+  font-size: 23px;
+  vertical-align: middle;
+  display: inline-block;
+  padding: 0 0 5px 5px;
+}
+.cta-1 .nbtn {
+  margin: 0 0 0 30px;
+}
+@media (max-width: 768px) {
+  .cta-1 span {
+    display: block;
+  }
+  .cta-1 .nbtn {
+    margin: 30px 0 0;
+  }
+}
+.bg-escuro {
+  background-color: #202020;!important;
+}
+.padding-top-bottom {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.white-text {
+  color: #FFF!important;
+}
+/*-----  End of Spinner  ------*/
+/*=====================================
+=            Sectin Finalizar         =
+=====================================*/
+.finalizar {
+	padding-top: 10rem;
+	padding-bottom: 10rem;
+}
+
+/*-----  End of Spinner  ------*/
+/*=====================================
+=            Form elements            =
+=====================================*/
+
+.myformPedido {
+  padding-top: 5px;
+}
+.myformPedido .form-group label {
+  display: none;
+}
+.myformPedido .no-placeholder .form-group label {
+  display: block;
+}
+.myformPedido .no-placeholder .controls {
+  margin-top: 0;
+}
+.myformPedido .form-group {
+  margin-bottom: 30px;
+}
+.myformPedido .btn {
+  margin: 0;
+}
+.myformPedido .form-control {
+  display: inline;
+  background: transparent;
+  line-height: 32px;
+  border: none;
+  color: #202020;
+  border-radius: 4px;
+  outline: none;
+  height: 50px;
+  font-size: 16px;
+  font-weight: 400;
+  vertical-align: top;
+  border: 2px solid #b6b6b6;
+  box-shadow: none;
+  /*  ios gradiet fix */
+  -webkit-appearance: none;
+}
+.myformPedido .form-control:focus {
+  outline: none;
+  border: 2px solid #f7c723;
+}
+.myformPedido .controls {
+  position: relative;
+}
+.myformPedido textarea.form-control {
+  height: auto;
+  max-width: 100%;
+  min-width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
+  padding-top: 8px;
+  vertical-align: top;
+}
+.myformPedido .inputError,
+.myformPedido .myformPedido textarea.form-control.inputError {
+  outline: none;
+  border: 2px solid #f05557;
+}
+.myformPedido .error-message {
+  position: absolute;
+  top: 9px;
+  right: 15px;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: 400;
+  color: #f05557;
+  /*z-index:10;*/
+}
+.myformPedido .no-placeholder .error-message {
+  top: 0;
+}
+.checkbox,
+.radio {
+  margin-bottom: 12px;
+  padding-left: 32px;
+  position: relative;
+  -webkit-transition: color 0.25s linear;
+  transition: color 0.25s linear;
+  font-size: 14px;
+  line-height: 1.5;
+}
+label.show {
+  display: block;
+  text-decoration: none;
+}
+input[type=radio],
+input[type=checkbox] {
+  margin: 4px 7px 0 0;
+  line-height: normal;
+  font-size: 21px;
+  text-align: center;
+}
+form p {
+  margin-top: 29px;
+}
+.form-control::-moz-placeholder {
+  color: #b6b6b6;
+}
+.form-control:-ms-input-placeholder {
+  color: #b6b6b6;
+}
+.form-control::-webkit-input-placeholder {
+  color: #b6b6b6;
+}
+#alert-order,
+#alert-contact {
+  display: none;
+}
+/*=====================================
+=            Lista Produto            =
+=====================================*/
+.tam-img-prod{
+  width: 100%;
+  align-self: center!important;
+  padding-top:2.5rem;
+}
+form#formCartDel p {
+  margin: 0;
+}
+form#formCartDel p button{
+  margin: 0;
+  padding: 10px;
+  line-height:10px;
+}
+.texto-esquerdo{
+    text-align: left!important;
+}
+
+@media (min-width: 576px){ /*sm*/
+  .tam-img-prod-sm{
+    width: 100%;
+    padding-top:0rem;
+  }
+  .text-center{
+    text-align: center!important;
+  }  
+}
+
+@media (min-width: 768px){ /*md*/
+  .tam-img-prod-md{
+    width: 100%;
+    padding-top:0rem;
+  }
+  .text-center{
+    text-align: center!important;
+  }
+}
