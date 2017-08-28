@@ -2,7 +2,7 @@
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 require_once("listaClientes.php");
-require_once("listaCidades.php");
+
 
 class Pedido extends MY_Model {
 
@@ -15,8 +15,7 @@ class Pedido extends MY_Model {
     public $valor_total;
     public $situacao;
     public $festa;
-
-
+    
     public function  __construct() {
         parent::__construct($this);
     }
@@ -47,6 +46,8 @@ class Pedido extends MY_Model {
     protected function get_config_prop(){
         $this->id_cliente = $this->get_cliente();
         $this->id_cidade = $this->get_cidade();
+        $this->id_orcamento = $this->get_orcamento();
+        $this->id_servico = $this->get_servico();
     }
 
     protected function valida_form(){
@@ -57,12 +58,6 @@ class Pedido extends MY_Model {
         $ListaClientes = new ListaClientes();
         return $ListaClientes->get($this->id_cliente);
     }
-
-    private function get_cidade(){
-        $ListaCidades = new ListaCidades();
-        return $ListaCidades->get($this->id_cidade);
-    }
-
 
     private function error(){
         $this->form_validation->error('field_name');
