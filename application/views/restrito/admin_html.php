@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   					<div class="row texto-esquerdo text-center">
   					  <div class="col-12 col-md-2 col-sm-12">Nome
   					  </div>
-  					  <div class="col-12 col-md-2 col-sm-12">Endereço
+  					  <div class="col-12 col-md-2 col-sm-12">EndereÃ§o
   					  </div>
   					  <div class="col-12 col-md-2 col-sm-12">Telefone
   					  </div>

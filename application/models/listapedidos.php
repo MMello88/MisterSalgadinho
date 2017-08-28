@@ -45,10 +45,11 @@ class ListaPedidos extends Control {
                "       c.email,       " .
                "       p.data_pedido, " .
                "       p.valor_total, " .
-               "       CASE WHEN p.festa = 's' THEN 'Sim' ELSE 'Não' END festa " .
+               "       CASE WHEN p.festa = 's' THEN 'Sim' ELSE 'Não' END festa, " .
+			   "       p.id_pedido    " .
                "  FROM tbl_pedido p   " .
                "  LEFT JOIN tbl_cliente c ON (c.id_cliente = p.id_cliente)     " .
-               " WHERE p.festa = 's'  " ;
+			   "  WHERE p.situacao = 's' ";
         $query = $this->_instance->db->query($sql);
         return $query->result();
     }
