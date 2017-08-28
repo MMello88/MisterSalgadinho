@@ -2,10 +2,7 @@
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  
 require_once("pedido.php");
-require_once("pedido.php");
  
-class ListaPedidos extends Control {
-
 class ListaPedidos extends Control {
 
     public function  __construct() {
@@ -13,8 +10,6 @@ class ListaPedidos extends Control {
     }
 
     public function get($id_pedido = '') {
-    public function get($id_pedido = '') {
-        $query = $this->_instance->db->get_where('pedido', array('id_pedido' => $id_pedido));
         $query = $this->_instance->db->get_where('pedido', array('id_pedido' => $id_pedido));
         if (empty($query))
             $this->set_log_error_db();
