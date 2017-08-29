@@ -113,8 +113,12 @@ class Carts extends CI_Controller {
 		        $this->load->model('Cart');
 		        $id_pedido = $this->Cart->insertCartToPedido($id_cliente, $festa, $id_session);
 		        if ($festa == "s") {
-		        	$this->Cart->insertEvento($id_pedido, $id_cliente, $this->input->post('data_evento'), $this->input->post('end_evento'));
+		        	$this->load->model('Evento');
+		        	$this->Evento->id_pedido = $id_pedido;
+		        	$this->Evento->id_cliente = $id_cliente;
+		        	$this->Evento->insert();
 		        }
+
 				$this->Cart->updataSitucao($id_session);
 
 				$this->data['nome_cliente'] = $nome;

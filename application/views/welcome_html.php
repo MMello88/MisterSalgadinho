@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div>
 
     <h1>Hello, world!</h1>
-	<a href="<?php echo base_url("index.php/Carts"); ?>" class="btn btn-info" role="button" id="btnSeuPedido" style="display:none;">Seu Pedido <span class="badge badge-secondary" id="count_cart"></span> </a>
+	<a href="<?php echo base_url("Cart"); ?>" class="btn btn-info" role="button" id="btnSeuPedido" style="display:none;">Seu Pedido <span class="badge badge-secondary" id="count_cart"></span> </a>
 		
   	<div class="container">
   		<?php echo $view_produtos; ?>

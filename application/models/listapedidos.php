@@ -40,16 +40,23 @@ class ListaPedidos extends Control {
 
     public function getPedidosSolicitados(){
         $sql = "SELECT c.nome,        " .
-               "       c.endereco,    " .
                "       c.telefone,    " .
-               "       c.email,       " .
                "       p.data_pedido, " .
                "       p.valor_total, " .
+               "       p.situacao,    " .
                "       CASE WHEN p.festa = 's' THEN 'Sim' ELSE 'Não' END festa, " .
-			   "       p.id_pedido    " .
+               "       CASE WHEN p.situacao = 's' THEN 'Solicitado'      " .
+               "            WHEN p.situacao = 'v' THEN 'Visualizado'     " .
+               "            WHEN p.situacao = 'p' THEN 'Produzindo'      " .
+               "            WHEN p.situacao = 't' THEN 'Saiu p/ Entrega' " .
+               "            WHEN p.situacao = 'e' THEN 'Entrege'         " .
+               "       ELSE '' END desc_situacao, " .
+			         "       p.id_pedido    " .
                "  FROM tbl_pedido p   " .
                "  LEFT JOIN tbl_cliente c ON (c.id_cliente = p.id_cliente)     " .
-			   "  WHERE p.situacao = 's' ";
+			         "  WHERE p.situacao = 's' " .
+               "    AND p.id_cidade = 1  " . /*cidade ribeirão preto*/
+               "  ORDER BY p.data_pedido, p.id_pedido ";
         $query = $this->_instance->db->query($sql);
         return $query->result();
     }

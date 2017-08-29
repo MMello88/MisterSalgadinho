@@ -17,9 +17,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="<?php echo base_url("assets/css/custom.admin.css"); ?>" rel="stylesheet">
   </head>
   <body>
+    <div class="alert alert-danger alert-dismissible" id="message-danger" style="display: none;" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <p id="msgError"></p>
+    </div>  
 
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-warning">
-      <a class="navbar-brand" href="<?php echo base_url("restrito/admin"); ?>"><b>Delivery</b> / <b>Mister</b> Salgadinho</a>
+      <a class="navbar-brand" href="<?php echo base_url("Admin/Main"); ?>"><b>Delivery</b> / <b>Mister</b> Salgadinho</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -46,29 +52,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="container">
 			  <h2 class="mt-4">Lista de Pedidos</h2>
 			  <hr class="mb-3 mt-1">
-			  <div class="row">
-				  <div class="col-12 col-md-12 col-sm-12 pl-3 pb-3">
-  					<div class="row texto-esquerdo text-center">
-  					  <div class="col-12 col-md-2 col-sm-12">Nome
-  					  </div>
-  					  <div class="col-12 col-md-2 col-sm-12">Endereço
-  					  </div>
-  					  <div class="col-12 col-md-2 col-sm-12">Telefone
-  					  </div>
-  					  <div class="col-12 col-md-2 col-sm-12">E-mail
-  					  </div>
-              <div class="col-12 col-md-1 col-sm-12">Data
-              </div>
-              <div class="col-12 col-md-1 col-sm-12">Valor
-              </div>
-              <div class="col-12 col-md-1 col-sm-12">Festa
-              </div>
-              <div class="col-12 col-md-1 col-sm-12">xxx
-              </div>
-  					</div>
-				  </div>
-			  </div>
+
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Data</th>
+              <th>Nome</th>
+              <th>Telefone</th>
+              <th>Valor</th>
+              <th>Festa</th>
+              <th>Situação</th>
+            </tr>
+          </thead>
 				  <?php echo $view_pedidos; ?>
+        </table>
 			</div>
 		</div>
 	</div>
@@ -125,27 +123,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </body>
 
 <script>
-$('form#formCartDel').on('submit', function(){
+$('form#formSitPedido').on('submit', function(event){
   var dados = $( this ).serialize();
-  console.log(dados);
-  console.log(this);
   var form = this;
-  var valor_item = $(this).find("#valor_subtotal").val();
-  var total = $("#valor_total").text().replace("Total: ","");
-  total = parseInt(total) - parseInt(valor_item);
+
   $.ajax({
     type: "POST",
-    url: "<?php echo base_url("index.php/Carts/deletarByProduto"); ?>",
+    url: "<?php echo base_url("index.php/restrito/admin/alterar_situacao_pedido"); ?>",
     data: dados,
     success: function( data )
     {
-      $(form).parent().parent().parent().prev().children().remove();
-      $(form).parent().parent().remove();
-      $("#valor_total").text("Total: " + total);
+      console.log(data);
+      $(form).parent().parent().parent().parent().remove();
     },
     error : function(data) {
       console.log(data.responseText);
-      $("#msgError").html("<strong>Desculpe!</strong> Erro ao remover seu pedido. Em breve tente novamente!");
+      $("#msgError").html("<strong>Desculpe!</strong> Não foi possível mudar a situação do pedido. Em breve tente novamente!");
       $("#message-danger").removeAttr("style");
     }
   });

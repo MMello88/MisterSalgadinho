@@ -53,4 +53,7 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route ['shop/(:any)'] = 'shop/index/$1';
+$route ['Shop/(:any)'] = 'shop/index/$1';
+$route ['Cart'] = '/Carts/index';
+$route ['Admin/Login'] = '/restrito/admin';
+$route ['Admin/Main'] = '/restrito/admin';

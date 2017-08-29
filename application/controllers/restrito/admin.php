@@ -3,21 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
 	public function index()
 	{
 		if (!$this->session->userdata('logado') or $this->session->userdata('logado') == 'false'){
@@ -45,56 +30,78 @@ class Admin extends CI_Controller {
 		} else {
 			$this->session->set_userdata('login_erro', 'true');
 		}
-		redirect('restrito/admin');
+		redirect('Admin/Main');
 	}
 
 	public function view_pedidos(){
 		$this->load->model('ListaPedidos');
 		$pedidos = $this->ListaPedidos->getPedidosSolicitados();
-		$html = "<div class='row'>";
+		$html = "<tbody>";
 		foreach ($pedidos as $pedido) {
 			$pedido->valor_total = number_format($pedido->valor_total, 2, '.', '');
-			$html .= "<div class='col-12 col-md-12 col-sm-12 align-self-center pl-3 pb-3'> " .
-		   		     "  <div class='row texto-esquerdo text-center'> " .
-		   		     "    <div class='col-12 col-md-2 col-sm-12 texto-esquerda'> " .
-					 "      <p class='grid-p'>{$pedido->nome}</p>" .
-					 "    </div> " .
-					 "    <div class='col-12 col-md-2 col-sm-12'> " .
-					 "        <p class='grid-p' >{$pedido->endereco}</p> " .
-					 "    </div> " .
-					 "    <div class='col-12 col-md-2 col-sm-12'> " .
-					 "        <p class='grid-p' >{$pedido->telefone}</p> " .
-					 "    </div> " .
-					 "    <div class='col-12 col-md-2 col-sm-12'> " .
-					 "        <p class='grid-p' >{$pedido->email}</p> " .
-					 "    </div> " .
-					 "    <div class='col-12 col-md-1 col-sm-12'> " .
-					 "        <p class='grid-p' >{$pedido->data_pedido}</p> " .
-					 "    </div> " .
-					 "    <div class='col-12 col-md-1 col-sm-12'> " .
-					 "        <p class='grid-p' >R$ {$pedido->valor_total}</p> " .
-					 "    </div> " .
-					 "    <div class='col-12 col-md-1 col-sm-12'> " .
-					 "        <p class='grid-p' >{$pedido->festa}</p> " .
-					 "    </div> " .
-					 "    <div class='col-12 col-md-1 col-sm-12'> " .
-					 "      <form method='post' action='' id='formCartDel'>" .
-					 "        <input type='hidden' name='id_pedido' value='{$pedido->id_pedido}'> " .
-					 "        <div class='form-group'> " .
-					 "            <select class='form-control'> " .
-					 "              <option name='situacao' value='s'>Solicitado</option> " .
-					 "              <option name='situacao' value='v'>Visualizado</option> " .
-					 "              <option name='situacao' value='p'>Produzindo</option> " .
-					 "              <option name='situacao' value='t'>Saiu p/ Entrega</option> " .
-					 "              <option name='situacao' value='e'>Entrega</option> " .
-					 "            </select> " .
-					 "         </div> " .
-					 "      </form>" .
-					 "    </div> " .
-					 "  </div> " .
-					 "</div> ";
-			$html .= "";
+			$html .= "  <tr> " .
+					 "    <th scope='row' class='grid-p'> " .
+					 "       {$pedido->id_pedido} " .
+					 "    </th> " .
+					 "    <td class='grid-p'> " .
+					 "       {$pedido->data_pedido} " .
+					 "    </td> " .
+		   		     "    <td class='grid-p'> " .
+					 "       {$pedido->nome}" .
+					 "    </td> " .
+		   		     "    <td class='grid-p'> " .
+					 "       {$pedido->telefone} " .
+					 "    </td> " .
+		   		     "    <td class='grid-p'> " .
+					 "       R$ {$pedido->valor_total} " .
+					 "    </td> " .
+		   		     "    <td class='grid-p'> " .
+					 "       {$pedido->festa} " .
+					 "    </td> " .
+		   		     "    <td class='grid-p'> " .
+					 "       {$pedido->desc_situacao} " .
+					 "    </td> " .
+					 "    <td class='grid-p'> " .
+					 "      <div class='btn-toolbar' role='toolbar' aria-label='Toolbar with button groups'> " .
+				     "        <div class='btn-group btn-group-sm' role='group' aria-label='First group'> " .
+				     "          <form method='post' action='' id='formSitPedido'>" .
+					 "            <input type='hidden' name='id_pedido' value='{$pedido->id_pedido}'> " .
+					 "            <input type='hidden' name='situacao' value='v'> " .
+					 "            <button type='submit' class='btn btn-warning btn-sm'>v</button> " .
+					 "          </form>" .
+					 "        </div> " .
+					 "        <div class='btn-group btn-group-sm' role='group' aria-label='First group'> " .
+				     "          <form method='post' action='' id='formSitPedido'>" .
+					 "            <input type='hidden' name='id_pedido' value='{$pedido->id_pedido}'> " .
+					 "            <input type='hidden' name='situacao' value='p'> " .
+					 "            <button type='submit' class='btn btn-warning btn-sm'>p</button> " .
+					 "          </form>" .
+					 "        </div> " .
+					 "        <div class='btn-group btn-group-sm' role='group' aria-label='First group'> " .
+				     "          <form method='post' action='' id='formSitPedido'>" .
+					 "            <input type='hidden' name='id_pedido' value='{$pedido->id_pedido}'> " .
+					 "            <input type='hidden' name='situacao' value='t'> " .
+					 "            <button type='submit' class='btn btn-warning btn-sm'>t</button> " .
+					 "          </form>" .
+					 "        </div> " .
+					 "        <div class='btn-group btn-group-sm' role='group' aria-label='First group'> " .
+				     "          <form method='post' action='' id='formSitPedido'>" .
+					 "            <input type='hidden' name='id_pedido' value='{$pedido->id_pedido}'> " .
+					 "            <input type='hidden' name='situacao' value='e'> " .
+					 "            <button type='submit' class='btn btn-warning btn-sm'>e</button> " .
+					 "          </form>" .
+					 "        </div> " .
+					 "      </div> " .
+					 "    </td> " .
+					 "  </tr> " .
+					 "";
 		}
-		return $html;
+		return "</tbody>" . $html;
+	}
+
+	public function alterar_situacao_pedido(){
+		$this->load->model('Pedido');
+        $this->Pedido->update_situacao();
+        redirect('Admin/Main');
 	}
 }

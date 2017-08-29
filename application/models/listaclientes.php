@@ -13,7 +13,8 @@ class ListaClientes extends Control {
         $query = $this->_instance->db->get_where('cliente', array('id_cliente' => $id_cliente));
         if (empty($query))
             $this->set_log_error_db();
-        return $query->custom_result_object('cliente')[0];
+        $result = $query->custom_result_object('cliente');
+        return empty($result) ? "" : $result[0];
     }
  
     public function get_all(){

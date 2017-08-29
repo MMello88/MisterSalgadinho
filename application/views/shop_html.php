@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a href="<?php echo base_url("index.php/Carts"); ?>" class="navbar-brand" id="btnSeuPedido">
+            <a href="<?php echo base_url("Cart"); ?>" class="navbar-brand" id="btnSeuPedido">
               Seu Pedido
               <img class="icon" src="<?php echo base_url("assets/ico/social/shopping-cart.svg"); ?>" alt="Carrinho">
               <span class="badge badge-danger cart-popover" id="count_cart" data-toggle="popover" data-placement="bottom" data-trigger="focus" title="Produto adicionado com sucesso!" data-content="Click no carrinho para finalizar a compra."></span>
@@ -77,7 +77,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     						<span class="oi" data-glyph="chevron-right" title="icon name" aria-hidden="true"></span>
     					  </span>
     				  </a>
-    				  <a href="<?php echo base_url("shop/ribeirao_preto"); ?>" class="list-group-item text-warning">
+    				  <a href="<?php echo base_url("Shop/ribeirao_preto"); ?>" class="list-group-item text-warning">
     				  SHOP
     					  <span class="badge badge-warning float-right">
     						<span class="oi" data-glyph="chevron-right" title="icon name" aria-hidden="true"></span>

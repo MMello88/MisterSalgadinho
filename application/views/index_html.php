@@ -56,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<b>Sabores surpreendente! </b> Venha provar o nosso salgadinho. <br>Faça seu pedido agora mesmo!<br>
 						</p>
 						<br>
-						<a class="btn white" href="<?php echo base_url("shop/ribeirao_preto"); ?>" <!--data-toggle="modal" data-target="#product-modal"--> COMPRE <b>AGORA</b></a>
+						<a class="btn white" href="<?php echo base_url("Shop/ribeirao_preto"); ?>" <!--data-toggle="modal" data-target="#product-modal"--> COMPRE <b>AGORA</b></a>
 					</div>
 					<div class="col-sm-12 img-hero"></div>
 				</div>

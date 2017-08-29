@@ -11,6 +11,8 @@ class Evento extends MY_Model {
     public $id_pedido;
     public $data_evento;
     public $end_evento;
+    public $cel_evento;
+    public $hora_evento;
 
     public function  __construct() {
         parent::__construct($this);
@@ -22,7 +24,7 @@ class Evento extends MY_Model {
             $this->id_evento = $this->db->insert_id();
         if (empty($this->id_evento))
           $this->set_log_error_db();
-        $this->set_response_db('Incluido com sucesso');
+        //$this->set_response_db('Incluido com sucesso');
     }
 
     public function update() {

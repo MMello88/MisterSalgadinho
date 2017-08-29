@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   	<div class="container">
       <ol class="breadcrumb bg-transparent">
         <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>">Home</a></li>
-        <li class="breadcrumb-item"><a href="<?php echo base_url("shop/ribeirao_preto"); ?>">Shop</a></li>
+        <li class="breadcrumb-item"><a href="<?php echo base_url("Shop/ribeirao_preto"); ?>">Shop</a></li>
         <li class="breadcrumb-item active">Carrinho</li>
       </ol>
 
@@ -112,14 +112,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 					  <div class="collapse" id="collapseEndEvento">
 						<div class="card card-body border-0">
+              <div class="form-group">
+                <label for="InputEnderecoEvento">Endereço do Local do Envento</label>
+                <input type="text" name="end_evento" class="form-control" id="InputEnderecoEvento" placeholder="Endereço do Evento Ex.: Rua Amador Bueno 22, casa 1">
+              </div>
+
+              <div class="form-group">
+                <label for="InputCelularEvento">Celular p/ Contato</label>
+                <input type="text" name="cel_evento" class="form-control" id="InputCelularEvento" placeholder="(16) 91111-0000">
+              </div>
+
 						  <div class="form-group">
-							<label for="InputDataEvento">Data do Envento</label>
-							<input type="date" name="data_evento" class="form-control" min="<?php echo date("Y-m-d"); ?>" id="InputDataEvento" placeholder="Data do Evento">
+  							<label for="InputDataEvento">Data do Envento</label>
+  							<input type="date" name="data_evento" class="form-control" min="<?php echo date("Y-m-d"); ?>" id="InputDataEvento" placeholder="Data do Evento">
 						  </div>
-						  <div class="form-group">
-							<label for="InputEnderecoEvento">Endereço do Local do Envento</label>
-							<input type="text" name="end_evento" class="form-control" id="InputEnderecoEvento" placeholder="Endereço do Evento Ex.: Rua Amador Bueno 22, casa 1">
-						  </div>
+						  
+              <div class="form-group">
+                <label for="InputHoraEvento">Horário do Envento</label>
+                <input type="text" name="hora_evento" class="form-control" id="InputHoraEvento" placeholder="Horário do Evento">
+              </div>
+
 						</div>
 					  </div>
 					<button type="submit" class="nbtn ml-auto">Comprar</button>
@@ -157,7 +169,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     						<span class="oi" data-glyph="chevron-right" title="icon name" aria-hidden="true"></span>
     					  </span>
     				  </a>
-    				  <a href="<?php echo base_url("shop/ribeirao_preto"); ?>" class="list-group-item text-warning">
+    				  <a href="<?php echo base_url("Shop/ribeirao_preto"); ?>" class="list-group-item text-warning">
     				  SHOP
     					  <span class="badge badge-warning float-right">
     						<span class="oi" data-glyph="chevron-right" title="icon name" aria-hidden="true"></span>
@@ -282,7 +294,17 @@ $(window).resize(function() {
 
 $('#collapseEndEvento').on('hidden.bs.collapse', function () {
   $("#InputEnderecoEvento").val("");
-})
+  $("#InputCelularEvento").val("");
+  $("#InputDataEvento").val("");
+  $("#InputHoraEvento").val("");
+});
+
+$("#festa").change(function() {
+    $("#InputEnderecoEvento").prop('required',this.checked);
+    $("#InputCelularEvento").prop('required',this.checked);
+    $("#InputDataEvento").prop('required',this.checked);
+    $("#InputHoraEvento").prop('required',this.checked);
+});
 
 </script>
 </html>

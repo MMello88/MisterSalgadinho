@@ -36,6 +36,14 @@ class Pedido extends MY_Model {
         $this->set_response_db('Alteração concluída com sucesso');
     }
 
+    public function update_situacao(){
+        $this->db->set('situacao', $this->situacao);
+        $this->db->where('id_pedido', $this->id_pedido);
+        $result = $this->db->update('tbl_pedido');
+        print_r($result);
+        return $result;
+    }
+
     public function delete() {
         $this->db->delete('pedido', $this, array('id_pedido' => $this->id_pedido));
         if ($this->db->error()['code'] > 0)
@@ -44,10 +52,8 @@ class Pedido extends MY_Model {
     }
 
     protected function get_config_prop(){
-        $this->id_cliente = $this->get_cliente();
-        $this->id_cidade = $this->get_cidade();
-        $this->id_orcamento = $this->get_orcamento();
-        $this->id_servico = $this->get_servico();
+        $this->id_cliente = isset($this->id_cliente) ? $this->get_cliente() : "";
+        $this->id_cidade  = isset($this->id_cidade)  ? $this->get_cidade()  : "";
     }
 
     protected function valida_form(){
