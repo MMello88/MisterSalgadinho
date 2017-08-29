@@ -86,7 +86,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="row" >
  					<div class="col-sm-6 slider">
                         <div id="as-slider" class="owl-carousel" data-autoplay="4000" data-navigation="false" data-dots="true" data-transition="">
-                            <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/boneco_2.jpg"); ?>)"></div>
+                            <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/boneco_2.png"); ?>)"></div>
                             <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/cup3.jpg"); ?>)"></div>
                             <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/cup4.jpg"); ?>)"></div>
                             <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/cup1.jpg"); ?>)"></div>

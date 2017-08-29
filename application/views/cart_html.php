@@ -5,15 +5,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mister - Salgadinho">
+    <meta name="author" content="Matheus de Mello">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>Carrinho - Seus Pedidos - Mister Salgadinho</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>">
     <link href="<?php echo base_url("assets/css/open-iconic.css"); ?>" rel="stylesheet">
     <link href="<?php echo base_url("assets/css/docs.min.css"); ?>" rel="stylesheet">
     <link href="<?php echo base_url("assets/css/custom.shop.css"); ?>" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="shortcut icon" href="<?php echo base_url("assets/template/img/ico/32.png"); ?>" type="image/png">
+    <link rel="apple-touch-icon" sizes="32x32" href="<?php echo base_url("assets/template/img/ico/60.png"); ?>" type="image/png">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo base_url("assets/template/img/ico/72.png"); ?>" type="image/png">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo base_url("assets/template/img/ico/120.png"); ?>" type="image/png">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?php echo base_url("assets/template/img/ico/152.png"); ?>" type="image/png">
   </head>
   <body>
 

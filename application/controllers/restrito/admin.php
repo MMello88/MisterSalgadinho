@@ -34,9 +34,22 @@ class Admin extends CI_Controller {
 	}
 
 	public function view_pedidos(){
+		$id_pedido = "";
+		$nome      = "";
+		$email     = "";
+
+		if ($_POST){
+			$valuePesq = $_POST['valuePesq'];
+			$tipoPesq  = $_POST['tipoPesq' ];
+
+			$id_pedido = $_POST['tipoPesq' ] == "id_pedido" ? $_POST['valuePesq'] : "";
+			$nome      = $_POST['tipoPesq' ] == "nome"      ? $_POST['valuePesq'] : "";
+			$email     = $_POST['tipoPesq' ] == "email"     ? $_POST['valuePesq'] : "";
+		}
+
 		$this->load->model('ListaPedidos');
 		$pedidos = $this->ListaPedidos->getPedidosSolicitados();
-		$html = "<tbody>";
+		$html = "";
 		foreach ($pedidos as $pedido) {
 			$pedido->valor_total = number_format($pedido->valor_total, 2, '.', '');
 			$html .= "  <tr> " .
@@ -96,7 +109,9 @@ class Admin extends CI_Controller {
 					 "  </tr> " .
 					 "";
 		}
-		return "</tbody>" . $html;
+		if (!empty($_POST))
+			echo $html;
+		return $html;
 	}
 
 	public function alterar_situacao_pedido(){

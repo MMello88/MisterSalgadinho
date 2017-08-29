@@ -38,7 +38,7 @@ class ListaPedidos extends Control {
         return $query->custom_row_object(0, 'pedido');
     }
 
-    public function getPedidosSolicitados(){
+    public function getPedidosSolicitados($nome = '', $email = '', $id_pedido = ''){
         $sql = "SELECT c.nome,        " .
                "       c.telefone,    " .
                "       p.data_pedido, " .
@@ -55,8 +55,18 @@ class ListaPedidos extends Control {
                "  FROM tbl_pedido p   " .
                "  LEFT JOIN tbl_cliente c ON (c.id_cliente = p.id_cliente)     " .
 			         "  WHERE p.situacao = 's' " .
-               "    AND p.id_cidade = 1  " . /*cidade ribeirão preto*/
-               "  ORDER BY p.data_pedido, p.id_pedido ";
+               "    AND p.id_cidade = 1  " ; /*cidade ribeirão preto*/
+        if (!empty($nome)){
+          $sql .= " AND c.nome like '%{$nome}%' ";
+        }
+        if (!empty($email)){
+          $sql .= " AND c.email = '{$email}'";
+        }
+        if (!empty($id_pedido)){
+          $sql .= " and p.id_pedido = {$id_pedido}";
+        }
+        
+        $sql .= "  ORDER BY p.data_pedido, p.id_pedido ";
         $query = $this->_instance->db->query($sql);
         return $query->result();
     }

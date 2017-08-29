@@ -5,9 +5,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mister - Salgadinho">
+    <meta name="author" content="Matheus de Mello">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>Administrador - Mister Salgadinho</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>">
@@ -15,6 +17,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="<?php echo base_url("assets/css/docs.min.css"); ?>" rel="stylesheet">
     <link href="<?php echo base_url("assets/css/custom.shop.css"); ?>" rel="stylesheet">
     <link href="<?php echo base_url("assets/css/custom.admin.css"); ?>" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="shortcut icon" href="<?php echo base_url("assets/template/img/ico/32.png"); ?>" type="image/png">
+    <link rel="apple-touch-icon" sizes="32x32" href="<?php echo base_url("assets/template/img/ico/60.png"); ?>" type="image/png">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo base_url("assets/template/img/ico/72.png"); ?>" type="image/png">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo base_url("assets/template/img/ico/120.png"); ?>" type="image/png">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?php echo base_url("assets/template/img/ico/152.png"); ?>" type="image/png">
   </head>
   <body>
     <div class="alert alert-danger alert-dismissible" id="message-danger" style="display: none;" role="alert">
@@ -50,9 +58,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="container-fluid">
 		<div class="row">
 			<div class="container">
-			  <h2 class="mt-4">Lista de Pedidos</h2>
-			  <hr class="mb-3 mt-1">
-
+        <form method="post" action="" class="" id="formFiltroPedido">
+          <div class="form-row justify-content-end">
+            <h2 class="mt-1 mr-auto">Lista de Pedidos</h2>
+        
+            <div class="form-group col-md-2">
+              <select name="tipoPesq" id="inputTipoPesq" class="form-control">
+                <option selected>Pesquisar por: </option>
+                <option value="nome">Nome</option>
+                <option value="email">Email</option>
+                <option value="id_pedido">Id do Pedido</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4">
+              <input type="text" class="form-control" name="valuePesq" id="inputValuePesq" placeholder="Pesquisar ...">
+            </div>
+            <div class="form-group col-md-1">
+              <button type="submit" class="btn btn-warning">Pesquisar</button>
+            </div>
+          </div>
+        </form>
+        <hr class="mb-3 mt-1">
         <table class="table table-hover">
           <thead>
             <tr>
@@ -63,9 +89,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <th>Valor</th>
               <th>Festa</th>
               <th>Situação</th>
+              <th></th>
             </tr>
           </thead>
-				  <?php echo $view_pedidos; ?>
+          <tbody>
+				    <?php echo $view_pedidos; ?>
+          </tbody>
         </table>
 			</div>
 		</div>
@@ -139,6 +168,27 @@ $('form#formSitPedido').on('submit', function(event){
     error : function(data) {
       console.log(data.responseText);
       $("#msgError").html("<strong>Desculpe!</strong> Não foi possível mudar a situação do pedido. Em breve tente novamente!");
+      $("#message-danger").removeAttr("style");
+    }
+  });
+  return false;
+});
+
+$('form#formFiltroPedido').on('submit', function(event){
+  var dados = $( this ).serialize();
+  var form = this;
+
+  $.ajax({
+    type: "POST",
+    url: "<?php echo base_url("index.php/restrito/admin/view_pedidos"); ?>",
+    data: dados,
+    success: function( data )
+    {
+      console.log(data);
+    },
+    error : function(data) {
+      console.log(data.responseText);
+      $("#msgError").html("<strong>Desculpe!</strong> Não foi possível fazer a pesquisa. Em breve tente novamente!");
       $("#message-danger").removeAttr("style");
     }
   });
