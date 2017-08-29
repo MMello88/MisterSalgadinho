@@ -39,16 +39,18 @@ class Admin extends CI_Controller {
 		$email     = "";
 
 		if ($_POST){
-			$valuePesq = $_POST['valuePesq'];
-			$tipoPesq  = $_POST['tipoPesq' ];
+			if (!empty($_POST['valuePesq'])) {
+				$valuePesq = $_POST['valuePesq'];
+				$tipoPesq  = $_POST['tipoPesq' ];
 
-			$id_pedido = $_POST['tipoPesq' ] == "id_pedido" ? $_POST['valuePesq'] : "";
-			$nome      = $_POST['tipoPesq' ] == "nome"      ? $_POST['valuePesq'] : "";
-			$email     = $_POST['tipoPesq' ] == "email"     ? $_POST['valuePesq'] : "";
+				$id_pedido = $_POST['tipoPesq' ] == "id_pedido" ? $_POST['valuePesq'] : "";
+				$nome      = $_POST['tipoPesq' ] == "nome"      ? $_POST['valuePesq'] : "";
+				$email     = $_POST['tipoPesq' ] == "email"     ? $_POST['valuePesq'] : "";
+			}
 		}
 
 		$this->load->model('ListaPedidos');
-		$pedidos = $this->ListaPedidos->getPedidosSolicitados();
+		$pedidos = $this->ListaPedidos->getPedidosSolicitados($nome, $email, $id_pedido);
 		$html = "";
 		foreach ($pedidos as $pedido) {
 			$pedido->valor_total = number_format($pedido->valor_total, 2, '.', '');
@@ -117,6 +119,6 @@ class Admin extends CI_Controller {
 	public function alterar_situacao_pedido(){
 		$this->load->model('Pedido');
         $this->Pedido->update_situacao();
-        redirect('Admin/Main');
+        //redirect('Admin/Main');
 	}
 }

@@ -185,6 +185,8 @@ $('form#formFiltroPedido').on('submit', function(event){
     success: function( data )
     {
       console.log(data);
+      $('tbody').empty();
+      $('tbody').html(data);
     },
     error : function(data) {
       console.log(data.responseText);
