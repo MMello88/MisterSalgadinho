@@ -100,8 +100,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 	</div>
 
-   
-	
 	<footer class="footer">
       <div class="container">
     		<div class="row">
@@ -152,48 +150,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </body>
 
 <script>
-$('form#formSitPedido').on('submit', function(event){
-  var dados = $( this ).serialize();
-  var form = this;
-
-  $.ajax({
-    type: "POST",
-    url: "<?php echo base_url("index.php/restrito/admin/alterar_situacao_pedido"); ?>",
-    data: dados,
-    success: function( data )
-    {
-      console.log(data);
-      $(form).parent().parent().parent().parent().remove();
-    },
-    error : function(data) {
-      console.log(data.responseText);
-      $("#msgError").html("<strong>Desculpe!</strong> Não foi possível mudar a situação do pedido. Em breve tente novamente!");
-      $("#message-danger").removeAttr("style");
-    }
-  });
-  return false;
-});
-
-$('form#formFiltroPedido').on('submit', function(event){
-  var dados = $( this ).serialize();
-  var form = this;
-
-  $.ajax({
-    type: "POST",
-    url: "<?php echo base_url("index.php/restrito/admin/view_pedidos"); ?>",
-    data: dados,
-    success: function( data )
-    {
-      console.log(data);
-      $('tbody').empty();
-      $('tbody').html(data);
-    },
-    error : function(data) {
-      console.log(data.responseText);
-      $("#msgError").html("<strong>Desculpe!</strong> Não foi possível fazer a pesquisa. Em breve tente novamente!");
-      $("#message-danger").removeAttr("style");
-    }
-  });
+$(document).on('submit', 'form', function(event) {
+  var lform = this;
+  if ($(lform).attr("id") == "formFiltroPedido"){
+    var dados = $( this ).serialize();
+    $.ajax({
+      type: "POST",
+      url: "<?php echo base_url("index.php/restrito/admin/view_pedidos"); ?>",
+      data: dados,
+      success: function( data )
+      {
+        $('tbody').empty();
+        $('tbody').prepend(data);
+      },
+      error : function(data) {
+        $("#msgError").html("<strong>Desculpe!</strong> Não foi possível fazer a pesquisa. Em breve tente novamente!");
+        $("#message-danger").removeAttr("style");
+      }
+    });
+  } else if ($(lform).attr("id") == "formSitPedido"){
+    var dados = $( this ).serialize();
+    $.ajax({
+      type: "POST",
+      url: "<?php echo base_url("index.php/restrito/admin/alterar_situacao_pedido"); ?>",
+      data: dados,
+      success: function( data )
+      {
+        $(lform).parent().parent().parent().parent().remove();
+      },
+      error : function(data) {
+        $("#msgError").html("<strong>Desculpe!</strong> Não foi possível mudar a situação do pedido. Em breve tente novamente!");
+        $("#message-danger").removeAttr("style");
+      }
+    });  
+  }
   return false;
 });
 </script>
