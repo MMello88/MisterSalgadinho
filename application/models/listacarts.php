@@ -3,7 +3,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  
 require_once("cart.php");
  
-class ListaCarts extends Control {
+class Listacarts extends Control {
 
     public function  __construct() {
         parent::__construct($this);

@@ -25,7 +25,7 @@ class Carts extends CI_Controller {
     }
 
 	public function getCartBySession($id_session = '') {
-		$this->load->model('ListaCarts');
+		$this->load->model('Listacarts');
         $CartsAtual = $this->ListaCarts->getCartBySession($id_session);
         $i = 0;
         $total = 0;
@@ -86,7 +86,7 @@ class Carts extends CI_Controller {
 	}
 	
 	public function countBySession(){
-		$this->load->model('ListaCarts');
+		$this->load->model('Listacarts');
 		$result = $this->ListaCarts->getCartBySession($this->session->userdata('id_session'));
 		echo count($result);
 	}
@@ -94,7 +94,7 @@ class Carts extends CI_Controller {
 	public function finalizar(){
 		if ($this->session->userdata('id_session')) {
 			$id_session = $this->session->userdata('id_session');
-			$this->load->model('ListaCarts');
+			$this->load->model('Listacarts');
 			$situcao_cart = $this->ListaCarts->getCartSituacao($id_session);
 			if ($situcao_cart->situacao == 'a'){
 				$festa = (isset($_POST['festa']) && $_POST['festa'] = 'on') ? 's' : 'n';
