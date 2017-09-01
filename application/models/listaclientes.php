@@ -3,7 +3,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  
 require_once("cliente.php");
  
-class ListaClientes extends Control {
+class Listaclientes extends Control {
 
     public function  __construct() {
         parent::__construct($this);

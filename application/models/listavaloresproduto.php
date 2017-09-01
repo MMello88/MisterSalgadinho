@@ -3,7 +3,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  
 require_once("valor_produto.php");
  
-class ListaValoresproduto extends Control {
+class Listavaloresproduto extends Control {
 
     public function  __construct() {
         parent::__construct($this);

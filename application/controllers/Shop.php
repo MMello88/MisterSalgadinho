@@ -35,8 +35,8 @@ class Shop extends CI_Controller {
 	}
 	
 	private function monta_view_produtos(){
-		$this->load->model('ListaCategoriasProduto');
-        $CategoriasProduto = $this->ListaCategoriasProduto->get_all();
+		$this->load->model('listacategoriasProduto');
+        $CategoriasProduto = $this->listacategoriasProduto->get_all();
 		$html = "";
 		foreach($CategoriasProduto as $CategoriaProduto){
 			$html .= "<h2 class='mt-4'>$CategoriaProduto->nome</h2> " . 
@@ -49,7 +49,7 @@ class Shop extends CI_Controller {
 	}
 
 	private function monta_view_produto($id_categoria_produto){
-		$this->load->model('ListaProdutos');
+		$this->load->model('Listaprodutos');
         $Produtos = $this->ListaProdutos->getProdutoByCategoria_produto($id_categoria_produto);
 		$html = "";
 		foreach($Produtos as $Produto)
@@ -60,7 +60,7 @@ class Shop extends CI_Controller {
 	private function getHtmlCardProduto($Produto){
 		$id_session = $this->session->userdata('id_session');
 		$id_cidade = $this->session->userdata('id_cidade');
-		$this->load->model('ListaValoresProduto');
+		$this->load->model('Listavaloresproduto');
 		$ValorProduto = $this->ListaValoresProduto->getValor_produtoByProduto($Produto->id_produto)[0];
 		$Produto->imagem = base_url("/assets/img/$Produto->imagem");
 		return "<div class='col-12 col-md-3 col-sm-6 px-3 pb-3'> " .
@@ -89,8 +89,8 @@ class Shop extends CI_Controller {
 	}
 
 	private function getIdCidade($cidade){
-		$this->load->model('ListaCidades');
-		$row = $this->ListaCidades->getByLink($cidade);
+		$this->load->model('listacidades');
+		$row = $this->listacidades->getByLink($cidade);
 		return $row->id_cidade;
 	}
 }
