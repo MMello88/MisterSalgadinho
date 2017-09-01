@@ -49,7 +49,7 @@ class Admin extends CI_Controller {
 			}
 		}
 
-		$this->load->model('Listapedidos');
+		$this->load->model('ListaPedidos');
 		$pedidos = $this->ListaPedidos->getPedidosSolicitados($nome, $email, $id_pedido);
 		$html = "";
 		foreach ($pedidos as $pedido) {

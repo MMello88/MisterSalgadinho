@@ -3,7 +3,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  
 require_once("evento.php");
  
-class Listaeventos extends Control {
+class ListaEventos extends Control {
 
     public function  __construct() {
         parent::__construct($this);
