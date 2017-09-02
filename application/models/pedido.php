@@ -1,8 +1,7 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-require_once("listaClientes.php");
-
+require_once("Listaclientes.php");
 
 class Pedido extends MY_Model {
 

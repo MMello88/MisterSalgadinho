@@ -1,9 +1,9 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  
-require_once("cidade.php");
+require_once("Cidade.php");
  
-class ListaCidades extends Control {
+class Listacidades extends Control {
 
     public function  __construct() {
         parent::__construct($this);

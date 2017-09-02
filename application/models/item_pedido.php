@@ -1,8 +1,8 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-require_once("listaPedidos.php");
-require_once("listaProdutos.php");
+require_once("Listapedidos.php");
+require_once("Listaprodutos.php");
 
 class Item_pedido extends MY_Model {
 

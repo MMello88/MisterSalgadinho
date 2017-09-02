@@ -1,9 +1,9 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  
-require_once("evento.php");
+require_once("Evento.php");
  
-class ListaEventos extends Control {
+class Listaeventos extends Control {
 
     public function  __construct() {
         parent::__construct($this);

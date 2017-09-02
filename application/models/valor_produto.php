@@ -1,7 +1,7 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-require_once("listaProdutos.php");
+require_once("Listaprodutos.php");
 
 class Valor_produto extends MY_Model {
 

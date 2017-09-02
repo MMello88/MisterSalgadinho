@@ -1,7 +1,7 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-require_once("listaCategoriasproduto.php");
+require_once("Listacategoriasproduto.php");
 
 class Produto extends MY_Model {
 

@@ -1,7 +1,6 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-
 class Cliente extends MY_Model {
 
     public $id_cliente;

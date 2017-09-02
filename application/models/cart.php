@@ -1,8 +1,8 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-require_once("listaProdutos.php");
-require_once("listaCidades.php");
+require_once("Listaprodutos.php");
+require_once("Listacidades.php");
 
 class Cart extends MY_Model {
 

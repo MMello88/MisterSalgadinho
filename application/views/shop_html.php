@@ -202,7 +202,7 @@ $('form#formCart').on('submit', function(){
       $('.cart-popover').popover('show');
 		},
     error : function(data) {
-      console.log(data.responseText);
+      console.log(data);
       $("#msgError").html("<strong>Desculpe!</strong> Erro ao receber seu pedido. Em breve tente novamente!");
       $("#message-danger").removeAttr("style");
     }

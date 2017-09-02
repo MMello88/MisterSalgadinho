@@ -1,7 +1,6 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-
 class Newsletter extends MY_Model {
 
     public $id_newsletter;

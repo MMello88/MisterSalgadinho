@@ -11,22 +11,22 @@ class Carts extends CI_Controller {
     }
 
     public function inserir(){
-        $this->load->model('Cart');
-        $this->Cart->insert();
+        $this->load->model('cart');
+        $this->cart->insert();
     }
 	
 	public function deletarByProduto(){
 		if ($this->session->userdata('id_session')){
-	        $this->load->model('Cart');
-	        if ($this->Cart->deleteByProduto($this->session->userdata('id_session'), $_POST['id_produto']))
+	        $this->load->model('cart');
+	        if ($this->cart->deleteByProduto($this->session->userdata('id_session'), $_POST['id_produto']))
 	        	echo 'success';
 	        echo 'error';
     	}
     }
 
 	public function getCartBySession($id_session = '') {
-		$this->load->model('ListaCarts');
-        $CartsAtual = $this->ListaCarts->getCartBySession($id_session);
+		$this->load->model('listacarts');
+        $CartsAtual = $this->listacarts->getCartBySession($id_session);
         $i = 0;
         $total = 0;
 		$html = "<div class='row'> ";
@@ -86,37 +86,37 @@ class Carts extends CI_Controller {
 	}
 	
 	public function countBySession(){
-		$this->load->model('ListaCarts');
-		$result = $this->ListaCarts->getCartBySession($this->session->userdata('id_session'));
+		$this->load->model('listacarts');
+		$result = $this->listacarts->getCartBySession($this->session->userdata('id_session'));
 		echo count($result);
 	}
 
 	public function finalizar(){
 		if ($this->session->userdata('id_session')) {
 			$id_session = $this->session->userdata('id_session');
-			$this->load->model('ListaCarts');
-			$situcao_cart = $this->ListaCarts->getCartSituacao($id_session);
+			$this->load->model('listacarts');
+			$situcao_cart = $this->listacarts->getCartSituacao($id_session);
 			if ($situcao_cart->situacao == 'a'){
 				$festa = (isset($_POST['festa']) && $_POST['festa'] = 'on') ? 's' : 'n';
 
-				$this->load->model('ListaClientes');
-		        $cli = $this->ListaClientes->getByEmail($this->input->post('email'));
+				$this->load->model('listaclientes');
+		        $cli = $this->listaclientes->getByEmail($this->input->post('email'));
 		        if (empty($cli)){
-		        	$this->load->model('Cliente');
-		        	$id_cliente = $this->Cliente->insert();
+		        	$this->load->model('cliente');
+		        	$id_cliente = $this->cliente->insert();
 		        	$nome = $this->session->userdata('nome_cliente');
 		        } else {
 		        	$id_cliente = $cli->id_cliente;
 		        	$nome = $cli->nome;
 		        }
 
-		        $this->load->model('Cart');
-		        $id_pedido = $this->Cart->insertCartToPedido($id_cliente, $festa, $id_session);
+		        $this->load->model('cart');
+		        $id_pedido = $this->cart->insertCartToPedido($id_cliente, $festa, $id_session);
 		        if ($festa == "s") {
-		        	$this->load->model('Evento');
-		        	$this->Evento->id_pedido = $id_pedido;
-		        	$this->Evento->id_cliente = $id_cliente;
-		        	$this->Evento->insert();
+		        	$this->load->model('evento');
+		        	$this->evento->id_pedido = $id_pedido;
+		        	$this->evento->id_cliente = $id_cliente;
+		        	$this->evento->insert();
 		        }
 
 				$this->Cart->updataSitucao($id_session);

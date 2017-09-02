@@ -3,21 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Shop extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
+
 	public function index($cidade)
 	{
 		$this->session->set_userdata('id_cidade', $this->getIdCidade($cidade));
@@ -35,8 +21,8 @@ class Shop extends CI_Controller {
 	}
 	
 	private function monta_view_produtos(){
-		$this->load->model('ListaCategoriasProduto');
-        $CategoriasProduto = $this->ListaCategoriasProduto->get_all();
+		$this->load->model('listacategoriasproduto');
+        $CategoriasProduto = $this->listacategoriasproduto->get_all();
 		$html = "";
 		foreach($CategoriasProduto as $CategoriaProduto){
 			$html .= "<h2 class='mt-4'>$CategoriaProduto->nome</h2> " . 
@@ -49,8 +35,8 @@ class Shop extends CI_Controller {
 	}
 
 	private function monta_view_produto($id_categoria_produto){
-		$this->load->model('ListaProdutos');
-        $Produtos = $this->ListaProdutos->getProdutoByCategoria_produto($id_categoria_produto);
+		$this->load->model('listaprodutos');
+        $Produtos = $this->listaprodutos->getProdutoByCategoria_produto($id_categoria_produto);
 		$html = "";
 		foreach($Produtos as $Produto)
 			$html .= $this->getHtmlCardProduto($Produto);
@@ -60,8 +46,8 @@ class Shop extends CI_Controller {
 	private function getHtmlCardProduto($Produto){
 		$id_session = $this->session->userdata('id_session');
 		$id_cidade = $this->session->userdata('id_cidade');
-		$this->load->model('ListaValoresProduto');
-		$ValorProduto = $this->ListaValoresProduto->getValor_produtoByProduto($Produto->id_produto)[0];
+		$this->load->model('listavaloresproduto');
+		$ValorProduto = $this->listavaloresproduto->getValor_produtoByProduto($Produto->id_produto)[0];
 		$Produto->imagem = base_url("/assets/img/$Produto->imagem");
 		return "<div class='col-12 col-md-3 col-sm-6 px-3 pb-3'> " .
 			   "  <div class='border rounded'> " .
@@ -85,12 +71,11 @@ class Shop extends CI_Controller {
 			   "    </div> " .
 			   "  </div> " .
 			   "</div> " ;
-				 
 	}
 
 	private function getIdCidade($cidade){
-		$this->load->model('ListaCidades');
-		$row = $this->ListaCidades->getByLink($cidade);
+		$this->load->model('listacidades');
+		$row = $this->listacidades->getByLink($cidade);
 		return $row->id_cidade;
 	}
 }

@@ -49,8 +49,8 @@ class Admin extends CI_Controller {
 			}
 		}
 
-		$this->load->model('ListaPedidos');
-		$pedidos = $this->ListaPedidos->getPedidosSolicitados($nome, $email, $id_pedido);
+		$this->load->model('listapedidos');
+		$pedidos = $this->listapedidos->getPedidosSolicitados($nome, $email, $id_pedido);
 		$html = "";
 		foreach ($pedidos as $pedido) {
 			$pedido->valor_total = number_format($pedido->valor_total, 2, '.', '');
@@ -117,8 +117,8 @@ class Admin extends CI_Controller {
 	}
 
 	public function alterar_situacao_pedido(){
-		$this->load->model('Pedido');
-        $this->Pedido->update_situacao();
+		$this->load->model('pedido');
+        $this->pedido->update_situacao();
         //redirect('Admin/Main');
 	}
 }

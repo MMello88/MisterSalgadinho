@@ -1,9 +1,9 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  
-require_once("categoria_produto.php");
+require_once("Categoria_produto.php");
  
-class ListaCategoriasproduto extends Control {
+class Listacategoriasproduto extends Control {
 
     public function  __construct() {
         parent::__construct($this);
