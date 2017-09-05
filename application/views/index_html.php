@@ -68,13 +68,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         	<div class="container">
         		<div class="row header">
 					<div class="col-md-12">
-						<h2>PAPER CUP</h2>
-						<p>HQ PSD Mock-up</p>
+						<h2>Sobre Nós</h2>
+						<p>Um pouco da nossa história</p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
-						<p>Assault voodoo god paranoid tattoo modem kanji <a href="#" title="">drone</a> urban hotdog uplink computer. Dome car papier-mache geodesic wonton soup RAF warehouse woman military-grade numinous shrine nodality pre. Physical drone chrome sunglasses footage vinyl disposable office denim youtube. Systemic-ware advert geodesic alcohol assassin monofilament shrine Chiba voodoo god film convenience store disposable industrial grade camera cartel. Artisanal marketing RAF into advert geodesic sprawl realism woman dome footage courier table drone media youtube ablative.</p>
+						<p>Após 2° gerações resolvemos entrar para história apresentando ao mundo os sabores maravilhosos de nossos salgados feito com massa mandioca. A tecnologia vai a nosso favor para expandir e mostrar ao mundo nossa receita. Nós da 3° geração vamos manter vivo a chama acessa que um dia foi a inspiração em acender o gostinho de quero mais e apresenta-la a vocês!</p>
+						<!--
+						<p>Assault voodoo god paranoid tattoo modem kanji <a href="#" title="">drone</a> urban hotdog uplink computer. Dome car papier-mache geodesic wonton soup RAF warehouse woman military-grade numinous shrine nodality pre. Physical drone chrome sunglasses footage vinyl disposable office denim youtube. Systemic-ware advert geodesic alcohol assassin monofilament shrine Chiba voodoo god film convenience store disposable industrial grade camera cartel. Artisanal marketing RAF into advert geodesic sprawl realism woman dome footage courier table drone media youtube ablative.</p> -->
 					</div>
 				</div>
 			</div>		
@@ -96,17 +98,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="half-box-right">
                             <div class="center-vertical">
                                 <div class="center-vertical-box">
-                                    <h1><b>See what's included</b></h1>	
+                                    <h1><b>Veja a variedade de nossos salgadinhos</b></h1>	
                                     <ul style="padding: 20px;">
-										<li>Changeable lid color</li>
-										<li>Changeable cup color</li>
-										<li>Changeable cup label via smart object</li>
-										<li>On/off shadows</li>
-										<li>On/off specular</li>
-										<li>Changeable background</li>
-										<li>High resolution 3000 × 1875px</li>
+										<li>Bolinho de Carne (Mandioca)</li>
+										<li>Enroladinho c/ Presunto e Queiro (Mandioca)</li>
+										<li>Salsicha (Mandioca)</li>
+										<li>Coxinha de Frango</li>
+										<li>Croquete de Carne</li>
+										<li>Kibe c/ Queijo</li>
+										<li>Batata c/ Presunto e Queijo</li>
                                     </ul>
-                                    <a href="#" data-toggle="modal" data-target="#product-modal" class="btn dark"><b>$5</b> BUY NOW</a> 
+                                    <!--<a href="#" data-toggle="modal" data-target="#product-modal" class="btn dark"><b>$5</b> BUY NOW</a> -->
                                 </div>
                             </div>
                         </div>
@@ -137,30 +139,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="container padding-top-bottom">
 				<div class="row header">
 					<div class="col-md-12">
-						<h2>Features</h2>
-						<p>We are here for you</p>
+						<h2>Características</h2>
+						<p>Foram feitos para vocês</p>
 					</div>
 				</div>
 				<div class="container" >
 		            <div class="col-md-4 col-sm-4 col-xs-12 anima scale-in ">
 		                <article class="text-center">
 			                <img src="<?php echo base_url("assets/template/img/demo1.jpg"); ?>" alt="#" class="zoom-img img-responsive center-block">
-		                    <h3>​ORGANISED LAYERS</h3>
-		                    <p>Nodal point courier towards decay dome advert wonton soup chrome voodoo.</p>
+		                    <h3>A MASSSA DE MANDIOCA</h3>
+		                    <p>Porque não uma massa de mandioca além da massa feita com farinha. Foi assim que deu a vida em nossos salgados.</p>
 		                </article>
 		            </div>                       
 					<div class="col-md-4 col-sm-4 col-xs-12 anima scale-in d1">
 		                <article class="text-center">	
 							<img src="<?php echo base_url("assets/template/img/demo2.jpg"); ?>" alt="#" class="zoom-img img-responsive center-block">
-		                    <h3>​SMART OBJECT</h3>
-		                    <p>Table plastic concrete silent nano-dome industrial grade. Hotdog marketing.</p>
+		                    <h3>​LEVEMENTE APIMENTADO</h3>
+		                    <p>As receitas trazemos o sabor da pimenta e não a ardência complementado em nossos salgadinhos.</p>
 		                </article>
 		            </div>             
 					<div class="col-md-4 col-sm-4 col-xs-12 anima scale-in d2">
 		                <article class="text-center">	
 							<img src="<?php echo base_url("assets/template/img/demo3.jpg"); ?>" alt="#" class="zoom-img img-responsive center-block">
-		                    <h3>TRANSPARENT BG</h3>
-		                    <p>Grenade wonton soup faded disposable dome cardboard spook refrigerator dolphin.</p>
+		                    <h3>VARIEDADE A SEU GOSTO</h3>
+		                    <p>Através do simples trazemos a variedade que vão surpreender seu paladar.</p>
 		                </article>
 		            </div>             
         		</div>
@@ -169,8 +171,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<div class="cta-1 bg-dark padding-top-bottom text-center white-text">
 			<div class="container-fluid anima scale-in">
-				<span>​Do you like PAPER CUP - Mockup? </span>
-				<a class="btn" href="#" data-toggle="modal" data-target="#product-modal"><b>$5</b> Buy now</a>
+				<span>​Você quer experimentar nossos salgadinhos? </span>
+				<a class="btn" href="#" data-toggle="modal" data-target="#product-modal">Nos encontre</a>
 			</div>
 		</div>	
 
@@ -218,8 +220,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<div class="cta-1 bg-shop padding-top-bottom text-center ">
 			<div class="container-fluid anima scale-in">
-				<span>​Email for a custom and/or unlimited license.</span>
-				<a class="btn dark" href="#" data-toggle="modal" data-target=".text-modal">Mock-up License</a>
+				<span>Deixe seu e-mail para receber as nossas novidades e ofertas.</span>
+				<a class="btn dark" href="#" data-toggle="modal" data-target=".text-modal">Quero Novidade</a>
 			</div>
 		</div>
 
@@ -245,8 +247,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="container">
 				<div class="row header">
 					<div class="col-md-12">
-						<h2>Contact me</h2>
-						<p>For any questions fill in the form below & we'll get back to you ASAP!</p>
+						<h2>Contate-nos</h2>
+						<p>Para qualquer dúvida, preencha o formulário abaixo e nós retornaremos para você o mais rápido possível!</p>
 					</div>
 				</div>
 				<div class="row">
