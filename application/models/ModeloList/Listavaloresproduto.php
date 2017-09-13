@@ -1,7 +1,7 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  
-require_once("Valor_produto.php");
+require_once(APPPATH."models/Modelo/Valor_produto.php");
  
 class Listavaloresproduto extends Control {
 

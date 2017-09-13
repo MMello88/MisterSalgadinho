@@ -49,7 +49,7 @@ class Admin extends CI_Controller {
 			}
 		}
 
-		$this->load->model('listapedidos');
+		$this->load->model('ModeloList/listapedidos');
 		$pedidos = $this->listapedidos->getPedidosSolicitados($nome, $email, $id_pedido);
 		$html = "";
 		foreach ($pedidos as $pedido) {
@@ -117,7 +117,7 @@ class Admin extends CI_Controller {
 	}
 
 	public function alterar_situacao_pedido(){
-		$this->load->model('pedido');
+		$this->load->model('Modelo/pedido');
         $this->pedido->update_situacao();
         //redirect('Admin/Main');
 	}

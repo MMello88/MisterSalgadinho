@@ -21,7 +21,7 @@ class Shop extends CI_Controller {
 	}
 	
 	private function monta_view_produtos(){
-		$this->load->model('listacategoriasproduto');
+		$this->load->model('ModeloList/listacategoriasproduto');
         $CategoriasProduto = $this->listacategoriasproduto->get_all();
 		$html = "";
 		foreach($CategoriasProduto as $CategoriaProduto){
@@ -35,7 +35,7 @@ class Shop extends CI_Controller {
 	}
 
 	private function monta_view_produto($id_categoria_produto){
-		$this->load->model('listaprodutos');
+		$this->load->model('ModeloList/listaprodutos');
         $Produtos = $this->listaprodutos->getProdutoByCategoria_produto($id_categoria_produto);
 		$html = "";
 		foreach($Produtos as $Produto)
@@ -46,7 +46,7 @@ class Shop extends CI_Controller {
 	private function getHtmlCardProduto($Produto){
 		$id_session = $this->session->userdata('id_session');
 		$id_cidade = $this->session->userdata('id_cidade');
-		$this->load->model('listavaloresproduto');
+		$this->load->model('ModeloList/listavaloresproduto');
 		$ValorProduto = $this->listavaloresproduto->getValor_produtoByProduto($Produto->id_produto)[0];
 		$Produto->imagem = base_url("/assets/img/$Produto->imagem");
 		return "<div class='col-12 col-md-3 col-sm-6 px-3 pb-3'> " .
@@ -74,7 +74,7 @@ class Shop extends CI_Controller {
 	}
 
 	private function getIdCidade($cidade){
-		$this->load->model('listacidades');
+		$this->load->model('ModeloList/listacidades');
 		$row = $this->listacidades->getByLink($cidade);
 		return $row->id_cidade;
 	}

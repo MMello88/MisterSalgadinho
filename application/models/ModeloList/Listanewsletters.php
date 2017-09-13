@@ -1,7 +1,7 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  
-require_once("Newsletter.php");
+require_once(APPPATH."models/Modelo/Newsletter.php");
 
 class Listanewsletters extends Control {
 

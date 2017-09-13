@@ -1,7 +1,7 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  
-require_once("Cidade.php");
+require_once(APPPATH."models/Modelo/Cidade.php");
  
 class Listacidades extends Control {
 

@@ -1,7 +1,7 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  
-require_once("Evento.php");
+require_once(APPPATH."models/Modelo/Evento.php");
  
 class Listaeventos extends Control {
 

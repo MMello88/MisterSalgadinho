@@ -1,8 +1,8 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-require_once("Listaclientes.php");
-require_once("Listapedidos.php");
+require_once(APPPATH."models/ModeloList/Listaclientes.php");
+require_once(APPPATH."models/ModeloList/Listapedidos.php");
 
 class Evento extends MY_Model {
 

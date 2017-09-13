@@ -11,13 +11,13 @@ class Carts extends CI_Controller {
     }
 
     public function inserir(){
-        $this->load->model('cart');
+        $this->load->model('Modelo/cart');
         $this->cart->insert();
     }
 	
 	public function deletarByProduto(){
 		if ($this->session->userdata('id_session')){
-	        $this->load->model('cart');
+	        $this->load->model('Modelo/cart');
 	        if ($this->cart->deleteByProduto($this->session->userdata('id_session'), $_POST['id_produto']))
 	        	echo 'success';
 	        echo 'error';
@@ -25,7 +25,7 @@ class Carts extends CI_Controller {
     }
 
 	public function getCartBySession($id_session = '') {
-		$this->load->model('listacarts');
+		$this->load->model('ModeloList/listacarts');
         $CartsAtual = $this->listacarts->getCartBySession($id_session);
         $i = 0;
         $total = 0;
@@ -86,7 +86,7 @@ class Carts extends CI_Controller {
 	}
 	
 	public function countBySession(){
-		$this->load->model('listacarts');
+		$this->load->model('ModeloList/listacarts');
 		$result = $this->listacarts->getCartBySession($this->session->userdata('id_session'));
 		echo count($result);
 	}
@@ -94,15 +94,15 @@ class Carts extends CI_Controller {
 	public function finalizar(){
 		if ($this->session->userdata('id_session')) {
 			$id_session = $this->session->userdata('id_session');
-			$this->load->model('listacarts');
+			$this->load->model('ModeloList/listacarts');
 			$situcao_cart = $this->listacarts->getCartSituacao($id_session);
 			if ($situcao_cart->situacao == 'a'){
 				$festa = (isset($_POST['festa']) && $_POST['festa'] = 'on') ? 's' : 'n';
 
-				$this->load->model('listaclientes');
+				$this->load->model('ModeloList/listaclientes');
 		        $cli = $this->listaclientes->getByEmail($this->input->post('email'));
 		        if (empty($cli)){
-		        	$this->load->model('cliente');
+		        	$this->load->model('Modelo/cliente');
 		        	$id_cliente = $this->cliente->insert();
 		        	$nome = $this->session->userdata('nome_cliente');
 		        } else {
@@ -110,10 +110,10 @@ class Carts extends CI_Controller {
 		        	$nome = $cli->nome;
 		        }
 
-		        $this->load->model('cart');
+		        $this->load->model('Modelo/cart');
 		        $id_pedido = $this->cart->insertCartToPedido($id_cliente, $festa, $id_session);
 		        if ($festa == "s") {
-		        	$this->load->model('evento');
+		        	$this->load->model('Modelo/evento');
 		        	$this->evento->id_pedido = $id_pedido;
 		        	$this->evento->id_cliente = $id_cliente;
 		        	$this->evento->insert();

@@ -1,7 +1,7 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  
-require_once("Item_pedido.php");
+require_once(APPPATH."models/Modelo/Item_pedido.php");
  
 class Listaitenspedido extends Control {
 

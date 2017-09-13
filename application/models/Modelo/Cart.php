@@ -1,8 +1,8 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-require_once("Listaprodutos.php");
-require_once("Listacidades.php");
+require_once(APPPATH."models/ModeloList/Listaprodutos.php");
+require_once(APPPATH."models/ModeloList/Listacidades.php");
 
 class Cart extends MY_Model {
 

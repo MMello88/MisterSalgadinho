@@ -1,7 +1,7 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  
-require_once("Cart.php");
+require_once(APPPATH."models/Modelo/Cart.php");
  
 class Listacarts extends Control {
 

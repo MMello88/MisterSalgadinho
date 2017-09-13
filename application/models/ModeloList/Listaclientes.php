@@ -1,7 +1,7 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  
-require_once("Cliente.php");
+require_once(APPPATH."models/Modelo/Cliente.php");
  
 class Listaclientes extends Control {
 
