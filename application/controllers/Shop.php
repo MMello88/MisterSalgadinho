@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Shop extends CI_Controller {
 
-
 	public function index($cidade)
 	{
 		$this->session->set_userdata('id_cidade', $this->getIdCidade($cidade));
@@ -22,21 +21,37 @@ class Shop extends CI_Controller {
 	
 	private function monta_view_produtos(){
 		$this->load->model('ModeloList/listacategoriasproduto');
-        $CategoriasProduto = $this->listacategoriasproduto->get_all();
-		$html = "";
+    $CategoriasProduto = $this->listacategoriasproduto->get_all();
+		$html = "  <nav class='nav nav-tabs' id='myTab' role='tablist'> ";
+
+    $first = "active";
 		foreach($CategoriasProduto as $CategoriaProduto){
-			$html .= "<h2 class='mt-4'>$CategoriaProduto->nome</h2> " . 
-					 "<hr class='mb-3 mt-1'> " .
-				     "<div class='row'> " .
-			         $this->monta_view_produto($CategoriaProduto->id_categoria_produto) .
-			         "</div> ";
+      if ($CategoriaProduto->situacao == "a"){
+        $link = $CategoriaProduto->id_categoria_produto;
+        $html .= "    <a class='nav-item nav-link $first' id='nav-$link-tab' data-toggle='tab' href='#nav-$link' role='tab' aria-controls='nav-$link' aria-expanded='true'>$CategoriaProduto->nome</a> ";
+        $first = "";
+      }
 		}
-		return $html;
+    
+    $html .= "  </nav> " ;
+    $html .= "<div class='tab-content' id='nav-tabContent' style='padding: 0 15px 0 15px;'> " ;
+    $first = "show active";
+    foreach($CategoriasProduto as $CategoriaProduto){
+      $link = $CategoriaProduto->id_categoria_produto;
+      $html .= "  <div class='tab-pane fade $first' id='nav-$link' role='tabpanel' aria-labelledby='nav-$link-tab'> " .
+				       "    <div class='row'> " .
+			         $this->monta_view_produto($CategoriaProduto->id_categoria_produto) .
+			         "    </div> " .
+               " </div> " ;
+      $first = "";
+		}
+    
+		return $html. "</div> ";
 	}
 
 	private function monta_view_produto($id_categoria_produto){
 		$this->load->model('ModeloList/listaprodutos');
-        $Produtos = $this->listaprodutos->getProdutoByCategoria_produto($id_categoria_produto);
+    $Produtos = $this->listaprodutos->getProdutoByCategoria_produto($id_categoria_produto);
 		$html = "";
 		foreach($Produtos as $Produto)
 			$html .= $this->getHtmlCardProduto($Produto);

@@ -6,7 +6,7 @@ class Carts extends CI_Controller {
     public function index()
     {
         $this->data['title'] = 'Pedido';
-		$this->data["view_pedido_produtos"] = $this->getCartBySession($this->session->userdata('id_session'));
+        $this->data["view_pedido_produtos"] = $this->getCartBySession($this->session->userdata('id_session'));
         $this->load->view('cart_html', $this->data);
     }
 
@@ -96,34 +96,36 @@ class Carts extends CI_Controller {
 			$id_session = $this->session->userdata('id_session');
 			$this->load->model('ModeloList/listacarts');
 			$situcao_cart = $this->listacarts->getCartSituacao($id_session);
+
 			if ($situcao_cart->situacao == 'a'){
 				$festa = (isset($_POST['festa']) && $_POST['festa'] = 'on') ? 's' : 'n';
 
 				$this->load->model('ModeloList/listaclientes');
-		        $cli = $this->listaclientes->getByEmail($this->input->post('email'));
-		        if (empty($cli)){
-		        	$this->load->model('Modelo/cliente');
-		        	$id_cliente = $this->cliente->insert();
-		        	$nome = $this->session->userdata('nome_cliente');
-		        } else {
-		        	$id_cliente = $cli->id_cliente;
-		        	$nome = $cli->nome;
-		        }
+        $cli = $this->listaclientes->getByEmail($this->input->post('email'));
+        if (empty($cli)){
+          $this->load->model('Modelo/cliente');
+          $id_cliente = $this->cliente->insert();
+          $nome = $this->session->userdata('nome_cliente');
+        } else {
+          $id_cliente = $cli->id_cliente;
+          $nome = $cli->nome;
+        }
 
-		        $this->load->model('Modelo/cart');
-		        $id_pedido = $this->cart->insertCartToPedido($id_cliente, $festa, $id_session);
-		        if ($festa == "s") {
-		        	$this->load->model('Modelo/evento');
-		        	$this->evento->id_pedido = $id_pedido;
-		        	$this->evento->id_cliente = $id_cliente;
-		        	$this->evento->insert();
-		        }
+        $this->load->model('Modelo/cart');
+        $id_pedido = $this->cart->insertCartToPedido($id_cliente, $festa, $id_session);
+        if ($festa == "s") {
+          $this->load->model('Modelo/evento');
+          $this->evento->id_pedido = $id_pedido;
+          $this->evento->id_cliente = $id_cliente;
+          $this->evento->insert();
+        }
 
-				$this->Cart->updataSitucao($id_session);
+				$this->cart->updataSitucao($id_session);
 
 				$this->data['nome_cliente'] = $nome;
 				$this->data['mensagem'] = "Seu pedido foi recebido com sucesso!<br>Agradecemos a sua preferência. Em breve faremos a entrega do seu pedido.";
 				$this->load->view('fim_html', $this->data);
+        $this->enviarPedidoPorEmail();
 			} else {
 				$this->data['nome_cliente'] = "";
 				$this->data['mensagem'] = "Pedido esta finalizado!";
@@ -139,4 +141,21 @@ class Carts extends CI_Controller {
 		$this->session->unset_userdata('nome_cliente');
 	}
 
+  private function enviarPedidoPorEmail(){
+    $this->load->library('email');
+    $this->email
+      ->from('pedido@mistersalgadinhos.com.br', 'Mister Salgadinhos')
+      ->to('matheusnarciso@hotmail.com, engrmachado@gmail.com')
+      ->subject("Mister Salgadinhos - Pedido realizado.")
+      ->message("<!DOCTYPE html>
+                 <html lang=\"pt-br\">
+                 <header></header>
+                 <body>
+                 <p>Vocês tem um novo pedido realizado. <br> Acesse o
+                    <a href=\" ".base_url("Admin/Login")."\" target=\"_blank\">Administrador</a>
+                 </p>
+                 </body>
+                 </html>")
+      ->send();
+  }
 }

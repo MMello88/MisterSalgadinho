@@ -1,0 +1,26 @@
+
+img.icon{
+  width: 26px;
+}
+
+.footer{
+	background-color: #1d2023;
+    padding: 80px 0 70px 0;
+    color: #b6b6b6;
+    overflow: visible;
+}
+/*===============================
+=            Footer             =
+===============================*/
+.list-group-item{
+	padding: 0.25rem 1.5rem;
+	border:0px;
+	background-color: #1d2023;
+}
+.list-group a{
+	font-size: smaller;
+}
+
+footer .icon{
+	width: 20px;
+}

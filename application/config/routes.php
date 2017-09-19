@@ -55,5 +55,5 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route ['Shop/(:any)'] = 'shop/index/$1';
 $route ['Cart'] = '/Carts/index';
-$route ['Admin/Login'] = '/restrito/admin';
-$route ['Admin/Main'] = '/restrito/admin';
+$route ['Admin/Login'] = '/restrito/Admin';
+$route ['Admin/Main'] = '/restrito/Admin';

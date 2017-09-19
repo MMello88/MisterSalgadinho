@@ -117,8 +117,8 @@ class Admin extends CI_Controller {
 	}
 
 	public function alterar_situacao_pedido(){
-		$this->load->model('Modelo/pedido');
-        $this->pedido->update_situacao();
+		$this->load->model('Modelo/Pedido');
+        $this->Pedido->update_situacao();
         //redirect('Admin/Main');
 	}
 }
