@@ -151,13 +151,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  <div class="modal-dialog" role="document">
 		<div class="modal-content">
 		  <div class="modal-header">
-			<h5 class="modal-title" id="infoModalLabel">Modal title</h5>
+			<h5 class="modal-title" id="infoModalLabel">Mister Salgadinhos</h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			  <span aria-hidden="true">&times;</span>
 			</button>
 		  </div>
 		  <div class="modal-body">
-			...
+			Seja Bem - Vindo. 
+      <br/> Estamos trabalhando muito para melhor atende-los com a maxima de qualidade em produto, serviço e atendimento. 
+      <br/> Atualmente trabalhamos sobre demanda, portanto, não temos estoque para pronta entrega.
+      <br/> O prazo para entrega é de até 2 dias dependendo da quantidade solicitada.
+      <br/> Muito obrigado de toda a equipe <b>Mister Salgadinhos.</b>
 		  </div>
 		</div>
 	  </div>

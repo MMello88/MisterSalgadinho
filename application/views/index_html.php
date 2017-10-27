@@ -98,13 +98,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row" >
  					<div class="col-sm-6 slider">
             <div id="as-slider" class="owl-carousel" data-autoplay="4000" data-navigation="false" data-dots="true" data-transition="">
-              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/cup7.jpg"); ?>)"></div>
-              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/cup6.jpg"); ?>)"></div>
-              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/cup5.jpg"); ?>)"></div>
-              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/cup4.jpg"); ?>)"></div>
-              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/cup3.jpg"); ?>)"></div>
-              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/cup2.jpg"); ?>)"></div>
               <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/cup1.jpg"); ?>)"></div>
+              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/cup2.jpg"); ?>)"></div>
+              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/cup3.jpg"); ?>)"></div>
+              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/cup4.jpg"); ?>)"></div>
+              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/cup5.jpg"); ?>)"></div>
+              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/cup6.jpg"); ?>)"></div>
+              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/cup7.jpg"); ?>)"></div>
+              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/sexta.jpg"); ?>)"></div>
             </div>
           </div> 
           <div class="col-sm-6 bg-shop" style="height:500px;">
@@ -373,24 +374,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="#">
-              <img class="icon" src="<?php echo base_url("assets/ico/social/instagram_light.svg"); ?>" alt="Instagram">
-              </a>
+                <img class="icon" src="<?php echo base_url("assets/ico/social/instagram_light.svg"); ?>" alt="Instagram">
+                </a>
+                </li>
+                <!--<li class="nav-item">
+                <a class="nav-link" href="#">
+                <img class="icon" src="<?php echo base_url("assets/ico/social/twitter_light.svg"); ?>" alt="Twitter">
+                </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="#">
-              <img class="icon" src="<?php echo base_url("assets/ico/social/twitter_light.svg"); ?>" alt="Twitter">
-              </a>
+                <img class="icon" src="<?php echo base_url("assets/ico/social/youtube_light.svg"); ?>" alt="YouTube">
+                </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="#">
-              <img class="icon" src="<?php echo base_url("assets/ico/social/youtube_light.svg"); ?>" alt="YouTube">
-              </a>
-                </li>
-              <li class="nav-item">
-              <a class="nav-link" href="#">
-              <img class="icon" src="<?php echo base_url("assets/ico/social/google+_light.svg"); ?>" alt="Google +">
-              </a>
-              </li>
+                <img class="icon" src="<?php echo base_url("assets/ico/social/google+_light.svg"); ?>" alt="Google +">
+                </a>
+                </li>-->
               </ul>
             </div>
           </div>

@@ -34,16 +34,18 @@ class Shop extends CI_Controller {
 		}
     
     $html .= "  </nav> " ;
-    $html .= "<div class='tab-content' id='nav-tabContent' style='padding: 0 15px 0 15px;'> " ;
+    $html .= "<div class='tab-content' id='nav-tabContent' style='padding: 15px 15px 0 15px;'> " ;
     $first = "show active";
     foreach($CategoriasProduto as $CategoriaProduto){
-      $link = $CategoriaProduto->id_categoria_produto;
-      $html .= "  <div class='tab-pane fade $first' id='nav-$link' role='tabpanel' aria-labelledby='nav-$link-tab'> " .
-				       "    <div class='row'> " .
-			         $this->monta_view_produto($CategoriaProduto->id_categoria_produto) .
-			         "    </div> " .
-               " </div> " ;
-      $first = "";
+      if ($CategoriaProduto->situacao == "a"){
+        $link = $CategoriaProduto->id_categoria_produto;
+        $html .= "  <div class='tab-pane fade $first' id='nav-$link' role='tabpanel' aria-labelledby='nav-$link-tab'> " .
+                 "    <div class='row'> " .
+                 $this->monta_view_produto($CategoriaProduto->id_categoria_produto) .
+                 "    </div> " .
+                 " </div> " ;
+        $first = "";
+      }
 		}
     
 		return $html. "</div> ";
