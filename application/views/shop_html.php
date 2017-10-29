@@ -157,7 +157,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</button>
 		  </div>
 		  <div class="modal-body">
-			Seja Bem - Vindo. 
+			Seja Bem-Vindo. 
       <br/> Estamos trabalhando muito para melhor atende-los com a maxima de qualidade em produto, serviço e atendimento. 
       <br/> Atualmente trabalhamos sobre demanda, portanto, não temos estoque para pronta entrega.
       <br/> O prazo para entrega é de até 2 dias dependendo da quantidade solicitada.
