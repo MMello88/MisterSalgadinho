@@ -95,52 +95,56 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="row">
 				<div class="col-xs-12 col-sm-10 col-md-8 mx-md-auto">
 				  <?php echo form_open('Carts/finalizar', array('id' => 'formCliente', 'class' => 'myformPedido')); ?>
+					
 					<div class="form-group">
 					  <input type="hidden" name="id_cliente">
 					  <label for="InputNome">Nome</label>
-					  <input type="text" name="nome" class="form-control" id="InputNome" placeholder="Nome" required>
+					  <input type="text" name="nome" class="form-control form-control-lg" id="InputNome" placeholder="Nome" required>
 					</div>
 					<div class="form-group">
 						<label for="InputEmail">Email address</label>
-						<input type="email" name="email" class="form-control" id="InputEmail" placeholder="Email" required>
+						<input type="email" name="email" class="form-control form-control-lg" id="InputEmail" placeholder="Email" required>
 					</div>
 					<div class="form-group">
 					  <label for="InputTelefone">Telefone</label>
-					  <input type="text" name="telefone" class="form-control" id="InputTelefone" placeholder="Telefone/Celular" required>
+					  <input type="text" name="telefone" class="form-control form-control-lg" id="InputTelefone" placeholder="Telefone/Celular" required>
 					</div>
 					<div class="form-group">
 					  <label for="InputEndereco">Endereço Completo</label>
-					  <input type="text" name="endereco" class="form-control" id="InputEndereco" placeholder="Ex.: Av. Plinio de Castro Prado 431, ap 33" required>
+					  <input type="text" name="endereco" class="form-control form-control-lg" id="InputEndereco" placeholder="Ex.: Av. Plinio de Castro Prado 431, ap 33" required>
 					</div>
+
+					<?php echo $combobox_horario; ?>
+					
+					<?php echo $forma_pagto; ?>
 					<div class="form-check">
-					  <label class="form-check-label">
+					  <label class="">
 						<input type="checkbox" name="festa" id="festa" class="form-check-input" data-toggle="collapse" data-target="#collapseEndEvento" aria-expanded="false" aria-controls="collapseEndEvento">
 						Pedido para Festa?
 					  </label>
 					</div>
 					  <div class="collapse" id="collapseEndEvento">
-						<div class="card card-body border-0">
-              <div class="form-group">
-                <label for="InputEnderecoEvento">Endereço do Local do Envento</label>
-                <input type="text" name="end_evento" class="form-control" id="InputEnderecoEvento" placeholder="Endereço do Evento Ex.: Rua Amador Bueno 22, casa 1">
-              </div>
+							<div class="card card-body border-0">
+								<div class="form-group">
+									<label for="InputEnderecoEvento">Endereço do Local do Envento</label>
+									<input type="text" name="end_evento" class="form-control form-control-lg" id="InputEnderecoEvento" placeholder="Endereço do Evento Ex.: Rua Amador Bueno 22, casa 1">
+								</div>
 
-              <div class="form-group">
-                <label for="InputCelularEvento">Celular p/ Contato</label>
-                <input type="text" name="cel_evento" class="form-control" id="InputCelularEvento" placeholder="(16) 91111-0000">
-              </div>
+								<div class="form-group">
+									<label for="InputCelularEvento">Celular p/ Contato</label>
+									<input type="text" name="cel_evento" class="form-control form-control-lg" id="InputCelularEvento" placeholder="(16) 91111-0000">
+								</div>
 
-						  <div class="form-group">
-  							<label for="InputDataEvento">Data do Envento</label>
-  							<input type="date" name="data_evento" class="form-control" min="<?php echo date("Y-m-d"); ?>" id="InputDataEvento" placeholder="Data do Evento">
-						  </div>
-						  
-              <div class="form-group">
-                <label for="InputHoraEvento">Horário do Envento</label>
-                <input type="text" name="hora_evento" class="form-control" id="InputHoraEvento" placeholder="Horário do Evento">
-              </div>
-
-						</div>
+								<div class="form-group">
+									<label for="InputDataEvento">Data do Envento</label>
+									<input type="date" name="data_evento" class="form-control form-control-lg" min="<?php echo date("Y-m-d"); ?>" id="InputDataEvento" placeholder="Data do Evento">
+								</div>
+								
+								<div class="form-group">
+									<label for="InputHoraEvento">Horário do Envento</label>
+									<input type="text" name="hora_evento" class="form-control form-control-lg" id="InputHoraEvento" placeholder="Horário do Evento">
+								</div>
+							</div>
 					  </div>
 					<button type="submit" class="nbtn ml-auto">Comprar</button>
 				  <?php echo form_close(); ?>

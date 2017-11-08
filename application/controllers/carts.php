@@ -7,6 +7,8 @@ class Carts extends CI_Controller {
     {
         $this->data['title'] = 'Pedido';
         $this->data["view_pedido_produtos"] = $this->getCartBySession($this->session->userdata('id_session'));
+				$this->data["combobox_horario"] = $this->getComboHorario();
+				$this->data["forma_pagto"] = $this->getFormPagto();
         $this->load->view('cart_html', $this->data);
     }
 
@@ -14,6 +16,35 @@ class Carts extends CI_Controller {
         $this->load->model('Modelo/cart');
         $this->cart->insert();
     }
+		
+	public function getComboHorario(){
+		$this->load->model('ModeloList/listatipo');
+		$formas = $this->listatipo->getByCampo('hora_entrega');
+		$html = "<div class=\"form-group\">
+							<label  for=\"InputHoraEntrega\">Horário do Envento</label>
+							<select name=\"hora_entrega\" class=\"form-control form-control-lg\" id=\"InputHoraEntrega\" required>
+								<option disabled selected>Selecione o Horários de Entrega:</option>";
+		foreach($formas as $forma){
+			$html .=	"<option>{$forma->descricao}</option>";
+		}
+		$html .= "</select>
+					</div>";
+		return $html;
+	}
+	
+	public function getFormPagto(){
+		//$this->load->model('ModeloList/listatipo');
+		$formas = $this->listatipo->getByCampo('forma_pgto');
+		$html = "";
+		foreach($formas as $forma){
+			$html .=	"<div class=\"form-check form-check-inline\">
+					<label>
+						<input class=\"form-check-input\" type=\"radio\" name=\"forma_pgto\" value=\"{$forma->tipo}\"> {$forma->descricao}
+					</label>
+				</div>";
+		}
+		return $html;
+	}
 	
 	public function deletarByProduto(){
 		if ($this->session->userdata('id_session')){
@@ -96,7 +127,9 @@ class Carts extends CI_Controller {
 			$id_session = $this->session->userdata('id_session');
 			$this->load->model('ModeloList/listacarts');
 			$situcao_cart = $this->listacarts->getCartSituacao($id_session);
-
+			$hora_entrega = $_POST['hora_entrega'];
+			$forma_pgto = $_POST['forma_pgto'];
+			
 			if ($situcao_cart->situacao == 'a'){
 				$festa = (isset($_POST['festa']) && $_POST['festa'] = 'on') ? 's' : 'n';
 
@@ -112,7 +145,7 @@ class Carts extends CI_Controller {
         }
 
         $this->load->model('Modelo/cart');
-        $id_pedido = $this->cart->insertCartToPedido($id_cliente, $festa, $id_session);
+        $id_pedido = $this->cart->insertCartToPedido($id_cliente, $id_session, $festa, $hora_entrega, $forma_pgto);
         if ($festa == "s") {
           $this->load->model('Modelo/evento');
           $this->evento->id_pedido = $id_pedido;

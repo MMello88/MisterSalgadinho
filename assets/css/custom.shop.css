@@ -255,25 +255,14 @@ footer .icon{
   margin: 0;
 }
 .myformPedido .form-control {
-  display: inline;
-  background: transparent;
-  line-height: 32px;
-  border: none;
-  color: #202020;
-  border-radius: 4px;
-  outline: none;
-  height: 50px;
-  font-size: 16px;
-  font-weight: 400;
-  vertical-align: top;
-  border: 2px solid #b6b6b6;
-  box-shadow: none;
-  /*  ios gradiet fix */
-  -webkit-appearance: none;
+  border: 1.3px solid #b6b6b6;
 }
 .myformPedido .form-control:focus {
   outline: none;
-  border: 2px solid #f7c723;
+  border: 1.3px solid #f7c723;
+}
+select.form-control-lg:not([size]):not([multiple]) {
+    height: calc(2.7125rem + 2px);
 }
 .myformPedido .controls {
   position: relative;

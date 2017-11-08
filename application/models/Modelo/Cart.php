@@ -64,8 +64,8 @@ class Cart extends MY_Model {
       return $this->db->insert_id();
     }
 
-    public function insertCartToPedido($id_cliente, $festa, $id_session){
-        $sql = "INSERT INTO tbl_pedido (id_pedido, id_cliente, id_cidade, data_pedido, valor, taxa_entrega, valor_total, situacao, festa) " .
+    public function insertCartToPedido($id_cliente, $id_session, $festa, $hora_entrega, $forma_pgto){
+        $sql = "INSERT INTO tbl_pedido (id_pedido, id_cliente, id_cidade, data_pedido, valor, taxa_entrega, valor_total, situacao, festa, hora_entrega, forma_pgto) " .
                "select null id_cart,        " .
                "       ? id_cliente,        " .
                "       id_cidade,           " .
@@ -74,11 +74,13 @@ class Cart extends MY_Model {
                "       '5.00' taxa_entrega, " .
                "       ((SUM(qtde) * valor_unitario) + 3) as valor_total, " .
                "       's' as situacao,     " .
-               "       ? as festa           " .
+               "       ? as festa,          " .
+							 "       ? as hora_entrega,   " .
+							 "       ? as forma_pgto      " .
                "  from tbl_cart             " .
                " where id_session = ?       " .
                "   and situacao = 'a'       " ;
-         $this->db->query($sql, array($id_cliente, $festa, $id_session));
+         $this->db->query($sql, array($id_cliente, $festa, $hora_entrega, $forma_pgto, $id_session));
          $id_pedido = $this->db->insert_id();
 
          $sql = "INSERT INTO tbl_item_pedido (id_item_pedido, id_pedido, id_produto, qtde, valor_unitario)" .
