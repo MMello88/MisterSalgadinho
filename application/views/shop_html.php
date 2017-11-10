@@ -157,11 +157,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</button>
 		  </div>
 		  <div class="modal-body">
-			Seja Bem-Vindo. 
-      <br/> Estamos trabalhando muito para melhor atende-los com a maxima de qualidade em produto, serviço e atendimento. 
-      <br/> Atualmente trabalhamos sobre demanda, portanto, não temos estoque para pronta entrega.
-      <br/> O prazo para entrega é de até 2 dias dependendo da quantidade solicitada.
-      <br/> Muito obrigado de toda a equipe <b>Mister Salgadinhos.</b>
+			Seja Bem - Vindo. 
+      <br/> Em breve nossa loja física estará
+		pronta para atende-los, proporcionando conforto e  qualidade, mais se você está curioso em 
+		conhecer nossos salgados não perca tempo e faça seu pedido aqui pelo site, será um imenso prazer 
+		atende-lo. Lembrando que 
+       trabalhamos sobre demanda, o prazo de entrega para delivery/festas é de até 2 dias! Dependendo da quantidade solicitada.
+      <br/> Mister  Salgadinhos agradece a todos os nossos clientes pela preferência.
+
 		  </div>
 		</div>
 	  </div>

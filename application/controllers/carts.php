@@ -175,15 +175,51 @@ class Carts extends CI_Controller {
 	}
 
   private function enviarPedidoPorEmail(){
+		$nome = $_POST['nome'];
+		$email = $_POST['email'];
+		$telefone = $_POST['telefone'];
+		$endereco = $_POST['endereco'];
     $this->load->library('email');
     $this->email
       ->from('pedido@mistersalgadinhos.com.br', 'Mister Salgadinhos')
-      ->to('matheusnarciso@hotmail.com, engrmachado@gmail.com')
-      ->subject("Mister Salgadinhos - Pedido realizado.")
+      ->to('matheusnarciso@hotmail.com, engrmachado@gmail.com, matheus.gnu@gmail.com')
+      ->subject("Mister Salgadinhos - Pedido realizado pelo(a) $nome.")
       ->message("<!DOCTYPE html>
                  <html lang=\"pt-br\">
-                 <header></header>
+                 <header>
+								 <style>
+									table {
+											font-family: arial, sans-serif;
+											border-collapse: collapse;
+											width: 100%;
+									}
+
+									td, th {
+											border: 1px solid #dddddd;
+											text-align: left;
+											padding: 8px;
+									}
+
+									tr:nth-child(even) {
+											background-color: #dddddd;
+									}
+									</style>
+								 </header>
                  <body>
+								 <table>
+									<tr>
+										<th>Nome</th>
+										<th>Email</th>
+										<th>Telefone</th>
+										<th>Endereço</th>
+									</tr>
+									<tr>
+										<td>$nome</td>
+										<td>$email</td>
+										<td>$telefone</td>
+										<td>$endereco</td>
+									</tr>
+								 </table>
                  <p>Vocês tem um novo pedido realizado. <br> Acesse o
                     <a href=\" ".base_url("Admin/Login")."\" target=\"_blank\">Administrador</a>
                  </p>

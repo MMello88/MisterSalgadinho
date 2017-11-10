@@ -84,7 +84,7 @@ class Shop extends CI_Controller {
 			   "      </form>" .
 			   "    </div> " .
 			   "    <div class='card-footer'> " .
-			   "       <small class='text-muted'>Produto sobre verificação em estoque!</small> " .
+			   "       <small class='text-muted'>Salgadinho são do tamanho padrão de festa!</small> " .
 			   "    </div> " .
 			   "  </div> " .
 			   "</div> " ;
