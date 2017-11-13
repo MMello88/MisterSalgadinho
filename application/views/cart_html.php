@@ -127,8 +127,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php echo $combobox_cidade; ?>
                 
                 <div class="form-group">
-                  <label for="InputEndereco" style="display:block;">Data da Entrega</label>
-                  <input type="date" name="data_entrega" class="form-control form-control-lg" min="<?php echo date('Y-m-d', strtotime(date("Y-m-d"). ' + 2 days')); ?>" id="InputDataEntrege" placeholder="Data da Entrege" required>
+                  <label for="InputEndereco">Data da Entrega</label>
+                  <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="data_entrega" class="form-control form-control-lg" min="<?php echo date('Y-m-d', strtotime(date("Y-m-d"). ' + 2 days')); ?>" id="InputDataEntrege" placeholder="Data da Entrege" required>
                   <small class="form-text text-muted">
                     Estamos trabalhando muito para melhorar nosso tempo de entrega. Hoje a previsão é de 2 dias para a entrega de seu pedido.
                   </small>
@@ -192,7 +192,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <!--Pedido para Festa?-->
                 </div>
 
-                <p class="text-muted text-center">Precisamos de algumas informações do local do evento da festa.<br> Por favor preencha algumas informações abaixo.</p>
+                <p class="text-dark text-center">Precisamos de algumas informações do local do evento da festa.<br> Por favor preencha algumas informações abaixo.</p>
                 
                 <div class="form-group">
                   <label for="InputEnderecoEvento">Endereço do Local do Envento</label>
@@ -205,8 +205,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
 
                 <div class="form-group">
-                  <label for="InputDataEvento" style="display:block;">Data do Envento</label>
-                  <input type="date" name="data_evento" class="form-control form-control-lg" min="<?php echo date('Y-m-d', strtotime(date("Y-m-d"). ' + 2 days')); ?>" id="InputDataEvento" placeholder="Data do Evento" required>
+                  <label for="InputDataEvento">Data do Envento</label>
+                  <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="data_evento" class="form-control form-control-lg" min="<?php echo date('Y-m-d', strtotime(date("Y-m-d"). ' + 2 days')); ?>" id="InputDataEvento" placeholder="Data do Evento" required>
                   <small class="form-text text-muted">
                     Estamos trabalhando muito para melhorar nosso tempo de entrega. Hoje a previsão é de 2 dias para a entrega de seu pedido.
                   </small>

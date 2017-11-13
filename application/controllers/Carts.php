@@ -50,13 +50,12 @@ class Carts extends CI_Controller {
 	}
   
 	public function getFormPagto(){
-		//$this->load->model('ModeloList/listatipo');
 		$formas = $this->listatipo->getByCampo('forma_pgto');
 		$html = "";
 		foreach($formas as $forma){
 			$html .=	"<div class=\"form-check form-check-inline\">
 					<label>
-						<input class=\"form-check-input\" type=\"radio\" name=\"forma_pgto\" value=\"{$forma->tipo}\"> {$forma->descricao}
+						<input class=\"form-check-input\" type=\"radio\" name=\"forma_pgto\" value=\"{$forma->tipo}\" required> {$forma->descricao}
 					</label>
 				</div>";
 		}
