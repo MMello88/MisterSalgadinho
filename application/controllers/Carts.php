@@ -147,6 +147,7 @@ class Carts extends CI_Controller {
 			$hora_entrega = $_POST['hora_entrega'];
 			$forma_pgto = $_POST['forma_pgto'];
       $data_entrega = $_POST['data_entrega'];
+			$id_cidade = $_POST['id_cidade'];
 
 			if ($situcao_cart->situacao == 'a'){
 				$festa = (!empty($_POST['festa']) && $_POST['festa'] == 'on') ? 's' : 'n';
@@ -163,7 +164,7 @@ class Carts extends CI_Controller {
         }
 
         $this->load->model('Modelo/cart');
-        $id_pedido = $this->cart->insertCartToPedido($id_cliente, $id_session, $festa, $hora_entrega, $forma_pgto, $data_entrega);
+        $id_pedido = $this->cart->insertCartToPedido($id_cliente, $id_session, $festa, $hora_entrega, $forma_pgto, $data_entrega, $id_cidade);
         if ($festa == "s") {
           $this->load->model('Modelo/evento');
           $this->evento->id_pedido = $id_pedido;
