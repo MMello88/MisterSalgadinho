@@ -89,67 +89,140 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="row text-center">
         <div class="col-md-12 mb-5">
           <h2>Finalize sua Compra</h2>
-          <p class="text-muted">Para finalizar a compra precisamos que informe para nós alguns dados importates.</p>
+          <p class="text-muted">Para finalizar a compra precisamos que informe para nós alguns dados importantes.</p>
         </div>
       </div>
-			<div class="row">
-				<div class="col-xs-12 col-sm-10 col-md-8 mx-md-auto">
-				  <?php echo form_open('Carts/finalizar', array('id' => 'formCliente', 'class' => 'myformPedido')); ?>
-					
-					<div class="form-group">
-					  <input type="hidden" name="id_cliente">
-					  <label for="InputNome">Nome</label>
-					  <input type="text" name="nome" class="form-control form-control-lg" id="InputNome" placeholder="Nome" required>
-					</div>
-					<div class="form-group">
-						<label for="InputEmail">Email address</label>
-						<input type="email" name="email" class="form-control form-control-lg" id="InputEmail" placeholder="Email" required>
-					</div>
-					<div class="form-group">
-					  <label for="InputTelefone">Telefone</label>
-					  <input type="text" name="telefone" class="form-control form-control-lg" id="InputTelefone" placeholder="Telefone/Celular" required>
-					</div>
-					<div class="form-group">
-					  <label for="InputEndereco">Endereço Completo</label>
-					  <input type="text" name="endereco" class="form-control form-control-lg" id="InputEndereco" placeholder="Ex.: Av. Plinio de Castro Prado 431, ap 33" required>
-					</div>
+      
+      
+      <div class="col-10 col-md-10 col-xl-10 mx-md-auto bd-content">
+        <nav class='nav nav-tabs' id='myTab' role='tablist'>
+          <a class='nav-item nav-link active' id='nav-delivery-tab' data-toggle='tab' href='#nav-delivery' role='tab' aria-controls='nav-delivery' aria-expanded='true'>Delivery</a>
+          <a class='nav-item nav-link' id='nav-festa-tab' data-toggle='tab' href='#nav-festa' role='tab' aria-controls='nav-festa' aria-expanded='true'>Para Festa</a>
+        </nav>
+        
+        <div class='tab-content' id='nav-tabContent' style='padding: 15px 15px 0 15px;'>
+          <div class='tab-pane fade show active' id='nav-delivery' role='tabpanel' aria-labelledby='nav-delivery-tab'>
+            <div class="row">
+              <div class="col-xs-12 col-sm-10 col-md-8 mx-md-auto">
+                <?php echo form_open('Carts/finalizar', array('id' => 'formCliente', 'class' => 'myformPedido')); ?>
+                
+                <div class="form-group">
+                  <input type="hidden" name="id_cliente">
+                  <label for="InputNome">Nome</label>
+                  <input type="text" name="nome" class="form-control form-control-lg" id="InputNome" placeholder="Nome" required>
+                </div>
+                <div class="form-group">
+                  <label for="InputEmail">Email address</label>
+                  <input type="email" name="email" class="form-control form-control-lg" id="InputEmail" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                  <label for="InputTelefone">Telefone</label>
+                  <input type="text" name="telefone" class="form-control form-control-lg" id="InputTelefone" placeholder="Telefone/Celular" required>
+                </div>
+                <div class="form-group">
+                  <label for="InputEndereco">Endereço Completo</label>
+                  <input type="text" name="endereco" class="form-control form-control-lg" id="InputEndereco" placeholder="Ex.: Av. Plinio de Castro Prado 431, ap 33" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="InputEndereco" style="display:block;">Data da Entrega</label>
+                  <input type="date" name="data_entrega" class="form-control form-control-lg" min="<?php echo date('Y-m-d', strtotime(date("Y-m-d"). ' + 2 days')); ?>" id="InputDataEntrege" placeholder="Data da Entrege" required>
+                  <small class="form-text text-muted">
+                    Estamos trabalhando muito para melhorar nosso tempo de entrega. Hoje a previsão é de 2 dias para a entrega de seu pedido.
+                  </small>
+                </div>
 
-					<?php echo $combobox_horario; ?>
-					
-					<?php echo $forma_pagto; ?>
-					<div class="form-check">
-					  <label class="">
-						<input type="checkbox" name="festa" id="festa" class="form-check-input" data-toggle="collapse" data-target="#collapseEndEvento" aria-expanded="false" aria-controls="collapseEndEvento">
-						Pedido para Festa?
-					  </label>
-					</div>
-					  <div class="collapse" id="collapseEndEvento">
-							<div class="card card-body border-0">
-								<div class="form-group">
-									<label for="InputEnderecoEvento">Endereço do Local do Envento</label>
-									<input type="text" name="end_evento" class="form-control form-control-lg" id="InputEnderecoEvento" placeholder="Endereço do Evento Ex.: Rua Amador Bueno 22, casa 1">
-								</div>
+                <?php echo $combobox_horario; ?>
+                <label for="InputHoraEvento">Forma de Pagamento</label>
+                <br/>
+                <?php echo $forma_pagto; ?>
+                <div class="form-check">
+                  <input type="hidden" name="festa" id="festa" class="form-check-input" data-toggle="collapse" data-target="#collapseEndEvento" aria-expanded="true" aria-controls="collapseEndEvento">
+                  <!--Pedido para Festa?-->
+                </div>
+                
+                
+                <!--<label for="InputEnderecoEvento">Endereço do Local do Envento</label>-->
+                <input type="hidden" name="end_evento" class="form-control form-control-lg" id="InputEnderecoEvento" placeholder="Endereço do Evento Ex.: Rua Amador Bueno 22, casa 1">
+                <!--<label for="InputCelularEvento">Celular p/ Contato</label>-->
+                <input type="hidden" name="cel_evento" class="form-control form-control-lg" id="InputCelularEvento" placeholder="(16) 91111-0000">
+                <!--<label for="InputDataEvento">Data do Envento</label>-->
+                <input type="hidden" name="data_evento" class="form-control form-control-lg" min="<?php echo date('Y-m-d', strtotime(date("Y-m-d"). ' + 2 days')); ?>" id="InputDataEvento" placeholder="Data do Evento">
+                <!--<label for="InputHoraEvento">Horário do Envento</label>-->
+                <input type="hidden" name="hora_evento" class="form-control form-control-lg" id="InputHoraEvento" placeholder="Horário do Evento">
 
-								<div class="form-group">
-									<label for="InputCelularEvento">Celular p/ Contato</label>
-									<input type="text" name="cel_evento" class="form-control form-control-lg" id="InputCelularEvento" placeholder="(16) 91111-0000">
-								</div>
+                <button type="submit" class="nbtn ml-auto">Comprar</button>
+                <?php echo form_close(); ?>
+              </div>
+            </div>
+          </div>
 
-								<div class="form-group">
-									<label for="InputDataEvento">Data do Envento</label>
-									<input type="date" name="data_evento" class="form-control form-control-lg" min="<?php echo date("Y-m-d"); ?>" id="InputDataEvento" placeholder="Data do Evento">
-								</div>
-								
-								<div class="form-group">
-									<label for="InputHoraEvento">Horário do Envento</label>
-									<input type="text" name="hora_evento" class="form-control form-control-lg" id="InputHoraEvento" placeholder="Horário do Evento">
-								</div>
-							</div>
-					  </div>
-					<button type="submit" class="nbtn ml-auto">Comprar</button>
-				  <?php echo form_close(); ?>
-				</div>
-			</div>
+          <div class='tab-pane fade' id='nav-festa' role='tabpanel' aria-labelledby='nav-festa-tab'>
+            <div class="row">
+              <div class="col-xs-12 col-sm-10 col-md-8 mx-md-auto">
+                <?php echo form_open('Carts/finalizar', array('id' => 'formCliente', 'class' => 'myformPedido')); ?>
+                
+                <div class="form-group">
+                  <input type="hidden" name="id_cliente">
+                  <label for="InputNome">Nome</label>
+                  <input type="text" name="nome" class="form-control form-control-lg" id="InputNome" placeholder="Nome" required>
+                </div>
+                <div class="form-group">
+                  <label for="InputEmail">Email address</label>
+                  <input type="email" name="email" class="form-control form-control-lg" id="InputEmail" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                  <label for="InputTelefone">Telefone</label>
+                  <input type="text" name="telefone" class="form-control form-control-lg" id="InputTelefone" placeholder="Telefone/Celular" required>
+                </div>
+                <div class="form-group">
+                  <label for="InputEndereco">Endereço Completo</label>
+                  <input type="text" name="endereco" class="form-control form-control-lg" id="InputEndereco" placeholder="Ex.: Av. Plinio de Castro Prado 431, ap 33" required>
+                </div>
+
+                <div class="form-check">
+                  <input type="hidden" name="festa" id="festa" class="form-check-input" checked>
+                  <!--Pedido para Festa?-->
+                </div>
+
+                <p class="text-muted text-center">Precisamos de algumas informações do local do evento da festa.<br> Por favor preencha algumas informações abaixo.</p>
+                
+                <div class="form-group">
+                  <label for="InputEnderecoEvento">Endereço do Local do Envento</label>
+                  <input type="text" name="end_evento" class="form-control form-control-lg" id="InputEnderecoEvento" placeholder="Endereço do Evento Ex.: Rua Amador Bueno 22, casa 1" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="InputCelularEvento">Celular p/ Contato</label>
+                  <input type="text" name="cel_evento" class="form-control form-control-lg" id="InputCelularEvento" placeholder="Celular p/ Contato Ex.: (16) 91111-0000" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="InputDataEvento" style="display:block;">Data do Envento</label>
+                  <input type="date" name="data_evento" class="form-control form-control-lg" min="<?php echo date('Y-m-d', strtotime(date("Y-m-d"). ' + 2 days')); ?>" id="InputDataEvento" placeholder="Data do Evento" required>
+                  <small class="form-text text-muted">
+                    Estamos trabalhando muito para melhorar nosso tempo de entrega. Hoje a previsão é de 2 dias para a entrega de seu pedido.
+                  </small>
+                </div>
+                
+                <div class="form-group">
+                  <label for="InputHoraEvento">Horário do Envento</label>
+                  <input type="text" name="hora_evento" class="form-control form-control-lg" id="InputHoraEvento" placeholder="Horário do Evento" required>                  
+                </div>
+                
+                <label for="InputHoraEvento">Forma de Pagamento</label>
+                <br/>
+                <?php echo $forma_pagto; ?>
+                <br/>
+                <button type="submit" class="nbtn ml-auto">Comprar</button>
+                
+                <?php echo form_close(); ?>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
 		</div>
 	</section>
 	
@@ -245,6 +318,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="<?php echo base_url("assets/js/bootstrap.min.js"); ?>"></script>
   </body>
 
@@ -302,20 +376,6 @@ $(window).resize(function() {
       $("p#subtotal"+i).text("Subtotal: " + texto);
     } 
   }
-});
-
-$('#collapseEndEvento').on('hidden.bs.collapse', function () {
-  $("#InputEnderecoEvento").val("");
-  $("#InputCelularEvento").val("");
-  $("#InputDataEvento").val("");
-  $("#InputHoraEvento").val("");
-});
-
-$("#festa").change(function() {
-    $("#InputEnderecoEvento").prop('required',this.checked);
-    $("#InputCelularEvento").prop('required',this.checked);
-    $("#InputDataEvento").prop('required',this.checked);
-    $("#InputHoraEvento").prop('required',this.checked);
 });
 
 </script>

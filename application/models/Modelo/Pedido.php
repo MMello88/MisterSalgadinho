@@ -12,6 +12,7 @@ class Pedido extends MY_Model {
     public $valor;
     public $taxa_entrega;
 		public $hora_entrega;
+    public $data_entrega;
     public $valor_total;
     public $situacao;
     public $festa;
