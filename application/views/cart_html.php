@@ -124,6 +124,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <input type="text" name="endereco" class="form-control form-control-lg" id="InputEndereco" placeholder="Ex.: Av. Plinio de Castro Prado 431, ap 33" required>
                 </div>
                 
+                <?php echo $combobox_cidade; ?>
+                
                 <div class="form-group">
                   <label for="InputEndereco" style="display:block;">Data da Entrega</label>
                   <input type="date" name="data_entrega" class="form-control form-control-lg" min="<?php echo date('Y-m-d', strtotime(date("Y-m-d"). ' + 2 days')); ?>" id="InputDataEntrege" placeholder="Data da Entrege" required>
@@ -137,7 +139,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <br/>
                 <?php echo $forma_pagto; ?>
                 <div class="form-check">
-                  <input type="hidden" name="festa" id="festa" class="form-check-input" data-toggle="collapse" data-target="#collapseEndEvento" aria-expanded="true" aria-controls="collapseEndEvento">
+                  <input type="hidden" name="festa" id="festa" value="off" >
                   <!--Pedido para Festa?-->
                 </div>
                 
@@ -162,6 +164,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="col-xs-12 col-sm-10 col-md-8 mx-md-auto">
                 <?php echo form_open('Carts/finalizar', array('id' => 'formCliente', 'class' => 'myformPedido')); ?>
                 
+                <input type="hidden" name="hora_entrega">
+                <input type="hidden" name="data_entrega">
+                
                 <div class="form-group">
                   <input type="hidden" name="id_cliente">
                   <label for="InputNome">Nome</label>
@@ -180,8 +185,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <input type="text" name="endereco" class="form-control form-control-lg" id="InputEndereco" placeholder="Ex.: Av. Plinio de Castro Prado 431, ap 33" required>
                 </div>
 
+                <?php echo $combobox_cidade; ?>
+                
                 <div class="form-check">
-                  <input type="hidden" name="festa" id="festa" class="form-check-input" checked>
+                  <input type="hidden" name="festa" id="festa" value="on">
                   <!--Pedido para Festa?-->
                 </div>
 

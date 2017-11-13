@@ -64,23 +64,24 @@ class Cart extends MY_Model {
       return $this->db->insert_id();
     }
 
-    public function insertCartToPedido($id_cliente, $id_session, $festa, $hora_entrega, $forma_pgto){
-        $sql = "INSERT INTO tbl_pedido (id_pedido, id_cliente, id_cidade, data_pedido, valor, taxa_entrega, valor_total, situacao, festa, hora_entrega, forma_pgto) " .
+    public function insertCartToPedido($id_cliente, $id_session, $festa, $hora_entrega, $forma_pgto, $data_entrega){
+        $sql = "INSERT INTO tbl_pedido (id_pedido, id_cliente, id_cidade, data_pedido, valor, taxa_entrega, valor_total, situacao, festa, hora_entrega, forma_pgto, data_entrega) " .
                "select null id_cart,        " .
                "       ? id_cliente,        " .
                "       id_cidade,           " .
                "       now() data_pedido,   " .
                "       (sum(qtde) * valor_unitario) valor, " .
-               "       '5.00' taxa_entrega, " .
+               "       '3.00' taxa_entrega, " .
                "       ((SUM(qtde) * valor_unitario) + 3) as valor_total, " .
                "       's' as situacao,     " .
                "       ? as festa,          " .
 							 "       ? as hora_entrega,   " .
-							 "       ? as forma_pgto      " .
+							 "       ? as forma_pgto,     " .
+               "       ? as data_entrega     " .
                "  from tbl_cart             " .
                " where id_session = ?       " .
                "   and situacao = 'a'       " ;
-         $this->db->query($sql, array($id_cliente, $festa, $hora_entrega, $forma_pgto, $id_session));
+         $this->db->query($sql, array($id_cliente, $festa, $hora_entrega, $forma_pgto, $data_entrega, $id_session));
          $id_pedido = $this->db->insert_id();
 
          $sql = "INSERT INTO tbl_item_pedido (id_item_pedido, id_pedido, id_produto, qtde, valor_unitario)" .

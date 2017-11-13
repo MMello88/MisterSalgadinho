@@ -5,8 +5,10 @@ class Carts extends CI_Controller {
 
     public function index()
     {
+        $this->load->model('ModeloList/listacidades');
         $this->data['title'] = 'Pedido';
         $this->data["view_pedido_produtos"] = $this->getCartBySession($this->session->userdata('id_session'));
+        $this->data['combobox_cidade'] = $this->getComboCidadeEntrega();
 				$this->data["combobox_horario"] = $this->getComboHorario();
 				$this->data["forma_pagto"] = $this->getFormPagto();
         $this->load->view('cart_html', $this->data);
@@ -32,6 +34,21 @@ class Carts extends CI_Controller {
 		return $html;
 	}
 	
+  public function getComboCidadeEntrega(){
+		
+		$cidades = $this->listacidades->get_all();
+		$html = "<div class=\"form-group\">
+							<label  for=\"InputHoraEntrega\">Cidade</label>
+							<select name=\"id_cidade\" class=\"form-control form-control-lg\" id=\"InputHoraEntrega\" required>
+								<option disabled selected>Selecione a Cidade:</option>";
+		foreach($cidades as $cidade){
+			$html .=	"<option value=\"{$cidade->id_cidade}\">{$cidade->nome}</option>";
+		}
+		$html .= "</select>
+					</div>";
+		return $html;
+	}
+  
 	public function getFormPagto(){
 		//$this->load->model('ModeloList/listatipo');
 		$formas = $this->listatipo->getByCampo('forma_pgto');
@@ -129,9 +146,10 @@ class Carts extends CI_Controller {
 			$situcao_cart = $this->listacarts->getCartSituacao($id_session);
 			$hora_entrega = $_POST['hora_entrega'];
 			$forma_pgto = $_POST['forma_pgto'];
-			
+      $data_entrega = $_POST['data_entrega'];
+
 			if ($situcao_cart->situacao == 'a'){
-				$festa = (isset($_POST['festa']) && $_POST['festa'] = 'on') ? 's' : 'n';
+				$festa = (!empty($_POST['festa']) && $_POST['festa'] == 'on') ? 's' : 'n';
 
 				$this->load->model('ModeloList/listaclientes');
         $cli = $this->listaclientes->getByEmail($this->input->post('email'));
@@ -145,7 +163,7 @@ class Carts extends CI_Controller {
         }
 
         $this->load->model('Modelo/cart');
-        $id_pedido = $this->cart->insertCartToPedido($id_cliente, $id_session, $festa, $hora_entrega, $forma_pgto);
+        $id_pedido = $this->cart->insertCartToPedido($id_cliente, $id_session, $festa, $hora_entrega, $forma_pgto, $data_entrega);
         if ($festa == "s") {
           $this->load->model('Modelo/evento');
           $this->evento->id_pedido = $id_pedido;
