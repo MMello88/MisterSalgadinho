@@ -3,15 +3,15 @@ body{
 	font-weight: 400;
 	color: #202020;
 	font-size: 16px;
-	background-color: #F3F3F4;
+	background-color: #f7c723;
 	padding-top: 5rem;
 }
 .wrap{
 	padding-bottom: 6rem;
 }
-/*===============================
-=            Footer             =
-===============================*/
+.bg-shop {
+  background-color: #f7c723;
+}
 .footer{
 	background-color: #1d2023;
     padding: 80px 0 70px 0;
@@ -31,10 +31,6 @@ body{
 footer .icon{
 	width: 20px;
 }
-/*-----  End of Socials  ------*/
-/*============================
-=            Hero            =
-============================*/
 #hero {
   height: 550px;
 }

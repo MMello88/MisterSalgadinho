@@ -154,6 +154,7 @@ class Carts extends CI_Controller {
 			$forma_pgto = $_POST['forma_pgto'];
       $data_entrega = $_POST['data_entrega'];
 			$id_cidade = $_POST['id_cidade'];
+      $email = $_POST['email'];
 
 			if ($situcao_cart->situacao == 'a'){
 				$festa = (!empty($_POST['festa']) && $_POST['festa'] == 'on') ? 's' : 'n';
@@ -184,6 +185,7 @@ class Carts extends CI_Controller {
 				$this->data['mensagem'] = "Seu pedido foi recebido com sucesso!<br>Agradecemos a sua preferência. Em breve faremos a entrega do seu pedido.";
 				$this->load->view('fim_html', $this->data);
         $this->enviarPedidoPorEmail();
+        $this->enviarEmailCliente($nome, $email);
 			} else {
 				$this->data['nome_cliente'] = "";
 				$this->data['mensagem'] = "Pedido esta finalizado!";
@@ -250,6 +252,35 @@ class Carts extends CI_Controller {
                  </p>
                  </body>
                  </html>")
+      ->send();
+  }
+  
+  public function enviarEmailCliente($nome, $email){
+    $link = base_url();
+    $html = 
+"<!DOCTYPE html>
+<html lang=\"pt-br\">
+  <head>
+  </head>
+  <body> 
+    <h3><b>Olá,  {$nome}.</b></h3>
+    <p>Nós da <b>Mister</b> Salgadinhos</p>
+    <p>
+    <b>Agradecemos pela preferência.</b> Seu pedido foi recebido com <b>sucesso.</b> <br>
+    Em breve este <b>delicioso salgadinho</b> será produzido e entrege no <b>local, data e hora</b> que nos informado.<br>
+    </p>
+    <img src=\"{$link}assets/template/img/boneco_2.png\">
+    <br/>
+    <p><smal>**Por favor, não responder para este e-mail</smal></p>
+  </body>
+</html>";
+
+    $this->load->library('email');
+    $this->email
+      ->from('pedido@mistersalgadinhos.com.br', 'Mister Salgadinhos')
+      ->to($email)
+      ->subject("Mister Salgadinhos - Seu pedido foi recebido com sucesso!.")
+      ->message($html)
       ->send();
   }
 }
