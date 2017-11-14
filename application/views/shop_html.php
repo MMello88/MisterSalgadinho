@@ -85,7 +85,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     						<span class="oi" data-glyph="chevron-right" title="icon name" aria-hidden="true"></span>
     					  </span>
     				  </a>
-    				  <a href="<?php echo base_url("Shop/ribeirao_preto"); ?>" class="list-group-item text-warning">
+    				  <a href="<?php echo base_url("Shop/{$link_cidade}"); ?>" class="list-group-item text-warning">
     				  SHOP
     					  <span class="badge badge-warning float-right">
     						<span class="oi" data-glyph="chevron-right" title="icon name" aria-hidden="true"></span>

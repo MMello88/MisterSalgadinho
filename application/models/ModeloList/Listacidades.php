@@ -20,7 +20,10 @@ class Listacidades extends Control {
         $query = $this->_instance->db->get_where('cidade', array('link' => $link));
         if (empty($query))
             $this->set_log_error_db();
-        return $query->custom_result_object('cidade')[0];
+        $retorno = $query->custom_result_object('cidade');
+				if (!empty($retorno))
+					return $retorno[0];
+				return null;
     }
  
     public function get_all(){

@@ -1,0 +1,87 @@
+body{
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 400;
+	color: #202020;
+	font-size: 16px;
+	background-color: #F3F3F4;
+	padding-top: 5rem;
+}
+.wrap{
+	padding-bottom: 6rem;
+}
+/*===============================
+=            Footer             =
+===============================*/
+.footer{
+	background-color: #1d2023;
+    padding: 80px 0 70px 0;
+    color: #b6b6b6;
+    overflow: visible;
+}
+
+.list-group-item{
+	padding: 0.25rem 1.5rem;
+	border:0px;
+	background-color: #1d2023;
+}
+.list-group a{
+	font-size: smaller;
+}
+
+footer .icon{
+	width: 20px;
+}
+/*-----  End of Socials  ------*/
+/*============================
+=            Hero            =
+============================*/
+#hero {
+  height: 550px;
+}
+#hero .hero-unit {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+}
+#hero .hero-unit h1 {
+  font-size: 70px;
+  font-weight: 200;
+  margin-top: 70px;
+}
+#hero .hero-start-link,
+#hero .hero-start-link:focus {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  margin-left: -19px;
+  margin-bottom: 15px !important;
+  display: block;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #202020;
+  border-radius: 50%;
+  line-height: 36px;
+  text-align: center;
+  font-size: 28px;
+  color: #ffffff;
+  background-color: #202020;
+}
+#hero .hero-start-link:hover,
+#hero .hero-start-link:focus:hover {
+  color: #f7c723;
+  text-decoration: none;
+}
+#hero .img-hero {
+  background-image: url('../img/mockup4.png');
+  background-repeat: no-repeat;
+  background-position: center top !important;
+  text-align: center;
+  padding-top: 100px;
+  height: 400px;
+}
+@media (max-width: 767px) {
+  #hero .img-hero {
+    margin-top: 30px;
+  }
+}

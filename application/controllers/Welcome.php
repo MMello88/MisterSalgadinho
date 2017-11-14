@@ -10,6 +10,7 @@ class Welcome extends CI_Controller {
 			$this->session->set_userdata('id_session', md5(date("Y-m-d H:i:s")));
 		}
 		
-		$this->load->view('index_html');
+		$this->data['link_cidade'] = !$this->session->userdata('link_cidade') ? '' : $this->session->userdata('link_cidade');
+		$this->load->view('index_html', $this->data);
 	}
 }
