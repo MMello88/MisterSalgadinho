@@ -6,6 +6,7 @@ class Carts extends CI_Controller {
     public function index()
     {
         $this->load->model('ModeloList/listacidades');
+				$this->data['link_cidade'] = !$this->session->userdata('link_cidade') ? '' : $this->session->userdata('link_cidade');
         $this->data['title'] = 'Pedido';
         $this->data["view_pedido_produtos"] = $this->getCartBySession($this->session->userdata('id_session'));
         $this->data['combobox_cidade'] = $this->getComboCidadeEntrega();
@@ -35,14 +36,20 @@ class Carts extends CI_Controller {
 	}
 	
   public function getComboCidadeEntrega(){
-		
+		$session_id_cidade = $this->session->userdata('id_cidade');
 		$cidades = $this->listacidades->get_all();
 		$html = "<div class=\"form-group\">
 							<label  for=\"InputHoraEntrega\">Cidade</label>
-							<select name=\"id_cidade\" class=\"form-control form-control-lg\" id=\"InputHoraEntrega\" required>
-								<option disabled selected>Selecione a Cidade:</option>";
+							<select name=\"id_cidade\" class=\"form-control form-control-lg\" id=\"InputHoraEntrega\" required>";
+		if (empty($session_id_cidade))
+		  $html .= "<option disabled selected>Selecione a Cidade:</option>";
+		else
+			$html .= "<option disabled>Selecione a Cidade:</option>";
 		foreach($cidades as $cidade){
-			$html .=	"<option value=\"{$cidade->id_cidade}\">{$cidade->nome}</option>";
+			$selected = '';
+			if ($cidade->id_cidade == $session_id_cidade)
+				$selected = 'selected';
+			$html .=	"<option value=\"{$cidade->id_cidade}\" {$selected}>{$cidade->nome}</option>";
 		}
 		$html .= "</select>
 					</div>";

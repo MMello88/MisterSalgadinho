@@ -34,18 +34,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</a>
       
 	<div class="overlay" id="overlay">
-        <nav class="overlay-menu">
-          <ul>
-            <li><a href="#home" class="smooth-scroll">Home</a></li>
-            <li><a href="#start" class="smooth-scroll">Sobre o Produto</a></li>
-            <li><a href="#showcase" class="smooth-scroll">Produtos</a></li>
-            <li><a href="#requirements" class="smooth-scroll">Comprar</a></li>
-            <li><a href="#features" class="smooth-scroll">Caracteristicas</a></li>
-            <li><a href="#contact" class="smooth-scroll">Contato</a></li>
-            <!--<li><a href="http://www.google.com" class="smooth-scroll">Mister Blog</a></li>-->
-          </ul>
-        </nav>
-      </div>
+		<nav class="overlay-menu">
+			<ul>
+				<li><a href="#home" class="smooth-scroll">Home</a></li>
+				<li><a href="#start" class="smooth-scroll">Sobre o Produto</a></li>
+				<li><a href="#showcase" class="smooth-scroll">Produtos</a></li>
+				<li><a href="#requirements" class="smooth-scroll">Comprar</a></li>
+				<li><a href="#features" class="smooth-scroll">Caracteristicas</a></li>
+				<li><a href="#contact" class="smooth-scroll">Contato</a></li>
+				<!--<li><a href="http://www.google.com" class="smooth-scroll">Mister Blog</a></li>-->
+			</ul>
+		</nav>
+	</div>
 	
 	<div id="wrap">
 		<section id="hero" class="m-center text-center bg-shop full-height">
@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<b>Sabores surpreendente! </b> Venha provar o nosso salgadinho. <br>Faça seu pedido agora mesmo!<br>
 						</p>
 						<br>
-						<a class="btn white" href="<?php echo base_url("Shop/ribeirao_preto"); ?>" <!--data-toggle="modal" data-target="#product-modal"--> COMPRE <b>AGORA</b></a>
+						<a class="btn white" href="<?php echo base_url("Shop/{$link_cidade}"); ?>"> <!--data-toggle="modal" data-target="#product-modal"--> COMPRE <b>AGORA</b></a>
 					</div>
 					<div class="col-sm-12 img-hero"></div>
 				</div>
@@ -130,100 +130,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
             </div>
         </section> 
-        <!-- end vertical center / slider -->
-
-      <!--  <section id="requirements" class="padding-top-bottom bg-clouds text-center">
-        	<div class="container">
-        		<div class="row header">
-					<div class="col-md-12">
-						<h2>Requirements</h2>
-						<p>Adobe Photoshop CS4+</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<img src="<?php echo base_url("assets/template/img/ps.png"); ?>" alt="#" class="img-responsive center-block" width="200" height="200">
-					</div>
-				</div>
-			</div>		
-        </section> -->
-
-		
-		<!-- <section id="features" class="features-1">
-			<div class="container padding-top-bottom">
-				<div class="row header">
-					<div class="col-md-12">
-						<h2>Características</h2>
-						<p>Foram feitos para vocês</p>
-					</div>
-				</div>
-				<div class="container" >
-		            <div class="col-md-4 col-sm-4 col-xs-12 anima scale-in ">
-		                <article class="text-center">
-			                <img src="<?php echo base_url("assets/template/img/demo1.jpg"); ?>" alt="#" class="zoom-img img-responsive center-block">
-		                    <h3>A MASSSA DE MANDIOCA</h3>
-		                    <p>Porque não uma massa de mandioca além da massa feita com farinha. Foi assim que deu a vida em nossos salgados.</p>
-		                </article>
-		            </div>                       
-					<div class="col-md-4 col-sm-4 col-xs-12 anima scale-in d1">
-		                <article class="text-center">	
-							<img src="<?php echo base_url("assets/template/img/demo2.jpg"); ?>" alt="#" class="zoom-img img-responsive center-block">
-		                    <h3>​LEVEMENTE APIMENTADO</h3>
-		                    <p>As receitas trazemos o sabor da pimenta e não a ardência complementado em nossos salgadinhos.</p>
-		                </article>
-		            </div>             
-					<div class="col-md-4 col-sm-4 col-xs-12 anima scale-in d2">
-		                <article class="text-center">	
-							<img src="<?php echo base_url("assets/template/img/demo3.jpg"); ?>" alt="#" class="zoom-img img-responsive center-block">
-		                    <h3>VARIEDADE A SEU GOSTO</h3>
-		                    <p>Através do simples trazemos a variedade que vão surpreender seu paladar.</p>
-		                </article>
-		            </div>             
-        		</div>
-			</div>	
-		</section> -->
-
-		<!-- <section id="news" class="content-1 bg-image-2 padding-top-bottom">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6 col-md-offset-6">
-						<div class="white-box">
-							<h2><b>NICE Product :)</b></h2>
-							<p>Scelerisque pulvinar praesent ultrices, amet condimentum wisi felis et. At lobortis risus ipsum praesent urna. Metus lectus duis porttitor. Tellus debitis suspendisse feugiat, non tellus in sed luctus lacus rutrum, iaculis at risus cras vel sit, qui morbi lacus, ultricies semper. Odio ac, diam donec. Tincidunt cursus vel nulla tincidunt, vitae ut tempor ut orci tortor mi</p>
-							<blockquote class="blockquote-reverse">
-							  <p>Jessica Red</p>
-							</blockquote>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>-->
-
-			
-		<!-- <section id="facts" class="numbers-1 padding-top-bottom text-center">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4 col-sm-4">
-						<div class="numbers-item">
-							<h2 class="counter">367</h2>
-							<h4>Purchases</h4>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<div class="numbers-item">
-							<h2><span class="counter">99.1</span> <span>%</span></h2>
-							<h4>User Ratings</h4>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<div class="numbers-item">
-							<h2><span class="counter">17</span> <span>k</span></h2>
-							<h4>Followers</h4>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section> -->
 
 		<div class="cta-1 bg-dark padding-top-bottom text-center white-text">
 			<div class="container-fluid anima scale-in">
@@ -232,87 +138,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 
-		<!-- <section class="parallax-container white-text">
-			<div class="dark-overlay"></div>
-			<div class="parallax"><img src="<?php echo base_url("assets/template/img/creator.jpg"); ?>" alt="About the creator"></div>
-	        <div class="container">
-            	<div class="row">
-            		<div class="col-md-8 col-md-offset-2 text-center"  style="height:500px;">
-            			<div class="center-vertical">
-                            <div class="center-vertical-box">
-                                <h2>ABOUT THE CREATOR</h2>
-                                <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p><br>
-                                <a class="btn" href="#" data-toggle="modal" data-target="#product-modal"><b>$5</b> Buy now</a>
-                    		</div>
-                    	</div>
-                    </div>
-				</div>
-           </div>
-		</section> -->
-
-		<!--<section id="contact" class=" padding-top-bottom">
-			<div class="container">
-				<div class="row header">
-					<div class="col-md-12">
-						<h2>Contate-nos</h2>
-						<p>Para qualquer dúvida, preencha o formulário abaixo e nós retornaremos para você o mais rápido possível!</p>
-					</div>
-				</div>
-				<div class="row">
-
-					<div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 contact-info">
-						<div id="alert-contact"> 
-							<div class="alert alert-success" role="alert"><strong>Your message has been sent.</strong></div>
-						</div>
-						<form id="contact-form" action="sendemail.php" class="myform" method="post" novalidate>
-							<div class="row clearfix">
-								<div class="col-xs-12 col-sm-6 col-md-6">
-									<div class="form-group">
-										<div class="controls">
-											<input name="contactName" placeholder="Your name" class="form-control input-lg requiredField" type="text" data-error-empty="Enter name">
-										</div>
-									</div>
-								</div>
-								<div class="col-xs-12 col-sm-6 col-md-6">
-									<div class="form-group">
-										<div class=" controls">
-											<input name="email" placeholder="Your email" class="form-control input-lg requiredField" type="email" data-error-invalid="Invalid email address" data-error-empty="Enter email">
-										</div>
-									</div>
-								</div>	
-							</div>	
-							<div class="form-group">
-								<div class="controls">
-									<textarea name="comments" placeholder="Your message" class="form-control input-lg requiredField" rows="5" data-error-empty="Enter message"></textarea>
-								</div>
-							</div>
-							<p><button name="submit" type="submit" class="btn btn-store btn-block" data-error-message="Error!" data-sending-message="Sending..." data-ok-message="Email Sent">Send Message</button></p>
-							<input type="hidden" name="submitted" id="submitted3" value="true">
-						</form>	
-					</div>		
-				</div>
-			</div>
-		</section>	-->
-
-      <!--  
-      <div class="footer-1 text-center">
-            <div class="container-fluid">
-                <a href="#home" class="back-to-top smooth-scroll"><i class="fa fa-chevron-up"></i></a>
-                <p>Made with <i class="fa fa-heart color-text"></i> by <a href="http://demo.angelostudio.net">ANGELO Studio</a>.</p>
-            	<ul class="social-links-2 ">
-					<li><a href="https://twitter.com/angelo_studio"><i class="fa fa-facebook"></i></a></li>
-					<li><a href="http://dribbble.com/angelo_studio"><i class="fa fa-dribbble"></i></a></li>
-					<li><a href="https://vimeo.com/user10293733"><i class="fa fa-twitter"></i></a></li>
-				</ul>
-            </div>
-      </div> !-->
-  <div class="footer-1 text-center">
+    <div class="footer-1 text-center">
     <div class="container-fluid">
         <a href="#home" class="back-to-top smooth-scroll"><i class="fa fa-chevron-up"></i></a>
     </div>
   </div>
   
-  <footer class="footer">
+    <footer class="footer">
     <div class="container">
       <div class="row">
         <div class="col-12 col-md-8 col-sm-12 px-5 pb-3">
@@ -340,7 +172,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <span class="oi" data-glyph="chevron-right" title="icon name" aria-hidden="true"></span>
               </span>
             </a>
-            <a href="<?php echo base_url("Shop/ribeirao_preto"); ?>" class="list-group-item text-warning">
+            <a href="<?php echo base_url("Shop/{$link_cidade}"); ?>" class="list-group-item text-warning">
             SHOP
               <span class="badge badge-warning float-right">
               <span class="oi" data-glyph="chevron-right" title="icon name" aria-hidden="true"></span>
@@ -377,21 +209,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <img class="icon" src="<?php echo base_url("assets/ico/social/instagram_light.svg"); ?>" alt="Instagram">
                 </a>
                 </li>
-                <!--<li class="nav-item">
-                <a class="nav-link" href="#">
-                <img class="icon" src="<?php echo base_url("assets/ico/social/twitter_light.svg"); ?>" alt="Twitter">
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">
-                <img class="icon" src="<?php echo base_url("assets/ico/social/youtube_light.svg"); ?>" alt="YouTube">
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">
-                <img class="icon" src="<?php echo base_url("assets/ico/social/google+_light.svg"); ?>" alt="Google +">
-                </a>
-                </li>-->
               </ul>
             </div>
           </div>

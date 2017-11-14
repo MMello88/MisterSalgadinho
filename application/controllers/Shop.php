@@ -3,8 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Shop extends CI_Controller {
 
-	public function index($cidade)
+	public function index($cidade = '')
 	{
+		$this->session->set_userdata('link_cidade', $cidade);
 		$this->session->set_userdata('id_cidade', $this->getIdCidade($cidade));
 		if (!$this->session->userdata('id_session')){
 			$this->session->set_userdata('id_session', md5(date("Y-m-d H:i:s")));
@@ -14,6 +15,8 @@ class Shop extends CI_Controller {
 			$this->session->set_userdata('infoModal', 'true');
 			$showInfoModal = "true";
 		}
+		
+		$this->data['link_cidade'] = $cidade;
 		$this->data["view_produtos"] = $this->monta_view_produtos();
 		$this->data["showInfoModal"] = $showInfoModal;
 		$this->load->view('shop_html', $this->data);
@@ -92,7 +95,12 @@ class Shop extends CI_Controller {
 
 	private function getIdCidade($cidade){
 		$this->load->model('ModeloList/listacidades');
-		$row = $this->listacidades->getByLink($cidade);
-		return $row->id_cidade;
+	  if (!empty($cidade)) {
+			$row = $this->listacidades->getByLink($cidade);
+			if ($row === null)
+				redirect(base_url("Shop/"));
+			return $row->id_cidade;
+		}
+		return '';
 	}
 }
