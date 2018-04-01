@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
     <title>Mister Salgadinho - Salgados feito com massa de mandioca!</title>
     <meta charset="utf-8">
-    <meta name="description" content="Mister - Salgadinho">
+    <meta name="description" content="Mister - Salgadinho; Massa Mandioca; Mini Salsicha; Mini Coxinha; Mini coxinha de Frango; Salgadinhos para festa; Salgadinhos de festa; Salgado de festa;">
     <meta name="author" content="Matheus de Mello">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -67,33 +67,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</section>
 
-		<section id="start" class="padding-top-bottom text-center">
+	<section id="start" class="padding-top-bottom text-center">
       <div class="container">
         <div class="row header">
-					<div class="col-md-12">
-						<h2>Sobre Nós</h2>
-						<p>Um pouco da nossa história</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<p>Idealizado pelo nosso querido avô Guerrino Bugnola, ao longo dos anos sua receita feita com muito carinho e dedicação, uniu amigo, família, proporcionou novas amizades. A sua massa especial e o gostinho único do salgado, misturado com seu carisma levou a uma receita especial, após 2° geração que manteve o padrão e a ideologia, resolvemos entrar para história apresentando ao mundo os sabores maravilhosos de nossos salgados feitos com a massa de mandioca. A tecnologia vai a nosso favor para expandir e mostrar ao mundo a nossa receita. Nós da 3° geração vamos manter vivo a chama acessa que um dia foi a inspiração em acender o gostinho de quero mais e apresenta-la a vocês! uma experiência nova, mantendo o tradicional amor pelos encontros de amigos, famílias e aquela qualidade indiscutível </p>
-						<!--
-						<p>Assault voodoo god paranoid tattoo modem kanji <a href="#" title="">drone</a> urban hotdog uplink computer. Dome car papier-mache geodesic wonton soup RAF warehouse woman military-grade numinous shrine nodality pre. Physical drone chrome sunglasses footage vinyl disposable office denim youtube. Systemic-ware advert geodesic alcohol assassin monofilament shrine Chiba voodoo god film convenience store disposable industrial grade camera cartel. Artisanal marketing RAF into advert geodesic sprawl realism woman dome footage courier table drone media youtube ablative.</p> -->
-					</div>
-				</div>
-			</div>		
+			<div class="col-md-12">
+				<h2>Sobre Nós</h2>
+				<p>Um pouco da nossa história</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<p>Idealizado pelo nosso querido avô Guerrino Bugnola, ao longo dos anos sua receita feita com muito carinho e dedicação, uniu amigo, família, proporcionou novas amizades. A sua massa especial e o gostinho único do salgado, misturado com seu carisma levou a uma receita especial, após 2° geração que manteve o padrão e a ideologia, resolvemos entrar para história apresentando ao mundo os sabores maravilhosos de nossos salgados feitos com a massa de mandioca. A tecnologia vai a nosso favor para expandir e mostrar ao mundo a nossa receita. Nós da 3° geração vamos manter vivo a chama acessa que um dia foi a inspiração em acender o gostinho de quero mais e apresenta-la a vocês! uma experiência nova, mantendo o tradicional amor pelos encontros de amigos, famílias e aquela qualidade indiscutível </p>
+			</div>
+		</div>
+	  </div>		
     </section>
 
     <div class="cta-1 bg-dark padding-top-bottom text-center white-text">
-			<div class="container-fluid anima scale-in">
-				<span>​Você quer experimentar nossos salgadinhos? </span>
-				<a class="btn" href="#" data-toggle="modal" data-target="#product-modal">Nos encontre</a>
-			</div>
-		</div>	
+		<div class="container-fluid anima scale-in">
+			<span>​Você quer experimentar nossos salgadinhos? </span>
+			<!--<a class="btn" href="#map" data-toggle="modal" data-target="#product-modal">Nos encontre</a>-->
+			<a class="btn" href="#map">Nos encontre</a>
+		</div>
+	</div>	
     
     <!-- vertical center / slider -->
-		<section id="showcase" class="">
+	<section id="showcase" class="">
       <div class="container-fluid">
         <div class="row" >
  					<div class="col-sm-6 slider">
@@ -112,7 +111,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="half-box-right">
                 <div class="center-vertical">
                   <div class="center-vertical-box">
-                    <h1><b>Veja a variedade de nossos salgadinhos</b></h1>	
+                    <h2><b>Veja a variedade de nossos salgadinhos</b></h2>
                     <ul style="padding: 20px;">
                       <li>Bolinho de Carne (Mandioca)</li>
                       <li>Enroladinho c/ Presunto e Queiro (Mandioca)</li>
@@ -138,6 +137,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 
+	<section id="map" class="padding-top-bottom text-center">
+      <div class="container">
+        <div class="row header">
+			<div class="col-md-12">
+				<h2>Veja onde nos encontrar</h2>
+			</div>
+		</div>
+		<div class="row">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.313219427858!2d-47.81120172152708!3d-21.17971280459773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b9befac336a66f%3A0xd095a999cabd2548!2sR.+Prudente+de+Morais%2C+532+-+Centro%2C+Ribeir%C3%A3o+Preto+-+SP!5e0!3m2!1spt-BR!2sbr!4v1519604128668" class="col-md-12" frameborder="0" style="border:0" allowfullscreen></iframe>
+		</div>
+	  </div>		
+    </section>
+
     <div class="footer-1 text-center">
     <div class="container-fluid">
         <a href="#home" class="back-to-top smooth-scroll"><i class="fa fa-chevron-up"></i></a>
@@ -153,7 +165,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             E-mail <a class="text-light" href="mailto:matheus.gnu@gmail.com">contato@<b>mister</b>salgadinho.com.br</a><br> 
 
             <img class="icon mr-2" src="<?php echo base_url("assets/ico/social/location-pin_light.svg"); ?>" alt="Localização">
-            R. Amador Bueno 1372<br>
+            R. Prudente de Morais, 532 - Centro, Ribeirão Preto - SP<br>
 
             <img class="icon mr-2" src="<?php echo base_url("assets/ico/social/phone.svg"); ?>" alt="Celular">
             Matheus (16) 99183-8523<br>
@@ -225,31 +237,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		                <a class="close-modal" href="#" data-dismiss="modal">
 		                    <span class="menu-icon"></span>
 		                </a>
-		                <h2 class=""><b>License</b></h2>
+		                <h2 class=""><b>Boletim Mister Salgadinho</b></h2>
 		            </div>
 		            <div class="modal-body">
-		                <p>In order to simplify the legal terms, here are the rules of the game written in plain English, that you are obliged to follow when using the digital goods at 1E-shop.</p>
-		                <p>
-		                    <br><strong>You are free to…</strong>
-		                </p>
-		                <ul>
-		                    <li>Use the digital goods in a website for yourself or a client for personal, open-source or commercial use.</li>
-		                    <li>Use the digital goods to create an icon for your app or button icons.</li>
-		                    <li>Use the digital goods to create a logo or other brand material.</li>
-		                </ul>
-		                <p>
-		                    <br><strong>You are forbidden to…</strong>
-		                </p>
-		                <ul>
-		                    <li>Re-sell the digital goods, host the digital goods or rent the digital goods (either in existing or modiﬁed form).</li>
-		                    <li>Include the digital goods with a website offered for sale or distributed for free.</li>
-		                    <li>Convert the digital goods to a theme to sell or distribute for free.</li>
-		                </ul>
-		                <br>
-		                <p>While attribution is optional, it is always appreciated. Intellectual property rights are not transferred with the download of the icons.</p>
-		                <p>Should you happen to lost the purchased good, let me know the email you've used upon your purchase, and I will provide you with the new files.</p>
+		                <strong>Sempre enviaremos noticias com informações e promoções.</strong>
+		                <br/>
+		                <br/>
+						<?php echo form_open('Welcome/newsletter', array('id' => 'formCliente', 'class' => 'myformPedido')); ?>
+			                <div class="form-group">
+			                  <input type="hidden" name="id_cliente">
+			                  <label for="InputNome">E-mail</label>
+			                  <input type="text" name="email" class="form-control form-control-lg" id="InputEmail" placeholder="Email">
+			                </div>
+			                <button type="submit" class="btn">Enviar</button>
+		                <?php echo form_close(); ?>
 		            </div>
-
 		        </div>
 		    </div>
 		</div>

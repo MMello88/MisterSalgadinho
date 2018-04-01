@@ -152,40 +152,41 @@ class Carts extends CI_Controller {
 			$situcao_cart = $this->listacarts->getCartSituacao($id_session);
 			$hora_entrega = $_POST['hora_entrega'];
 			$forma_pgto = $_POST['forma_pgto'];
-      $data_entrega = $_POST['data_entrega'];
+      		$data_entrega = $_POST['data_entrega'];
 			$id_cidade = $_POST['id_cidade'];
-      $email = $_POST['email'];
+      		$email = $_POST['email'];
 
 			if ($situcao_cart->situacao == 'a'){
 				$festa = (!empty($_POST['festa']) && $_POST['festa'] == 'on') ? 's' : 'n';
 
 				$this->load->model('ModeloList/listaclientes');
-        $cli = $this->listaclientes->getByEmail($this->input->post('email'));
-        if (empty($cli)){
-          $this->load->model('Modelo/cliente');
-          $id_cliente = $this->cliente->insert();
-          $nome = $this->session->userdata('nome_cliente');
-        } else {
-          $id_cliente = $cli->id_cliente;
-          $nome = $cli->nome;
-        }
+		        $cli = $this->listaclientes->getByEmail($this->input->post('email'));
+		        if (empty($cli)){
+		          $this->load->model('Modelo/cliente');
+		          $id_cliente = $this->cliente->insert();
+		          $nome = $this->session->userdata('nome_cliente');
+		        } else {
+		          $id_cliente = $cli->id_cliente;
+		          $nome = $cli->nome;
+		        }
 
-        $this->load->model('Modelo/cart');
-        $id_pedido = $this->cart->insertCartToPedido($id_cliente, $id_session, $festa, $hora_entrega, $forma_pgto, $data_entrega, $id_cidade);
-        if ($festa == "s") {
-          $this->load->model('Modelo/evento');
-          $this->evento->id_pedido = $id_pedido;
-          $this->evento->id_cliente = $id_cliente;
-          $this->evento->insert();
-        }
+		        $this->load->model('Modelo/cart');
+		        $id_pedido = $this->cart->insertCartToPedido($id_cliente, $id_session, $festa, $hora_entrega, $forma_pgto, $data_entrega, $id_cidade);
+		        if ($festa == "s") {
+		          $this->load->model('Modelo/evento');
+		          $this->evento->id_pedido = $id_pedido;
+		          $this->evento->id_cliente = $id_cliente;
+		          $this->evento->insert();
+		        }
 
 				$this->cart->updataSitucao($id_session);
 
 				$this->data['nome_cliente'] = $nome;
 				$this->data['mensagem'] = "Seu pedido foi recebido com sucesso!<br>Agradecemos a sua preferência. Em breve faremos a entrega do seu pedido.";
 				$this->load->view('fim_html', $this->data);
-        $this->enviarPedidoPorEmail();
-        $this->enviarEmailCliente($nome, $email);
+	        	$this->enviarPedidoPorEmail();
+	        	$this->enviarEmailCliente($nome, $email);
+	        	
 			} else {
 				$this->data['nome_cliente'] = "";
 				$this->data['mensagem'] = "Pedido esta finalizado!";

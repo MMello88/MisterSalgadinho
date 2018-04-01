@@ -1,4 +1,9 @@
-
+@media (min-width: 576px){}
+	.modal-dialog {
+	    max-width: 500px;
+	    margin: 200px auto;
+	}
+}
 img.icon{
   width: 26px;
 }

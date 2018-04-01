@@ -15,6 +15,13 @@ class Listanewsletters extends Control {
             $this->set_log_error_db();
         return $query->custom_row_object(0, 'newsletter');
     }
+
+    public function getByEmail($email) {
+        $query = $this->_instance->db->get_where('newsletter', array('email' => $email));
+        if (empty($query))
+            $this->set_log_error_db();
+        return $query->custom_row_object(0, 'newsletter');
+    }
  
     public function get_all(){
         $query = $this->_instance->db->get('newsletter');
