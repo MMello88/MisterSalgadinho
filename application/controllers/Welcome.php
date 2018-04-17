@@ -28,4 +28,11 @@ class Welcome extends CI_Controller {
 			redirect();			
 		}
 	}
+
+	public function index2(){
+		$this->data['link_cidade'] = !$this->session->userdata('link_cidade') ? '' : $this->session->userdata('link_cidade');
+			$this->load->view('includes/header_navbar_fixed_top');
+			$this->load->view('index_promocional_html', $this->data);
+			$this->load->view('includes/footer_main');
+	}
 }
