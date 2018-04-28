@@ -2,6 +2,7 @@
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  
 require_once(APPPATH."models/Modelo/Produto.php");
+require_once(APPPATH."models/Modelo/ProdutoCategValor.php");
  
 class Listaprodutos extends Control {
 
@@ -26,5 +27,25 @@ class Listaprodutos extends Control {
     public function getProdutoByCategoria_produto($id_categoria_produto = '') {
         $query = $this->_instance->db->get_where('produto', array('id_categoria_produto' => $id_categoria_produto));
         return $query->custom_result_object('produto');
+    }
+
+    public function getAllProdutoCategValor(){
+        $query = $this->_instance->db->query(
+            "SELECT p.id_produto, 
+                   p.nome, 
+                   p.id_categoria_produto, 
+                   p.situacao, 
+                   p.imagem, 
+                   cp.cssClass, 
+                   vp.preco
+              FROM tbl_produto p
+              LEFT JOIN tbl_categoria_produto cp ON (p.id_categoria_produto = cp.id_categoria_produto)
+              LEFT JOIN tbl_valor_produto vp ON (p.id_produto = vp.id_produto)
+             WHERE vp.data_atualizacao = (SELECT MAX(tbl_valor_produto.data_atualizacao)
+                            FROM tbl_valor_produto
+                               WHERE tbl_valor_produto.id_produto = p.id_produto)
+               AND p.situacao = 'a'"
+        );
+        return $query->custom_result_object('produtocategvalor');
     }
 }

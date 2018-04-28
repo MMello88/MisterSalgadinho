@@ -91,10 +91,47 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>	
+    <script src="<?php echo base_url("assets/js/owl.carousel.min.js"); ?>"></script>
+    <script src="<?php echo base_url("assets/js/isotope.pkgd.min.js"); ?>"></script>
+
 	<!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="<?php echo base_url("assets/js/bootstrap.min.js"); ?>"></script>
+    <script src="<?php echo base_url("assets/js/main.js"); ?>"></script>
     
+    <script type="text/javascript">
+        $(document).on('click','#btn-menos', function(){
+            var id = $(this).data('whatever');
+            var InputValue = getValueInputQtd(id);
+            if (InputValue > 1){
+                InputValue = InputValue - 1;
+                setValueInputQtd(id, InputValue);
+                setValueInputValor(id, InputValue);
+            }
+        });
+
+        $(document).on('click','#btn-mais', function(){
+            var id = $(this).data('whatever');
+            var InputValue = getValueInputQtd(id);
+            InputValue = Number(InputValue) + 1;
+            setValueInputQtd(id, InputValue);
+            setValueInputValor(id, InputValue);
+        });
+
+        function getValueInputQtd(id){
+            return $('#qnt-' + id).val();
+        }
+        
+        function setValueInputQtd(id, value) {
+            $('#qnt-' + id).val(value);
+        }
+
+        function setValueInputValor(id, qnt) {
+            var valor = $('#valor-' + id).val();
+            valor = Number(valor) * qnt;
+            $('#total-' + id).text('R$ ' + valor.toFixed(2));
+        }
+    </script>
   </body>
 </html>

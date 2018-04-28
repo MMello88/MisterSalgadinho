@@ -17,7 +17,7 @@ class Listacategoriasproduto extends Control {
     }
  
     public function get_all(){
-        $query = $this->_instance->db->get('categoria_produto');
+        $query = $this->_instance->db->get_where('categoria_produto', array('situacao' => 'a'));
         if (empty($query))
             $this->set_log_error_db();
         return $query->custom_result_object('categoria_produto');

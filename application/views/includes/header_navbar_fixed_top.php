@@ -16,6 +16,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   	<link href="<?php echo base_url("assets/css/open-iconic.css"); ?>" rel="stylesheet">
   	<link href="<?php echo base_url("assets/css/docs.min.css"); ?>" rel="stylesheet">
   	<link href="<?php echo base_url("assets/css/custom.header_fixed_top.css"); ?>" rel="stylesheet">
+  	<link href="<?php echo base_url("assets/css/custom.promocional.index.css"); ?>" rel="stylesheet">
+    <link href="<?php echo base_url("assets/css/custom.style.folio.css"); ?>" rel="stylesheet">
+
     <!-- Icons -->
     <link rel="shortcut icon" href="<?php echo base_url("assets/template/img/ico/32.png"); ?>" type="image/png">
     <link rel="apple-touch-icon" sizes="32x32" href="<?php echo base_url("assets/template/img/ico/60.png"); ?>" type="image/png">
