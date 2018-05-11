@@ -57,7 +57,7 @@ a:hover, a:focus {
   border: medium none;
   border-radius: 0;
   color: #fff;
-  font-size: 16px;
+  font-size: 20px;
   height: 35px;
   line-height: 25px;
   padding: 0 12.5px;
@@ -151,7 +151,7 @@ a:hover, a:focus {
   margin: 0 40px 0 0;
   float: left;
   font-size: 14px;
-  color: #999999;
+  color: #402C19;
   line-height: 16px;
   cursor: pointer;
   font-family: 'Poppins', helvetica;
@@ -166,7 +166,7 @@ a:hover, a:focus {
 }
 
 #portfolio .portfolio-list .nav li:hover, #portfolio .portfolio-list .nav li.filter-active  {
-  color: #b8a07e;
+  color: #CAA202;
   -moz-transition: all 0.5s ease-in-out 0s;
   -ms-transition: all 0.5s ease-in-out 0s;
   -o-transition: all 0.5s ease-in-out 0s;

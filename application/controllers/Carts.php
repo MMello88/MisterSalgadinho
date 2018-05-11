@@ -6,12 +6,12 @@ class Carts extends CI_Controller {
     public function index()
     {
         $this->load->model('ModeloList/listacidades');
-				$this->data['link_cidade'] = !$this->session->userdata('link_cidade') ? '' : $this->session->userdata('link_cidade');
+		$this->data['link_cidade'] = !$this->session->userdata('link_cidade') ? '' : $this->session->userdata('link_cidade');
         $this->data['title'] = 'Pedido';
         $this->data["view_pedido_produtos"] = $this->getCartBySession($this->session->userdata('id_session'));
         $this->data['combobox_cidade'] = $this->getComboCidadeEntrega();
-				$this->data["combobox_horario"] = $this->getComboHorario();
-				$this->data["forma_pagto"] = $this->getFormPagto();
+		$this->data["combobox_horario"] = $this->getComboHorario();
+		$this->data["forma_pagto"] = $this->getFormPagto();
         $this->load->view('cart_html', $this->data);
     }
 
@@ -270,7 +270,7 @@ class Carts extends CI_Controller {
     <b>Agradecemos pela preferência.</b> Seu pedido foi recebido com <b>sucesso.</b> <br>
     Em breve este <b>delicioso salgadinho</b> será produzido e entrege no <b>local, data e hora</b> que nos informado.<br>
     </p>
-    <img src=\"{$link}assets/template/img/boneco_2.png\">
+    <img src=\"{$link}assets/img/boneco_2.png\">
     <br/>
     <p><smal>**Por favor, não responder para este e-mail</smal></p>
   </body>

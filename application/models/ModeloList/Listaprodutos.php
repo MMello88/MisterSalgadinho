@@ -29,7 +29,7 @@ class Listaprodutos extends Control {
         return $query->custom_result_object('produto');
     }
 
-    public function getAllProdutoCategValor(){
+    public function getAllProdutoCategValor($ativo = 'a'){
         $query = $this->_instance->db->query(
             "SELECT p.id_produto, 
                    p.nome, 
@@ -44,7 +44,8 @@ class Listaprodutos extends Control {
              WHERE vp.data_atualizacao = (SELECT MAX(tbl_valor_produto.data_atualizacao)
                             FROM tbl_valor_produto
                                WHERE tbl_valor_produto.id_produto = p.id_produto)
-               AND p.situacao = 'a'"
+               AND p.situacao = '{$ativo}'
+               AND cp.situacao = '{$ativo}'"
         );
         return $query->custom_result_object('produtocategvalor');
     }

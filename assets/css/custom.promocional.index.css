@@ -12,3 +12,11 @@
 @media (min-width: 768px) {
   .h-md-250 { height: 250px; }
 }
+
+.closeX {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+.modal-title{
+	color:  #F9C801;
+}

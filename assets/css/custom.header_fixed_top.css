@@ -1,12 +1,37 @@
+@font-face {
+  font-family: 'GeosansLight';
+  src: url('../fonts/GeosansLight.woff') format('woff'), 
+       url('../fonts/GeosansLight.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body{
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'GeosansLight','Source Sans Pro', sans-serif;
 	font-weight: 400;
 	color: #202020;
 	font-size: 16px;
 	background-color: #F3F3F4;
 	padding-top: 3rem;
 }
-
+h1, h2, h3, h4, h5, h6{
+	color:  #402C19;
+}
+.bg-mister-marrom{
+	background-color:  #402C19;
+}
+.bg-mister-amarelo{
+	background-color:  #F9C801;
+}
+.bg-mister-mostarda{
+	background-color:  #CAA202;
+}
+.navbar-light .navbar-brand{
+	color:  #F9C801;	
+}
+.navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
+    color: #CAA202;
+}
 .bd-example{
 	position:relative;
 	padding:1rem;
@@ -29,23 +54,44 @@ body{
 	}
 }
 
+img.alo-icon{
+  width: 70px;
+}
+/*===============================
+=            Alô             =
+===============================*/
+.alo p{
+	margin: 0px;
+}
+ svg {
+  display: block;
+  float: left;
+  width: 22px;
+  height: 88px;
+  fill: none;
+  stroke: #402C19;
+  stroke-width: 1;
+  margin: 0 10px 0 5px;
+}
+@media only screen and (max-width: 1023px) {
+ svg {
+    display: none;
+  }
+}
 img.icon{
   width: 26px;
-}
-
-.footer{
-	background-color: #1d2023;
-    padding: 80px 0 70px 0;
-    color: #b6b6b6;
-    overflow: visible;
 }
 /*===============================
 =            Footer             =
 ===============================*/
+.footer{
+    padding: 80px 0 70px 0;
+    color: #b6b6b6;
+    overflow: visible;
+}
 .list-group-item{
 	padding: 0.25rem 1.5rem;
 	border:0px;
-	background-color: #1d2023;
 }
 .list-group a{
 	font-size: smaller;

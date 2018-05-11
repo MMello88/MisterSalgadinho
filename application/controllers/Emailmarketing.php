@@ -29,7 +29,7 @@ class Emailmarketing extends CI_Controller {
           <b>Agradecemos pela preferência.</b> Seu pedido foi recebido com <b>sucesso.</b> <br>
           Em breve este <b>delicioso salgadinho</b> será produzido e entrege no <b>local, data e hora</b> nos informado.<br>
           </p>
-          <img src=\"{$link}assets/template/img/boneco_2.png\">
+          <img src=\"{$link}assets/img/boneco_2.png\">
         </body>
       </html>";
 

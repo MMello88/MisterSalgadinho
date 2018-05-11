@@ -1,3 +1,20 @@
+@font-face {
+  font-family: 'GeosansLight';
+  src: url('../fonts/GeosansLight.woff') format('woff'), 
+       url('../fonts/GeosansLight.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body{
+	font-family: 'GeosansLight','Source Sans Pro', sans-serif;
+	font-weight: 400;
+	color: #202020;
+	font-size: 16px;
+	position: relative;
+	right: 0;
+}
+
 @media (min-width: 576px){}
 	.modal-dialog {
 	    max-width: 500px;

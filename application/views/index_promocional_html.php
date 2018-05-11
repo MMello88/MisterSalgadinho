@@ -61,166 +61,34 @@
           </div>
           <div class="portfolio-container">
             <?php foreach ($Produtos as $Produto) : ?>
-            <div class="col-lg-4 col-md-6 portfolio-thumbnail all <?= $Produto->cssClass ?>">
-              <div class="hovereffect">
-                  <img class="img-responsive" src="<?php echo base_url("assets/img/$Produto->imagem"); ?>" alt="">
-                  <div class="overlay">
-                    <h6 class="text-dark text-left"><?= $Produto->nome ?></h6>
-                    <h4 class="text-danger text-left">R$<?= $Produto->preco ?></h4>
-
-
-                    <div class="input-group m-auto pt-5 pb-2 fade-out">
-                      <div class="input-group-prepend">
-                        <button class="btn" type="button" id="btn-menos" data-whatever="<?= $Produto->id_produto ?>">-</button>
+            <form method='post' action='' id='formCart'>
+              <div class="col-lg-4 col-md-6 portfolio-thumbnail all <?= $Produto->cssClass ?>">
+                <div class="hovereffect">
+                    <img class="img-responsive" src="<?php echo base_url("assets/img/$Produto->imagem"); ?>" alt="">
+                    <div class="overlay">
+                      <h6 class="text-dark text-left"><?= $Produto->nome ?></h6>
+                      <h4 class="text-danger text-left">R$<?= $Produto->preco ?></h4>
+                      <input type='hidden' name='id_produto' value='<?= $Produto->id_produto ?>'>
+                      <input type='hidden' name='id_session' value='<?= $id_session ?>'>
+                      <input type='hidden' name='situacao'   value='a'>
+                      <input type="hidden" name='valor_unitario' value="<?= $Produto->preco ?>" id="valor-<?= $Produto->id_produto ?>">
+                      <div class="input-group m-auto pt-5 pb-2 fade-out">
+                        <div class="input-group-prepend">
+                          <button class="btn" type="button" id="btn-menos" data-whatever="<?= $Produto->id_produto ?>">-</button>
+                        </div>
+                        <input type="number" min='0' name='qtde' id="qnt-<?= $Produto->id_produto ?>" class="form-control text-center bg-white" value="1" readonly required>
+                        <div class="input-group-append">
+                          <button class="btn" type="button" id="btn-mais" data-whatever="<?= $Produto->id_produto ?>">+</button>
+                        </div>
                       </div>
-                      <input type="text" id="qnt-<?= $Produto->id_produto ?>" class="form-control text-center bg-white" value="1" readonly>
-                      <input type="hidden" id="valor-<?= $Produto->id_produto ?>" value="<?= $Produto->preco ?>">
-                      <div class="input-group-append">
-                        <button class="btn" type="button" id="btn-mais" data-whatever="<?= $Produto->id_produto ?>">+</button>
-                      </div>
+                      <button class="btn fade-out"
+                      <?php if ($cidade === null) { echo " type=\"button\" data-toggle=\"modal\" data-target=\"#exampleModalCenter\""; } else { echo "type=\"submit\""; } ?> >Adicionar ao Carrinho</button>
+                      <p class="total">Total: <strong id="total-<?= $Produto->id_produto ?>">R$ <?= $Produto->preco ?></strong></p>
                     </div>
-                    
-                    <button class="btn fade-out" type="button">Adicionar ao Carrinho</button>
-                    
-                    <p class="total">Total: <strong id="total-<?= $Produto->id_produto ?>">R$ <?= $Produto->preco ?></strong></p>
-
-                  </div>
+                </div>
               </div>
-            </div>
+            </form>
             <?php endforeach; ?>
-            
- <?php /*
-            <div class="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits photography">
-              <div class="hovereffect">
-                  <img class="img-responsive" src="<?php echo base_url("assets/img/mini_cro.png"); ?>" alt="">
-                  <div class="overlay">
-                    <h6 class="text-dark text-left">Espetacular Croquete</h6>
-                    <h4 class="text-danger text-left">R$3.00</h4>
-
-
-                    <div class="input-group m-auto pt-5 pb-2 fade-out">
-                      <div class="input-group-prepend">
-                        <button class="btn" type="button">-</button>
-                      </div>
-                      <input type="text" class="form-control text-center bg-white" value="1" readonly>
-                      <div class="input-group-append">
-                        <button class="btn" type="button">+</button>
-                      </div>
-                    </div>
-                    
-                    <button class="btn fade-out" type="button">Adicionar ao Carrinho</button>
-                    
-                    <p class="total"><small>Total: </small><strong>R$ 3.00</strong></p>
-
-                  </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-thumbnail all branding webdesig photographyn">
-              <div class="hovereffect">
-                  <img class="img-responsive" src="<?php echo base_url("assets/img/mini_enr.png"); ?>" alt="">
-                  <div class="overlay">
-                    <h6 class="text-dark text-left">Magnifico Enroladinho</h6>
-                    <h4 class="text-danger text-left">R$3.00</h4>
-
-
-                    <div class="input-group m-auto pt-5 pb-2 fade-out">
-                      <div class="input-group-prepend">
-                        <button class="btn" type="button">-</button>
-                      </div>
-                      <input type="text" class="form-control text-center bg-white" value="1" readonly>
-                      <div class="input-group-append">
-                        <button class="btn" type="button">+</button>
-                      </div>
-                    </div>
-                    
-                    <button class="btn fade-out" type="button">Adicionar ao Carrinho</button>
-                    
-                    <p class="total"><small>Total: </small><strong>R$ 3.00</strong></p>
-
-                  </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-thumbnail all mockups webdesign photography">
-              <div class="hovereffect">
-                  <img class="img-responsive" src="<?php echo base_url("assets/img/mini_kib.png"); ?>" alt="">
-                  <div class="overlay">
-                    <h6 class="text-dark text-left">Robusto Kibe</h6>
-                    <h4 class="text-danger text-left">R$3.00</h4>
-
-
-                    <div class="input-group m-auto pt-5 pb-2 fade-out">
-                      <div class="input-group-prepend">
-                        <button class="btn" type="button">-</button>
-                      </div>
-                      <input type="text" class="form-control text-center bg-white" value="1" readonly>
-                      <div class="input-group-append">
-                        <button class="btn" type="button">+</button>
-                      </div>
-                    </div>
-                    
-                    <button class="btn fade-out" type="button">Adicionar ao Carrinho</button>
-                    
-                    <p class="total"><small>Total: </small><strong>R$ 3.00</strong></p>
-
-                  </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-thumbnail all branding uikits photography">
-              <div class="hovereffect">
-                  <img class="img-responsive" src="<?php echo base_url("assets/img/mini_sal.png"); ?>" alt="">
-                  <div class="overlay">
-                    <h6 class="text-dark text-left">Senhora Salsicha</h6>
-                    <h4 class="text-danger text-left">R$3.00</h4>
-
-
-                    <div class="input-group m-auto pt-5 pb-2 fade-out">
-                      <div class="input-group-prepend">
-                        <button class="btn" type="button">-</button>
-                      </div>
-                      <input type="text" class="form-control text-center bg-white" value="1" readonly>
-                      <div class="input-group-append">
-                        <button class="btn" type="button">+</button>
-                      </div>
-                    </div>
-                    
-                    <button class="btn fade-out" type="button">Adicionar ao Carrinho</button>
-                    
-                    <p class="total"><small>Total: </small><strong>R$ 3.00</strong></p>
-
-                  </div>
-              </div>
-            </div>
-
-
-            <div class="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits webdesign">
-              <div class="hovereffect">
-                  <img class="img-responsive" src="<?php echo base_url("assets/img/mini_bol_sem.png"); ?>" alt="">
-                  <div class="overlay">
-                    <h6 class="text-dark text-left">El Bolinho de Carne</h6>
-                    <h4 class="text-danger text-left">R$3.00</h4>
-
-
-                    <div class="input-group m-auto pt-5 pb-2 fade-out">
-                      <div class="input-group-prepend">
-                        <button class="btn" type="button">-</button>
-                      </div>
-                      <input type="text" class="form-control text-center bg-white" value="1" readonly>
-                      <div class="input-group-append">
-                        <button class="btn" type="button">+</button>
-                      </div>
-                    </div>
-                    
-                    <button class="btn fade-out" type="button">Adicionar ao Carrinho</button>
-                    
-                    <p class="total"><small>Total: </small><strong>R$ 3.00</strong></p>
-
-                  </div>
-              </div>
-            </div>
- */ ?>
           </div>
         </div>
       </div>
@@ -228,3 +96,46 @@
 
   </div>
   <!-- End section portfolio -->
+
+
+<!-- Modal da Cidade -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-mister-marrom">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span class="closeX" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <?= form_open('Vitrine/SelecionarCidade', array('id' => 'formCidade', 'class' => '')); ?>
+          <div class="modal-body">
+            <div class="col pb-3">
+                <div class="mx-auto" style="width: 70px;">
+                    <img class="alo-icon" src="<?= base_url("assets/img/bonequinho-120.png"); ?>" alt="Mister">
+                </div>
+            </div>
+            
+            <div class="col">
+                <h3 class="text-center">Vamos encontrar o Mister mais perto de você?</h3>
+                <h5 class="text-center">Escolhe a sua Cidade:</h5>
+                <div class="form-group">
+                    <select name="id_cidade" class="form-control form-control-lg" id="InputHoraEntrega" required>
+                        <option disabled selected>Selecione a Cidade:</option>
+                        <?php if ($Cidades !== null) : ?>
+                            <?php foreach ($Cidades as $key => $city) : ?>
+                            <option value="<?= $city->id_cidade; ?>"><?= $city->nome; ?></option>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </select>
+                </div>
+            </div>
+          </div>
+          <div class="modal-footer bg-mister-mostarda">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="submit" class="btn btn-primary">Selecionar</button>
+          </div>
+      <?= form_close(); ?>
+    </div>
+  </div>
+</div>

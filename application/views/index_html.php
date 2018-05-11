@@ -16,11 +16,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="<?php echo base_url("assets/template/css/style-yellow.css"); ?>">
     <link href="<?php echo base_url("assets/css/open-iconic.css"); ?>" rel="stylesheet">
     <link href="<?php echo base_url("assets/css/custom.main.css"); ?>" rel="stylesheet">
-    <link rel="shortcut icon" href="<?php echo base_url("assets/template/img/ico/32.png"); ?>" type="image/png">
-    <link rel="apple-touch-icon" sizes="32x32" href="<?php echo base_url("assets/template/img/ico/60.png"); ?>" type="image/png">
-    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo base_url("assets/template/img/ico/72.png"); ?>" type="image/png">
-    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo base_url("assets/template/img/ico/120.png"); ?>" type="image/png">
-    <link rel="apple-touch-icon" sizes="152x152" href="<?php echo base_url("assets/template/img/ico/152.png"); ?>" type="image/png">
+    <link rel="shortcut icon" href="<?php echo base_url("assets/ico/32.png"); ?>" type="image/png">
+    <link rel="apple-touch-icon" sizes="32x32" href="<?php echo base_url("assets/ico/60.png"); ?>" type="image/png">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo base_url("assets/ico/72.png"); ?>" type="image/png">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo base_url("assets/ico/120.png"); ?>" type="image/png">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?php echo base_url("assets/ico/152.png"); ?>" type="image/png">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-18838216-4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-18838216-4');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118826942-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-118826942-1');
+    </script>
+
     <script type="text/javascript" src="<?php echo base_url("assets/template/js/modernizr.min.js"); ?>"></script>
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -97,14 +115,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row" >
  					<div class="col-sm-6 slider">
             <div id="as-slider" class="owl-carousel" data-autoplay="4000" data-navigation="false" data-dots="true" data-transition="">
-              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/cup1.jpg"); ?>)"></div>
-              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/cup2.jpg"); ?>)"></div>
-              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/cup3.jpg"); ?>)"></div>
-              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/cup4.jpg"); ?>)"></div>
-              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/cup5.jpg"); ?>)"></div>
-              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/cup6.jpg"); ?>)"></div>
-              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/cup7.jpg"); ?>)"></div>
-              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/template/img/sexta.jpg"); ?>)"></div>
+              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/img/cup1.jpg"); ?>)"></div>
+              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/img/cup2.jpg"); ?>)"></div>
+              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/img/cup3.jpg"); ?>)"></div>
+              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/img/cup4.jpg"); ?>)"></div>
+              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/img/cup5.jpg"); ?>)"></div>
+              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/img/cup6.jpg"); ?>)"></div>
+              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/img/cup7.jpg"); ?>)"></div>
+              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/img/sexta.jpg"); ?>)"></div>
             </div>
           </div> 
           <div class="col-sm-6 bg-shop" style="height:500px;">
@@ -263,7 +281,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		                <a class="close-modal" href="#" data-dismiss="modal">
 		                    <span class="menu-icon"></span>
 		                </a>
-		                <img src="<?php echo base_url("assets/template/img/cup1.jpg"); ?>" alt="" class="img-responsive">
+		                <img src="<?php echo base_url("assets/img/cup1.jpg"); ?>" alt="" class="img-responsive">
 		            </div>
 		            <div class="modal-body">
 		                <h3 class="text-center"><b>PaperCup - Mockup </b>($5,00)</h3>
