@@ -26,6 +26,9 @@ h1, h2, h3, h4, h5, h6{
 .bg-mister-mostarda{
 	background-color:  #CAA202;
 }
+.color-marrom{
+	color: #402C19;
+}
 .navbar-light .navbar-brand{
 	color:  #F9C801;	
 }

@@ -19,6 +19,11 @@ class Carts extends CI_Controller {
         $this->load->model('Modelo/cart');
         $this->cart->insert();
     }
+
+    public function alterar(){
+        $this->load->model('Modelo/cart');
+        $this->cart->update();
+    }
 		
 	public function getComboHorario(){
 		$this->load->model('ModeloList/listatipo');

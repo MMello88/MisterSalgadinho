@@ -28,7 +28,9 @@ class Cart extends MY_Model {
     }
 
     public function update() {
-        $this->db->update('cart', $this, array('id_cart' => $this->id_cart));
+        $this->db->set('qtde', $this->qtde);
+        $this->db->where('id_cart', $this->id_cart);
+        $this->db->update('cart');
         if ($this->db->error()['code'] > 0)
           $this->set_log_error_db();
         $this->set_response_db('Alteração concluída com sucesso');
@@ -43,6 +45,16 @@ class Cart extends MY_Model {
 
     public function deleteByProduto($id_session, $id_produto) {
         $this->db->delete('cart', array('id_session' => $id_session, 'id_produto' => $id_produto));
+        if ($this->db->error()['code'] > 0) {
+          $this->set_log_error_db();
+          return false;
+        }
+        return true;
+    }
+
+    public function deleteCartBySession($id_session)
+    {
+      $this->db->delete('cart', array('id_session' => $id_session));
         if ($this->db->error()['code'] > 0) {
           $this->set_log_error_db();
           return false;

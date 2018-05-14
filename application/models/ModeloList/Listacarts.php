@@ -38,7 +38,7 @@ class Listacarts extends Control {
                "       situacao          " .
                "  from tbl_cart          " .
                " where id_session = ?    " .
-			   "   and situacao = 'a'    " .
+			         "   and situacao = 'a'    " .
                " group by id_session,    " .
                "     id_produto,     " .
                "     valor_unitario, " .

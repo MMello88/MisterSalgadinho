@@ -86,6 +86,10 @@ a:hover, a:focus {
   width: 70%;
 }
 
+.max-width {
+  width: 100%;
+}
+
 .form-control {
   background-color: transparent;
   border: 1px solid #999;
