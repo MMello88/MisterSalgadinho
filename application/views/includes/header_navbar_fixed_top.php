@@ -10,9 +10,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Shop - Mister Salgadinho</title>
     <!-- Bootstrap -->
-  	<link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>">
-  	<link href="<?php echo base_url("assets/css/open-iconic.css"); ?>" rel="stylesheet">
-  	<link href="<?php echo base_url("assets/css/docs.min.css"); ?>" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   	<link href="<?php echo base_url("assets/css/custom.header_fixed_top.css"); ?>" rel="stylesheet">
   	<link href="<?php echo base_url("assets/css/custom.promocional.index.css"); ?>" rel="stylesheet">
     <link href="<?php echo base_url("assets/css/custom.style.folio.css"); ?>" rel="stylesheet">
@@ -63,7 +61,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-warning btn-lg btn-block fade-out">Finalizar Pedido</button>
+          <a href="<?= base_url("cliente/registrar") ?>" class="btn btn-warning btn-lg btn-block py-2" role="button"><span>Finalizar Pedido</span></a>
         </div>
       </div>
     </div>

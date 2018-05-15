@@ -12,6 +12,7 @@ class Cliente extends MY_Controller {
 	}
 
 	public function registrar(){
+		$this->data['Pedidos'] = $this->getCartBySession();
 		$this->load->view('includes/header_navbar_fixed_top', $this->data);
 		$this->load->view('cliente/registrar', $this->data);
 		$this->load->view('includes/footer_main', $this->data);
@@ -28,4 +29,9 @@ class Cliente extends MY_Controller {
 	public function esqueceu(){
 
 	}
+
+	private function getCartBySession() {
+		$this->load->model('ModeloList/listacarts');
+        return $this->listacarts->getCartBySession($this->session->userdata('id_session'));
+    }
 }

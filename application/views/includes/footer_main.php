@@ -131,72 +131,72 @@
 
 <script type="text/javascript">
 $(window).load(function() {
-    getCountCart();
-    getListaCarrinho();
+  getCountCart();
+  getListaCarrinho();
 });
 
 $('#closeCidade').on('closed.bs.alert', function () {
-    var url = "<?= base_url('Vitrine/RetiraCidade'); ?>"
-    var posting = $.post( url, { remove: 'true' } );
-    posting.done(function( data ) {
-        if (data == 'Sucesso'){
-            window.location.href = "<?= base_url('Vitrine'); ?>";
-        }
-     });
+  var url = "<?= base_url('Vitrine/RetiraCidade'); ?>"
+  var posting = $.post( url, { remove: 'true' } );
+  posting.done(function( data ) {
+      if (data == 'Sucesso'){
+          window.location.href = "<?= base_url('Vitrine'); ?>";
+      }
+   });
 });
 
 $(document).on('click','#btn-menos', function(){
-    var id = $(this).data('whatever');
-    var InputValue = getValueInputQtd(id);
-    if (InputValue > 1){
-        InputValue = InputValue - 1;
-        setValueInputQtd(id, InputValue);
-        setValueInputValor(id, InputValue);
-    }
+  var id = $(this).data('whatever');
+  var InputValue = getValueInputQtd(id);
+  if (InputValue > 1){
+      InputValue = InputValue - 1;
+      setValueInputQtd(id, InputValue);
+      setValueInputValor(id, InputValue);
+  }
 });
 
 $(document).on('click','#btn-mais', function(){
-    var id = $(this).data('whatever');
-    var InputValue = getValueInputQtd(id);
-    InputValue = Number(InputValue) + 1;
-    setValueInputQtd(id, InputValue);
-    setValueInputValor(id, InputValue);
+  var id = $(this).data('whatever');
+  var InputValue = getValueInputQtd(id);
+  InputValue = Number(InputValue) + 1;
+  setValueInputQtd(id, InputValue);
+  setValueInputValor(id, InputValue);
 });
 
 function getValueInputQtd(id){
-    return $('#qnt-' + id).val();
+  return $('#qnt-' + id).val();
 }
 
 function setValueInputQtd(id, value) {
-    $('#qnt-' + id).val(value);
+  $('#qnt-' + id).val(value);
 }
 
 function setValueInputValor(id, qnt) {
-    var valor = $('#valor-' + id).val();
-    valor = Number(valor) * qnt;
-    $('#total-' + id).text('R$ ' + valor.toFixed(2));
+  var valor = $('#valor-' + id).val();
+  valor = Number(valor) * qnt;
+  $('#total-' + id).text('R$ ' + valor.toFixed(2));
 }
 
 $(document).on('click','#btn-menos-submit', function(){
-    var id = $(this).data('whatever');
-    var InputValue = getValueInputQtdCart(id);
-    if (InputValue > 0){
-        InputValue = InputValue - 1;
-        setValueInputQtdCart(id, InputValue);
-        setValueInputValorCart(id, InputValue);
-        refreshValorTotal(id, 'menos');
-        postUpdateQtdProduto(id, InputValue);
-    }
+  var id = $(this).data('whatever');
+  var InputValue = getValueInputQtdCart(id);
+  if (InputValue > 0){
+      InputValue = InputValue - 1;
+      setValueInputQtdCart(id, InputValue);
+      setValueInputValorCart(id, InputValue);
+      refreshValorTotal(id, 'menos');
+      postUpdateQtdProduto(id, InputValue);
+  }
 });
 
 $(document).on('click','#btn-mais-submit', function(){
-    var id = $(this).data('whatever');
-    var InputValue = getValueInputQtdCart(id);
-    InputValue = Number(InputValue) + 1;
-    setValueInputQtdCart(id, InputValue);
-    setValueInputValorCart(id, InputValue);
-    refreshValorTotal(id, 'mais');
-    postUpdateQtdProduto(id, InputValue);
+  var id = $(this).data('whatever');
+  var InputValue = getValueInputQtdCart(id);
+  InputValue = Number(InputValue) + 1;
+  setValueInputQtdCart(id, InputValue);
+  setValueInputValorCart(id, InputValue);
+  refreshValorTotal(id, 'mais');
+  postUpdateQtdProduto(id, InputValue);
 });
 
 function refreshValorTotal(id, sinal){
@@ -221,6 +221,7 @@ function setValueInputValorCart(id, qnt) {
     var valor = $('#valor-cart-' + id).val();
     valor = Number(valor) * qnt;
     $('#subtotal-' + id).text('Sub Total: R$ ' + valor.toFixed(2));
+    $("input[name='valor_subtotal-" + id + "']").val(valor.toFixed(2));
 }
 
 function postUpdateQtdProduto(id, qnt){
@@ -229,23 +230,23 @@ function postUpdateQtdProduto(id, qnt){
 }
 
 function getCountCart(){
-    $.get("<?= base_url("index.php/Carts/countBySession"); ?>", function(data, status){
-        if (data == 0){
-            $("#btnSeuPedido").addClass("disabled");
-        }
-        $("#btnSeuPedido").removeAttr("style");
-        $('#count_cart').text(data);
-    });
+  $.get("<?= base_url("index.php/Carts/countBySession"); ?>", function(data, status){
+    if (data == 0){
+        $("#btnSeuPedido").addClass("disabled");
+    }
+    $("#btnSeuPedido").removeAttr("style");
+    $('#count_cart').text(data);
+  });
 }
 
 function getListaCarrinho(){
-    $.get("<?= base_url("index.php/Vitrine/getListaCarrinho"); ?>", function(data, status){
-        if (data !== ''){
-            $('#resultCarrinho').empty();
-            $('#resultCarrinho').append(data);
-            $('#CarrinhoVazio').addClass('disabled');
-        }
-    });
+  $.get("<?= base_url("index.php/Vitrine/getListaCarrinho"); ?>", function(data, status){
+    if (data !== ''){
+      $('#resultCarrinho').empty();
+      $('#resultCarrinho').append(data);
+      $('#CarrinhoVazio').addClass('disabled');
+    }
+  });
 }
 
 $('#ModalCarrinho').on('shown.bs.modal', function (e) {
@@ -277,8 +278,9 @@ $(document).on('submit','form#formCartDel', function(){
   var form = this;
   var idCart = $(form).find("input[name='id_cart']").val();
   var dados = $(form).serialize();
-  var valor_item = $(form).find("input[name='valor_subtotal']").val();
+  var valor_item = $(form).find("input[name='valor_subtotal-"+idCart+"']").val();
   var total = $("#valor_total").text().replace("Total Pedido: ","");
+  console.log(total + ":" + valor_item);
   total = Number(total) - Number(valor_item);
   event.preventDefault();
   $.ajax({

@@ -82,7 +82,7 @@ class Vitrine extends MY_Controller {
 							        	<form method='post' id='formCartDel'> 
 							        		<input type='hidden' name='id_cart' value='{$Cart->id_cart}'>
 								        	<input type='hidden' name='id_produto' value='{$Cart->id_produto[0]->id_produto}'> 
-								        	<input type='hidden' name='valor_subtotal' value='{$subtotal}'> 
+								        	<input type='hidden' name='valor_subtotal-{$Cart->id_cart}' value='{$subtotal}'> 
 							        		<button type='submit' class='btn btn-warning btn-sm' id='cart' id='cartDel'>X</button>
 							        	</form> 
 						        	</div>
@@ -96,11 +96,11 @@ class Vitrine extends MY_Controller {
 	      				   <div class='row'> 
 	        			     <div class='col-12 text-right'> 
 	        			       <p id='forTotal' style='display:none;'>$i</p> 
-	        	               <h5 id='valor_total'>Total Pedido: {$total}</h5> 
+	        	               <h4 id='valor_total'><strong>Total Pedido: {$total}</strong></h4>
 	        			     </div> 
-	        			     <div class='col-12 text-left'> 
+	        			     <!--<div class='col-12 text-left'> 
 	        	               <p class='card-text text-right'><small>*TAXA DE ENTREGA SERÁ ACRESCENTADA AO FINALIZAR O PEDIDO.</small></p> 
-	        	             </div> 
+	        	             </div>--> 
 	      				   </div> ";
 	    } else {
 	    	return "";

@@ -92,13 +92,7 @@ img.icon{
     color: #b6b6b6;
     overflow: visible;
 }
-.list-group-item{
-	padding: 0.25rem 1.5rem;
-	border:0px;
-}
-.list-group a{
-	font-size: smaller;
-}
+
 
 footer .icon{
 	width: 20px;
