@@ -38,7 +38,7 @@
   </div>
 
  <!-- start section portfolio -->
-  <div id="portfolio" class="text-center section">
+  <div id="portfolio" class="text-center paddsection">
 
     <div class="container">
       <div class="section-title text-center">

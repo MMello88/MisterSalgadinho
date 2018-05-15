@@ -184,6 +184,7 @@ $(document).on('click','#btn-menos-submit', function(){
         InputValue = InputValue - 1;
         setValueInputQtdCart(id, InputValue);
         setValueInputValorCart(id, InputValue);
+        refreshValorTotal(id, 'menos');
         postUpdateQtdProduto(id, InputValue);
     }
 });
@@ -194,8 +195,19 @@ $(document).on('click','#btn-mais-submit', function(){
     InputValue = Number(InputValue) + 1;
     setValueInputQtdCart(id, InputValue);
     setValueInputValorCart(id, InputValue);
+    refreshValorTotal(id, 'mais');
     postUpdateQtdProduto(id, InputValue);
 });
+
+function refreshValorTotal(id, sinal){
+  var valor = $('#valor-cart-' + id).val();
+  var total = $("#valor_total").text().replace("Total Pedido: ","");
+  if (sinal == 'mais')
+    total = Number(total) + Number(valor);
+  else if (sinal == 'menos')
+    total = Number(total) - Number(valor);
+  $("#valor_total").text("Total Pedido: " + total.toFixed(2));
+}
 
 function getValueInputQtdCart(id){
     return $('#qnt-cart-' + id).val();
@@ -212,14 +224,8 @@ function setValueInputValorCart(id, qnt) {
 }
 
 function postUpdateQtdProduto(id, qnt){
-  console.log('teste' + id + ' : ' + qnt);
   var url = "<?= base_url('index.php/Carts/alterar'); ?>"
   var posting = $.post( url, { id_cart: id, qtde: qnt } );
-  /*posting.done(function( data ) {
-      if (data == 'Sucesso'){
-          window.location.href = "<?= base_url('Vitrine'); ?>";
-      }
-   });*/
 }
 
 function getCountCart(){
@@ -249,18 +255,17 @@ $('#ModalCarrinho').on('shown.bs.modal', function (e) {
 $('form#formCart').on('submit', function(){
     var dados = $( this ).serialize();
     var form = this;
+    event.preventDefault();
     $.ajax({
         type: "POST",
         url: "<?= base_url("index.php/Carts/inserir"); ?>",
         data: dados,
-        success: function( data )
-        {
+        success: function(data){
             getCountCart();
             $(form).find("input[name='qtde']").val("1");
             $('.cart-popover').popover('show');
         },
-        error : function(data) {
-          console.log(data);
+        error: function(data) {
           $("#msgError").html("<strong>Desculpe!</strong> Erro ao receber seu pedido. Em breve tente novamente!");
           $("#message-danger").removeAttr("style");
         }
@@ -268,29 +273,30 @@ $('form#formCart').on('submit', function(){
     return false;
 });
 
-$('form#formCartDel').on('submit', function(){
-  var dados = $( this ).serialize();
+$(document).on('submit','form#formCartDel', function(){
   var form = this;
-  var valor_item = $(this).find("#valor_subtotal").val();
-  var total = $("#valor_total").text().replace("Total: ","");
-  total = parseInt(total) - parseInt(valor_item);
+  var idCart = $(form).find("input[name='id_cart']").val();
+  var dados = $(form).serialize();
+  var valor_item = $(form).find("input[name='valor_subtotal']").val();
+  var total = $("#valor_total").text().replace("Total Pedido: ","");
+  total = Number(total) - Number(valor_item);
+  event.preventDefault();
   $.ajax({
     type: "POST",
     url: "<?php echo base_url("index.php/Carts/deletarByProduto"); ?>",
     data: dados,
     success: function( data )
     {
-      $(form).parent().parent().parent().prev().children().remove();
-      $(form).parent().parent().remove();
-      $("#valor_total").text("Total: " + total);
+      getCountCart();
+      $("#carrinho-"+idCart).remove();
+      $("#valor_total").text("Total Pedido: " + total.toFixed(2));
     },
     error : function(data) {
-      console.log(data.responseText);
       $("#msgError").html("<strong>Desculpe!</strong> Erro ao remover seu pedido. Em breve tente novamente!");
       $("#message-danger").removeAttr("style");
     }
   });
-  return false;
+  //return false;
 });
 
 $(function () {

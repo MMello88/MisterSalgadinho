@@ -31,9 +31,6 @@
     <ul class="navbar-nav ml-auto">
       <li class="nav-item ml-auto">
         <a href="#" class="navbar-brand" id="btnSeuPedido" data-toggle="modal" data-target="#ModalCarrinho">
-        <!-- antigo carrinho no formato toggle
-        <a href="#" class="navbar-brand" id="btnSeuPedido" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-        -->
           Seu Pedido
           <img class="icon" src="<?php echo base_url("assets/img/media/shopping-cart-amarelo.png"); ?>" alt="Carrinho">
           <span class="badge badge-danger cart-popover" id="count_cart" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" title="Produto adicionado com sucesso!" data-content="Click no carrinho para finalizar a compra."></span>
@@ -42,37 +39,13 @@
     </ul>
   </nav>
 
-    <!-- funcionando para o carrinho, porém troquei --
-    <div class="row collapse fixed-top" id="navbarToggleExternalContent" style="top: 56px;">
-      <div class="col-sm-6 col-md-5 col-lg-6 ml-auto">
-        <div class="card">
-          <div class="card-header bg-mister-amarelo">
-            <h5 class="text-center">CONFIRA SEU PEDIDO</h5>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    -->
-
   <div class="alert alert-danger alert-dismissible" id="message-danger" 
     <?= isset($cidade_nao_selecionada) ? "" : "style=\"display: none;\""; ?> role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-    <p id="msgError"><?= isset($cidade_nao_selecionada) ? $cidade_nao_selecionada: "" ?></p>
+    <p id="msgError"><?= isset($cidade_nao_selecionada) ? $cidade_nao_selecionada : "" ?></p>
   </div>
-
-
-<!-- Button trigger modal 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalCarrinho">
-  Launch demo modal
-</button>
--->
 
   <!-- Modal -->
   <div class="modal fade" id="ModalCarrinho" tabindex="-1" role="dialog" aria-labelledby="CarrinhoLabel" aria-hidden="true">
