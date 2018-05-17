@@ -106,17 +106,18 @@
   </footer>
 
   <!-- Alert Modal -->
-  <?= form_open('Vitrine/RetiraCidade', array('id' => 'formRetiraCidade')); ?>
+  
     <div id="closeCidade" class="alert bg-mister-mostarda navbar fixed-bottom mb-0 fade <?php if ($cidade !== null) echo 'show'; ?>" role="alert">
+      <?= form_open('', array('id' => 'formRetiraCidade','style' => 'display: contents')); ?>
       <h5><?php if ($cidade !== null) echo 'Cidade Selecionada: <strong>' . $cidade->nome; ?></strong></h5>
       
       <input type="hidden" name="teste" value="11">
       <button type="submit" class="close"  data-dismiss="alert" aria-label="Close">
         <span class="closeX" aria-hidden="true">&times;</span>
       </button>
-      
+      <?= form_close(); ?>
     </div>
-  <?= form_close(); ?>
+  
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>	
@@ -126,7 +127,8 @@
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-<script src="<?= base_url("assets/js/bootstrap.min.js"); ?>"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 <script src="<?= base_url("assets/js/main.js"); ?>"></script>
 
 <script type="text/javascript">
@@ -136,8 +138,10 @@ $(window).load(function() {
 });
 
 $('#closeCidade').on('closed.bs.alert', function () {
+  var divClose = $(this);
+  var csrf_cookie_name = divClose.find("input[name='csrf_test_name']").val();
   var url = "<?= base_url('Vitrine/RetiraCidade'); ?>"
-  var posting = $.post( url, { remove: 'true' } );
+  var posting = $.post( url, { remove: 'true', csrf_test_name: csrf_cookie_name } );
   posting.done(function( data ) {
       if (data == 'Sucesso'){
           window.location.href = "<?= base_url('Vitrine'); ?>";
@@ -255,6 +259,7 @@ $('#ModalCarrinho').on('shown.bs.modal', function (e) {
 
 $('form#formCart').on('submit', function(){
     var dados = $( this ).serialize();
+    console.log(dados);
     var form = this;
     event.preventDefault();
     $.ajax({
@@ -280,7 +285,6 @@ $(document).on('submit','form#formCartDel', function(){
   var dados = $(form).serialize();
   var valor_item = $(form).find("input[name='valor_subtotal-"+idCart+"']").val();
   var total = $("#valor_total").text().replace("Total Pedido: ","");
-  console.log(total + ":" + valor_item);
   total = Number(total) - Number(valor_item);
   event.preventDefault();
   $.ajax({
@@ -311,6 +315,11 @@ $('.cart-popover').on('show.bs.popover', function () {
   setTimeout(function() {
         $('.cart-popover').popover('hide');
     }, 2000);
+});
+
+$('#myTab a').on('click', function (e) {
+  e.preventDefault();
+  $(this).tab('show');
 });
 </script>
 

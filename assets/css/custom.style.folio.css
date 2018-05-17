@@ -52,6 +52,8 @@ a:hover, a:focus {
   color: #fff;
 }
 
+
+
 .btn { 
   background: #333;
   border: medium none;
@@ -65,6 +67,17 @@ a:hover, a:focus {
 }
 
 .btn:hover, .btn:focus {
+  color: #fff;
+}
+
+.ativo, .ativo:hover {
+  background: #fff;
+  color: #333;
+}
+
+
+.desativo {
+  background: #5a6268;
   color: #fff;
 }
 

@@ -60,7 +60,7 @@
           </div>
           <div class="portfolio-container">
             <?php foreach ($Produtos as $Produto) : ?>
-            <form method='post' action='' id='formCart'>
+            <?= form_open('', array('id' => 'formCart')); ?>
               <div class="col-lg-4 col-md-6 portfolio-thumbnail all <?= $Produto->cssClass ?>">
                 <div class="hovereffect">
                   <img class="img-responsive" src="<?php echo base_url("assets/img/$Produto->imagem"); ?>" alt="">
@@ -92,7 +92,7 @@
                   </div>
                 </div>
               </div>
-            </form>
+            <?= form_close(); ?>
             <?php endforeach; ?>
           </div>
         </div>
