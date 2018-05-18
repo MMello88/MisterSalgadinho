@@ -317,9 +317,21 @@ $('.cart-popover').on('show.bs.popover', function () {
     }, 2000);
 });
 
-$('#myTab a').on('click', function (e) {
+$('#btn-loginho').click(function(e) {
+  $("#form-loginho").delay(100).fadeIn(100);
+  $("#form-registrar").fadeOut(100);
+  $("#form-registrar").removeClass('active');
+  $(this).addClass('desativo');
+  $('#btn-loginho').addClass('ativo');
   e.preventDefault();
-  $(this).tab('show');
+});
+$('#btn-registrar').click(function(e) {
+  $("#form-registrar").delay(100).fadeIn(100);
+  $("#form-loginho").fadeOut(100);
+  $('#form-loginho').removeClass('active');
+  $(this).addClass('desativo');
+  $('#btn-registrar').addClass('ativo');
+  e.preventDefault();
 });
 </script>
 

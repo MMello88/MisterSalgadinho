@@ -123,21 +123,3 @@
     <!-- fim do formulário -->
   </div>
   <!-- fim do container -->
-
-
-<script type="text/javascript">
-$('#btn-registrar').click(function(e) {
-    $("#form-registrar").delay(100).fadeIn(100);
-  $("#form-loginho").fadeOut(100);
-  $("#form-loginho").removeClass('active');
-  $(this).addClass('active');
-  e.preventDefault();
-});
-$('#btn-loginho').click(function(e) {
-  $("#register-form").delay(100).fadeIn(100);
-  $("#login-form").fadeOut(100);
-  $('#login-form-link').removeClass('active');
-  $(this).addClass('active');
-  e.preventDefault();
-});
-</script>

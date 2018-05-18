@@ -13,9 +13,12 @@ class Cliente extends MY_Controller {
 
 	public function registrar(){
 		$this->data['Pedidos'] = $this->getCartBySession();
-		$this->load->view('includes/header_navbar_fixed_top', $this->data);
-		$this->load->view('cliente/registrar', $this->data);
-		$this->load->view('includes/footer_main', $this->data);
+		if ($this->form_validation->run() === FALSE)
+    	{
+			$this->load->view('includes/header_navbar_fixed_top', $this->data);
+			$this->load->view('cliente/registrar', $this->data);
+			$this->load->view('includes/footer_main', $this->data);
+		}
 	}
 
 	public function login(){

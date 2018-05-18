@@ -70,7 +70,7 @@ a:hover, a:focus {
   color: #fff;
 }
 
-.ativo, .ativo:hover {
+.ativo, .ativo:hover, .ativo:focus {
   background: #fff;
   color: #333;
 }
