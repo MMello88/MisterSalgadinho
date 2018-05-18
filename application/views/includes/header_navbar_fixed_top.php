@@ -61,7 +61,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <a href="<?= base_url("cliente/registrar") ?>" class="btn btn-warning btn-lg btn-block py-2" role="button"><span>Finalizar Pedido</span></a>
+          <a href="<?= base_url("clientes/registrar") ?>" class="btn btn-warning btn-lg btn-block py-2" role="button"><span>Finalizar Pedido</span></a>
         </div>
       </div>
     </div>

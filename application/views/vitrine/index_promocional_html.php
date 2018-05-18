@@ -137,7 +137,6 @@
             <button type="submit" class="btn btn-primary btn-lg btn-block">Selecionar</button>
           </div>
         <?= form_close(); ?>
-
       </div>
     </div>
   </div>

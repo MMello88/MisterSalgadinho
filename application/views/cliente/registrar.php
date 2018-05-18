@@ -11,13 +11,12 @@
 
     <div class="row pb-5">
       <div class="col">
-        <button class="btn ativo" id="btn-registrar">Realizar cadastro</button>
-        <button class="btn desativo" id="btn-loginho">Acessar minha conta</button>
+        <button class="btn desativo" id="btn-registrar">Realizar cadastro</button>
+        <button class="btn ativo" id="btn-loginho">Acessar minha conta</button>
       </div>
     </div>
     <!-- formulário -->
     <div class="row pb-5">
-
       <!-- carrinho -->
       <div class="col-md-4 order-md-2 mb-4">
         <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -59,49 +58,56 @@
           <!-- tab item cadastro -->
           <div class="tab-pane show active" id="form-registrar">
             <h4 class="mb-3">Realizar Cadastro</h4>
-            <?php echo validation_errors(); ?>
-
-            <?php echo form_open('news/create'); ?>
+            <hr class="mb-4">
+            <?php if ($this->session->flashdata('erro_loginho')) : ?>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <strong>Falha no Loginho!</strong> <?= $this->session->flashdata('erro_cadastro'); ?>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span class="closeX" aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <?php endif; ?>
+            <?= form_open('clientes/registrar'); ?>
               <input type="hidden" name="situacao" value="a">
 
-              <div class="mb-3">
+              <div class="mb-4">
                 <label for="nome">Nome <span class="text-muted">(*)</span></label>
-                <input type="text" class="form-control" id="nome" name="nome" placeholder="Ex.: Nome Completo " required>
-                <div class="invalid-feedback">
-                  Por favor, informe o Nome Completo.
+                <input type="text" class="form-control mb-0 bg-white" id="nome" name="nome" placeholder="Ex.: Nome Completo " value="<?= set_value('nome'); ?>" required>
+                <div class="invalid-feedback <?= form_error('nome') !== null ? "d-block":""; ?>">
+                  <?= form_error('nome'); ?>
                 </div>
               </div>
 
-              <div class="mb-3">
+              <div class="mb-4">
                 <label for="email">Email <span class="text-muted">(*)</span></label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Ex.: seu@Email.com" required>
-                <div class="invalid-feedback">
-                  Por favor, informar o endereço de E-mail correto.
+                <input type="text" class="form-control mb-0 bg-white" id="email" name="email" placeholder="Ex.: seu@Email.com" value="<?= set_value('email'); ?>" required>
+                <div class="invalid-feedback <?= form_error('email') !== null ? "d-block":""; ?>">
+                  <?= form_error('email'); ?>
                 </div>
               </div>
 
-              <div class="mb-3">
+              <div class="mb-4">
                 <label for="senha">Senha <span class="text-muted">(* Minimo 8 Caracteres)</span></label>
-                <input type="password" class="form-control" id="senha" name="senha" placeholder="Ex.: Password" required>
-                <div class="invalid-feedback">
-                  Por favor, informar o endereço de E-mail correto.
+                <input type="password" class="form-control mb-0 bg-white" id="senha" name="senha" placeholder="Ex.: Password" value="<?= set_value('senha'); ?>" required>
+                <div class="invalid-feedback <?= form_error('senha') !== null ? "d-block":""; ?>">
+                  <?= form_error('senha'); ?>
                 </div>
               </div>
 
-              <div class="mb-3">
+              <div class="mb-4">
                 <label for="endereco">Endereço <span class="text-muted">(*)</span></label>
-                <input type="text" class="form-control" name="endereco" id="endereco" placeholder="Ex.: Rua. Prudente de Morais, 532" required>
-                <div class="invalid-feedback">
-                  Por favor, informar o seu endereço.
+                <input type="text" class="form-control mb-0 bg-white" name="endereco" id="endereco" placeholder="Ex.: Rua. Prudente de Morais, 532" value="<?= set_value('endereco'); ?>" required>
+                <div class="invalid-feedback <?= form_error('endereco') !== null ? "d-block":""; ?>">
+                  <?= form_error('endereco'); ?>
                 </div>
               </div>
 
 
-              <div class="mb-3">
+              <div class="mb-4">
                 <label for="telefone">Telefone/Celular <span class="text-muted">(*)</span></label>
-                <input type="text" class="form-control" name="telefone" id="telefone" placeholder="Ex.: (16) 99999-9999" required>
-                <div class="invalid-feedback">
-                  Por favor, informar o seu telefone ou celular.
+                <input type="text" class="form-control mb-0 bg-white" name="telefone" id="telefone" placeholder="Ex.: (16) 99999-9999" value="<?= set_value('telefone'); ?>" required>
+                <div class="invalid-feedback <?= form_error('telefone') !== null ? "d-block":""; ?>">
+                  <?= form_error('telefone'); ?>
                 </div>
               </div>
 
@@ -112,7 +118,36 @@
           <!-- fim tab item cadastro -->
           <!-- tab item loginho -->
           <div class="tab-pane" id="form-loginho">
-            matheus
+            <h4 class="mb-3">Loginho</h4>
+            <hr class="mb-4">
+            <?php if ($this->session->flashdata('erro_loginho')) : ?>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <strong>Falha no Loginho!</strong> <?= $this->session->flashdata('erro_loginho'); ?>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span class="closeX" aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <?php endif; ?>
+            
+            <?= form_open('clientes/login'); ?>
+              <div class="mb-4">
+                <label for="email">Email <span class="text-muted">(*)</span></label>
+                <input type="email" class="form-control mb-0 bg-white" id="email" name="email" placeholder="Ex.: seu@Email.com" value="<?= set_value('email'); ?>" required>
+                <div class="invalid-feedback <?= form_error('email') !== null ? "d-block":""; ?>">
+                  <?= form_error('email'); ?>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <label for="senha">Senha <span class="text-muted">(* Minimo 8 Caracteres)</span></label>
+                <input type="password" class="form-control mb-0 bg-white" id="senha" name="senha" placeholder="Ex.: Password" value="<?= set_value('senha'); ?>" required>
+                <div class="invalid-feedback <?= form_error('senha') !== null ? "d-block":""; ?>">
+                  <?= form_error('senha'); ?>
+                </div>
+              </div>
+              <hr class="mb-4">
+              <button class="btn btn-primary btn-lg btn-block" type="submit">Logar</button>
+            </form>
           </div>
           <!-- fim tab item loginho -->
         </div>

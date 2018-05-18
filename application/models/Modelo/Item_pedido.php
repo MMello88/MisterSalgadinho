@@ -17,6 +17,7 @@ class Item_pedido extends MY_Model {
     }
 
     public function insert() {
+        $this->set_post($this);
         $this->id_item_pedido = null;
         if ($this->db->insert('item_pedido', $this))
             $this->id_item_pedido = $this->db->insert_id();
@@ -26,6 +27,7 @@ class Item_pedido extends MY_Model {
     }
 
     public function update() {
+        $this->set_post($this);
         $this->db->update('item_pedido', $this, array('id_item_pedido' => $this->id_item_pedido));
         if ($this->db->error()['code'] > 0)
           $this->set_log_error_db();
@@ -33,6 +35,7 @@ class Item_pedido extends MY_Model {
     }
 
     public function delete() {
+        $this->set_post($this);
         $this->db->delete('item_pedido', $this, array('id_item_pedido' => $this->id_item_pedido));
         if ($this->db->error()['code'] > 0)
           $this->set_log_error_db();
@@ -44,10 +47,6 @@ class Item_pedido extends MY_Model {
         $this->id_produto = $this->get_produto();
     }
 
-    protected function valida_form(){
-        return true;//$this->form_validation->run('pedidos/realizar');
-    }
-
     private function get_pedgeto(){
         $ListaPedidos = new ListaPedidos();
         return $ListaPedidos->get($this->id_pedido);
@@ -56,9 +55,5 @@ class Item_pedido extends MY_Model {
     private function get_produto(){
         $ListaProdutos = new ListaProdutos();
         return $ListaProdutos->get($this->id_produto);
-    }
-
-    private function error(){
-        $this->form_validation->error('field_name');
     }
 }

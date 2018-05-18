@@ -118,7 +118,7 @@
       <?= form_close(); ?>
     </div>
   
-
+<?php $this->output->enable_profiler(TRUE); ?>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>	
 <script src="<?= base_url("assets/js/owl.carousel.min.js"); ?>"></script>
@@ -135,6 +135,8 @@
 $(window).load(function() {
   getCountCart();
   getListaCarrinho();
+
+  <?php if ($this->session->flashdata('frmLog') === 'FALSE') echo "ativaLoginho();"; else echo "ativaRegistrar();";?>
 });
 
 $('#closeCidade').on('closed.bs.alert', function () {
@@ -318,21 +320,35 @@ $('.cart-popover').on('show.bs.popover', function () {
 });
 
 $('#btn-loginho').click(function(e) {
-  $("#form-loginho").delay(100).fadeIn(100);
-  $("#form-registrar").fadeOut(100);
-  $("#form-registrar").removeClass('active');
-  $(this).addClass('desativo');
-  $('#btn-loginho').addClass('ativo');
+  ativaLoginho();
   e.preventDefault();
 });
 $('#btn-registrar').click(function(e) {
-  $("#form-registrar").delay(100).fadeIn(100);
-  $("#form-loginho").fadeOut(100);
-  $('#form-loginho').removeClass('active');
-  $(this).addClass('desativo');
-  $('#btn-registrar').addClass('ativo');
+  ativaRegistrar();
   e.preventDefault();
 });
+
+function ativaLoginho(){
+  $("#form-loginho").delay(100).fadeIn(80);
+  $("#form-registrar").fadeOut(80);
+  $("#form-registrar").removeClass('active');
+
+  $('#btn-loginho').addClass('desativo');
+  $('#btn-loginho').removeClass('ativo');
+  $('#btn-registrar').addClass('ativo');
+  $('#btn-registrar').removeClass('desativo');
+}
+
+function ativaRegistrar(){
+  $("#form-registrar").delay(100).fadeIn(80);
+  $("#form-loginho").fadeOut(80);
+  $('#form-loginho').removeClass('active');
+  
+  $('#btn-registrar').addClass('desativo');
+  $('#btn-registrar').removeClass('ativo');
+  $('#btn-loginho').addClass('ativo');
+  $('#btn-loginho').removeClass('desativo');
+}
 </script>
 
 </body>

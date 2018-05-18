@@ -9,19 +9,16 @@ abstract class MY_Model extends CI_Model {
 
   public function __construct($class_model) {
     parent::__construct();
-    
     $this->_model = $class_model;
-    if ($_POST) {
-      $this->valida_form();
-      $this->set_post($this->_model);
-    }
     $this->get_config_prop();
   }
   
   protected function set_post($class){
-    $class_vars = array_keys(get_class_vars(get_class($class)));
-    foreach($class_vars as $var){
-      $class->$var = empty($this->input->post($var)) ? $class->$var : $this->input->post($var);
+    if ($_POST) {
+      $class_vars = array_keys(get_class_vars(get_class($class)));
+      foreach($class_vars as $var){
+        $class->$var = empty($this->input->post($var)) ? $class->$var : $this->input->post($var);
+      }
     }
   }
 
@@ -45,7 +42,7 @@ abstract class MY_Model extends CI_Model {
   }*/
   
   abstract protected function get_config_prop();
-  abstract protected function valida_form();
+  //abstract protected function valida_form();
 
   abstract protected function insert();
   abstract protected function update();

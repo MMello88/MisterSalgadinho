@@ -15,6 +15,7 @@ class Newsletter extends MY_Model {
     }
 
     public function insert() {
+        $this->set_post($this);
         $this->id_newsletter = null;
         if ($this->db->insert('newsletter', $this))
             $this->id_newsletter = $this->db->insert_id();
@@ -24,6 +25,7 @@ class Newsletter extends MY_Model {
     }
 
     public function update() {
+        $this->set_post($this);
         $this->db->update('newsletter', $this, array('id_newsletter' => $this->id_newsletter));
         if ($this->db->error()['code'] > 0)
           $this->set_log_error_db();
@@ -31,6 +33,7 @@ class Newsletter extends MY_Model {
     }
 
     public function delete() {
+        $this->set_post($this);
         $this->db->delete('newsletter', $this, array('id_newsletter' => $this->id_newsletter));
         if ($this->db->error()['code'] > 0)
           $this->set_log_error_db();
@@ -38,13 +41,5 @@ class Newsletter extends MY_Model {
     }
 
     protected function get_config_prop(){
-    }
-
-    protected function valida_form(){
-        return true;//$this->form_validation->run('pedidos/realizar');
-    }
-
-    private function error(){
-        $this->form_validation->error('field_name');
     }
 }

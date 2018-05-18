@@ -9,25 +9,24 @@ class Cliente extends MY_Model {
     public $telefone;
     public $endereco;
     public $situacao;
+    public $senha;
 
     public function  __construct() {
         parent::__construct($this);
     }
 
     public function insert() {
+        $this->set_post($this);
         $this->id_cliente = null;
-		$this->situacao = 'a';
+        $this->senha = do_hash($this->senha, 'md5');
         if ($this->db->insert('cliente', $this))
-            $this->id_cliente = $this->db->insert_id();
-		$this->session->set_userdata('id_cliente', $this->id_cliente);
-        if (empty($this->id_cliente))
-          $this->set_log_error_db();
-        $this->session->set_userdata('id_session', $this->nome);
-        //$this->set_response_db('Incluido com sucesso'); //usar para rest json returno success
-		return $this->id_cliente;
+            return $this->db->insert_id();
+        else
+            return $this->db->error()['message'];
     }
 
     public function update() {
+        $this->set_post($this);
         $this->db->update('cliente', $this, array('id_cliente' => $this->id_cliente));
         if ($this->db->error()['code'] > 0)
           $this->set_log_error_db();
@@ -35,6 +34,7 @@ class Cliente extends MY_Model {
     }
 
     public function delete() {
+        $this->set_post($this);
         $this->db->delete('cliente', $this, array('id_cliente' => $this->id_cliente));
         if ($this->db->error()['code'] > 0)
           $this->set_log_error_db();
@@ -44,11 +44,4 @@ class Cliente extends MY_Model {
     protected function get_config_prop(){
     }
 
-    protected function valida_form(){
-        return true;//$this->form_validation->run('pedidos/realizar');
-    }
-
-    private function error(){
-        $this->form_validation->error('field_name');
-    }
 }

@@ -13,6 +13,7 @@ class Cidade extends MY_Model {
     }
 
     public function insert() {
+        $this->set_post($this);
         $this->id_cidade = null;
         if ($this->db->insert('cidade', $this))
             $this->id_cidade = $this->db->insert_id();
@@ -22,6 +23,7 @@ class Cidade extends MY_Model {
     }
 
     public function update() {
+        $this->set_post($this);
         $this->db->update('cidade', $this, array('id_cidade' => $this->id_cidade));
         if ($this->db->error()['code'] > 0)
           $this->set_log_error_db();
@@ -29,6 +31,7 @@ class Cidade extends MY_Model {
     }
 
     public function delete() {
+        $this->set_post($this);
         $this->db->delete('cidade', $this, array('id_cidade' => $this->id_cidade));
         if ($this->db->error()['code'] > 0)
           $this->set_log_error_db();
@@ -38,11 +41,4 @@ class Cidade extends MY_Model {
     protected function get_config_prop(){
     }
 
-    protected function valida_form(){
-        return true;//$this->form_validation->run('pedidos/realizar');
-    }
-
-    private function error(){
-        $this->form_validation->error('field_name');
-    }
 }

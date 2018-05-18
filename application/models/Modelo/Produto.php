@@ -16,6 +16,7 @@ class Produto extends MY_Model {
     }
 
     public function insert() {
+        $this->set_post($this);
         $this->id_produto = null;
         if ($this->db->insert('produto', $this))
             $this->id_produto = $this->db->insert_id();
@@ -25,6 +26,7 @@ class Produto extends MY_Model {
     }
 
     public function update() {
+        $this->set_post($this);
         $this->db->update('produto', $this, array('id_produto' => $this->id_produto));
         if ($this->db->error()['code'] > 0)
           $this->set_log_error_db();
@@ -32,6 +34,7 @@ class Produto extends MY_Model {
     }
 
     public function delete() {
+        $this->set_post($this);
         $this->db->delete('produto', $this, array('id_produto' => $this->id_produto));
         if ($this->db->error()['code'] > 0)
           $this->set_log_error_db();
@@ -42,16 +45,9 @@ class Produto extends MY_Model {
         $this->id_categoria_produto = $this->get_categoria_produto();
     }
 
-    protected function valida_form(){
-        return true;//$this->form_validation->run('pedidos/realizar');
-    }
-
     private function get_categoria_produto(){
         $ListaCategoriasProduto = new ListaCategoriasProduto();
         return $ListaCategoriasProduto->get($this->id_categoria_produto);
     }
 
-    private function error(){
-        $this->form_validation->error('field_name');
-    }
 }

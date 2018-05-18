@@ -11,7 +11,7 @@ class Pedido extends MY_Model {
     public $data_pedido;
     public $valor;
     public $taxa_entrega;
-		public $hora_entrega;
+	public $hora_entrega;
     public $data_entrega;
     public $valor_total;
     public $situacao;
@@ -22,6 +22,7 @@ class Pedido extends MY_Model {
     }
 
     public function insert() {
+        $this->set_post($this);
         $this->id_pedido = null;
         if ($this->db->insert('pedido', $this))
             $this->id_pedido = $this->db->insert_id();
@@ -31,6 +32,7 @@ class Pedido extends MY_Model {
     }
 
     public function update() {
+        $this->set_post($this);
         $this->db->update('pedido', $this, array('id_pedido' => $this->id_pedido));
         if ($this->db->error()['code'] > 0)
           $this->set_log_error_db();
@@ -46,6 +48,7 @@ class Pedido extends MY_Model {
     }
 
     public function delete() {
+        $this->set_post($this);
         $this->db->delete('pedido', $this, array('id_pedido' => $this->id_pedido));
         if ($this->db->error()['code'] > 0)
           $this->set_log_error_db();
@@ -57,16 +60,8 @@ class Pedido extends MY_Model {
         $this->id_cidade  = isset($this->id_cidade)  ? $this->get_cidade()  : "";
     }
 
-    protected function valida_form(){
-        return true;//$this->form_validation->run('pedidos/realizar');
-    }
-
     private function get_cliente(){
         $ListaClientes = new ListaClientes();
         return $ListaClientes->get($this->id_cliente);
-    }
-
-    private function error(){
-        $this->form_validation->error('field_name');
     }
 }

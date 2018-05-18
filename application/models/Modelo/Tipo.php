@@ -11,7 +11,7 @@ class Tipo extends MY_Model {
         parent::__construct($this);
     }
 		
-		public function insert() {
+	public function insert() {
     }
 
     public function update() {
@@ -21,8 +21,5 @@ class Tipo extends MY_Model {
     }
 		
     protected function get_config_prop(){
-    }
-
-    protected function valida_form(){
     }
 }

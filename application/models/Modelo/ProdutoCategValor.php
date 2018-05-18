@@ -30,13 +30,4 @@ class ProdutoCategValor extends MY_Model {
     protected function get_config_prop(){
     }
 
-    protected function valida_form(){
-        return true;//$this->form_validation->run('pedidos/realizar');
-    }
-
-    private function get_categoria_produto(){
-    }
-
-    private function error(){
-    }
 }

@@ -16,9 +16,11 @@ class Evento extends MY_Model {
 
     public function  __construct() {
         parent::__construct($this);
+        $this->get_config_prop();
     }
 
     public function insert() {
+        $this->set_post($this);
         $this->id_evento = null;
         if ($this->db->insert('evento', $this))
             $this->id_evento = $this->db->insert_id();
@@ -28,6 +30,7 @@ class Evento extends MY_Model {
     }
 
     public function update() {
+        $this->set_post($this);
         $this->db->update('evento', $this, array('id_evento' => $this->id_evento));
         if ($this->db->error()['code'] > 0)
           $this->set_log_error_db();
@@ -35,19 +38,16 @@ class Evento extends MY_Model {
     }
 
     public function delete() {
+        $this->set_post($this);
         $this->db->delete('evento', $this, array('id_evento' => $this->id_evento));
         if ($this->db->error()['code'] > 0)
           $this->set_log_error_db();
         $this->set_response_db('Removido com sucesso');
     }
 
-    protected function get_config_prop(){
+    private function get_config_prop(){
         $this->id_cliente = $this->get_cliente();
         $this->id_pedido = $this->get_pedgeto();
-    }
-
-    protected function valida_form(){
-        return true;//$this->form_validation->run('pedidos/realizar');
     }
 
     private function get_cliente(){
@@ -58,9 +58,5 @@ class Evento extends MY_Model {
     private function get_pedgeto(){
         $ListaPedidos = new ListaPedidos();
         return $ListaPedidos->get($this->id_pedido);
-    }
-
-    private function error(){
-        $this->form_validation->error('field_name');
     }
 }
