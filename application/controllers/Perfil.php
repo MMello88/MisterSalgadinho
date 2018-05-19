@@ -10,8 +10,10 @@ class Perfil extends MY_Controller {
 	
 	public function index(){
 		if($this->session->userdata('id_cliente')){
+			$this->data['cliente'] = $this->session->userdata();
 			$this->load->view('includes/header_navbar_fixed_top', $this->data);
-			$this->load->view('cliente/perfil', $this->data);
+			$this->load->view('includes/navbar_cliente', $this->data);
+			$this->load->view('cliente/painel', $this->data);
 			$this->load->view('includes/footer_main', $this->data);
 		} else {
 			redirect("clientes/registrar");

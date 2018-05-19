@@ -112,7 +112,7 @@
               </div>
 
               <hr class="mb-4">
-              <button class="btn btn-primary btn-lg btn-block" type="submit">Concluir Pedido</button>
+              <button class="btn btn-primary btn-lg btn-block" type="submit">Cadastrar</button>
             </form>
           </div>
           <!-- fim tab item cadastro -->

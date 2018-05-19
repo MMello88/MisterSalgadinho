@@ -14,6 +14,10 @@ class Clientes extends MY_Controller {
 	}
 
 	public function registrar(){
+		if($this->session->userdata('id_cliente')){
+			redirect('Perfil/index');
+		}
+
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[cliente.email]');
 		if ($this->form_validation->run('novo/cliente') === FALSE)
 		{
@@ -65,6 +69,7 @@ class Clientes extends MY_Controller {
 
 	public function logout(){
 		$this->session->unset_userdata('id_cliente');
+		redirect('Vitrine');
 	}
 
 	public function esqueceu(){
