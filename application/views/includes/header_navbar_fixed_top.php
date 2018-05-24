@@ -25,8 +25,14 @@
 
   <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-mister-marrom">
     <img class="icon mx-3" src="<?php echo base_url("assets/img/bonequinho-120.png"); ?>" alt="O Mister">
-    <a class="navbar-brand" href="<?php echo base_url(""); ?>"><b>Mister</b> Salgadinho</a>
+    <a class="navbar-brand" href="<?php echo base_url("vitrine"); ?>"><b>Mister</b> Salgadinho</a>
     <ul class="navbar-nav ml-auto">
+      <li class="nav-item ml-auto">
+        <a class="navbar-brand" href="<?= base_url("perfil/index"); ?>">
+          <span class="ml-auto">Sua Conta</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none"  stroke-linecap="round" stroke-linejoin="round" class="ml-auto feather"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        </a>
+      </li>
       <li class="nav-item ml-auto">
         <a href="#" class="navbar-brand" id="btnSeuPedido" data-toggle="modal" data-target="#ModalCarrinho">
           Seu Pedido

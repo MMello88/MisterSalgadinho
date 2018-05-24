@@ -6,10 +6,13 @@ class Cliente extends MY_Model {
     public $id_cliente;
     public $nome;
     public $email;
+    public $senha;
     public $telefone;
     public $endereco;
+    public $numero;
+    public $bairro;
+    public $complemento;
     public $situacao;
-    public $senha;
 
     public function  __construct() {
         parent::__construct($this);

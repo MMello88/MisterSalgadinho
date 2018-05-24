@@ -2,20 +2,28 @@
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 require_once(APPPATH."models/ModeloList/Listaclientes.php");
+require_once(APPPATH."models/ModeloList/Listacidades.php");
 
 class Pedido extends MY_Model {
 
     public $id_pedido;
     public $id_cliente;
     public $id_cidade;
+    public $situacao;
     public $data_pedido;
     public $valor;
-    public $taxa_entrega;
-	public $hora_entrega;
-    public $data_entrega;
     public $valor_total;
-    public $situacao;
-    public $festa;
+    public $forma_pgto;
+    public $forma_entrega;
+    public $taxa_entrega;
+    public $data_entrega;
+    public $hora_entrega;
+    public $end_entrega;
+    public $num_entrega;
+    public $bairro_entrega;
+    public $comp_entrega; 
+    
+    
     
     public function  __construct() {
         parent::__construct($this);
@@ -24,11 +32,14 @@ class Pedido extends MY_Model {
     public function insert() {
         $this->set_post($this);
         $this->id_pedido = null;
+        if ($this->forma_entrega === "e"){
+            $this->valor_total = $this->valor + $this->taxa_entrega;
+        }
         if ($this->db->insert('pedido', $this))
             $this->id_pedido = $this->db->insert_id();
         if (empty($this->id_pedido))
-          $this->set_log_error_db();
-        $this->set_response_db('Incluido com sucesso');
+          return $this->db->error()['message'];
+        return $this->db->insert_id();
     }
 
     public function update() {
@@ -63,5 +74,10 @@ class Pedido extends MY_Model {
     private function get_cliente(){
         $ListaClientes = new ListaClientes();
         return $ListaClientes->get($this->id_cliente);
+    }
+
+    private function get_cidade(){
+        $Listacidades = new Listacidades();
+        return $Listacidades->get($this->id_cidade);
     }
 }

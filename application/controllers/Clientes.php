@@ -5,9 +5,11 @@ class Clientes extends MY_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		//$this->output->enable_profiler(TRUE);
 		$this->load->model('Modelo/cliente');
 		$this->load->model('ModeloList/listaclientes');
 		$this->data['Pedidos'] = $this->getCartBySession();
+
 	}
 	
 	public function index(){

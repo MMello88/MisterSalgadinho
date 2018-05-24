@@ -118,7 +118,6 @@
       <?= form_close(); ?>
     </div>
   
-<?php $this->output->enable_profiler(TRUE); ?>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>	
 <script src="<?= base_url("assets/js/owl.carousel.min.js"); ?>"></script>
@@ -349,6 +348,37 @@ function ativaRegistrar(){
   $('#btn-loginho').addClass('ativo');
   $('#btn-loginho').removeClass('desativo');
 }
+
+$(document).on('click','input#retirar', function(){
+  $("label[for='data_entrega']").text('Dia da Retirada (*)');
+  $("label[for='hora_entrega']").text('Horário de Retirada (*)');
+  $("label[name='data_entrega']").attr('placeholder','Dia da Retirada');
+  $("#taxaEntrega").addClass('d-none');
+  $("#gridTaxaEntrega").addClass('d-none');
+  $("#gridTaxaEntrega").removeClass('d-flex');
+  $("#novo_endereco").addClass('d-none');
+  //calc
+  var valor = Number($("input[name='valor']").val());
+  $("#ValorTotalPedido").text('R$ ' + valor.toFixed(2));
+});
+
+$('#entregar').on('click', function(){
+  $("label[for='data_entrega']").text('Data da Entrega (*)');
+  $("label[for='hora_entrega']").text('Horário de Entrega (*)');
+  $("label[name='data_entrega']").attr('placeholder','Data da Retirada');
+  $("#taxaEntrega").removeClass('d-none');  
+  $("#gridTaxaEntrega").removeClass('d-none');
+  $("#gridTaxaEntrega").addClass('d-flex');
+  $("#novo_endereco").removeClass('d-none');
+
+  //calc
+  var total;
+  var valor = $("input[name='valor']").val();
+  var taxa = $("input[name='taxa_entrega']").val();
+  total = Number(valor) + Number(taxa);
+  $("#ValorTotalPedido").text('R$ ' + total.toFixed(2));
+});
+
 </script>
 
 </body>

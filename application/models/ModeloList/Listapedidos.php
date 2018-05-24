@@ -24,8 +24,8 @@ class Listapedidos extends Control {
     }
 
     public function getPedidoByCliente($id_cliente = '') {
-        $query = $this->_instance->db->get_where('pedido', array('id_cliente' => $id_cliente));
-        return $query->custom_row_object(0, 'pedido');
+        $query = $this->_instance->db->order_by("id_pedido", "DESC")->get_where('pedido', array('id_cliente' => $id_cliente));
+        return $query->custom_result_object('pedido');
     }
 
     public function getPedidoByOrcamento($id_orcamento = '') {

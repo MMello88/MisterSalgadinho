@@ -17,6 +17,14 @@ body{
 h1, h2, h3, h4, h5, h6{
 	color:  #402C19;
 }
+.feather {
+  width: 25px;
+  height: 30px;
+  vertical-align: text-bottom;
+  stroke: #CAA202;
+  stroke-width: 2px;
+}
+
 .bg-mister-marrom{
 	background-color:  #402C19;
 }

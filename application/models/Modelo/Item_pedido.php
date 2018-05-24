@@ -2,7 +2,7 @@
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 require_once(APPPATH."models/ModeloList/Listapedidos.php");
-require_once(APPPATH."models/odeloList/Listaprodutos.php");
+require_once(APPPATH."models/ModeloList/Listaprodutos.php");
 
 class Item_pedido extends MY_Model {
 
@@ -17,13 +17,12 @@ class Item_pedido extends MY_Model {
     }
 
     public function insert() {
-        $this->set_post($this);
         $this->id_item_pedido = null;
         if ($this->db->insert('item_pedido', $this))
             $this->id_item_pedido = $this->db->insert_id();
         if (empty($this->id_item_pedido))
-          $this->set_log_error_db();
-        $this->set_response_db('Incluido com sucesso');
+          return $this->db->error()['message'];
+        return $this->db->insert_id();
     }
 
     public function update() {
