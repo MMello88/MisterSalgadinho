@@ -4,26 +4,21 @@ class Perfil extends MY_Controller {
 
 	public function __construct()
 	{
-		parent::__construct();
+		parent::__construct(TRUE);
+		$this->load->model('ModeloList/listaclientes');
 		//$this->output->enable_profiler(TRUE);
 		$this->data['Pedidos'] = $this->getCartBySession();
-		//$this->data['finalizado'] = '';
-		//print_r($this->data['Pedidos']);die();
 		$this->data['valoresHoraEntrega'] = $this->getTipoBy("hora_entrega");
 		$this->data['valoresFormaPagto'] = $this->getTipoBy("forma_pgto");
 	}
 	
 	public function index(){
-		if($this->session->userdata('id_cliente')){
-			$this->data['cliente'] = $this->session->userdata();
-			$this->data['cliente']['id_cidade'] = $this->session->userdata('cidade');
-			$this->load->view('includes/header_navbar_fixed_top', $this->data);
-			$this->load->view('includes/navbar_cliente', $this->data);
-			$this->load->view('cliente/painel', $this->data);
-			$this->load->view('includes/footer_main', $this->data);
-		} else {
-			redirect("clientes/registrar");
-		}
+		$this->data['cliente'] = $this->getCliente();
+		//$this->data['cliente']['id_cidade'] = $this->session->userdata('cidade');
+		$this->load->view('includes/header_navbar_fixed_top', $this->data);
+		$this->load->view('includes/navbar_cliente', $this->data);
+		$this->load->view('cliente/painel', $this->data);
+		$this->load->view('includes/footer_main', $this->data);
 	}
 
 	public function finalizar(){
@@ -33,8 +28,8 @@ class Perfil extends MY_Controller {
 			$this->data['valoresHoraEntrega'] = $this->getTipoBy("hora_entrega");
 			$this->data['valoresFormaPagto'] = $this->getTipoBy("forma_pgto");
 
-			$this->data['cliente'] = $this->session->userdata();
-			$this->data['cliente']['id_cidade'] = $this->session->userdata('cidade');
+			$this->data['cliente'] = $this->getCliente();
+			//$this->data['cliente']['id_cidade'] = $this->session->userdata('cidade');
 			$this->load->view('includes/header_navbar_fixed_top', $this->data);
 			$this->load->view('includes/navbar_cliente', $this->data);
 			$this->load->view('cliente/painel', $this->data);
@@ -62,7 +57,7 @@ class Perfil extends MY_Controller {
 				$this->session->unset_userdata('cidade');
 			}
 
-			$this->data['cliente'] = $this->session->userdata();
+			$this->data['cliente'] = $this->getCliente();
 			$this->data['cliente']['id_cidade'] = '';
 			$this->data['Pedidos'] = array();
 			$this->data['finalizado'] = 'Agradecemos pela sua preferência. Seu pedido será processado.';
@@ -77,8 +72,8 @@ class Perfil extends MY_Controller {
 		$this->load->model('ModeloList/listapedidos');
         $this->data['Pedidos'] = $this->listapedidos->getPedidoByCliente($this->session->userdata('id_cliente'));
 
-		$this->data['cliente'] = $this->session->userdata();
-		$this->data['cliente']['id_cidade'] = $this->session->userdata('cidade');
+		$this->data['cliente'] = $this->getCliente();
+		//$this->data['cliente']['id_cidade'] = $this->session->userdata('cidade');
 		$this->load->view('includes/header_navbar_fixed_top', $this->data);
 		$this->load->view('includes/navbar_cliente', $this->data);
 		$this->load->view('cliente/historico_compra', $this->data);
@@ -86,15 +81,33 @@ class Perfil extends MY_Controller {
 	}
 
 	public function editar(){
-		$this->load->model('ModeloList/listapedidos');
-        $this->data['Pedidos'] = $this->listapedidos->getPedidoByCliente($this->session->userdata('id_cliente'));
-
-		$this->data['cliente'] = $this->session->userdata();
-		$this->data['cliente']['id_cidade'] = $this->session->userdata('cidade');
+        $this->data['edtCliente'] = $this->listaclientes->get($this->session->userdata('id_cliente'));
+        if ($this->form_validation->run('novo/cliente') === TRUE){
+        	$this->load->model('Modelo/cliente');
+        	$this->data['edtClienteSucesso'] = $this->cliente->update();
+        }
+		$this->data['cliente'] = $this->getCliente();
 		$this->load->view('includes/header_navbar_fixed_top', $this->data);
 		$this->load->view('includes/navbar_cliente', $this->data);
 		$this->load->view('cliente/editar', $this->data);
 		$this->load->view('includes/footer_main', $this->data);
+	}
+
+	public function desconto(){
+		$pedidos = $this->getCartBySession();
+		if (empty($pedidos)){
+			$this->session->set_flashdata("msg_cod_promo", "Sem pedido feito para dar o desconto");
+		} else {
+			if ($_POST){
+				if(strtolower($_POST['codigo']) === strtolower('#topMisterSalgadinhos')){
+					$this->load->model('Modelo/cart');
+					$this->session->set_flashdata("msg_cod_promo", $this->cart->desconto($_POST['id_session'], $_POST['cod_promo']));
+				} else {
+					$this->session->set_flashdata("msg_cod_promo", "Código promocional inválido");
+				}
+			}
+		}
+		redirect("perfil/index");
 	}
 
 	private function getCartBySession() {
@@ -102,8 +115,5 @@ class Perfil extends MY_Controller {
         return $this->listacarts->getCartBySession($this->session->userdata('id_session'));
     }
 
-    private function getTipoBy($campo){
-		$this->load->model('ModeloList/listatipo');
-		return $this->listatipo->getByCampo($campo);
-	}
+
 }

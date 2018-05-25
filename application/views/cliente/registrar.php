@@ -2,7 +2,7 @@
   <div class="container">
     <!-- Titulo -->
     <div class="py-3 text-center">
-      <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <img class="d-block mx-auto mb-4" src="<?= base_url('assets/img/bonequinho-120.png'); ?>" alt="" width="72" height="72">
       <h2>Mister Salgadinhos agradece pela preferencia.</h2>
       <hr class='mb-3 mt-1'>
       <p class="lead">Para finalizar a compra precisamos que informe para nós alguns dados importantes. E esperamos que tenha uma experiência agradavél que vamos lhe proporcionar! </p>
@@ -69,6 +69,7 @@
             <?php endif; ?>
             <?= form_open('clientes/registrar'); ?>
               <input type="hidden" name="situacao" value="a">
+              <input type="hidden" name="tipo" value="c">
 
               <div class="mb-4">
                 <label for="nome">Nome <span class="text-muted">(*)</span></label>

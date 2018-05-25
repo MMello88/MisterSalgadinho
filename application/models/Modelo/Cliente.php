@@ -13,6 +13,7 @@ class Cliente extends MY_Model {
     public $bairro;
     public $complemento;
     public $situacao;
+    public $tipo;
 
     public function  __construct() {
         parent::__construct($this);
@@ -30,10 +31,11 @@ class Cliente extends MY_Model {
 
     public function update() {
         $this->set_post($this);
+        $this->senha = do_hash($this->senha, 'md5');
         $this->db->update('cliente', $this, array('id_cliente' => $this->id_cliente));
         if ($this->db->error()['code'] > 0)
-          $this->set_log_error_db();
-        $this->set_response_db('Alteração concluída com sucesso');
+          return $this->db->error()['message'];
+        return 'Dados Atualizado com Sucesso';
     }
 
     public function delete() {

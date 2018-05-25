@@ -25,17 +25,16 @@
           </div>
         </div>
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-          <h4><?= $cliente['nome']; ?></h4>
-          <!--<div class="btn-toolbar mb-2 mb-md-0">
+          <h4><?= $cliente->nome; ?></h4>
+          <div class="btn-toolbar mb-2 mb-md-0">
             <ul class="nav">
+              <?php if($cliente->tipo === "c") : ?>
               <li class="nav-item">
-                <span>valor total</span>
+                <a href="<?= base_url("revendedor/index"); ?>">Seja um Revendedor</a>
               </li>
-              <li class="nav-item">
-                <span>R$</span>
-              </li>
+              <?php endif; ?>
             </ul>
-          </div>-->
+          </div>
         </div>
 
         <div class="container">
@@ -68,20 +67,33 @@
                 </li>
               </ul>
 
-              <form class="card p-2">
+              <?= form_open('perfil/desconto', array('id' => 'hashtagFacebook', 'class' => 'card p-2')); ?>
                 <div class="input-group max-width">
-                  <input type="text" class="form-control" placeholder="Código promocional">
+                  <input type="text" class="form-control" name="codigo" placeholder="Código promocional">
+                  <input type="hidden" name="cod_promo" value="1">
+                  <input type="hidden" name="id_session" value="<?= $this->session->userdata('id_session'); ?>">
                   <div class="input-group-append">
                     <button type="submit" class="btn btn-secondary">Resgatar</button>
                   </div>
+                  <h6 class="form-text text-light bg-danger p-2">Ganhe 10% de desconto inserindo o código promocional #topMisterSalgadinhos</h6>
                 </div>
               </form>
+
+              <?php if ($this->session->flashdata('msg_cod_promo')) : ?>
+              <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+                <strong><?= $this->session->flashdata('msg_cod_promo'); ?></strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span class="closeX" aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <?php endif; ?>
+
             </div>
             <!-- fim do carrinho -->
 
 
-<!-- Cadastro -->
-      <div class="col-md-8 order-md-1">
+          <!-- Cadastro -->
+          <div class="col-md-8 order-md-1">
             <div class="tab-pane show active">
             <?php if(empty($Pedidos)) : ?>
               <?php if (!empty($finalizado)) : ?>
@@ -96,14 +108,14 @@
             <?php else : ?>
 
               <?= form_open('perfil/finalizar', array('id' => 'loja', 'class' => 'visible')); ?>
-                <input type="hidden" name="id_cliente" value="<?= $cliente['id_cliente']; ?>">
+                <input type="hidden" name="id_cliente" value="<?= $cliente->id_cliente; ?>">
                 <input type="hidden" name="id_cidade" value="<?= $cidade->id_cidade; ?>">
                 <input type="hidden" name="valor" value="<?= number_format($total, 2, '.', ''); ?>">
                 <input type="hidden" name="taxa_entrega" value="7">
                 <input type="hidden" name="valor_total" value="<?= number_format($total, 2, '.', ''); ?>">
                 <input type="hidden" name="situacao" value="s">
                 <input type="hidden" name="data_pedido" value="<?= now(); ?>">
-              
+
 
                 <div class="form-row align-items-center my-4">
                   <div class="custom-control custom-radio mr-3">

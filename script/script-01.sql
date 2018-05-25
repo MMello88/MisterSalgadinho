@@ -36,3 +36,16 @@ ALTER TABLE `miste872_prod`.`tbl_pedido`
   ADD COLUMN `num_entrega` VARCHAR(10) NULL AFTER `end_entrega`,
   ADD COLUMN `bairro_entrega` VARCHAR(150) NULL AFTER `num_entrega`,
   ADD COLUMN `comp_entrega` VARCHAR(100) NULL AFTER `bairro_entrega`;
+
+ALTER TABLE `miste872_prod`.`tbl_cliente`   
+  ADD COLUMN `tipo` CHAR(1) NULL  COMMENT 'c - cliente / r - revendedor / p - representante' AFTER `situacao`;
+
+ALTER TABLE `miste872_prod`.`tbl_cliente`   
+  ADD COLUMN `ganho_unitario` DECIMAL(2,2) NULL  COMMENT 'Somente revendedor e representando vai ter este campo habilitado' AFTER `tipo`;
+
+ALTER TABLE `miste872_prod`.`tbl_cart`   
+  ADD COLUMN `desconto` CHAR(1) DEFAULT '0'   NULL  COMMENT 'marca q ganhou desconto' AFTER `situacao`;
+
+ALTER TABLE `miste872_prod`.`tbl_cart`   
+  CHANGE `desconto` `cod_promo` CHAR(1) CHARSET utf8 COLLATE utf8_general_ci DEFAULT '0'   NULL  COMMENT 'usou cod promo 1 - true / 0 - false';
+

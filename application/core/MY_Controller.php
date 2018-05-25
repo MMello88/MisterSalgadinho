@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class MY_Controller extends CI_Controller {
   
-	public function __construct()
+	public function __construct($checa_loginho = FALSE)
 	{
 		parent::__construct();
 
@@ -11,6 +11,12 @@ class MY_Controller extends CI_Controller {
 		$this->NovaSession();
 		$this->data["CategoriasProdutos"] = $this->getCategoriaProduto();
 		$this->data["Produtos"] = $this->getProduto();
+
+		if ($checa_loginho){
+			if(!$this->session->userdata('id_cliente')){
+				redirect("clientes/registrar");
+			}
+		}
 	}
 
 	private function NovaSession()
@@ -59,5 +65,16 @@ class MY_Controller extends CI_Controller {
 	{
 		$this->load->model('ModeloList/listacategoriasproduto');
     	return $this->listacategoriasproduto->get_all();
+	}
+
+    protected function getTipoBy($campo){
+		$this->load->model('ModeloList/listatipo');
+		return $this->listatipo->getByCampo($campo);
+	}
+
+	protected function getCliente(){
+		$cliente = $this->listaclientes->get($this->session->userdata('id_cliente'));
+		$cliente->id_cidade = $this->session->userdata('cidade');
+		return $cliente;
 	}
 }

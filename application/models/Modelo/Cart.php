@@ -38,6 +38,15 @@ class Cart extends MY_Model {
       $this->set_response_db('Alteração concluída com sucesso');
     }
 
+    public function desconto($id_session, $cod_promo){
+      $this->db->set('cod_promo', $cod_promo);
+      $this->db->where('id_session', $id_session);
+      $this->db->update('cart');
+      if ($this->db->error()['code'] > 0)
+        return $this->db->error()['code'];
+      return 'Desconto concedido com sucesso.';
+    }
+
     public function delete() {
       $this->set_post($this);
       $this->db->delete('cart', array('id_cart' => $this->id_cart));
