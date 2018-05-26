@@ -58,7 +58,7 @@ class Perfil extends MY_Controller {
 			}
 
 			$this->data['cliente'] = $this->getCliente();
-			$this->data['cliente']['id_cidade'] = '';
+			//$this->data['cliente']['id_cidade'] = array();
 			$this->data['Pedidos'] = array();
 			$this->data['finalizado'] = 'Agradecemos pela sua preferência. Seu pedido será processado.';
 			$this->load->view('includes/header_navbar_fixed_top', $this->data);
