@@ -1,4 +1,4 @@
-<div class="container">
+    <div class="container">
       <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="<?= base_url('assets/img/bonequinho-120.png'); ?>" alt="" width="72" height="72">
         <h2>Mister Salgadinho agradece a confiança que nos deu tornando-se um revendedor.</h2>
@@ -9,7 +9,7 @@
       <div class="row mx-auto pb-5">
         <div class="col-md-12 order-md-1">
           <h4 class="mb-3">Realizar Cadastro</h4>
-          <?= form_open('clientes/registrar'); ?>
+          <?= form_open('revendedor/cadastrar'); ?>
             <input type="hidden" name="situacao" value="a">
             <input type="hidden" name="tipo" value="r">
 
