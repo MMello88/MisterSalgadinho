@@ -55,7 +55,10 @@ class Clientes extends MY_Controller {
 		                'id_cliente'        => $cli->id_cliente
 		            );
 					$this->session->set_userdata($arrCli);
-					redirect('perfil/index');
+					if ($cli->tipo == "p")
+						redirect('perfil/dashboard');
+					else
+						redirect('perfil/index');
 				} else {
 					$this->session->set_flashdata("erro_loginho","Usuário e Senha inválido.");
 				}

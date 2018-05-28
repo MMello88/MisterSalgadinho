@@ -75,16 +75,16 @@
                     <div class="input-group m-auto pt-5 pb-2 fade-out">
                     <?php if ($cidade !== null) : ?>
                       <div class="input-group-prepend">
-                        <button class="btn" type="button" id="btn-menos" data-whatever="<?= $Produto->id_produto ?>">-</button>
+                        <button class="btn mais_menos" type="button" id="btn-menos" data-whatever="<?= $Produto->id_produto ?>">-</button>
                       </div>
                       <input type="number" min="0" name="qtde" id="qnt-<?= $Produto->id_produto; ?>" class="form-control text-center bg-white" value="1" readonly required>
                       <div class="input-group-append">
-                        <button class="btn" type="button" id="btn-mais" data-whatever="<?= $Produto->id_produto ?>">+</button>
+                        <button class="btn mais_menos" type="button" id="btn-mais" data-whatever="<?= $Produto->id_produto ?>">+</button>
                       </div>
                     <?php endif; ?>
                     </div>
                   <?php if ($cidade === null) : ?>
-                    <button class="btn fade-out" type="button" data-toggle="modal" data-target="#exampleModalCenter">Verifique a Cidade Disponível</button>
+                    <button class="btn fade-out" type="button" data-toggle="modal" data-target="#exampleModalCenter">Verificar Disponibilidade</button>
                   <?php else : ?>
                     <button class="btn fade-out" type="submit" type="submit">Adicionar ao Carrinho</button>
                     <p class="total">Total: <strong id="total-<?= $Produto->id_produto ?>">R$ <?= $Produto->preco ?></strong></p>
@@ -106,7 +106,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header bg-mister-marrom">
-          <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalCenterTitle">Selecionar a Cidade</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span class="closeX" aria-hidden="true">&times;</span>
           </button>
@@ -134,7 +134,7 @@
             </div>
           </div>
           <div class="modal-footer bg-mister-mostarda">
-            <button type="submit" class="btn btn-primary btn-lg btn-block">Selecionar</button>
+            <button type="submit" class="btn dark btn-block">Selecionar</button>
           </div>
         <?= form_close(); ?>
       </div>

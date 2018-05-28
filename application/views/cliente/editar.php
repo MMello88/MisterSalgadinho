@@ -110,7 +110,7 @@
               </div>
 
               <hr class="mb-4">
-              <button class="btn btn-primary btn-lg btn-block" type="submit">Salvar</button>
+              <button class="btn btn-warning btn-block" type="submit">Salvar</button>
             </form>
           </div>
         </div>

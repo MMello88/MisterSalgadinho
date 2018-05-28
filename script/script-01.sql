@@ -49,3 +49,12 @@ ALTER TABLE `miste872_prod`.`tbl_cart`
 ALTER TABLE `miste872_prod`.`tbl_cart`   
   CHANGE `desconto` `cod_promo` CHAR(1) CHARSET utf8 COLLATE utf8_general_ci DEFAULT '0'   NULL  COMMENT 'usou cod promo 1 - true / 0 - false';
 
+CREATE TABLE `miste872_prod`.`tbl_representante_cliente`(  
+  `id_representante_cliente` INT NOT NULL,
+  `id_cliente_represent` INT NOT NULL,
+  `id_cliente_cliente` INT NOT NULL,
+  PRIMARY KEY (`id_representante_cliente`),
+  UNIQUE INDEX `UK_CLIENTE` (`id_cliente_cliente`),
+  CONSTRAINT `fk_cliente_representante` FOREIGN KEY (`id_cliente_represent`) REFERENCES `miste872_prod`.`tbl_cliente`(`id_cliente`),
+  CONSTRAINT `fk_cliente_cliente` FOREIGN KEY (`id_cliente_cliente`) REFERENCES `miste872_prod`.`tbl_cliente`(`id_cliente`)
+) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_general_ci;

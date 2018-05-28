@@ -44,7 +44,7 @@
           <div class="input-group max-width">
             <input type="text" class="form-control" placeholder="Código promocional">
             <div class="input-group-append">
-              <button type="submit" class="btn btn-secondary">Resgatar</button>
+              <button type="submit" class="btn btn-warning mais_menos resgatar">Resgatar</button>
             </div>
           </div>
         </form>
@@ -135,7 +135,7 @@
               </div>
 
               <hr class="mb-4">
-              <button class="btn btn-primary btn-lg btn-block" type="submit">Cadastrar</button>
+              <button class="btn btn-warning btn-lg btn-block" type="submit">Cadastrar</button>
             </form>
           </div>
           <!-- fim tab item cadastro -->
@@ -169,7 +169,7 @@
                 </div>
               </div>
               <hr class="mb-4">
-              <button class="btn btn-primary btn-lg btn-block" type="submit">Logar</button>
+              <button class="btn btn-warning btn-lg btn-block" type="submit">Logar</button>
             </form>
           </div>
           <!-- fim tab item loginho -->

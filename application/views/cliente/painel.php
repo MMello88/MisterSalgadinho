@@ -54,7 +54,7 @@
                     <h6 class="my-0"><?= $item->id_produto[0]->nome; ?> (<?= $item->qtde; ?>)</h6>
                     <small class="text-muted">Valor <?= $item->valor_unitario; ?></small>
                   </div>
-                  <span class="text-muted">Subtotal R$ <?= number_format(($item->valor_unitario*$item->qtde), 2, '.', ''); ?></span>
+                  <span class="text-muted">R$ <?= number_format(($item->valor_unitario*$item->qtde), 2, '.', ''); ?></span>
                 </li>
                 <?php endforeach; ?>
                 <li class="list-group-item justify-content-between d-none" id="gridTaxaEntrega">
@@ -73,7 +73,7 @@
                   <input type="hidden" name="cod_promo" value="1">
                   <input type="hidden" name="id_session" value="<?= $this->session->userdata('id_session'); ?>">
                   <div class="input-group-append">
-                    <button type="submit" class="btn btn-secondary">Resgatar</button>
+                    <button type="submit" class="btn btn-warning mais_menos resgatar">Resgatar</button>
                   </div>
                   <h6 class="form-text text-light bg-danger p-2">Ganhe 10% de desconto inserindo o código promocional #topMisterSalgadinhos</h6>
                 </div>
@@ -186,7 +186,7 @@
                 </div>
 
                 <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Finalizar Pedido</button>
+                <button class="btn btn-warning btn-block" type="submit">Finalizar Pedido</button>
               </form>
             <?php endif; ?>
             </div>

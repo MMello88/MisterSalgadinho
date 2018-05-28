@@ -51,28 +51,134 @@ a:hover, a:focus {
   background: #b8a07e;
   color: #fff;
 }
-
-
-
-.btn { 
-  background: #333;
-  border: medium none;
-  border-radius: 0;
-  color: #fff;
-  font-size: 20px;
-  height: 35px;
-  line-height: 25px;
-  padding: 0 12.5px;
-  text-transform: uppercase;
+/*================================
+=            link               =
+================================*/
+a {
+  color: #f7c723;
+  text-decoration: none;
+  font-weight: 400;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+a:hover {
+  color: #dfae08;
+  text-decoration: none;
+}
+a:focus {
+  text-decoration: none;
+  outline: none;
 }
 
-.btn:hover, .btn:focus {
-  color: #fff;
+/*================================
+=            button             =
+================================*/
+.btn {
+  position: relative;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 46px;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  padding: 0 35px;
+  margin: 0 10px 15px 0;
+  color: #202020;
+  background: #f7c723;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+  -webkit-box-shadow: 0 4px 0 #dfae08;
+  -moz-box-shadow: 0 4px 0 #dfae08;
+  box-shadow: 0 4px 0 #dfae08;
 }
-
-.ativo, .ativo:hover, .ativo:focus {
-  background: #CAA202;
-  color: #333;
+.btn:hover,
+.btn:focus {
+  outline: none;
+  top: 4px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.btn:active,
+.btn.active {
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.btn i.fa {
+  padding-right: 10px;
+}
+.btn b {
+  font-size: 26px;
+  line-height: 48px;
+  vertical-align: bottom;
+  padding: 0 10px 0 0;
+}
+.btn span {
+  font-weight: 700;
+  font-size: 24px;
+  margin: 0;
+  vertical-align: middle;
+  display: inline-block;
+  padding: 0 0 5px 5px;
+}
+.btn.mais_menos {
+  margin: 0px;
+  font-style: 29px;
+  line-height: 30px;
+  padding: 0px 20px;
+  text-decoration: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.btn.mais_menos:hover, .btn.mais_menos:focus {
+  top: 0px;
+}
+.btn.resgatar {
+  padding: 0px 35px;
+}
+.btn.white {
+  background: #FFF;
+  box-shadow: none;
+  color: #202020;
+  text-decoration: none;
+  -webkit-box-shadow: 0 4px 0 #e0e0e0;
+  -moz-box-shadow: 0 4px 0 #e0e0e0;
+  box-shadow: 0 4px 0 #e0e0e0;
+}
+.btn.white:hover,
+.btn.white:focus {
+  color: #202020;
+  top: 4px;
+  text-decoration: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.btn.dark {
+  background: #202020;
+  box-shadow: none;
+  color: #fff;
+  text-decoration: none;
+  -webkit-box-shadow: 0 4px 0 #000000;
+  -moz-box-shadow: 0 4px 0 #000000;
+  box-shadow: 0 4px 0 #000000;
+}
+.btn.dark:hover,
+.btn.dark:focus {
+  color: #fff;
+  top: 4px;
+  text-decoration: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 
@@ -80,6 +186,8 @@ a:hover, a:focus {
   background: #5a6268;
   color: #fff;
 }
+
+/*=====  End of Button  ======*/
 
 .padDiv {
   padding: 30px 20px;
@@ -103,6 +211,10 @@ a:hover, a:focus {
   width: 100%;
 }
 
+.form-control-mini{
+  padding: 0px;
+  margin: 0px;
+}
 .form-control {
   background-color: transparent;
   border: 1px solid #999;

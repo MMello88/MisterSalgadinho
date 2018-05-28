@@ -16,7 +16,7 @@ class Perfil extends MY_Controller {
 		$this->data['cliente'] = $this->getCliente();
 		//$this->data['cliente']['id_cidade'] = $this->session->userdata('cidade');
 		$this->load->view('includes/header_navbar_fixed_top', $this->data);
-		$this->load->view('includes/navbar_cliente', $this->data);
+		$this->load->view('cliente/navbar_cliente', $this->data);
 		$this->load->view('cliente/painel', $this->data);
 		$this->load->view('includes/footer_main', $this->data);
 	}
@@ -31,7 +31,7 @@ class Perfil extends MY_Controller {
 			$this->data['cliente'] = $this->getCliente();
 			//$this->data['cliente']['id_cidade'] = $this->session->userdata('cidade');
 			$this->load->view('includes/header_navbar_fixed_top', $this->data);
-			$this->load->view('includes/navbar_cliente', $this->data);
+			$this->load->view('cliente/navbar_cliente', $this->data);
 			$this->load->view('cliente/painel', $this->data);
 			$this->load->view('includes/footer_main', $this->data);
 		} else {
@@ -62,7 +62,7 @@ class Perfil extends MY_Controller {
 			$this->data['Pedidos'] = array();
 			$this->data['finalizado'] = 'Agradecemos pela sua preferência. Seu pedido será processado.';
 			$this->load->view('includes/header_navbar_fixed_top', $this->data);
-			$this->load->view('includes/navbar_cliente', $this->data);
+			$this->load->view('cliente/navbar_cliente', $this->data);
 			$this->load->view('cliente/painel', $this->data);
 			$this->load->view('includes/footer_main', $this->data);
 		}
@@ -75,7 +75,7 @@ class Perfil extends MY_Controller {
 		$this->data['cliente'] = $this->getCliente();
 		//$this->data['cliente']['id_cidade'] = $this->session->userdata('cidade');
 		$this->load->view('includes/header_navbar_fixed_top', $this->data);
-		$this->load->view('includes/navbar_cliente', $this->data);
+		$this->load->view('cliente/navbar_cliente', $this->data);
 		$this->load->view('cliente/historico_compra', $this->data);
 		$this->load->view('includes/footer_main', $this->data);
 	}
@@ -88,7 +88,7 @@ class Perfil extends MY_Controller {
         }
 		$this->data['cliente'] = $this->getCliente();
 		$this->load->view('includes/header_navbar_fixed_top', $this->data);
-		$this->load->view('includes/navbar_cliente', $this->data);
+		$this->load->view('cliente/navbar_cliente', $this->data);
 		$this->load->view('cliente/editar', $this->data);
 		$this->load->view('includes/footer_main', $this->data);
 	}
@@ -115,5 +115,14 @@ class Perfil extends MY_Controller {
         return $this->listacarts->getCartBySession($this->session->userdata('id_session'));
     }
 
+
+	public function dashboard(){
+		$this->data['cliente'] = $this->getCliente();
+		//$this->data['cliente']['id_cidade'] = $this->session->userdata('cidade');
+		$this->load->view('includes/header_navbar_fixed_top', $this->data);
+		$this->load->view('representante/dashboard_menu', $this->data);
+		$this->load->view('representante/dashboard', $this->data);
+		$this->load->view('includes/footer_main', $this->data);
+	}
 
 }

@@ -30,12 +30,13 @@ class Cart extends MY_Model {
 
     public function update() {
       $this->set_post($this);
-      $this->db->set('qtde', $this->qtde);
+      $this->db->set('qtde', 'qtde + ' . $this->qtde, false);
       $this->db->where('id_cart', $this->id_cart);
-      $this->db->update('cart');
+      $q = $this->db->update('cart');
+      print_r($q);
       if ($this->db->error()['code'] > 0)
         $this->set_log_error_db();
-      $this->set_response_db('Alteração concluída com sucesso');
+      //$this->set_response_db('Alteração concluída com sucesso');
     }
 
     public function desconto($id_session, $cod_promo){

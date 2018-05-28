@@ -190,7 +190,9 @@ $(document).on('click','#btn-menos-submit', function(){
       setValueInputQtdCart(id, InputValue);
       setValueInputValorCart(id, InputValue);
       refreshValorTotal(id, 'menos');
-      postUpdateQtdProduto(id, InputValue);
+      postUpdateQtdProduto(id, -1);
+      event.preventDefault();
+      return;
   }
 });
 
@@ -201,7 +203,9 @@ $(document).on('click','#btn-mais-submit', function(){
   setValueInputQtdCart(id, InputValue);
   setValueInputValorCart(id, InputValue);
   refreshValorTotal(id, 'mais');
-  postUpdateQtdProduto(id, InputValue);
+  postUpdateQtdProduto(id, 1);
+  event.preventDefault();
+  return;
 });
 
 function refreshValorTotal(id, sinal){
@@ -231,7 +235,10 @@ function setValueInputValorCart(id, qnt) {
 
 function postUpdateQtdProduto(id, qnt){
   var url = "<?= base_url('index.php/Carts/alterar'); ?>"
-  var posting = $.post( url, { id_cart: id, qtde: qnt } );
+  var csrf_cookie_name = $("form#formCartDel").find("input[name='csrf_test_name']").val();
+  var posting = $.post( url, { id_cart: id, qtde: qnt, csrf_test_name: csrf_cookie_name } );
+  console.log(csrf_cookie_name);
+  posting = null;
 }
 
 function getCountCart(){
@@ -260,14 +267,13 @@ $('#ModalCarrinho').on('shown.bs.modal', function (e) {
 
 $('form#formCart').on('submit', function(){
     var dados = $( this ).serialize();
-    console.log(dados);
     var form = this;
-    event.preventDefault();
     $.ajax({
         type: "POST",
         url: "<?= base_url("index.php/Carts/inserir"); ?>",
         data: dados,
         success: function(data){
+          console.log(data);
             getCountCart();
             $(form).find("input[name='qtde']").val("1");
             $('.cart-popover').popover('show');
@@ -287,7 +293,6 @@ $(document).on('submit','form#formCartDel', function(){
   var valor_item = $(form).find("input[name='valor_subtotal-"+idCart+"']").val();
   var total = $("#valor_total").text().replace("Total Pedido: ","");
   total = Number(total) - Number(valor_item);
-  event.preventDefault();
   $.ajax({
     type: "POST",
     url: "<?php echo base_url("index.php/Carts/deletarByProduto"); ?>",
@@ -303,7 +308,7 @@ $(document).on('submit','form#formCartDel', function(){
       $("#message-danger").removeAttr("style");
     }
   });
-  //return false;
+  event.preventDefault();
 });
 
 $(function () {

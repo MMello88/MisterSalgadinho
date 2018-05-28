@@ -23,8 +23,8 @@ class Listacarts extends Control {
         return $query->custom_result_object('cart');
     }
 
-    public function getCartByProduto($id_produto = '') {
-        $query = $this->_instance->db->get_where('cart', array('id_produto' => $id_produto));
+    public function getCartByProdutoAndSession($id_produto, $id_session) {
+        $query = $this->_instance->db->get_where('cart', array('id_produto' => $id_produto, 'id_session' => $id_session ));
         return $query->custom_result_object('cart');
     }
 	

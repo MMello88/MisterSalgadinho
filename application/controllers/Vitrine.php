@@ -73,18 +73,18 @@ class Vitrine extends MY_Controller {
 							    	</div>
 							    	<div class='col-12 col-md-6 col-sm-12'>
 								    	<div class='input-group max-width'>
-					                    	<button class='btn btn-warning' type='button' value='{$Cart->qtde}' id='btn-menos-submit' data-whatever='{$Cart->id_cart}'>-</button>
-						                    <input type='number' min='0' name='qtde' id='qnt-cart-{$Cart->id_cart}' class='form-control bg-white text-center' maxlength='4' value='{$Cart->qtde}' readonly required>
-					                    	<button class='btn btn-warning' type='button' value='{$Cart->qtde}' id='btn-mais-submit' data-whatever='{$Cart->id_cart}'>+</button>
+					                    	<button class='btn btn-warning mais_menos' type='button' value='{$Cart->qtde}' id='btn-menos-submit' data-whatever='{$Cart->id_cart}'>-</button>
+						                    <input type='number' min='0' name='qtdex' id='qnt-cart-{$Cart->id_cart}' class='form-control bg-white form-control-mini' maxlength='4' value='{$Cart->qtde}' readonly required>
+					                    	<button class='btn btn-warning mais_menos' type='button' value='{$Cart->qtde}' id='btn-mais-submit' data-whatever='{$Cart->id_cart}'>+</button>
 				                    	</div>
 				                    	<p class='card-text text-left' id='subtotal-{$Cart->id_cart}'>Sub Total: R$ {$subtotal}</p> 
 			                    	</div>
 						        	<div class='col-12 col-md-2 col-sm-12'>
-							        	<form method='post' id='formCartDel'> 
+						        	   ".form_open('', array('id' => 'formCartDel'))."
 							        		<input type='hidden' name='id_cart' value='{$Cart->id_cart}'>
 								        	<input type='hidden' name='id_produto' value='{$Cart->id_produto[0]->id_produto}'> 
 								        	<input type='hidden' name='valor_subtotal-{$Cart->id_cart}' value='{$subtotal}'> 
-							        		<button type='submit' class='btn btn-warning btn-sm' id='cart' id='cartDel'>X</button>
+							        		<button type='submit' class='btn btn-warning btn-sm mais_menos' id='cart' id='cartDel'>X</button>
 							        	</form> 
 						        	</div>
 							    </div>

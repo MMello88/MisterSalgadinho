@@ -14,6 +14,7 @@ class Cliente extends MY_Model {
     public $complemento;
     public $situacao;
     public $tipo;
+    public $ganho_unitario;
 
     public function  __construct() {
         parent::__construct($this);
@@ -23,6 +24,11 @@ class Cliente extends MY_Model {
         $this->set_post($this);
         $this->id_cliente = null;
         $this->senha = do_hash($this->senha, 'md5');
+        if ($this->tipo == "p"){
+            $this->ganho_unitario = '0.03';
+        } else {
+            $this->ganho_unitario = '';
+        }
         if ($this->db->insert('cliente', $this))
             return $this->db->insert_id();
         else

@@ -9,9 +9,9 @@
       <div class="row mx-auto pb-5">
         <div class="col-md-12 order-md-1">
           <h4 class="mb-3">Realizar Cadastro</h4>
-          <?= form_open('revendedor/cadastrar'); ?>
+          <?= form_open('representante/cadastrar'); ?>
             <input type="hidden" name="situacao" value="a">
-            <input type="hidden" name="tipo" value="r">
+            <input type="hidden" name="tipo" value="p">
 
             <div class="mb-4">
               <label for="nome">Nome <span class="text-muted">(*)</span></label>
@@ -77,7 +77,7 @@
             </div>
 
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Cadastrar</button>
+            <button class="btn btn-warning btn-lg btn-block" type="submit">Cadastrar</button>
           </form>
         </div>
       </div>
