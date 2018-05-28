@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Revendedor extends MY_Controller {
+class Representante extends MY_Controller {
 
 	public function __construct()
 	{
@@ -8,9 +8,9 @@ class Revendedor extends MY_Controller {
 		//$this->output->enable_profiler(TRUE);
 	}
 	
-	public function index(){
+	public function comercial(){
 		$this->load->view('includes/header_navbar_fixed_top', $this->data);
-		$this->load->view('cliente/revendedor/sobre', $this->data);
+		$this->load->view('representante/sobre_representante', $this->data);
 		$this->load->view('includes/footer_main', $this->data);
 	}
 
