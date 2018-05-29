@@ -5,16 +5,12 @@ class Perfil extends MY_Controller {
 	public function __construct()
 	{
 		parent::__construct(TRUE);
-		$this->load->model('ModeloList/listaclientes');
 		//$this->output->enable_profiler(TRUE);
-		$this->data['Pedidos'] = $this->getCartBySession();
 		$this->data['valoresHoraEntrega'] = $this->getTipoBy("hora_entrega");
 		$this->data['valoresFormaPagto'] = $this->getTipoBy("forma_pgto");
 	}
 	
 	public function index(){
-		$this->data['cliente'] = $this->getCliente();
-		//$this->data['cliente']['id_cidade'] = $this->session->userdata('cidade');
 		$this->load->view('includes/header_navbar_fixed_top', $this->data);
 		$this->load->view('cliente/navbar_cliente', $this->data);
 		$this->load->view('cliente/painel', $this->data);
@@ -29,7 +25,6 @@ class Perfil extends MY_Controller {
 			$this->data['valoresFormaPagto'] = $this->getTipoBy("forma_pgto");
 
 			$this->data['cliente'] = $this->getCliente();
-			//$this->data['cliente']['id_cidade'] = $this->session->userdata('cidade');
 			$this->load->view('includes/header_navbar_fixed_top', $this->data);
 			$this->load->view('cliente/navbar_cliente', $this->data);
 			$this->load->view('cliente/painel', $this->data);
@@ -58,7 +53,6 @@ class Perfil extends MY_Controller {
 			}
 
 			$this->data['cliente'] = $this->getCliente();
-			//$this->data['cliente']['id_cidade'] = array();
 			$this->data['Pedidos'] = array();
 			$this->data['finalizado'] = 'Agradecemos pela sua preferência. Seu pedido será processado.';
 			$this->load->view('includes/header_navbar_fixed_top', $this->data);
@@ -69,11 +63,8 @@ class Perfil extends MY_Controller {
 	}
 
 	public function historico(){
-		$this->load->model('ModeloList/listapedidos');
         $this->data['Pedidos'] = $this->listapedidos->getPedidoByCliente($this->session->userdata('id_cliente'));
 
-		$this->data['cliente'] = $this->getCliente();
-		//$this->data['cliente']['id_cidade'] = $this->session->userdata('cidade');
 		$this->load->view('includes/header_navbar_fixed_top', $this->data);
 		$this->load->view('cliente/navbar_cliente', $this->data);
 		$this->load->view('cliente/historico_compra', $this->data);
@@ -109,20 +100,4 @@ class Perfil extends MY_Controller {
 		}
 		redirect("perfil/index");
 	}
-
-	private function getCartBySession() {
-		$this->load->model('ModeloList/listacarts');
-        return $this->listacarts->getCartBySession($this->session->userdata('id_session'));
-    }
-
-
-	public function dashboard(){
-		$this->data['cliente'] = $this->getCliente();
-		//$this->data['cliente']['id_cidade'] = $this->session->userdata('cidade');
-		$this->load->view('includes/header_navbar_fixed_top', $this->data);
-		$this->load->view('representante/dashboard_menu', $this->data);
-		$this->load->view('representante/dashboard', $this->data);
-		$this->load->view('includes/footer_main', $this->data);
-	}
-
 }

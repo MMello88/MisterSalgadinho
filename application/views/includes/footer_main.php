@@ -2,11 +2,10 @@
   <div class="bg-mister-mostarda">
     <div class="container bg-mister-mostarda">
       <div class="row">
-        <div class="col m-auto">
-          <h2 class="text-center">
-            <img class="alo-icon" src="<?= base_url("assets/img/bonequinho-120.png"); ?>" alt="Alô, Mister!">    
-            <b>ALÔ, MISTER!</b>
-          </h2>
+        <div class="col m-auto text-center navbar-brand">
+            <h2 class="alo">
+              <img class="alo-icon d-inline-block align-top" src="<?= base_url("assets/img/bonequinho-120.png"); ?>" alt="Alô, Mister!">ALÔ, MISTER!
+            </h2>
         </div>
         <svg>
             <polyline points="0,0 22,44 0,88 "></polyline>
@@ -21,6 +20,13 @@
           <h5>Telefone</h5>
           <h3>(16) 3325-0364</h3>
         </div>
+        <svg>
+            <polyline points="0,0 22,44 0,88 "></polyline>
+        </svg>
+        <div class="col m-auto text-uppercase">
+          <h5>Whatsapp</h5>
+          <h3>(16) 99167-2820</h3>
+        </div>
       </div>
     </div>
   </div>
@@ -31,15 +37,12 @@
   			<div class="col-12 col-md-8 col-sm-12 px-5 pb-3">
           <address class="text-light">
             <img class="icon mr-2" src="<?= base_url("assets/ico/social/mail_light.svg"); ?>" alt="E-mail">
-            E-mail <a class="text-light" href="mailto:matheus.gnu@gmail.com">contato@<b>mister</b>salgadinhos.com.br</a><br> 
+            E-mail <a class="text-light" href="mailto:mistersalgadinhos@gmail.com">contato@<b>mister</b>salgadinhos.com.br</a><br> 
 
             <img class="icon mr-2" src="<?= base_url("assets/ico/social/location-pin_light.svg"); ?>" alt="Localização">R. Prudente Morais, n°532<br>
 
             <img class="icon mr-2" src="<?= base_url("assets/ico/social/phone.svg"); ?>" alt="Celular">
-            Matheus (16) 99183-8523<br>
-
-            <img class="icon mr-2" src="<?= base_url("assets/ico/social/phone.svg"); ?>" alt="Celular">
-            Rogerio (16) 99135-2685<br>
+            Matheus (16) 99167-2820<br>
 
             <img class="icon mr-2" src="<?= base_url("assets/ico/social/phone.svg"); ?>" alt="Celular">
             Telefone (16) 3325-0364<br>
@@ -49,25 +52,25 @@
   				<ul class="list-group">
   				  <li class="list-group-item text-warning bg-mister-marrom" style="padding: 0.25rem .75rem;">LINKS</li>
   				  <a href="<?= base_url(); ?>" class="list-group-item text-warning bg-mister-marrom">
-  				  HOME
+  				  Home
   					  <span class="badge badge-warning float-right">
   						<span class="oi" data-glyph="chevron-right" title="icon name" aria-hidden="true"></span>
   					  </span>
   				  </a>
-  				  <a href="<?= base_url("Shop/"); ?>" class="list-group-item text-warning bg-mister-marrom">
-  				  SHOP
+  				  <a href="<?= base_url("clientes/registrar"); ?>" class="list-group-item text-warning bg-mister-marrom">
+  				  Registrar
   					  <span class="badge badge-warning float-right">
   						<span class="oi" data-glyph="chevron-right" title="icon name" aria-hidden="true"></span>
   					  </span>
   				  </a>
-  				  <a href="<?= base_url("#start"); ?>" class="list-group-item text-warning bg-mister-marrom">
-  				  SOBRE
+  				  <a href="<?= base_url("clientes/registrar"); ?>" class="list-group-item text-warning bg-mister-marrom">
+  				  Loginho
   					  <span class="badge badge-warning float-right">
   						<span class="oi" data-glyph="chevron-right" title="icon name" aria-hidden="true"></span>
   					  </span>
   				  </a>
-  				  <a href="<?= base_url("#contact"); ?>" class="list-group-item text-warning bg-mister-marrom">
-  				  CONTATO
+  				  <a href="<?= base_url("representante/comercial"); ?>" class="list-group-item text-warning bg-mister-marrom">
+  				  Representante Comercial
   					  <span class="badge badge-warning float-right">
   						<span class="oi" data-glyph="chevron-right" title="icon name" aria-hidden="true"></span>
   					  </span>

@@ -6,10 +6,6 @@ class Clientes extends MY_Controller {
 	{
 		parent::__construct();
 		//$this->output->enable_profiler(TRUE);
-		$this->load->model('Modelo/cliente');
-		$this->load->model('ModeloList/listaclientes');
-		$this->data['Pedidos'] = $this->getCartBySession();
-
 	}
 	
 	public function index(){
@@ -27,17 +23,13 @@ class Clientes extends MY_Controller {
 			$this->load->view('cliente/registrar', $this->data);
 			$this->load->view('includes/footer_main', $this->data);
 		} else {
-			$cli = array(
-                'nome'              => $this->input->post('nome'),
-                'email'             => $this->input->post('email'),
-                'id_cliente'        => ""
-            );
             $idCliente = $this->cliente->insert();
             if(is_numeric($idCliente)){
-				$cli['id_cliente'] = $idCliente;
-				$this->session->set_userdata($cli);
+				$this->data['cliente'] = $this->cliente;
 				$this->enviarEmailCofirmandoAcesso($this->cliente->nome, $this->cliente->email, $this->cliente->hash);
-				redirect('perfil/index');
+				$this->load->view('includes/header_navbar_fixed_top', $this->data);
+				$this->load->view('cliente/registrar_sucesso', $this->data);
+				$this->load->view('includes/footer_main', $this->data);
 			} else {
 				$this->session->set_flashdata("erro_cadastro","Erro ao realizar o cadastro. Erro: " . $idCliente);
 			}
@@ -46,20 +38,24 @@ class Clientes extends MY_Controller {
 
 	public function login(){
 		$this->session->set_flashdata("frmLog","FALSE");
-		if ($this->form_validation->run('novo/cliente') === TRUE){
+		if ($this->form_validation->run('loginho/cliente') === TRUE){
 			$cli = $this->listaclientes->getByEmail($this->input->post('email'));
 			if (!empty($cli)){
 				if ($cli->senha === do_hash($this->input->post('senha'), 'md5')){
-					$arrCli = array(
-		                'nome'              => $cli->nome,
-		                'email'             => $cli->email,
-		                'id_cliente'        => $cli->id_cliente
-		            );
-					$this->session->set_userdata($arrCli);
-					if ($cli->tipo == "p")
-						redirect('perfil/dashboard');
-					else
-						redirect('perfil/index');
+					if($cli->ativo == '1'){
+						$arrCli = array(
+			                'nome'              => $cli->nome,
+			                'email'             => $cli->email,
+			                'id_cliente'        => $cli->id_cliente
+			            );
+						$this->session->set_userdata($arrCli);
+						if ($cli->tipo == "s")
+							redirect('areacomercial/dashboard');
+						else
+							redirect('perfil/index');
+					} else {
+						$this->session->set_flashdata("erro_loginho","Seu Usuário consta inativo. <br/> Se realizou o cadastro agora verifique o e-mail com o link de ativação. <br/> Se não realizou o cadastro agora e sua conta consta inativa, por favor entrar em contato através do e-mail mistersalgadinhos@gmail.com para identificarmos o seu problema.");
+					}
 				} else {
 					$this->session->set_flashdata("erro_loginho","Usuário e Senha inválido.");
 				}
@@ -129,11 +125,6 @@ class Clientes extends MY_Controller {
 		}
 	}
 
-	private function getCartBySession() {
-		$this->load->model('ModeloList/listacarts');
-        return $this->listacarts->getCartBySession($this->session->userdata('id_session'));
-    }
-
     private function enviarEmailCofirmandoAcesso($nome, $email, $hash){
     	$link = base_url("clientes/ativar/$hash");
     	$html = 
@@ -155,13 +146,13 @@ class Clientes extends MY_Controller {
 		  </body>
 		</html>";
 
-    $this->load->library('email');
-    $this->email
-      ->from('pedido@mistersalgadinhos.com.br', 'Mister Salgadinhos')
-      ->to($email)
-      ->subject("Mister Salgadinhos - Seu pedido foi recebido com sucesso!.")
-      ->message($html)
-      ->send();
+	    $this->load->library('email');
+	    $this->email
+	      ->from('pedido@mistersalgadinhos.com.br', 'Mister Salgadinhos')
+	      ->to($email)
+	      ->subject("Mister Salgadinhos - Link para ativar o cadastro!.")
+	      ->message($html)
+	      ->send();
     }
 
     private function enviarEmailRecuperarSenha($nome, $email, $hash){
@@ -189,7 +180,7 @@ class Clientes extends MY_Controller {
     $this->email
       ->from('pedido@mistersalgadinhos.com.br', 'Mister Salgadinhos')
       ->to($email)
-      ->subject("Mister Salgadinhos - Seu pedido foi recebido com sucesso!.")
+      ->subject("Mister Salgadinhos - Pedido de Recuperação de Senha.")
       ->message($html)
       ->send();
     }

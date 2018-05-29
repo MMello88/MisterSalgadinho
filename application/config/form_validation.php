@@ -39,7 +39,7 @@ $config = array(
             'rules' => 'trim|required'
         )
     ),
-    'novo/cliente' =>
+    'loginho/cliente' =>
     array(
         array(
             'field' => 'email',
@@ -51,6 +51,49 @@ $config = array(
             'label' => 'Senha',
             'rules' => 'trim|required|min_length[8]'
         ),
+    ),
+    'novo/cliente/representante' =>
+    array(
+        array(
+            'field' => 'nome',
+            'label' => 'Nome',
+            'rules' => 'trim|required'
+        ),
+        array(
+            'field' => 'cpf_cnpj',
+            'label' => 'CPF ou CNPJ',
+            'rules' => 'trim|required|numeric|min_length[11]|max_length[14]'
+        ),
+        array(
+            'field' => 'email',
+            'label' => 'Email',
+            'rules' => 'required|valid_email|is_unique[cliente.email]|'
+        ),
+        array(
+            'field' => 'senha',
+            'label' => 'Senha',
+            'rules' => 'trim|required|min_length[8]'
+        ),
+        array(
+            'field' => 'endereco',
+            'label' => 'Endereço',
+            'rules' => 'trim|required'
+        ),
+        array(
+            'field' => 'numero',
+            'label' => 'Numero',
+            'rules' => 'trim|required'
+        ),
+        array(
+            'field' => 'bairro',
+            'label' => 'Bairro',
+            'rules' => 'trim|required'
+        ),
+        array(
+            'field' => 'telefone',
+            'label' => 'Telefone',
+            'rules' => 'trim|required'
+        )
     ),
     'recuperar/senha' =>
     array(

@@ -65,3 +65,9 @@ ALTER TABLE `miste872_prod`.`tbl_cliente`
 ALTER TABLE `miste872_prod`.`tbl_cliente`   
   ADD COLUMN `hash` VARCHAR(255) NULL  COMMENT 'id criptografado' AFTER `cpf_cnpj`,
   ADD COLUMN `ativo` CHAR(1) DEFAULT '0'   NULL  COMMENT '1 - true / 0 false' AFTER `hash`;
+
+ALTER TABLE `miste872_prod`.`tbl_cliente`   
+  CHANGE `tipo` `tipo` CHAR(1) CHARSET utf8 COLLATE utf8_general_ci NULL  COMMENT 'c - cliente / r - revendedor / s - representante / p - parceiro';
+
+ALTER TABLE `miste872_prod`.`tbl_representante_cliente`   
+  CHANGE `id_representante_cliente` `id_representante_cliente` INT(11) NOT NULL AUTO_INCREMENT;

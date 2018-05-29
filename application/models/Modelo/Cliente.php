@@ -28,7 +28,7 @@ class Cliente extends MY_Model {
         $this->id_cliente = null;
         $this->ativo = 0;
         $this->senha = do_hash($this->senha, 'md5');
-        if ($this->tipo == "p"){
+        if ($this->tipo == "s"){
             $this->ganho_unitario = '0.03';
         } else {
             $this->ganho_unitario = '';

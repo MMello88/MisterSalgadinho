@@ -11,13 +11,21 @@
           <h4 class="mb-3">Realizar Cadastro</h4>
           <?= form_open('representante/cadastrar'); ?>
             <input type="hidden" name="situacao" value="a">
-            <input type="hidden" name="tipo" value="p">
+            <input type="hidden" name="tipo" value="s">
 
             <div class="mb-4">
               <label for="nome">Nome <span class="text-muted">(*)</span></label>
               <input type="text" class="form-control mb-0 bg-white" id="nome" name="nome" placeholder="Ex.: Nome Completo " value="<?= set_value('nome'); ?>" required>
               <div class="invalid-feedback <?= form_error('nome') !== null ? "d-block":""; ?>">
                 <?= form_error('nome'); ?>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label for="cpf_cnpj">CPF ou CNPJ <span class="text-muted">(*)</span></label>
+              <input type="number" class="form-control mb-0 bg-white" id="cpf_cnpj" name="cpf_cnpj" placeholder="Ex.: 35849945809 ou 43165888000125 " value="<?= set_value('cpf_cnpj'); ?>" maxlength="14" required>
+              <div class="invalid-feedback <?= form_error('cpf_cnpj') !== null ? "d-block":""; ?>">
+                <?= form_error('cpf_cnpj'); ?>
               </div>
             </div>
 

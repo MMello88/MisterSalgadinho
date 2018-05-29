@@ -168,6 +168,7 @@
                   <?= form_error('senha'); ?>
                 </div>
               </div>
+              <a href="<?= base_url('clientes/recuperar'); ?>">Esqueceu a senha?</a>
               <hr class="mb-4">
               <button class="btn btn-warning btn-lg btn-block" type="submit">Logar</button>
             </form>
