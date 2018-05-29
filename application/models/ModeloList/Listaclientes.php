@@ -24,8 +24,16 @@ class Listaclientes extends Control {
         return $query->custom_result_object('cliente');
     }
 
-    public function getByEmail($email = '') {
+    public function getByEmail($email) {
         $query = $this->_instance->db->get_where('cliente', array('email' => $email));
+        if (empty($query))
+            $this->set_log_error_db();
+        $result = $query->custom_result_object('cliente');       
+        return empty($result) ? "" : $result[0];
+    }
+
+    public function getByHash($hash) {
+        $query = $this->_instance->db->get_where('cliente', array('hash' => $hash));
         if (empty($query))
             $this->set_log_error_db();
         $result = $query->custom_result_object('cliente');       

@@ -52,6 +52,27 @@ $config = array(
             'rules' => 'trim|required|min_length[8]'
         ),
     ),
+    'recuperar/senha' =>
+    array(
+        array(
+            'field' => 'email',
+            'label' => 'Email',
+            'rules' => 'trim|required|valid_email'
+        )
+    ),
+    'nova/senha' =>
+    array(
+        array(
+            'field' => 'hash',
+            'label' => 'hash',
+            'rules' => 'trim|required'
+        ),
+        array(
+            'field' => 'senha',
+            'label' => 'Senha',
+            'rules' => 'trim|required|min_length[8]'
+        )
+    ),
     'finalizar/pedido' =>
     array(
         array(

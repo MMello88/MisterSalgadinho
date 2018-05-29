@@ -28,10 +28,14 @@
     <a class="navbar-brand" href="<?php echo base_url("vitrine"); ?>"><b>Mister</b> Salgadinho</a>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item ml-auto">
-        <?php if($cliente->tipo !== "p") : ?>
-        <a class="navbar-brand" href="<?= base_url("perfil/index"); ?>">
+        <?php if(isset($cliente)) : ?>
+          <?php if($cliente->tipo !== "p") : ?>
+          <a class="navbar-brand" href="<?= base_url("perfil/index"); ?>">
+          <?php else : ?>
+            <a class="navbar-brand" href="<?= base_url("perfil/dashboard"); ?>">
+          <?php endif; ?>
         <?php else : ?>
-          <a class="navbar-brand" href="<?= base_url("perfil/dashboard"); ?>">
+            <a class="navbar-brand" href="<?= base_url("perfil/dashboard"); ?>">
         <?php endif; ?>
           <span class="ml-auto">Sua Conta</span>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none"  stroke-linecap="round" stroke-linejoin="round" class="ml-auto feather"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>

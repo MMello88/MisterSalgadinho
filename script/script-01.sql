@@ -58,3 +58,10 @@ CREATE TABLE `miste872_prod`.`tbl_representante_cliente`(
   CONSTRAINT `fk_cliente_representante` FOREIGN KEY (`id_cliente_represent`) REFERENCES `miste872_prod`.`tbl_cliente`(`id_cliente`),
   CONSTRAINT `fk_cliente_cliente` FOREIGN KEY (`id_cliente_cliente`) REFERENCES `miste872_prod`.`tbl_cliente`(`id_cliente`)
 ) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_general_ci;
+
+ALTER TABLE `miste872_prod`.`tbl_cliente`   
+  ADD COLUMN `cpf_cnpj` VARCHAR(14) NULL  COMMENT 'cpf ou cnpj' AFTER `ganho_unitario`;
+
+ALTER TABLE `miste872_prod`.`tbl_cliente`   
+  ADD COLUMN `hash` VARCHAR(255) NULL  COMMENT 'id criptografado' AFTER `cpf_cnpj`,
+  ADD COLUMN `ativo` CHAR(1) DEFAULT '0'   NULL  COMMENT '1 - true / 0 false' AFTER `hash`;
