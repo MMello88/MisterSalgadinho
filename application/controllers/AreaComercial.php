@@ -48,12 +48,15 @@ class AreaComercial extends MY_Controller {
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[cliente.email]');
         $this->form_validation->set_rules('cpf_cnpj', 'CPF ou CNPJ', 'trim|required|numeric|min_length[11]|max_length[14]');
     	$this->data['consumidores'] = $this->listarepresentantecliente->get($this->data['cliente']->id_cliente);
-
+    	$this->data['consumidor'] = $this->listaclientes->get($id_cliente_cliente);
 		if ($this->form_validation->run('novo/cliente/representante') === FALSE)
 		{
 			$this->load->view('includes/header_navbar_fixed_top', $this->data);
 			$this->load->view('representante/dashboard_menu', $this->data);
-			$this->load->view('representante/cadastrar_consumidor', $this->data);
+			if (empty($id_cliente_cliente)) 
+				$this->load->view('representante/cadastrar_consumidor', $this->data);
+			else
+				$this->load->view('representante/editar_consumidor', $this->data);
 			$this->load->view('includes/footer_main', $this->data);
 		} else {
             $idCliente = $this->cliente->insert();

@@ -58,13 +58,22 @@
                 <span class="text-muted">Lista de Clientes</span>
               </h4>
               <ul class="list-group mb-3">
+                <?php if(empty($consumidores)) : ?>
+                <li class="list-group-item d-flex justify-content-between">
+                  <span>...</span>
+                  <strong>...</strong>
+                </li>
+                <?php endif; ?>
                 <?php foreach ($consumidores as $value) : ?>
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                   <div>
                     <h6 class="my-0"><?= $value->id_cliente_cliente->nome; ?></h6>
-                    <small class="text-muted"><?= $value->id_cliente_cliente->email; ?> </small>
+                    <small class="text-muted"><?= $value->id_cliente_cliente->email; ?></small>
                   </div>
-                  <span class="text-muted"><a href="<?= base_url("areacomercial/novo_consumidor/{$value->id_cliente_cliente->id_cliente}"); ?>">Editar</a></span>
+                  <div>
+                    <a href="<?= base_url("areacomercial/novo_consumidor/{$value->id_cliente_cliente->id_cliente}"); ?>">Visualizar</a>
+                    <p class="text-muted my-0" style="font-size: 80%;"><?= $value->id_cliente_cliente->ativo == '1' ? 'Ativo' : 'Inativo'; ?></p>
+                  </div>
                 </li>
                 <?php endforeach; ?>
               </ul>
@@ -165,13 +174,3 @@
 
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-      
