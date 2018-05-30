@@ -50,7 +50,6 @@ class Vitrine extends MY_Controller {
 	}
 
 	public function getCartBySession() {
-		$this->load->model('ModeloList/listacarts');
         $CartsAtual = $this->listacarts->getCartBySession($this->session->userdata('id_session'));
         $i = 0;
         $total = 0;
@@ -111,7 +110,6 @@ class Vitrine extends MY_Controller {
 	private function removeCartBySession()
 	{
 		if ($this->session->userdata('id_session')){
-	        $this->load->model('Modelo/cart');
 	        return $this->cart->deleteCartBySession($this->session->userdata('id_session'));
     	} else {
     		return false;

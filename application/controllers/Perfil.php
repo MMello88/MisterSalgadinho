@@ -32,8 +32,6 @@ class Perfil extends MY_Controller {
 		} else {
 			$carts = $this->getCartBySession();
 			if (!empty($carts)){
-				$this->load->model('Modelo/pedido');
-				$this->load->model('Modelo/item_pedido');
 				$id_pedido = $this->pedido->insert();
 				
 				foreach ($carts as $value) {
@@ -46,7 +44,6 @@ class Perfil extends MY_Controller {
 				}
 
 				//retirando o pedido do carrinho para iniciar uma nova session
-				$this->load->model('Modelo/cart');
 				$this->cart->updataSitucao($this->session->userdata('id_session'));
 				$this->session->unset_userdata('id_session');
 				$this->session->unset_userdata('cidade');
@@ -74,7 +71,6 @@ class Perfil extends MY_Controller {
 	public function editar(){
         $this->data['edtCliente'] = $this->listaclientes->get($this->session->userdata('id_cliente'));
         if ($this->form_validation->run('novo/cliente') === TRUE){
-        	$this->load->model('Modelo/cliente');
         	$this->data['edtClienteSucesso'] = $this->cliente->update();
         }
 		$this->data['cliente'] = $this->getCliente();
@@ -91,7 +87,6 @@ class Perfil extends MY_Controller {
 		} else {
 			if ($_POST){
 				if(strtolower($_POST['codigo']) === strtolower('#topMisterSalgadinhos')){
-					$this->load->model('Modelo/cart');
 					$this->session->set_flashdata("msg_cod_promo", $this->cart->desconto($_POST['id_session'], $_POST['cod_promo']));
 				} else {
 					$this->session->set_flashdata("msg_cod_promo", "Código promocional inválido");

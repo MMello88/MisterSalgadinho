@@ -4,33 +4,33 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 require_once(APPPATH."models/Modelo/Produto.php");
 require_once(APPPATH."models/Modelo/ProdutoCategValor.php");
  
-class Listaprodutos extends Control {
+class Listaprodutos extends CI_Model {
 
     public function  __construct() {
         parent::__construct($this);
     }
 
     public function get($id_produto = '') {
-        $query = $this->_instance->db->get_where('produto', array('id_produto' => $id_produto));
+        $query = $this->db->get_where('produto', array('id_produto' => $id_produto));
         if (empty($query))
             $this->set_log_error_db();
         return $query->custom_result_object('produto');
     }
  
     public function get_all(){
-        $query = $this->_instance->db->get('produto');
+        $query = $this->db->get('produto');
         if (empty($query))
             $this->set_log_error_db();
         return $query->custom_result_object('produto');
     }
 
     public function getProdutoByCategoria_produto($id_categoria_produto = '') {
-        $query = $this->_instance->db->get_where('produto', array('id_categoria_produto' => $id_categoria_produto));
+        $query = $this->db->get_where('produto', array('id_categoria_produto' => $id_categoria_produto));
         return $query->custom_result_object('produto');
     }
 
     public function getAllProdutoCategValor($ativo = 'a'){
-        $query = $this->_instance->db->query(
+        $query = $this->db->query(
             "SELECT p.id_produto, 
                    p.nome, 
                    p.id_categoria_produto, 

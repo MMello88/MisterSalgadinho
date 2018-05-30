@@ -45,7 +45,7 @@ class Evento extends MY_Model {
         $this->set_response_db('Removido com sucesso');
     }
 
-    private function get_config_prop(){
+    public function get_config_prop(){
         $this->id_cliente = $this->get_cliente();
         $this->id_pedido = $this->get_pedgeto();
     }

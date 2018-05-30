@@ -70,7 +70,10 @@
                     <h6 class="my-0"><?= $value->id_cliente_cliente->nome; ?></h6>
                     <small class="text-muted"><?= $value->id_cliente_cliente->email; ?> </small>
                   </div>
-                  <span class="text-muted"><a href="<?= base_url("areacomercial/novo_consumidor/{$value->id_cliente_cliente->id_cliente}"); ?>">Visualizar</a></span>
+                  <div>
+                    <a href="<?= base_url("areacomercial/novo_consumidor/{$value->id_cliente_cliente->id_cliente}"); ?>">Visualizar</a>
+                    <p class="text-muted my-0" style="font-size: 80%;"><?= $value->id_cliente_cliente->ativo == '1' ? 'Ativo' : 'Inativo'; ?></p>
+                  </div>
                 </li>
                 <?php endforeach; ?>
               </ul>
@@ -84,6 +87,7 @@
               <div class="tab-content" id="pills-tabContent">
                 <!-- tab item cadastro -->
                 <div class="tab-pane show active" id="form-registrar">
+                  
                   <div class="mb-4">
                     <label for="nome">Nome <span class="text-muted">(*)</span></label>
                     <input type="text" class="form-control mb-0" id="nome" name="nome" placeholder="Ex.: Nome Completo " value="<?= $consumidor->nome; ?>" readonly>
@@ -139,9 +143,13 @@
                   </div>
 
                   <hr class="mb-4">
-                  <a href="<?= base_url("areacomercial/novo_consumidor"); ?>" class="btn btn-warning btn-block" type="submit">Voltar</button>
+                  <a href="<?= base_url("areacomercial/novo_consumidor"); ?>" class="btn btn-warning btn-block" type="submit">Voltar</a>
+
+                </div>
+                <!-- fim tab item cadastro -->
               </div>
-              <!-- fim tab item cadastro -->
+            </div>
+             
           </div>
         </div>
       </main>

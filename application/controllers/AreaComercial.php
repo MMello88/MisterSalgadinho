@@ -6,8 +6,6 @@ class AreaComercial extends MY_Controller {
 	{
 		parent::__construct(TRUE);
 		//$this->output->enable_profiler(TRUE);
-		$this->load->model('ModeloList/listarepresentantecliente');
-		$this->load->model('Modelo/representante_cliente');
 		
 		$this->data['valoresHoraEntrega'] = $this->getTipoBy("hora_entrega");
 		$this->data['valoresFormaPagto'] = $this->getTipoBy("forma_pgto");
@@ -35,7 +33,6 @@ class AreaComercial extends MY_Controller {
 	public function editar(){
         $this->data['edtCliente'] = $this->listaclientes->get($this->session->userdata('id_cliente'));
         if ($this->form_validation->run('novo/cliente') === TRUE){
-        	$this->load->model('Modelo/cliente');
         	$this->data['edtClienteSucesso'] = $this->cliente->update();
         }
 		$this->load->view('includes/header_navbar_fixed_top', $this->data);

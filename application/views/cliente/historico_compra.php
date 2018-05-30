@@ -62,8 +62,8 @@
                     <td><?= $Pedido->situacao == 's' ? 'Solicitado' : 'Entregue'; ?></td>
                     <td><?= $Pedido->data_pedido; ?></td>
                     <td><?= $Pedido->valor_total; ?></td>
-                    <td><?= $Pedido->forma_pgto == 'd' ? 'Dinheiro' : $Pedido->forma_pgto == 'cd' ? 'Cartão Débito' : 'Cartão Crédito'; ?></td>
-                    <td><?= $Pedido->forma_entrega == 'e' ? 'Entregar' : 'Retirar'; ?></td>
+                    <td><?= $Pedido->forma_pgto === 'd' ? 'Dinheiro' : ( $Pedido->forma_pgto == 'cd' ? 'Cartão Débito' : 'Cartão Crédito' ); ?></td>
+                    <td><?= $Pedido->forma_entrega === 'e' ? 'Entregar' : 'Retirar'; ?></td>
                     <td><?= $Pedido->data_entrega . " " . $Pedido->hora_entrega; ?></td>
                     <td><?= $Pedido->id_cidade[0]->nome; ?></td>
                     <td><?= $Pedido->end_entrega . ", " . $Pedido->num_entrega . " - " . $Pedido->bairro_entrega . " " . $Pedido->comp_entrega; ?></td>

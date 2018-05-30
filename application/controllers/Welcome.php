@@ -16,8 +16,6 @@ class Welcome extends CI_Controller {
 
 	public function newsletter(){
 		if ($_POST){
-			$this->load->model('Modelo/newsletter');
-			$this->load->model('ModeloList/listanewsletters');
 			$boletim = $this->listanewsletters->getByEmail($this->input->post('email'));
 			if (empty($boletim)){
 				$this->newsletter->data_criacao = date('Y-m-d', time());

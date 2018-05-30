@@ -6,11 +6,6 @@ class MY_Controller extends CI_Controller {
 	public function __construct($checa_loginho = FALSE)
 	{
 		parent::__construct();
-		$this->load->model('Modelo/cliente');
-		$this->load->model('ModeloList/listacidades');
-		$this->load->model('ModeloList/listaclientes');
-		$this->load->model('ModeloList/listapedidos');
-		
 		$this->CidadeSession();
 		$this->NovaSession();
 		$this->data["CategoriasProdutos"] = $this->getCategoriaProduto();
@@ -51,7 +46,6 @@ class MY_Controller extends CI_Controller {
 
 	protected function getProduto()
 	{
-		$this->load->model('ModeloList/listaprodutos');
     	return $this->listaprodutos->getAllProdutoCategValor();
 	}
 
@@ -69,12 +63,10 @@ class MY_Controller extends CI_Controller {
 
 	protected function getCategoriaProduto()
 	{
-		$this->load->model('ModeloList/listacategoriasproduto');
     	return $this->listacategoriasproduto->get_all();
 	}
 
     protected function getTipoBy($campo){
-		$this->load->model('ModeloList/listatipo');
 		return $this->listatipo->getByCampo($campo);
 	}
 
@@ -86,7 +78,6 @@ class MY_Controller extends CI_Controller {
 	}
 
 	protected function getCartBySession() {
-		$this->load->model('ModeloList/listacarts');
         return $this->listacarts->getCartBySession($this->session->userdata('id_session'));
     }
 }

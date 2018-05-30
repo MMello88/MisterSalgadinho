@@ -71,3 +71,20 @@ ALTER TABLE `miste872_prod`.`tbl_cliente`
 
 ALTER TABLE `miste872_prod`.`tbl_representante_cliente`   
   CHANGE `id_representante_cliente` `id_representante_cliente` INT(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `miste872_prod`.`tbl_pedido`   
+  ADD COLUMN `data_pagamento` DATE NULL  COMMENT 'data do dia do pagamento' AFTER `comp_entrega`;
+
+CREATE TABLE `miste872_prod`.`tbl_representante_recebimento`(  
+  `id_representante_recebimento` INT NOT NULL AUTO_INCREMENT,
+  `id_cliente_represent` INT NOT NULL,
+  `id_pedido` INT NOT NULL,
+  `data_pgto_pedido` DATE NOT NULL,
+  `valor_receber` DECIMAL(7,2) NOT NULL,
+  `recebido` CHAR(1) NOT NULL COMMENT 's - sim / n - não - s/n foi recebido pelo cliente',
+  `situacao_pedido` CHAR(1) NOT NULL COMMENT 'a - aberto / f - finalizado',
+  PRIMARY KEY (`id_representante_recebimento`)
+) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_general_ci;
+
+ALTER TABLE `miste872_prod`.`tbl_representante_recebimento`   
+  CHANGE `valor_receber` `valor_receber` DECIMAL(7,4) NOT NULL;

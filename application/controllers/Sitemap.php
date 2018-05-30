@@ -15,8 +15,6 @@ class Sitemap extends CI_Controller {
 		// We load the url helper to be able to use the base_url() function
 		$this->load->helper('url');
 		
-		$this->load->model('Modelo/sitemapmodel');
-		
 		$this->articles = array(
 			array(
 				'loc' => base_url(''),

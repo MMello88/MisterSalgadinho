@@ -5,7 +5,6 @@ class Carts extends CI_Controller {
 
     public function index()
     {
-        $this->load->model('ModeloList/listacidades');
 		$this->data['link_cidade'] = !$this->session->userdata('link_cidade') ? '' : $this->session->userdata('link_cidade');
         $this->data['title'] = 'Pedido';
         $this->data["view_pedido_produtos"] = $this->getCartBySession($this->session->userdata('id_session'));
@@ -16,8 +15,6 @@ class Carts extends CI_Controller {
     }
 
     public function inserir(){
-    	$this->load->model('Modelo/cart');
-		$this->load->model('ModeloList/listacarts');
         $TemProduto = $this->listacarts->getCartByProdutoAndSession($_POST['id_produto'], $_POST['id_session']);
         if(empty($TemProduto)){
         	$this->cart->insert();
@@ -28,12 +25,10 @@ class Carts extends CI_Controller {
     }
 
     public function alterar(){
-        $this->load->model('Modelo/cart');
         $this->cart->update();
     }
 		
 	public function getComboHorario(){
-		$this->load->model('ModeloList/listatipo');
 		$formas = $this->listatipo->getByCampo('hora_entrega');
 		$html = "<div class=\"form-group\">
 							<label  for=\"InputHoraEntrega\">Horário do Envento</label>
@@ -83,7 +78,6 @@ class Carts extends CI_Controller {
 	
 	public function deletarByProduto(){
 		if ($this->session->userdata('id_session')){
-	        $this->load->model('Modelo/cart');
 	        if ($this->cart->deleteByProduto($this->session->userdata('id_session'), $_POST['id_produto']))
 	        	echo 'success';
 	        echo 'error';
@@ -91,7 +85,6 @@ class Carts extends CI_Controller {
     }
 
 	public function getCartBySession($id_session = '') {
-		$this->load->model('ModeloList/listacarts');
         $CartsAtual = $this->listacarts->getCartBySession($id_session);
         $i = 0;
         $total = 0;
@@ -152,7 +145,6 @@ class Carts extends CI_Controller {
 	}
 	
 	public function countBySession(){
-		$this->load->model('ModeloList/listacarts');
 		$result = $this->listacarts->getCartBySession($this->session->userdata('id_session'));
 		echo count($result);
 	}
@@ -160,7 +152,6 @@ class Carts extends CI_Controller {
 	public function finalizar(){
 		if ($this->session->userdata('id_session')) {
 			$id_session = $this->session->userdata('id_session');
-			$this->load->model('ModeloList/listacarts');
 			$situcao_cart = $this->listacarts->getCartSituacao($id_session);
 			$hora_entrega = $_POST['hora_entrega'];
 			$forma_pgto = $_POST['forma_pgto'];
@@ -171,10 +162,8 @@ class Carts extends CI_Controller {
 			if ($situcao_cart->situacao == 'a'){
 				$festa = (!empty($_POST['festa']) && $_POST['festa'] == 'on') ? 's' : 'n';
 
-				$this->load->model('ModeloList/listaclientes');
 		        $cli = $this->listaclientes->getByEmail($this->input->post('email'));
 		        if (empty($cli)){
-		          $this->load->model('Modelo/cliente');
 		          $id_cliente = $this->cliente->insert();
 		          $nome = $this->session->userdata('nome_cliente');
 		        } else {
@@ -182,10 +171,8 @@ class Carts extends CI_Controller {
 		          $nome = $cli->nome;
 		        }
 
-		        $this->load->model('Modelo/cart');
 		        $id_pedido = $this->cart->insertCartToPedido($id_cliente, $id_session, $festa, $hora_entrega, $forma_pgto, $data_entrega, $id_cidade);
 		        if ($festa == "s") {
-		          $this->load->model('Modelo/evento');
 		          $this->evento->id_pedido = $id_pedido;
 		          $this->evento->id_cliente = $id_cliente;
 		          $this->evento->insert();

@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-require(APPPATH.'libraries/Control.php');
+//require(APPPATH.'libraries/Control.php');
 $autoload['libraries'] = array('database', 'session', 'form_validation', 'bcrypt', 'pagination', 'error_db');
 
 /*
@@ -133,4 +133,25 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array();
+$autoload['model'] = array(
+'ModeloList/Listaclientes'             => 'listaclientes',
+'ModeloList/Listacarts'                => 'listacarts',
+'ModeloList/Listacidades'              => 'listacidades',
+'ModeloList/Listapedidos'              => 'listapedidos',
+'ModeloList/Listacategoriasproduto'    => 'listacategoriasproduto',
+'ModeloList/Listaprodutos'             => 'listaprodutos',
+'ModeloList/Listatipo'                 => 'listatipo',
+'ModeloList/Listavaloresproduto'       => 'listavaloresproduto',
+'ModeloList/Listanewsletters'          => 'listanewsletters',
+'ModeloList/Listarepresentantecliente' => 'listarepresentantecliente',
+'ModeloList/Listarepresentanterecebimento' => 'listarepresentanterecebimento',
+
+'Modelo/representante_cliente'         => 'representante_cliente', 
+'Modelo/representante_recebimento'     => 'representante_recebimento',
+'Modelo/cliente'                       => 'cliente',
+'Modelo/cart'                          => 'cart',
+'Modelo/evento'                        => 'evento',
+'Modelo/pedido'                        => 'pedido',
+'Modelo/item_pedido'                   => 'item_pedido',
+'Modelo/sitemapmodel'                  => 'sitemapmodel',
+'Modelo/newsletter'                    => 'newsletter');

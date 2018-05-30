@@ -40,12 +40,18 @@ class Representante_cliente extends MY_Model {
     }
 
     protected function get_config_prop(){
-        $this->id_cliente_cliente = $this->get_cliente();
+        $this->id_cliente_cliente   = isset($this->id_cliente_cliente)   ? $this->get_cliente_cliente()    : "";
+        $this->id_cliente_represent = isset($this->id_cliente_represent) ? $this->get_cliente_represent()  : "";
     }
 
-    private function get_cliente(){
+    private function get_cliente_cliente(){
         $ListaClientes = new ListaClientes();
         return $ListaClientes->get($this->id_cliente_cliente);
+    }
+
+    private function get_cliente_represent(){
+        $ListaClientes = new ListaClientes();
+        return $ListaClientes->get($this->id_cliente_represent);
     }
 
 }

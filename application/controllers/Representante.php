@@ -23,7 +23,6 @@ class Representante extends MY_Controller {
 			$this->load->view('representante/cadastrar', $this->data);
 			$this->load->view('includes/footer_main', $this->data);
 		} else {
-			$this->load->model('Modelo/cliente');
             $idCliente = $this->cliente->insert();
             if(is_numeric($idCliente)){
 				$this->data['cliente'] = $this->cliente;

@@ -3,28 +3,28 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  
 require_once(APPPATH."models/Modelo/Cart.php");
  
-class Listacarts extends Control {
+class Listacarts extends CI_Model {
 
     public function  __construct() {
         parent::__construct($this);
     }
 
     public function get($id_cart = '') {
-        $query = $this->_instance->db->get_where('cart', array('id_cart' => $id_cart));
+        $query = $this->db->get_where('cart', array('id_cart' => $id_cart));
         if (empty($query))
             $this->set_log_error_db();
         return $query->custom_result_object('cart');
     }
  
     public function get_all(){
-        $query = $this->_instance->db->get('cart');
+        $query = $this->db->get('cart');
         if (empty($query))
             $this->set_log_error_db();
         return $query->custom_result_object('cart');
     }
 
     public function getCartByProdutoAndSession($id_produto, $id_session) {
-        $query = $this->_instance->db->get_where('cart', array('id_produto' => $id_produto, 'id_session' => $id_session ));
+        $query = $this->db->get_where('cart', array('id_produto' => $id_produto, 'id_session' => $id_session ));
         return $query->custom_result_object('cart');
     }
 	
@@ -43,14 +43,14 @@ class Listacarts extends Control {
                "     id_produto,     " .
                "     valor_unitario, " .
                "     situacao        " ;
-        $query = $this->_instance->db->query($sql, array($id_session));
+        $query = $this->db->query($sql, array($id_session));
         return $query->custom_result_object('cart');
     }
 
     public function getCartSituacao($id_session){
-      $this->_instance->db->select("situacao");
-      $this->_instance->db->group_by("situacao");
-      $query = $this->_instance->db->get_where('cart', array('id_session' => $id_session));
+      $this->db->select("situacao");
+      $this->db->group_by("situacao");
+      $query = $this->db->get_where('cart', array('id_session' => $id_session));
       return $query->custom_result_object('cart')[0];
     }
 }

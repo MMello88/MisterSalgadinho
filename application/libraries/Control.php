@@ -1,7 +1,7 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-abstract class Control {
+abstract class Control extends CI_Model {
 
 	protected $_instance;
 	private $_class;

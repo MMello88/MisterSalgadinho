@@ -3,6 +3,8 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 require_once(APPPATH."models/ModeloList/Listaclientes.php");
 require_once(APPPATH."models/ModeloList/Listacidades.php");
+require_once(APPPATH."models/ModeloList/Listarepresentantecliente.php");
+require_once(APPPATH."models/Modelo/Representante_recebimento.php");
 
 class Pedido extends MY_Model {
 
@@ -22,6 +24,7 @@ class Pedido extends MY_Model {
     public $num_entrega;
     public $bairro_entrega;
     public $comp_entrega; 
+    public $data_pagamento;
     
     
     
@@ -39,7 +42,8 @@ class Pedido extends MY_Model {
             $this->id_pedido = $this->db->insert_id();
         if (empty($this->id_pedido))
           return $this->db->error()['message'];
-        return $this->db->insert_id();
+        $this->recebimentoRepresentante();
+        return $this->id_pedido;
     }
 
     public function update() {
@@ -66,6 +70,21 @@ class Pedido extends MY_Model {
         $this->set_response_db('Removido com sucesso');
     }
 
+    private function recebimentoRepresentante(){
+        $representante = $this->get_representante();
+        if(!empty($representante)){
+            $CI =& get_instance();
+            $CI->load->model('representante_recebimento');
+            $CI->representante_recebimento->id_cliente_represent = $representante->id_cliente_represent->id_cliente;
+            $CI->representante_recebimento->id_pedido = $this->id_pedido;
+            $CI->representante_recebimento->data_pgto_pedido = '';
+            $CI->representante_recebimento->valor_receber = $representante->id_cliente_represent->ganho_unitario * $this->valor;
+            $CI->representante_recebimento->recebido = 'n';
+            $CI->representante_recebimento->situacao_pedido = 'a';
+            $CI->representante_recebimento->insert();
+        }
+    }
+
     protected function get_config_prop(){
         $this->id_cliente = isset($this->id_cliente) ? $this->get_cliente() : "";
         $this->id_cidade  = isset($this->id_cidade)  ? $this->get_cidade()  : "";
@@ -79,5 +98,10 @@ class Pedido extends MY_Model {
     private function get_cidade(){
         $Listacidades = new Listacidades();
         return $Listacidades->get($this->id_cidade);
+    }
+
+    private function get_representante(){
+        $Listarepresentantecliente = new Listarepresentantecliente();
+        return $Listarepresentantecliente->getRepresentanteByCliente($this->id_cliente);
     }
 }
