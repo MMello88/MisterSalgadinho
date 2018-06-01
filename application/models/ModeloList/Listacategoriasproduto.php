@@ -16,8 +16,14 @@ class Listacategoriasproduto extends CI_Model {
         return $query->custom_result_object('categoria_produto');
     }
  
-    public function get_all($ativo = 'a'){
-        $query = $this->db->get_where('categoria_produto', array('situacao' => $ativo));
+    public function get_all($cidade = 'Vitrine', $ativo = 'a'){
+        $query = $this->db->query(
+            "SELECT cp.*
+               FROM tbl_categoria_produto cp
+               LEFT JOIN tbl_cidade_categoria cc ON (cp.id_categoria_produto = cc.id_categoria_produto)
+               LEFT JOIN tbl_cidade c ON (c.id_cidade = cc.id_cidade)
+              WHERE cp.situacao = '$ativo'
+                AND (('$cidade' = c.nome) OR (c.id_cidade = '$cidade'))");
         if (empty($query))
             $this->set_log_error_db();
         return $query->custom_result_object('categoria_produto');

@@ -88,3 +88,19 @@ CREATE TABLE `miste872_prod`.`tbl_representante_recebimento`(
 
 ALTER TABLE `miste872_prod`.`tbl_representante_recebimento`   
   CHANGE `valor_receber` `valor_receber` DECIMAL(7,4) NOT NULL;
+
+
+INSERT INTO tbl_cidade VALUES (NULL, 'Vitrine', '', '');
+
+CREATE TABLE `miste872_prod`.`tbl_cidade_categoria`(  
+  `id_cidade_categoria` INT NOT NULL AUTO_INCREMENT,
+  `id_cidade` INT NOT NULL,
+  `id_categoria_produto` INT NOT NULL,
+  PRIMARY KEY (`id_cidade_categoria`),
+  UNIQUE INDEX `UK_CIDADE_CTEG` (`id_cidade`, `id_categoria_produto`),
+  CONSTRAINT `FK_CIDADE_CATEG_CIDADE` FOREIGN KEY (`id_cidade`) REFERENCES `miste872_prod`.`tbl_cidade`(`id_cidade`),
+  CONSTRAINT `FK_CIDADE_CATEG_CATEG` FOREIGN KEY (`id_categoria_produto`) REFERENCES `miste872_prod`.`tbl_categoria_produto`(`id_categoria_produto`)
+) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_general_ci;
+
+INSERT INTO tbl_produto VALUES (NULL, 'Mini Bolinha de Queijo', 3, 'a', 'frito_mini_bolinha_queijo.jpg');
+INSERT INTO tbl_produto VALUES (NULL, 'Mini Bolinha de Queijo', 4, 'a', 'congelado_mini_bolinha_queijo.jpg');

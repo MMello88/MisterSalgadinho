@@ -27,19 +27,11 @@
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
           <h4><?= $cliente->nome; ?></h4>
           <div class="btn-toolbar mb-2 mb-md-0">
-            <ul class="nav">
-              <?php if($cliente->tipo === "c") : ?>
-              <li class="nav-item">
-                <a href<?= base_url("revendedor/index"); ?>Seja um Revendedor</a>
-              </li>
-              <?php endif; ?>
-            </ul>
           </div>
         </div>
 
         <div class="container">
           <div class="row pb-5">
-            <h2>Pedidos Realizados</h2>
             <div class="table-responsive mt-3">
               <table class="table table-hover table-sm bordered">
                 <thead>

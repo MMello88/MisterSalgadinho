@@ -60,7 +60,7 @@ class Vitrine extends MY_Controller {
 				$i++;
 				$subtotal = number_format($Cart->qtde * $Cart->valor_unitario, 2, '.', '');
 				$total = number_format($total + $subtotal, 2, '.', '');
-				$Cart->id_produto[0]->imagem = base_url("/assets/img/{$Cart->id_produto[0]->imagem}");
+				$Cart->id_produto[0]->imagem = base_url("/assets/img/salgados/{$Cart->id_produto[0]->imagem}");
 				$html .= "<div class='media mb-3' id='carrinho-{$Cart->id_cart}'>
 							  <img class='mr-3' src='{$Cart->id_produto[0]->imagem}' alt='Generic placeholder image' style='width: 25%;'>
 							  <div class='media-body'>

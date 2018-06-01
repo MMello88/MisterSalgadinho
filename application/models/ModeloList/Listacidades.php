@@ -10,13 +10,13 @@ class Listacidades extends CI_Model {
     }
 
     public function get($id_cidade = '') {
-        $query = $this->db->get_where('cidade', array('id_cidade' => $id_cidade));
+        $query = $this->db->get_where('cidade', array('id_cidade' => $id_cidade, 'uf !=' => ''));
         if (empty($query))
             $this->set_log_error_db();
         return $query->custom_result_object('cidade');
     }
 
-    public function getByLink($link = '') {
+    public function getByLink($link) {
         $query = $this->db->get_where('cidade', array('link' => $link));
         if (empty($query))
             $this->set_log_error_db();
@@ -27,7 +27,7 @@ class Listacidades extends CI_Model {
     }
  
     public function get_all(){
-        $query = $this->db->get('cidade');
+        $query = $this->db->get_where('cidade', array('uf !=' => ''));
         if (empty($query))
             $this->set_log_error_db();
         return $query->custom_result_object('cidade');

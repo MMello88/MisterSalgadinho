@@ -46,7 +46,14 @@ class MY_Controller extends CI_Controller {
 
 	protected function getProduto()
 	{
-    	return $this->listaprodutos->getAllProdutoCategValor();
+		if ($this->session->userdata('cidade'))
+		{
+			$cidade = json_decode($this->session->userdata('cidade'));
+    		return $this->listaprodutos->getAllProdutoCategValor($cidade->id_cidade);
+    	}
+    	else{
+    		return $this->listaprodutos->getAllProdutoCategValor();
+    	}
 	}
 
 	protected function getCidades($id_cidade = False)
@@ -63,7 +70,14 @@ class MY_Controller extends CI_Controller {
 
 	protected function getCategoriaProduto()
 	{
-    	return $this->listacategoriasproduto->get_all();
+		if ($this->session->userdata('cidade'))
+		{
+			$cidade = json_decode($this->session->userdata('cidade'));
+	    	return $this->listacategoriasproduto->get_all($cidade->id_cidade);
+	    } 
+	    else{
+	    	return $this->listacategoriasproduto->get_all();
+	    }
 	}
 
     protected function getTipoBy($campo){

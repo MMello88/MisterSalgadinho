@@ -63,7 +63,7 @@
             <?= form_open('', array('id' => 'formCart')); ?>
               <div class="col-lg-4 col-md-6 portfolio-thumbnail all <?= $Produto->cssClass ?>">
                 <div class="hovereffect">
-                  <img class="img-responsive" src="<?php echo base_url("assets/img/$Produto->imagem"); ?>" alt="">
+                  <img class="img-responsive" src="<?php echo base_url("assets/img/salgados/$Produto->imagem"); ?>" alt="">
                   <div class="overlay">
                     <h6 class="text-dark text-left"><?= $Produto->nome ?></h6>
                     <h4 class="text-danger text-left">R$<?= $Produto->preco ?></h4>

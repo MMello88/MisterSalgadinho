@@ -41,6 +41,35 @@ class AreaComercial extends MY_Controller {
 		$this->load->view('includes/footer_main', $this->data);
 	}
 
+	public function relatorioCompraClientes(){
+		$this->data['options'] = array(
+			'1' => 'Janeiro',
+			'2' => 'Fevereiro',
+			'3' => 'Março',
+			'4' => 'Abril',
+			'5' => 'Maio',
+			'6' => 'Junho',
+			'7' => 'Julho',
+			'8' => 'Agosto',
+			'9' => 'Setembro',
+			'10' => 'Outubro',
+			'11' => 'Novembro',
+			'12' => 'Dezembro');
+		$this->data['relatRecbiByPedido'] = array();
+		$this->form_validation->set_rules('dt_inicial', 'Data Inicial', 'trim|required|numeric');
+        $this->form_validation->set_rules('dt_final', 'Data Final', 'trim|required|numeric');
+    	if ($this->form_validation->run() === TRUE)
+		{
+			$this->data['relatRecbiByPedido'] = $this->listarepresentanterecebimento->getClienteByPeriodo(
+				$this->input->post('id_cliente_represent'), $this->input->post('dt_inicial'), $this->input->post('dt_final'));
+		}
+
+		$this->load->view('includes/header_navbar_fixed_top', $this->data);
+		$this->load->view('representante/dashboard_menu', $this->data);
+		$this->load->view('representante/relatorio_vendas', $this->data);
+		$this->load->view('includes/footer_main', $this->data);
+	}
+
 	public function novo_consumidor($id_cliente_cliente = ''){
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[cliente.email]');
         $this->form_validation->set_rules('cpf_cnpj', 'CPF ou CNPJ', 'trim|required|numeric|min_length[11]|max_length[14]');
