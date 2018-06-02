@@ -1,4 +1,7 @@
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <!-- slide -->
+  <div class="row
+   bg-mister-amarelo">
+  <div id="carouselExampleIndicators" class="carousel slide mx-auto" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -6,24 +9,30 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100" src="<?php echo base_url("assets/img/banner-principal.png"); ?>" alt="First slide">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>First slide</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        <a href="#section-salgados">
+          <img class="d-block w-100" src="<?php echo base_url("assets/img/slide-1.png"); ?>" alt="First slide">
+          <div class="carousel-caption d-none d-md-block">
+        </a>
+          <!--<h5>First slide</h5>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>-->
         </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="<?php echo base_url("assets/img/download.png"); ?>" alt="Second slide">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Second slide</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        <a href="#section-salgados">
+          <img class="d-block w-100" src="<?php echo base_url("assets/img/slide-3.png"); ?>" alt="Second slide">
+          <div class="carousel-caption d-none d-md-block">
+        </a>
+          <!--<h5>Second slide</h5>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>-->
         </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="<?php echo base_url("assets/img/download.png"); ?>" alt="Third slide">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Third slide</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        <a href="#section-salgados">
+          <img class="d-block w-100" src="<?php echo base_url("assets/img/slide-2.png"); ?>" alt="Third slide">
+          <div class="carousel-caption d-none d-md-block">
+        </a>
+          <!--<h5>Third slide</h5>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>-->
         </div>
       </div>
     </div>
@@ -36,12 +45,14 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
+  </div>
+  <!-- fim de slide -->
 
  <!-- start section portfolio -->
   <div id="portfolio" class="text-center paddsection">
 
     <div class="container">
-      <div class="section-title text-center">
+      <div class="section-title text-center" id="section-salgados">
         <h2>Os Salgados mais deliciosos</h2>
       </div>
     </div>
