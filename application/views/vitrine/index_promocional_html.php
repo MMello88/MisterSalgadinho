@@ -88,7 +88,7 @@
                       <div class="input-group-prepend">
                         <button class="btn mais_menos" type="button" id="btn-menos" data-whatever="<?= $Produto->id_produto ?>">-</button>
                       </div>
-                      <input type="number" min="0" name="qtde" id="qnt-<?= $Produto->id_produto; ?>" class="form-control text-center bg-white" value="1" readonly required>
+                      <input type="number" min="10" name="qtde" id="qnt-<?= $Produto->id_produto; ?>" class="form-control text-center bg-white" value="10" readonly required>
                       <div class="input-group-append">
                         <button class="btn mais_menos" type="button" id="btn-mais" data-whatever="<?= $Produto->id_produto ?>">+</button>
                       </div>
@@ -98,7 +98,7 @@
                     <button class="btn fade-out" type="button" data-toggle="modal" data-target="#exampleModalCenter">Verificar Disponibilidade</button>
                   <?php else : ?>
                     <button class="btn fade-out" type="submit" type="submit">Adicionar ao Carrinho</button>
-                    <p class="total">Total: <strong id="total-<?= $Produto->id_produto ?>">R$ <?= $Produto->preco ?></strong></p>
+                    <p class="total">Total: <strong id="total-<?= $Produto->id_produto ?>">R$ <?= $Produto->preco*10 ?></strong></p>
                   <?php endif; ?>
                   </div>
                 </div>

@@ -156,8 +156,8 @@ $('#closeCidade').on('closed.bs.alert', function () {
 $(document).on('click','#btn-menos', function(){
   var id = $(this).data('whatever');
   var InputValue = getValueInputQtd(id);
-  if (InputValue > 1){
-      InputValue = InputValue - 1;
+  if (InputValue > 10){
+      InputValue = InputValue - 10;
       setValueInputQtd(id, InputValue);
       setValueInputValor(id, InputValue);
   }
@@ -166,7 +166,7 @@ $(document).on('click','#btn-menos', function(){
 $(document).on('click','#btn-mais', function(){
   var id = $(this).data('whatever');
   var InputValue = getValueInputQtd(id);
-  InputValue = Number(InputValue) + 1;
+  InputValue = Number(InputValue) + 10;
   setValueInputQtd(id, InputValue);
   setValueInputValor(id, InputValue);
 });
@@ -189,11 +189,11 @@ $(document).on('click','#btn-menos-submit', function(){
   var id = $(this).data('whatever');
   var InputValue = getValueInputQtdCart(id);
   if (InputValue > 0){
-      InputValue = InputValue - 1;
+      InputValue = InputValue - 10;
       setValueInputQtdCart(id, InputValue);
       setValueInputValorCart(id, InputValue);
       refreshValorTotal(id, 'menos');
-      postUpdateQtdProduto(id, -1);
+      postUpdateQtdProduto(id, -10);
       event.preventDefault();
       return;
   }
@@ -202,11 +202,11 @@ $(document).on('click','#btn-menos-submit', function(){
 $(document).on('click','#btn-mais-submit', function(){
   var id = $(this).data('whatever');
   var InputValue = getValueInputQtdCart(id);
-  InputValue = Number(InputValue) + 1;
+  InputValue = Number(InputValue) + 10;
   setValueInputQtdCart(id, InputValue);
   setValueInputValorCart(id, InputValue);
   refreshValorTotal(id, 'mais');
-  postUpdateQtdProduto(id, 1);
+  postUpdateQtdProduto(id, 10);
   event.preventDefault();
   return;
 });
@@ -278,7 +278,7 @@ $('form#formCart').on('submit', function(){
         success: function(data){
           console.log(data);
             getCountCart();
-            $(form).find("input[name='qtde']").val("1");
+            $(form).find("input[name='qtde']").val("10");
             $('.cart-popover').popover('show');
         },
         error: function(data) {
