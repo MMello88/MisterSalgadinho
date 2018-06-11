@@ -7,6 +7,7 @@ class Vitrine extends MY_Controller {
 	{
 		parent::__construct();
 		//$this->output->enable_profiler(TRUE);
+		$this->data['titulo'] = 'Seja Bem Vindo ao Mister Salgadinhos.';
 	}
 
 	public function index()

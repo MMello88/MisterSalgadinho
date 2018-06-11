@@ -6,6 +6,7 @@ class Clientes extends MY_Controller {
 	{
 		parent::__construct();
 		//$this->output->enable_profiler(TRUE);
+		$this->data['titulo'] = 'Cadastra-se no Mister Salgadinhos.';
 	}
 	
 	public function index(){
@@ -17,6 +18,12 @@ class Clientes extends MY_Controller {
 		}
 
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[cliente.email]');
+		$this->form_validation->set_rules('senha', 'Senha', 'trim|required|min_length[8]');
+		$this->form_validation->set_rules('nome', 'Nome', 'trim|required');
+		$this->form_validation->set_rules('endereco', 'Endereço', 'trim|required');
+		$this->form_validation->set_rules('numero', 'Numero', 'trim|required');
+		$this->form_validation->set_rules('bairro', 'Bairro', 'trim|required');
+		$this->form_validation->set_rules('telefone', 'Telefone', 'trim|required');
 		if ($this->form_validation->run('novo/cliente') === FALSE)
 		{
 			$this->load->view('includes/header_navbar_fixed_top', $this->data);
@@ -38,6 +45,8 @@ class Clientes extends MY_Controller {
 
 	public function login(){
 		$this->session->set_flashdata("frmLog","FALSE");
+		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+		$this->form_validation->set_rules('senha', 'Senha', 'trim|required|min_length[8]');
 		if ($this->form_validation->run('loginho/cliente') === TRUE){
 			$cli = $this->listaclientes->getByEmail($this->input->post('email'));
 			if (!empty($cli)){
@@ -62,15 +71,16 @@ class Clientes extends MY_Controller {
 			} else {
 				$this->session->set_flashdata("erro_loginho","Usuário e Senha inválido.");
 			}
-		}
-
+		} 
+		//redirect('clientes/registrar');
 		$this->load->view('includes/header_navbar_fixed_top', $this->data);
 		$this->load->view('cliente/registrar', $this->data);
 		$this->load->view('includes/footer_main', $this->data);
 	}
 
 	public function logout(){
-		$this->session->unset_userdata('id_cliente');
+		unset($_SESSION['id_cliente']);
+		//$this->session->unset_userdata('id_cliente');
 		redirect('Vitrine');
 	}
 
@@ -91,6 +101,7 @@ class Clientes extends MY_Controller {
 	}
 
 	public function recuperar($hash = ''){
+		$this->data['titulo'] = 'Recupere a sua senha - Mister Salgadinhos.';
 		$this->data['hash'] = $hash;
 		if (empty($hash)){
 			if ($this->form_validation->run('recuperar/senha') === TRUE){

@@ -6,6 +6,7 @@ class Revendedor extends MY_Controller {
 	{
 		parent::__construct();
 		//$this->output->enable_profiler(TRUE);
+		$this->data['titulo'] = 'Torne-se um Revendedor Mister Salgadinhos.';
 	}
 	
 	public function index(){

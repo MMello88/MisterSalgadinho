@@ -153,5 +153,5 @@ $autoload['model'] = array(
 'Modelo/evento'                        => 'evento',
 'Modelo/pedido'                        => 'pedido',
 'Modelo/item_pedido'                   => 'item_pedido',
-'Modelo/sitemapmodel'                  => 'sitemapmodel',
+'Modelo/SitemapModel'                  => 'sitemapmodel',
 'Modelo/newsletter'                    => 'newsletter');

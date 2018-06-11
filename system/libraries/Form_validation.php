@@ -1237,6 +1237,18 @@ class CI_Form_validation {
 		return (bool) filter_var($str, FILTER_VALIDATE_EMAIL);
 	}
 
+	/**
+	 * Valida data e hora se é menor doque agora, se for não pode realizar o pedido.
+	 *
+	 * @param	string
+	 * @return	bool
+	 */
+	public function valid_hr_func($str, $field){
+		if (strtotime($this->_field_data[$field]['postdata'] . ' ' . $str) > strtotime(date('Y-m-d H:i')))
+			return true;
+		return false;
+	}
+
 	// --------------------------------------------------------------------
 
 	/**

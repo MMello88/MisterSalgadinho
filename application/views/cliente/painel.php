@@ -30,7 +30,7 @@
             <ul class="nav">
               <?php if($cliente->tipo === "c") : ?>
               <li class="nav-item">
-                <a href="<?= base_url("revendedor/index"); ?>">Seja um Revendedor</a>
+                <!--<a href="<?= base_url("revendedor/index"); ?>">Seja um Revendedor</a>-->
               </li>
               <?php endif; ?>
             </ul>
@@ -66,7 +66,7 @@
                   <strong id="ValorTotalPedido">R$ <?= number_format($total, 2, '.', ''); ?></strong>
                 </li>
               </ul>
-
+<!--
               <?= form_open('perfil/desconto', array('id' => 'hashtagFacebook', 'class' => 'card p-2')); ?>
                 <div class="input-group max-width">
                   <input type="text" class="form-control" name="codigo" placeholder="Código promocional">
@@ -78,7 +78,7 @@
                   <h6 class="form-text text-light bg-danger p-2">Ganhe 10% de desconto inserindo o código promocional #topMisterSalgadinhos</h6>
                 </div>
               </form>
-
+-->
               <?php if ($this->session->flashdata('msg_cod_promo')) : ?>
               <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
                 <strong><?= $this->session->flashdata('msg_cod_promo'); ?></strong>
@@ -94,6 +94,14 @@
 
           <!-- Cadastro -->
           <div class="col-md-8 order-md-1">
+            <?php if(isset($horario_indisponivel)) : ?>
+            <div class="alert alert-warning alert-dismissible fade show mt-2" role="alert">
+              <strong><?= $horario_indisponivel; ?></strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span class="closeX" aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <?php endif; ?>
             <div class="tab-pane show active">
             <?php if(empty($Pedidos)) : ?>
               <?php if (!empty($finalizado)) : ?>

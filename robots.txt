@@ -1,3 +1,3 @@
 User-agent: *
 
-Sitemap: http://www.sossegue.com.br/sitemap.xml
+Sitemap: http://www.mistersalgadinhos.com.br/sitemap.xml

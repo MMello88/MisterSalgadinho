@@ -55,7 +55,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               Seu Pedido
               <img class="icon" src="<?php echo base_url("assets/ico/social/shopping-cart.svg"); ?>" alt="Carrinho">
               <span class="badge badge-danger cart-popover" id="count_cart" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" title="Produto adicionado com sucesso!" data-content="Click no carrinho para finalizar a compra."></span>
-
             </a>
           </li>
         </ul>

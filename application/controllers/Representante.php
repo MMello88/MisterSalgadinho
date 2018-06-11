@@ -6,6 +6,7 @@ class Representante extends MY_Controller {
 	{
 		parent::__construct();
 		//$this->output->enable_profiler(TRUE);
+		$this->data['titulo'] = 'Torne-se Representante do Mister Salgadinhos.';
 	}
 	
 	public function comercial(){

@@ -6,6 +6,8 @@ class MY_Controller extends CI_Controller {
 	public function __construct($checa_loginho = FALSE)
 	{
 		parent::__construct();
+		$this->data['contentKey'] = 'salgadinhos para festa; mister salgadinhos; salgadinhos; salgadinhos ribeirão preto; salgadinhos pontal; salgado massa mandioca; salgado de festa;';
+		$this->google();
 		$this->CidadeSession();
 		$this->NovaSession();
 		$this->data["CategoriasProdutos"] = $this->getCategoriaProduto();
@@ -42,6 +44,31 @@ class MY_Controller extends CI_Controller {
 			$this->data["cidade"] = null;
 			$this->data["Cidades"] = $this->getCidades();
 		}
+	}
+
+	private function google(){
+		if (ENVIRONMENT === 'development')
+			$this->data['script_google'] = "";
+		else 
+			$this->data['script_google'] = "
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src='https://www.googletagmanager.com/gtag/js?id=UA-18838216-4'></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-18838216-4');
+    </script>
+    <script async src='https://www.googletagmanager.com/gtag/js?id=UA-118826942-1'></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-118826942-1');
+    </script>
+	";
 	}
 
 	protected function getProduto()

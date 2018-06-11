@@ -21,14 +21,34 @@ class Sitemap extends CI_Controller {
 				'changefreq' => 'weekly',
 				'priority' => '0.8'
 			),array(
-				'loc' => base_url('Shop'),
+				'loc' => base_url('vitrine'),
 				'changefreq' => 'weekly',
 				'priority' => '0.8'
 			),
 			array(
-				'loc' => base_url('Cart'),
+				'loc' => base_url('index.php/clientes/registrar'),
 				'changefreq' => 'weekly',
 				'priority' => '0.8'
+			),
+			array(
+				'loc' => base_url('clientes/registrar'),
+				'changefreq' => 'weekly',
+				'priority' => '0.8'
+			),
+			array(
+				'loc' => base_url('representante/comercial'),
+				'changefreq' => 'weekly',
+				'priority' => '0.8'
+			),
+			array(
+				'loc' => base_url('clientes/recuperar'),
+				'changefreq' => 'weekly',
+				'priority' => '0.64'
+			),
+			array(
+				'loc' => base_url('representante/cadastrar'),
+				'changefreq' => 'weekly',
+				'priority' => '0.64'
 			)
 		);
 	}
@@ -38,20 +58,22 @@ class Sitemap extends CI_Controller {
 	 * More information about sitemap indexes: http://www.sitemaps.org/protocol.html#index
 	 */
 	public function index() {
-		$this->sitemapmodel->add(base_url('sitemap/Shop'), date('Y-m-d', time()));
-		$this->sitemapmodel->add(base_url('sitemap/Cart'), date('Y-m-d', time()));
-		$this->sitemapmodel->output('sitemapindex');
+		$this->sitemapmodel->add(base_url(''), date('Y-m-d', time()));
+		$this->sitemapmodel->add(base_url('vitrine'), date('Y-m-d', time()));
+		$this->sitemapmodel->add(base_url('index.php/clientes/registrar'), date('Y-m-d', time()));
+		$this->sitemapmodel->add(base_url('clientes/registrar'), date('Y-m-d', time()));
+		$this->sitemapmodel->add(base_url('representante/comercial'), date('Y-m-d', time()));
+		$this->sitemapmodel->add(base_url('clientes/recuperar'), date('Y-m-d', time()));
+		$this->sitemapmodel->add(base_url('representante/cadastrar'), date('Y-m-d', time()));
+		$this->sitemapmodel->output('sitemap');
 	}
 	
 	/**
 	 * Generate a sitemap both based on static urls and an array of urls
 	 */
 	public function general() {
-		$this->sitemapmodel->add(base_url(), NULL, 'monthly', 1);
-		$this->sitemapmodel->add(base_url('contact'), NULL, 'monthly', 0.9);
-
 		foreach ($this->articles as $article) {
-			$this->sitemapmodel->add($article['loc'], $article['lastmod'], $article['changefreq'], $article['priority']);
+			$this->sitemapmodel->add($article['loc'], null, $article['changefreq'], $article['priority']);
 		}
 		$this->sitemapmodel->output();
 	}

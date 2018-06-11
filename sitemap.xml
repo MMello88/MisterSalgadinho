@@ -6,20 +6,42 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
+
 <url>
   <loc>http://www.mistersalgadinhos.com.br/</loc>
-  <lastmod>2018-02-28T23:05:46+00:00</lastmod>
+  <lastmod>2018-06-11T15:31:41+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://www.mistersalgadinhos.com.br/Shop/</loc>
-  <lastmod>2018-02-28T23:05:46+00:00</lastmod>
+  <loc>http://www.mistersalgadinhos.com.br/vitrine</loc>
+  <lastmod>2018-06-11T15:31:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.mistersalgadinhos.com.br/Cart</loc>
-  <lastmod>2018-02-28T23:05:46+00:00</lastmod>
+  <loc>http://www.mistersalgadinhos.com.br/index.php/clientes/registrar</loc>
+  <lastmod>2018-06-11T15:31:41+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.mistersalgadinhos.com.br/clientes/registrar</loc>
+  <lastmod>2018-06-11T15:31:41+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.mistersalgadinhos.com.br/representante/comercial</loc>
+  <lastmod>2018-06-11T15:31:41+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.mistersalgadinhos.com.br/clientes/recuperar</loc>
+  <lastmod>2018-06-11T15:31:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
+<url>
+  <loc>http://www.mistersalgadinhos.com.br/representante/cadastrar</loc>
+  <lastmod>2018-06-11T15:31:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
 
 </urlset>

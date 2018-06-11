@@ -131,7 +131,7 @@ $config = array(
         array(
             'field' => 'hora_entrega',
             'label' => 'Horário da entrega',
-            'rules' => 'required'
+            'rules' => 'required|valid_hr_func[data_entrega]'
         ),
         array(
             'field' => 'forma_pgto',

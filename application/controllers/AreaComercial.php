@@ -6,7 +6,7 @@ class AreaComercial extends MY_Controller {
 	{
 		parent::__construct(TRUE);
 		//$this->output->enable_profiler(TRUE);
-		
+		$this->data['titulo'] = 'Área Administrativa - Mister Salgadinhos.';
 		$this->data['valoresHoraEntrega'] = $this->getTipoBy("hora_entrega");
 		$this->data['valoresFormaPagto'] = $this->getTipoBy("forma_pgto");
 	}

@@ -6,6 +6,7 @@ class Perfil extends MY_Controller {
 	{
 		parent::__construct(TRUE);
 		//$this->output->enable_profiler(TRUE);
+		$this->data['titulo'] = 'Perfil no Mister Salgadinhos.';
 		$this->data['valoresHoraEntrega'] = $this->getTipoBy("hora_entrega");
 		$this->data['valoresFormaPagto'] = $this->getTipoBy("forma_pgto");
 	}
@@ -98,7 +99,13 @@ class Perfil extends MY_Controller {
 		redirect("perfil/index");
 	}
 
-	public function enviarEmailFinalizado($nome, $email){
+	private function valid_hr_funcionamento($data_entrega, $hora_entrega)
+	{
+		echo strtotime($data_entrega . ' ' . $hora_entrega);
+		return false;
+	}
+
+	private function enviarEmailFinalizado($nome, $email){
 		$html = 
 			"<!DOCTYPE html>
 			<html lang=\"pt-br\">
@@ -109,7 +116,7 @@ class Perfil extends MY_Controller {
 				<p>Nós da <b>Mister</b> Salgadinhos</p>
 				<p>
 				<b>Agradecemos pela preferência.</b> Seu pedido foi recebido com <b>sucesso.</b> <br>
-				Em breve este <b>delicioso salgadinho</b> será produzido e entrege.<br>
+				Em breve este <b>delicioso salgadinhos</b> será produzido e entregue.<br>
 				</p>
 				<br/>
 				<p><smal>**Por favor, não responder para este e-mail</smal></p>
