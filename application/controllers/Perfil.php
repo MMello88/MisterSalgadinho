@@ -99,12 +99,6 @@ class Perfil extends MY_Controller {
 		redirect("perfil/index");
 	}
 
-	private function valid_hr_funcionamento($data_entrega, $hora_entrega)
-	{
-		echo strtotime($data_entrega . ' ' . $hora_entrega);
-		return false;
-	}
-
 	private function enviarEmailFinalizado($nome, $email){
 		$html = 
 			"<!DOCTYPE html>

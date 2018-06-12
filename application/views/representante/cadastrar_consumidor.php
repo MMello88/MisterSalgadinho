@@ -57,7 +57,15 @@
               <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-muted">Lista de Clientes</span>
               </h4>
-              <ul class="list-group mb-3">
+              <?= form_open('', array('id'=>'formPesqCliente')); ?>
+                <div class="input-group mb-3" style="width: 100%;">
+                  <input id="inputPesqValue" name="pesqValue" type="text" class="form-control" placeholder="Pesquisar" value="">
+                  <div class="input-group-append">
+                    <button class="btn-sm" type="submit" id="pesq-cliente">Pesquisar</button>
+                  </div>
+                </div>
+              </form>
+              <ul class="list-group mb-3" id="lista-cliente">
                 <?php if(empty($consumidores)) : ?>
                 <li class="list-group-item d-flex justify-content-between">
                   <span>...</span>
@@ -90,7 +98,7 @@
 
                   <?= form_open('areacomercial/novo_consumidor'); ?>
                     <input type="hidden" name="situacao" value="a">
-                    <input type="hidden" name="tipo" value="p">
+                    <input type="hidden" name="ativo" value="1">
 
                     <div class="mb-4">
                       <label for="nome">Nome <span class="text-muted">(*)</span></label>
@@ -160,6 +168,22 @@
                       <input type="text" class="form-control mb-0 bg-white" name="telefone" id="telefone" placeholder="Ex.: (16) 99999-9999" value="<?= set_value('telefone'); ?>" required>
                       <div class="invalid-feedback <?= form_error('telefone') !== null ? "d-block":""; ?>">
                         <?= form_error('telefone'); ?>
+                      </div>
+                    </div>
+
+                    <div class="d-block my-3">
+                      <h4 class="mb-3">Tipo do Cliente <span class="text-muted">(*)</span></h4>
+                      <div class="custom-control custom-radio">
+                        <?= form_radio('tipo', 'c', FALSE, array('class' => 'custom-control-input', 'id' => 'cliente', 'required' => '')); ?>
+                        <label class="custom-control-label" for="cliente">Cliente</label>
+                      </div>
+                      <div class="custom-control custom-radio">
+                        <?= form_radio('tipo', 'r', FALSE, array('class' => 'custom-control-input', 'id' => 'revendedor', 'required' => '')); ?>
+                        <label class="custom-control-label" for="revendedor">Revendedor</label>
+                      </div>
+                      <div class="custom-control custom-radio">
+                        <?= form_radio('tipo', 'p', FALSE, array('class' => 'custom-control-input', 'id' => 'parceiro', 'required' => '')); ?>
+                        <label class="custom-control-label" for="parceiro">Parceiro</label>
                       </div>
                     </div>
 

@@ -23,4 +23,19 @@ class Listarepresentantecliente extends CI_Model {
         $result = $query->custom_result_object('representante_cliente');
         return empty($result) ? "" : $result[0];
     }
+
+    public function getClienteRepresentante($id_cliente_represent, $value){
+        $Sql = "SELECT c.*
+                  FROM tbl_representante_cliente r
+                  LEFT JOIN tbl_cliente c ON (c.id_cliente = r.id_cliente_cliente)
+                 WHERE r.id_cliente_represent = $id_cliente_represent";
+        if (!empty($value)){
+            if (is_numeric($value))
+                $Sql .= " AND c.cpf_cnpj = $value";
+            else
+                $Sql .= " AND c.nome LIKE '%$value%'";
+        }
+        $query = $this->db->query($Sql);
+        return $query->custom_result_object('cliente');
+    }
 }

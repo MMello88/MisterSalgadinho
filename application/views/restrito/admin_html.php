@@ -182,7 +182,7 @@ $(document).on('submit', 'form', function(event) {
         $("#msgError").html("<strong>Desculpe!</strong> Não foi possível mudar a situação do pedido. Em breve tente novamente!");
         $("#message-danger").removeAttr("style");
       }
-    });  
+    });
   }
   return false;
 });

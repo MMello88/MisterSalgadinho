@@ -70,6 +70,7 @@
             <?= form_open('clientes/registrar'); ?>
               <input type="hidden" name="situacao" value="a">
               <input type="hidden" name="tipo" value="c">
+              <input type="hidden" name="ativo" value="0">
 
               <div class="mb-4">
                 <label for="nome">Nome <span class="text-muted">(*)</span></label>

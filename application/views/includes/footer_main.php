@@ -271,7 +271,6 @@ $('form#formCart').on('submit', function(){
         url: "<?= base_url("index.php/Carts/inserir"); ?>",
         data: dados,
         success: function(data){
-          console.log(data);
             getCountCart();
             $(form).find("input[name='qtde']").val("10");
             $('.cart-popover').popover('show');
@@ -380,6 +379,54 @@ $('#entregar').on('click', function(){
   var taxa = $("input[name='taxa_entrega']").val();
   total = Number(valor) + Number(taxa);
   $("#ValorTotalPedido").text('R$ ' + total.toFixed(2));
+});
+
+function buscarClienteRepresentante(event, tipoHtml){
+  var form      = event;
+  var dados     = $(form).serialize();
+  var pesqValue = $(form).find("input[name='pesqValue']").val();
+  
+  $.ajax({
+    type: "POST",
+    url: "<?php echo base_url("areacomercial/buscaClienteRepresentante"); ?>",
+    data: dados,
+    success: function(data){
+      if (data !== ''){
+        data = JSON.parse(data);
+        if (tipoHtml == 'li'){
+          $("#lista-cliente").empty();
+        } else if (tipoHtml == 'tabela'){
+          $("tbody#tabela-cliente").empty();
+        }
+
+        $.each(data, function(i, item) {
+          var status = 'Inativo';
+          if (item.ativo == '1'){
+            status = 'Ativo';
+          }
+
+          if (tipoHtml == 'li'){
+            $("#lista-cliente").append("<li class='list-group-item d-flex justify-content-between lh-condensed'><div><h6 class='my-0'>"+item.nome+"</h6><small class='text-muted'>"+item.email+"</small></div><div><a href='<?= base_url("areacomercial/novo_consumidor/"); ?>"+item.id_cliente+"'>Visualizar</a><p class='text-muted my-0' style='font-size: 80%;'>"+status+"</p></div></li>");
+          } else if (tipoHtml == 'tabela'){
+            $("tbody#tabela-cliente").append("<tr><td>"+item.nome+"</td><td>"+item.email+"</td><td>"+item.cpf_cnpj+"</td><td>"+item.endereco+ ", "+ item.numero+" - "+item.bairro+" Compl.:"+item.complemento+"</td><td>"+item.telefone+"</td><td>select</td></tr>");
+          }
+        })
+      }
+    },
+    error : function(data){
+      console.log(data);
+    }
+  });
+}
+
+$(document).on('submit','form#formPesqCliente', function(){
+  buscarClienteRepresentante(this, 'li');
+  event.preventDefault();
+});
+
+$(document).on('submit','form#formPesqClienteRepre', function(){
+  buscarClienteRepresentante(this, 'tabela');
+  event.preventDefault();
 });
 
 </script>

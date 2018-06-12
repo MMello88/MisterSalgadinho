@@ -75,6 +75,25 @@ a:focus {
 /*================================
 =            button             =
 ================================*/
+.btn-sm {
+  position: relative;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 25px;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  color: #202020;
+  background: #f7c723;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+  -webkit-box-shadow: 0 4px 0 #dfae08;
+  -moz-box-shadow: 0 4px 0 #dfae08;
+  box-shadow: 0 4px 0 #dfae08;
+}
 .btn {
   position: relative;
   border: none;
@@ -97,7 +116,9 @@ a:focus {
   box-shadow: 0 4px 0 #dfae08;
 }
 .btn:hover,
-.btn:focus {
+.btn:focus,
+.btn-sm:hover,
+.btn-sm:focus {
   outline: none;
   top: 4px;
   -webkit-box-shadow: none;

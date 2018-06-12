@@ -12,6 +12,7 @@
           <?= form_open('revendedor/cadastrar'); ?>
             <input type="hidden" name="situacao" value="a">
             <input type="hidden" name="tipo" value="r">
+            <input type="hidden" name="ativo" value="0">
 
             <div class="mb-4">
               <label for="nome">Nome <span class="text-muted">(*)</span></label>

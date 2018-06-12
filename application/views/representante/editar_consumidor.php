@@ -142,6 +142,22 @@
                     </div>
                   </div>
 
+                  <div class="d-block my-3">
+                    <h4 class="mb-3">Tipo do Cliente <span class="text-muted">(*)</span></h4>
+                    <div class="custom-control custom-radio">
+                      <?= form_radio('tipo', 'c', $consumidor->tipo === 'c' ? TRUE : FALSE , array('class' => 'custom-control-input', 'id' => 'cliente', 'required' => '')); ?>
+                      <label class="custom-control-label" for="cliente">Cliente</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                      <?= form_radio('tipo', 'r', $consumidor->tipo === 'r' ? TRUE : FALSE , array('class' => 'custom-control-input', 'id' => 'revendedor', 'required' => '')); ?>
+                      <label class="custom-control-label" for="revendedor">Revendedor</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                      <?= form_radio('tipo', 'p', $consumidor->tipo === 'p' ? TRUE : FALSE , array('class' => 'custom-control-input', 'id' => 'parceiro', 'required' => '')); ?>
+                      <label class="custom-control-label" for="parceiro">Parceiro</label>
+                    </div>
+                  </div>
+
                   <hr class="mb-4">
                   <a href="<?= base_url("areacomercial/novo_consumidor"); ?>" class="btn btn-warning btn-block" type="submit">Voltar</a>
 

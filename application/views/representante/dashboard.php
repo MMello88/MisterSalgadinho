@@ -101,9 +101,45 @@
                   <h4 class="mx-5 my-5"> <?= $finalizado; ?> </h4>
                 </div>
               <?php else : ?>
-                <div class="text-center border border-dark rounded" id="CarrinhoVazio">
-                  <h4 class="mx-5 my-5"> SEM PEDIDO EM ANDAMENTO </h4>
-                </div>
+
+
+              <div class="table-responsive mt-3">
+                <?= form_open('', array('id'=>'formPesqClienteRepre')); ?>
+                  <div class="input-group mb-3" style="width: 100%;">
+                    <input id="inputPesqValue" name="pesqValue" type="text" class="form-control" placeholder="Pesquisar por Nome/CPF/CNPJ" value="">
+                    <div class="input-group-append">
+                      <button class="btn-sm" type="submit" id="pesq-cliente">Pesquisar</button>
+                    </div>
+                  </div>
+                </form>
+                <!-- tabela -->
+                <table class="table table-bordered table-hover table-sm bordered">
+                  <thead>
+                    <tr>
+                      <th>Nome</th>
+                      <th>E-mail</th>
+                      <th>CNPF/CNPJ</th>
+                      <th>Endereço</th>
+                      <th>Telefone</th>
+                      <th>#</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tabela-cliente">
+                    <?php foreach ($consumidores as $consumidor) : ?>
+                      </tr>
+                        <td><?= $consumidor->id_cliente_cliente->nome; ?></td>
+                        <td><?= $consumidor->id_cliente_cliente->email; ?></td>
+                        <td><?= $consumidor->id_cliente_cliente->cpf_cnpj; ?></td>
+                        <td><?= $consumidor->id_cliente_cliente->endereco + ', ' + $consumidor->id_cliente_cliente->numero + ' - ' + $consumidor->id_cliente_cliente->bairro + ' Compl.:' + $consumidor->id_cliente_cliente->complemento; ?></td>
+                        <td><?= $consumidor->id_cliente_cliente->telefone; ?></td>
+                        <td>form para selecionar o item</td>
+                      </tr>
+                    <?php endforeach; ?>
+                      
+                  </tbody>
+                </table>
+                <!-- fim tabela -->
+              </div>
               <?php endif; ?>
             <?php else : ?>
 

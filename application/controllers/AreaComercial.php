@@ -16,6 +16,7 @@ class AreaComercial extends MY_Controller {
 	}
 
 	public function dashboard(){
+		$this->data['consumidores'] = $this->listarepresentantecliente->get($this->data['cliente']->id_cliente);
 		$this->load->view('includes/header_navbar_fixed_top', $this->data);
 		$this->load->view('representante/dashboard_menu', $this->data);
 		$this->load->view('representante/dashboard', $this->data);
@@ -84,14 +85,17 @@ class AreaComercial extends MY_Controller {
 			else
 				$this->load->view('representante/editar_consumidor', $this->data);
 			$this->load->view('includes/footer_main', $this->data);
-		} else {
+		} 
+		else 
+		{
+			$senha = $this->input->post('senha');
             $idCliente = $this->cliente->insert();
             if(is_numeric($idCliente)){
             	$this->representante_cliente->id_cliente_represent = $this->data['cliente']->id_cliente;
             	$this->representante_cliente->id_cliente_cliente = $idCliente;
             	$id_representante_cliente = $this->representante_cliente->insert();
             	if (is_numeric($id_representante_cliente)){
-					$this->enviarEmailCofirmandoAcesso($this->cliente->nome, $this->cliente->email, $this->cliente->hash);
+					$this->enviarEmailNovaConta($this->cliente->nome, $this->cliente->email, $this->cliente->hash);
 					$this->session->set_flashdata("success_cad_consu","Seu Cliente foi cadastrado com sucesso! <br/> Vai chegar um E-mail para seu cliente ativar a conta!");
 					redirect("areacomercial/novo_consumidor");
 				} else {
@@ -103,8 +107,15 @@ class AreaComercial extends MY_Controller {
 		}
 	}
 
-	private function enviarEmailCofirmandoAcesso($nome, $email, $hash){
-    	$link = base_url("clientes/ativar/$hash");
+	public function buscaClienteRepresentante(){
+		if ($_POST){
+			$value = $this->input->post('pesqValue');
+			echo json_encode($this->listarepresentantecliente->getClienteRepresentante($this->data['cliente']->id_cliente, $value));
+		}
+	}
+
+	private function enviarEmailNovaConta($nome, $email, $senha){
+    	$link = base_url("clientes/registrar");
     	$html = 
 		"<!DOCTYPE html>
 		<html lang=\"pt-br\">
@@ -112,13 +123,12 @@ class AreaComercial extends MY_Controller {
 		  </head>
 		  <body> 
 		    <h3><b>Olá,  {$nome}.</b></h3>
-		    <p>Sejá Bem Vindo ao <b>Mister</b> Salgadinhos</p>
-		    <p>
-		    Agradecemos pela preferência.</b> Pedimos que clique no link abaixo para ativar sua conta. <br>
-		    Após clicar no link para ativar sua conta já poder realizar compras em nossa loja virtual. <br>
-		    Obrigado!
-		    </p>
-		    <a href='{$link}'>Clique Aqui - Ativar sua Conta</a>
+		    <p>Sejá Bem Vindo ao <b>Mister Salgadinhos</b></p>
+		    <p>Agradecemos pela Preferência.</p>
+		    <br/>
+		    <p>Segue seu usuário e senha para acessar a área administrativa, e também realizar compras e checar o histórico de compras</p>
+		    <p>Usuário: {$email} <br/> Senha: {$senha}</p>
+		    <a href='{$link}'>Clique Aqui - Realizar o Loginho</a>
 		    <br/>
 		    <p><smal>**Por favor, não responder para este e-mail</smal></p>
 		  </body>

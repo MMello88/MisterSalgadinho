@@ -1,7 +1,7 @@
     <div class="container">
       <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="<?= base_url('assets/img/bonequinho-120.png'); ?>" alt="" width="72" height="72">
-        <h2>Mister Salgadinho agradece a confiança que nos deu tornando-se um revendedor.</h2>
+        <h2>Mister Salgadinho agradece a confiança que nos deu tornando-se um Representante.</h2>
         <hr class='mb-3 mt-1'>
         <p class="lead">Para finalizar a compra precisamos que informe para nós alguns dados importantes. E então tornará membro da equipe Mister.</p>
       </div>
@@ -12,6 +12,7 @@
           <?= form_open('representante/cadastrar'); ?>
             <input type="hidden" name="situacao" value="a">
             <input type="hidden" name="tipo" value="s">
+            <input type="hidden" name="ativo" value="0">
 
             <div class="mb-4">
               <label for="nome">Nome <span class="text-muted">(*)</span></label>
