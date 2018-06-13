@@ -399,16 +399,21 @@ function buscarClienteRepresentante(event, tipoHtml){
           $("tbody#tabela-cliente").empty();
         }
 
+        var csrf = $(document).find("input[name='csrf_test_name']").val();
+
         $.each(data, function(i, item) {
           var status = 'Inativo';
           if (item.ativo == '1'){
             status = 'Ativo';
           }
+          item.complemento = (item.complemento == null) ? '' : item.complemento;
 
           if (tipoHtml == 'li'){
             $("#lista-cliente").append("<li class='list-group-item d-flex justify-content-between lh-condensed'><div><h6 class='my-0'>"+item.nome+"</h6><small class='text-muted'>"+item.email+"</small></div><div><a href='<?= base_url("areacomercial/novo_consumidor/"); ?>"+item.id_cliente+"'>Visualizar</a><p class='text-muted my-0' style='font-size: 80%;'>"+status+"</p></div></li>");
           } else if (tipoHtml == 'tabela'){
-            $("tbody#tabela-cliente").append("<tr><td>"+item.nome+"</td><td>"+item.email+"</td><td>"+item.cpf_cnpj+"</td><td>"+item.endereco+ ", "+ item.numero+" - "+item.bairro+" Compl.:"+item.complemento+"</td><td>"+item.telefone+"</td><td>select</td></tr>");
+            var tabela = '';
+            tabela = '<tr><td>'+item.nome+'</td><td>'+item.email+'</td><td>'+item.cpf_cnpj+'</td><td>'+item.endereco+ ', '+ item.numero+' - '+item.bairro+' Compl.:'+item.complemento+'</td><td>'+item.telefone+'</td><td><form action="http://localhost/MisterSalgadinho/index.php/areacomercial/dashboard" id="formSelecionarCliente" method="post" accept-charset="utf-8"><input type="hidden" name="csrf_test_name" value="'+csrf+'"/><input name="selectIdCliente" type="hidden" class="form-control" value="'+item.id_cliente+'"><button class="btn-sm" type="submit" id="pesq-cliente" style="min-width:100%;">Selecionar</button></td></tr>';
+            $("tbody#tabela-cliente").append(tabela);
           }
         })
       }
@@ -426,6 +431,31 @@ $(document).on('submit','form#formPesqCliente', function(){
 
 $(document).on('submit','form#formPesqClienteRepre', function(){
   buscarClienteRepresentante(this, 'tabela');
+  event.preventDefault();
+});
+
+$(document).on('submit','form#formSelecionarCliente', function(){
+  var form      = this;
+  var dados     = $(form).serialize();
+  var pesqValue = $(form).find("input[name='pesqValue']").val();
+  
+  $.ajax({
+    type: "POST",
+    url: "<?php echo base_url("areacomercial/selecionarClienteRepresentante"); ?>",
+    data: dados,
+    success: function(data){
+      if (data === 'selecionado'){
+        $(form).find("button[id='pesq-cliente']").text('Deselecionado');
+        $(form).parent().parent().addClass('table-primary');
+      } else if (data === 'deselecionado'){
+        $(form).find("button[id='pesq-cliente']").text('Selecionar');
+        $(form).parent().parent().removeAttr("class");
+      }
+    },
+    error : function(data){
+      console.log(data);
+    }
+  });
   event.preventDefault();
 });
 

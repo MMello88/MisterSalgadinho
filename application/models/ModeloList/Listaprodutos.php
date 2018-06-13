@@ -29,7 +29,7 @@ class Listaprodutos extends CI_Model {
         return $query->custom_result_object('produto');
     }
 
-    public function getAllProdutoCategValor($cidade = 'Vitrine', $ativo = 'a'){
+    public function getAllProdutoCategValor($cidade = 'Vitrine', $ativo = 'a', $tipo_cliente = 'c'){
         $query = $this->db->query(
             "SELECT p.id_produto, 
                    p.nome, 
@@ -44,10 +44,12 @@ class Listaprodutos extends CI_Model {
               LEFT JOIN tbl_cidade_categoria cc on (cp.id_categoria_produto = cc.id_categoria_produto)
               LEFT JOIN tbl_cidade c on (c.id_cidade = cc.id_cidade)
              WHERE vp.data_atualizacao = (SELECT MAX(tbl_valor_produto.data_atualizacao)
-                            FROM tbl_valor_produto
-                               WHERE tbl_valor_produto.id_produto = p.id_produto)
+                                            FROM tbl_valor_produto
+                                           WHERE tbl_valor_produto.id_produto = p.id_produto
+                                             AND tbl_valor_produto.tipo_cliente = '{$tipo_cliente}')
                AND p.situacao = '{$ativo}'
                AND cp.situacao = '{$ativo}'
+               AND vp.tipo_cliente = '{$tipo_cliente}'
                AND (('$cidade' = c.nome) or ('$cidade' = cc.id_cidade))");
         return $query->custom_result_object('produtocategvalor');
     }

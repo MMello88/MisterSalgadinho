@@ -28,9 +28,9 @@
           <h4><?= $cliente->nome; ?></h4>
           <div class="btn-toolbar mb-2 mb-md-0">
             <ul class="nav">
-              <?php if($cliente->tipo === "c") : ?>
+              <?php if($this->session->userdata('cliente_repre_selecionado') !== null) : ?>
               <li class="nav-item">
-                <a href="<?= base_url("revendedor/index"); ?>">Seja um Revendedor</a>
+                <h6>Pedido sendo realizado para o Cliente: <b><?= $this->session->userdata('cliente_repre_selecionado')['nome']; ?></b></h6>
               </li>
               <?php endif; ?>
             </ul>
@@ -79,6 +79,12 @@
                 </div>
               </form>
 
+              <?php if ($this->session->userdata('cliente_repre_selecionado') !== null) : ?>  
+              <?= form_open('areacomercial/limparPedido', array('id' => 'hashtagFacebook', 'class' => 'card p-3 mt-3')); ?>
+                <button type="submit" class="btn btn-warning mais_menos resgatar" style="min-width: 100%;">Limpar Pedido?</button>
+              </form>
+              <?php endif; ?>
+
               <?php if ($this->session->flashdata('msg_cod_promo')) : ?>
               <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
                 <strong><?= $this->session->flashdata('msg_cod_promo'); ?></strong>
@@ -126,13 +132,20 @@
                   </thead>
                   <tbody id="tabela-cliente">
                     <?php foreach ($consumidores as $consumidor) : ?>
-                      </tr>
+                      <tr <?= isset($this->session->userdata('cliente_repre_selecionado')['id_cliente']) ? 
+                      $this->session->userdata('cliente_repre_selecionado')['id_cliente'] == $consumidor->id_cliente_cliente->id_cliente ? 'class="table-primary"' : '' : ''; ?>>
                         <td><?= $consumidor->id_cliente_cliente->nome; ?></td>
                         <td><?= $consumidor->id_cliente_cliente->email; ?></td>
                         <td><?= $consumidor->id_cliente_cliente->cpf_cnpj; ?></td>
-                        <td><?= $consumidor->id_cliente_cliente->endereco + ', ' + $consumidor->id_cliente_cliente->numero + ' - ' + $consumidor->id_cliente_cliente->bairro + ' Compl.:' + $consumidor->id_cliente_cliente->complemento; ?></td>
+                        <td><?= $consumidor->id_cliente_cliente->endereco . ', ' . $consumidor->id_cliente_cliente->numero . ' - ' . $consumidor->id_cliente_cliente->bairro . ' Compl.:' . $consumidor->id_cliente_cliente->complemento; ?></td>
                         <td><?= $consumidor->id_cliente_cliente->telefone; ?></td>
-                        <td>form para selecionar o item</td>
+                        <td>
+                          <?= form_open('', array('id'=>'formSelecionarCliente')); ?>
+                            <input name="selectIdCliente" type="hidden" class="form-control" value="<?= $consumidor->id_cliente_cliente->id_cliente; ?>">
+                            <button class="btn-sm" type="submit" id="pesq-cliente" style="min-width:100%;"><?= isset($this->session->userdata('cliente_repre_selecionado')['id_cliente']) ? 
+                      $this->session->userdata('cliente_repre_selecionado')['id_cliente'] == $consumidor->id_cliente_cliente->id_cliente ? 'Deselecionar' : 'Selecionar' : 'Selecionar'; ?></button>
+                          </form>
+                        </td>
                       </tr>
                     <?php endforeach; ?>
                       
@@ -144,7 +157,11 @@
             <?php else : ?>
 
               <?= form_open('perfil/finalizar', array('id' => 'loja', 'class' => 'visible')); ?>
+              <?php if($this->session->userdata('cliente_repre_selecionado') !== null) : ?>
+                <input type="hidden" name="id_cliente" value="<?= $this->session->userdata('cliente_repre_selecionado')['id_cliente']; ?>">
+              <?php else : ?>
                 <input type="hidden" name="id_cliente" value="<?= $cliente->id_cliente; ?>">
+              <?php endif; ?>
                 <input type="hidden" name="id_cidade" value="<?= $cidade->id_cidade; ?>">
                 <input type="hidden" name="valor" value="<?= number_format($total, 2, '.', ''); ?>">
                 <input type="hidden" name="taxa_entrega" value="7">

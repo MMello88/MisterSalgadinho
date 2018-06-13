@@ -49,16 +49,32 @@ class Perfil extends MY_Controller {
 				$this->session->unset_userdata('id_session');
 				$this->session->unset_userdata('cidade');
 			}
+			if ($this->session->userdata('cliente_repre_selecionado') !== null){
+				$cliente =  $this->session->userdata('cliente_repre_selecionado');
+				$this->enviarEmailFinalizado($cliente['nome'], $cliente['email']);
+				$this->enviarEmailAdmin($cliente['nome'], $cliente['email'], $cliente['telefone'], $cliente['endereco']);
+				$this->data['cliente'] = (object)$cliente;
+			} else {
+				$this->data['cliente'] = $this->getCliente();
+				$this->enviarEmailFinalizado($this->data['cliente']->nome, $this->data['cliente']->email);
+				$this->enviarEmailAdmin($this->data['cliente']->nome, $this->data['cliente']->email, $this->data['cliente']->telefone, $this->data['cliente']->endereco);
+			}
 
-			$this->data['cliente'] = $this->getCliente();
-			$this->enviarEmailFinalizado($this->data['cliente']->nome, $this->data['cliente']->email);
-			$this->enviarEmailAdmin($this->data['cliente']->nome, $this->data['cliente']->email, $this->data['cliente']->telefone, $this->data['cliente']->endereco);
+			
 			$this->data['Pedidos'] = array();
 			$this->data['finalizado'] = 'Agradecemos pela sua preferência. Seu pedido será processado.';
-			$this->load->view('includes/header_navbar_fixed_top', $this->data);
-			$this->load->view('cliente/navbar_cliente', $this->data);
-			$this->load->view('cliente/painel', $this->data);
-			$this->load->view('includes/footer_main', $this->data);
+			if ($this->session->userdata('cliente_repre_selecionado') !== null){
+				$this->session->unset_userdata('cliente_repre_selecionado');
+				$this->load->view('includes/header_navbar_fixed_top', $this->data);
+				$this->load->view('representante/dashboard_menu', $this->data);
+				$this->load->view('representante/dashboard', $this->data);
+				$this->load->view('includes/footer_main', $this->data);
+			} else {
+				$this->load->view('includes/header_navbar_fixed_top', $this->data);
+				$this->load->view('cliente/navbar_cliente', $this->data);
+				$this->load->view('cliente/painel', $this->data);
+				$this->load->view('includes/footer_main', $this->data);
+			}
 		}
 	}
 

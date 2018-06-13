@@ -114,6 +114,37 @@ class AreaComercial extends MY_Controller {
 		}
 	}
 
+	public function selecionarClienteRepresentante(){
+		if ($_POST){
+			$selectIdCliente = $this->input->post('selectIdCliente');
+			if(($this->session->userdata('cliente_repre_selecionado') !== null)){
+				if($this->session->userdata('cliente_repre_selecionado')['id_cliente'] === $selectIdCliente){
+					$this->session->unset_userdata('cliente_repre_selecionado');
+					echo "deselecionado";
+				} 
+			} else {
+				$cliente = $this->listaclientes->get($selectIdCliente);
+				$arrCli = array('cliente_repre_selecionado' => 
+							array('id_cliente' => $cliente->id_cliente,
+								  'nome' => $cliente->nome,
+								  'email' => $cliente->email,
+								  'tipo' => $cliente->tipo,
+								  'telefone' => $cliente->telefone,
+								  'endereco' => $cliente->endereco));
+				$this->session->set_userdata($arrCli);
+				echo "selecionado";
+			}
+		} else {
+			echo "no posted";
+		}
+	}
+
+	public function limparPedido(){
+		$this->session->unset_userdata('cliente_repre_selecionado');
+		$this->cart->deleteCartBySession($this->session->userdata('id_session'));
+		redirect('areacomercial/index');
+	}
+
 	private function enviarEmailNovaConta($nome, $email, $senha){
     	$link = base_url("clientes/registrar");
     	$html = 

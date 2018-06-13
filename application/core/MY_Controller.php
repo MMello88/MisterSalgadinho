@@ -73,12 +73,16 @@ class MY_Controller extends CI_Controller {
 
 	protected function getProduto()
 	{
-		if ($this->session->userdata('cidade'))
-		{
+		if ($this->session->userdata('cidade')) {
+			$tipo = 'c';
 			$cidade = json_decode($this->session->userdata('cidade'));
-    		return $this->listaprodutos->getAllProdutoCategValor($cidade->id_cidade);
-    	}
-    	else{
+			if ($this->session->userdata('cliente_repre_selecionado') !== null)
+				$tipo = $this->session->userdata('cliente_repre_selecionado')['tipo'];
+			else if ($this->session->userdata('id_cliente') !== null)
+				$tipo = $this->session->userdata('tipo');
+			
+    		return $this->listaprodutos->getAllProdutoCategValor($cidade->id_cidade, 'a', $tipo);
+    	} else {
     		return $this->listaprodutos->getAllProdutoCategValor();
     	}
 	}

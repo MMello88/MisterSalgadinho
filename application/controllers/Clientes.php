@@ -14,7 +14,10 @@ class Clientes extends MY_Controller {
 
 	public function registrar(){
 		if($this->session->userdata('id_cliente')){
-			redirect('Perfil/index');
+			if ($this->session->userdata('tipo') == "s")
+				redirect('areacomercial/dashboard');
+			else
+				redirect('Perfil/index');
 		}
 
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[cliente.email]');
@@ -53,9 +56,10 @@ class Clientes extends MY_Controller {
 				if ($cli->senha === do_hash($this->input->post('senha'), 'md5')){
 					if($cli->ativo == '1'){
 						$arrCli = array(
-			                'nome'              => $cli->nome,
-			                'email'             => $cli->email,
-			                'id_cliente'        => $cli->id_cliente
+			                'nome'       => $cli->nome,
+			                'email'      => $cli->email,
+			                'id_cliente' => $cli->id_cliente,
+			                'tipo'       => $cli->tipo
 			            );
 						$this->session->set_userdata($arrCli);
 						if ($cli->tipo == "s")
