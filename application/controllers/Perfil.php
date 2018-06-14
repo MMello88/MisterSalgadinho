@@ -133,13 +133,15 @@ class Perfil extends MY_Controller {
 			  </body>
 			</html>";
 
-		$this->load->library('email');
-		$this->email
-		  ->from('pedido@mistersalgadinhos.com.br', 'Mister Salgadinhos')
-		  ->to($email)
-		  ->subject("Mister Salgadinhos - {$nome} Seu pedido foi recebido com sucesso!.")
-		  ->message($html)
-		  ->send();
+		if (ENVIRONMENT !== 'development'){
+			$this->load->library('email');
+			$this->email
+				->from('pedido@mistersalgadinhos.com.br', 'Mister Salgadinhos')
+				->to($email)
+				->subject("Mister Salgadinhos - {$nome} Seu pedido foi recebido com sucesso!.")
+				->message($html)
+				->send();
+		}
 	}
   
 	private function enviarEmailAdmin($nome, $email, $telefone, $endereco){
@@ -169,12 +171,14 @@ class Perfil extends MY_Controller {
 			</head>
 		</html>";
 
-	    $this->load->library('email');
-	    $this->email
-			->from('pedido@mistersalgadinhos.com.br', 'Mister Salgadinhos')
-			->to('engrmachado@gmail.com, matheus.gnu@gmail.com, hurzana@gmail.com')
-			->subject("Mister Salgadinhos - Pedido realizado pelo(a) $nome.")
-	        ->message($html)
-	        ->send();
+		if (ENVIRONMENT !== 'development'){
+		    $this->load->library('email');
+		    $this->email
+				->from('pedido@mistersalgadinhos.com.br', 'Mister Salgadinhos')
+				->to('engrmachado@gmail.com, matheus.gnu@gmail.com, hurzana@gmail.com')
+				->subject("Mister Salgadinhos - Pedido realizado pelo(a) $nome.")
+		        ->message($html)
+		        ->send();
+	    }
     }
 }

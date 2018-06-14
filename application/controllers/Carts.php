@@ -201,86 +201,91 @@ class Carts extends CI_Controller {
 		$this->session->unset_userdata('nome_cliente');
 	}
 
-  private function enviarPedidoPorEmail(){
+	private function enviarPedidoPorEmail(){
 		$nome = $_POST['nome'];
 		$email = $_POST['email'];
 		$telefone = $_POST['telefone'];
 		$endereco = $_POST['endereco'];
-    $this->load->library('email');
-    $this->email
-      ->from('pedido@mistersalgadinhos.com.br', 'Mister Salgadinhos')
-      ->to('matheusnarciso@hotmail.com, engrmachado@gmail.com, matheus.gnu@gmail.com')
-      ->subject("Mister Salgadinhos - Pedido realizado pelo(a) $nome.")
-      ->message("<!DOCTYPE html>
-                 <html lang=\"pt-br\">
-                 <header>
-								 <style>
-									table {
-											font-family: arial, sans-serif;
-											border-collapse: collapse;
-											width: 100%;
-									}
+		$html = "<!DOCTYPE html>
+	                 <html lang=\"pt-br\">
+	                 <header>
+					 <style>
+						table {
+						font-family: arial, sans-serif;
+						border-collapse: collapse;
+						width: 100%;
+						}
 
-									td, th {
-											border: 1px solid #dddddd;
-											text-align: left;
-											padding: 8px;
-									}
+						td, th {
+						border: 1px solid #dddddd;
+						text-align: left;
+						padding: 8px;
+						}
 
-									tr:nth-child(even) {
-											background-color: #dddddd;
-									}
-									</style>
-								 </header>
-                 <body>
-								 <table>
-									<tr>
-										<th>Nome</th>
-										<th>Email</th>
-										<th>Telefone</th>
-										<th>Endereço</th>
-									</tr>
-									<tr>
-										<td>$nome</td>
-										<td>$email</td>
-										<td>$telefone</td>
-										<td>$endereco</td>
-									</tr>
-								 </table>
-                 <p>Vocês tem um novo pedido realizado. <br> Acesse o
-                    <a href=\" ".base_url("Admin/Login")."\" target=\"_blank\">Administrador</a>
-                 </p>
-                 </body>
-                 </html>")
-      ->send();
-  }
+						tr:nth-child(even) {
+						background-color: #dddddd;
+						}
+						</style>
+					 </header>
+	                 <body>
+					 <table>
+						<tr>
+							<th>Nome</th>
+							<th>Email</th>
+							<th>Telefone</th>
+							<th>Endereço</th>
+						</tr>
+						<tr>
+							<td>$nome</td>
+							<td>$email</td>
+							<td>$telefone</td>
+							<td>$endereco</td>
+						</tr>
+					 </table>
+	                 <p>Vocês tem um novo pedido realizado. <br> Acesse o
+	                    <a href=\" ".base_url("Admin/Login")."\" target=\"_blank\">Administrador</a>
+	                 </p>
+	                 </body>
+	                 </html>";
+		if (ENVIRONMENT !== 'development'){
+		    $this->load->library('email');
+		    $this->email
+		    	->from('pedido@mistersalgadinhos.com.br', 'Mister Salgadinhos')
+		    	->to('matheusnarciso@hotmail.com, engrmachado@gmail.com, matheus.gnu@gmail.com')
+		    	->subject("Mister Salgadinhos - Pedido realizado pelo(a) $nome.")
+		    	->message($html)
+		    	->send();
+		}
+	}
   
-  public function enviarEmailCliente($nome, $email){
-    $link = base_url();
-    $html = 
-"<!DOCTYPE html>
-<html lang=\"pt-br\">
-  <head>
-  </head>
-  <body> 
-    <h3><b>Olá,  {$nome}.</b></h3>
-    <p>Nós da <b>Mister</b> Salgadinhos</p>
-    <p>
-    <b>Agradecemos pela preferência.</b> Seu pedido foi recebido com <b>sucesso.</b> <br>
-    Em breve este <b>delicioso salgadinho</b> será produzido e entrege no <b>local, data e hora</b> que nos informado.<br>
-    </p>
-    <img src=\"{$link}assets/img/boneco_2.png\">
-    <br/>
-    <p><smal>**Por favor, não responder para este e-mail</smal></p>
-  </body>
-</html>";
+	public function enviarEmailCliente($nome, $email){
+	    $link = base_url();
+	    $html = 
+	"<!DOCTYPE html>
+	<html lang=\"pt-br\">
+	  <head>
+	  </head>
+	  <body> 
+	    <h3><b>Olá,  {$nome}.</b></h3>
+	    <p>Nós da <b>Mister</b> Salgadinhos</p>
+	    <p>
+	    <b>Agradecemos pela preferência.</b> Seu pedido foi recebido com <b>sucesso.</b> <br>
+	    Em breve este <b>delicioso salgadinho</b> será produzido e entrege no <b>local, data e hora</b> que nos informado.<br>
+	    </p>
+	    <img src=\"{$link}assets/img/boneco_2.png\">
+	    <br/>
+	    <p><smal>**Por favor, não responder para este e-mail</smal></p>
+	  </body>
+	</html>";
 
-    $this->load->library('email');
-    $this->email
-      ->from('pedido@mistersalgadinhos.com.br', 'Mister Salgadinhos')
-      ->to($email)
-      ->subject("Mister Salgadinhos - Seu pedido foi recebido com sucesso!.")
-      ->message($html)
-      ->send();
-  }
+		if (ENVIRONMENT !== 'development'){
+		    $this->load->library('email');
+		    $this->email
+		      ->from('pedido@mistersalgadinhos.com.br', 'Mister Salgadinhos')
+		      ->to($email)
+		      ->subject("Mister Salgadinhos - Seu pedido foi recebido com sucesso!.")
+		      ->message($html)
+		      ->send();
+		}
+	}
 }

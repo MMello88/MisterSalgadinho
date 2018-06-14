@@ -165,12 +165,14 @@ class AreaComercial extends MY_Controller {
 		  </body>
 		</html>";
 
-	    $this->load->library('email');
-	    $this->email
-	      ->from('pedido@mistersalgadinhos.com.br', 'Mister Salgadinhos')
-	      ->to($email)
-	      ->subject("Mister Salgadinhos - Link para ativar o cadastro!.")
-	      ->message($html)
-	      ->send();
+		if (ENVIRONMENT !== 'development'){
+		    $this->load->library('email');
+		    $this->email
+		      ->from('pedido@mistersalgadinhos.com.br', 'Mister Salgadinhos')
+		      ->to($email)
+		      ->subject("Mister Salgadinhos - Link para ativar o cadastro!.")
+		      ->message($html)
+		      ->send();
+		  }
     }
 }
