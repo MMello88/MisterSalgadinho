@@ -181,10 +181,10 @@
                         <?= form_radio('tipo', 'r', FALSE, array('class' => 'custom-control-input', 'id' => 'revendedor', 'required' => '')); ?>
                         <label class="custom-control-label" for="revendedor">Revendedor</label>
                       </div>
-                      <div class="custom-control custom-radio">
+                      <!--<div class="custom-control custom-radio">
                         <?= form_radio('tipo', 'p', FALSE, array('class' => 'custom-control-input', 'id' => 'parceiro', 'required' => '')); ?>
                         <label class="custom-control-label" for="parceiro">Parceiro</label>
-                      </div>
+                      </div>-->
                     </div>
 
                     <hr class="mb-4">

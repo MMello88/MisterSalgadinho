@@ -12,6 +12,7 @@ class Vitrine extends MY_Controller {
 
 	public function index()
 	{	
+		//$this->data['htmlProdutos'] = $this->HtmlProdutos();
 		$this->load->view('includes/header_navbar_fixed_top', $this->data);
 		$this->load->view('vitrine/index_promocional_html', $this->data);
 		$this->load->view('includes/footer_main', $this->data);
@@ -106,6 +107,56 @@ class Vitrine extends MY_Controller {
 	    } else {
 	    	return "";
 	    }
+	}
+
+	private function HtmlProdutos(){
+		$html = "<div class='portfolio-container' style='position: relative; height: 2456.05px;'>";
+		$id_session = $this->data['id_session'];
+        foreach ($this->data['Produtos'] as $Produto) {
+        	$preco = $Produto->preco === '' ? '' : 'R$' . $Produto->preco;
+        	$cidade = $this->data['cidade'] !== null ? $this->data['cidade']->id_cidade : '';
+        	$valor = $Produto->preco*10;
+
+        	$html .= form_open('', array('id' => 'formCart'));
+        	$html .= "
+        		<div class='col-lg-4 col-md-6 portfolio-thumbnail all {$Produto->cssClass}'>
+        		    <div class='hovereffect'>
+        		    <img class='img-responsive' src='".base_url("assets/img/salgados/{$Produto->imagem}")."' alt=''>
+        		    <div class='overlay'>
+        		    	<h6 class='text-dark text-left'>{$Produto->nome}</h6>
+        		    	<h4 class='text-danger text-left'>{$preco}</h4>
+        		    	<input type='hidden' name='id_produto' value='{$Produto->id_produto}'>
+        		    	<input type='hidden' name='id_session' value='{$id_session}'>
+	                    <input type='hidden' name='id_cidade' value='{$cidade}'>
+	                    <input type='hidden' name='situacao' value='a'>
+	                    <input type='hidden' name='valor_unitario' value='{$Produto->preco}' id='valor-{$Produto->id_produto}'>
+	                    <div class='input-group m-auto pt-5 pb-2 fade-out'>";
+	        if ($this->data['cidade'] !== null){
+	        	$html .= "
+	        	<div class='input-group-prepend'>
+                    <button class='btn mais_menos' type='button' id='btn-menos' data-whatever='{$Produto->id_produto}'>-</button>
+                </div>
+                <input type='number' min='10' name='qtde' id='qnt-{$Produto->id_produto}' class='form-control text-center bg-white' value='10' readonly required>
+                <div class='input-group-append'>
+                    <button class='btn mais_menos' type='button' id='btn-mais' data-whatever='{$Produto->id_produto}'>+</button>
+                </div>";
+	        }
+	        $html .= "</div>";
+	        if ($this->data['cidade'] === null){
+	        	$html .= "<button class='btn fade-out' type='button' data-toggle='modal' data-target='#exampleModalCenter'>Verificar Disponibilidade</button>";
+	        } else {
+	        	$html .= "<button class='btn fade-out' type='submit' type='submit'>Adicionar ao Carrinho</button>
+                    <p class='total'>Total: <strong id='total-{$Produto->id_produto}'>R$ {$valor}</strong></p>";
+	        }
+	        $html .= "		</div>
+	        			</div>
+	        		</div>";
+	        $html .= form_close();
+        }
+        $html .= "
+          </div>
+        </div>";
+        return $html;
 	}
 
 	private function removeCartBySession()
