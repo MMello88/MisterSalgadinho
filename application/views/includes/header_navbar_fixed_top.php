@@ -22,10 +22,6 @@
     <link rel="apple-touch-icon" sizes="152x152" href="<?php echo base_url("assets/ico/152.png"); ?>" type="image/png">
     <?= $script_google; ?>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
-    <script src="<?= base_url("assets/js/owl.carousel.min.js"); ?>"></script>
-    <script src="<?= base_url("assets/js/isotope.pkgd.min.js"); ?>"></script>
   </head>
 <body> 
 

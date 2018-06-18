@@ -72,7 +72,7 @@
           <div class="portfolio-container" style="position: relative; height: 2456.05px;">
             <?php foreach ($Produtos as $Produto) : ?>
             <?= form_open('', array('id' => 'formCart')); ?>
-              <div class="col-lg-4 col-md-6 portfolio-thumbnail all <?= $Produto->cssClass ?>">
+              <div class="col-lg-4 col-md-6 portfolio-thumbnail all <?= $Produto->cssClass ?>" >
                 <div class="hovereffect">
                   <img class="img-responsive" src="<?php echo base_url("assets/img/salgados/$Produto->imagem"); ?>" alt="">
                   <div class="overlay">
