@@ -15,7 +15,7 @@ class Clientes extends MY_Controller {
 	public function registrar(){
 		if($this->session->userdata('id_cliente')){
 			if ($this->session->userdata('tipo') == "s")
-				redirect('areacomercial/dashboard');
+				redirect('AreaComercial/dashboard');
 			else
 				redirect('Perfil/index');
 		}
@@ -63,7 +63,7 @@ class Clientes extends MY_Controller {
 			            );
 						$this->session->set_userdata($arrCli);
 						if ($cli->tipo == "s")
-							redirect('areacomercial/dashboard');
+							redirect('AreaComercial/dashboard');
 						else
 							redirect('perfil/index');
 					} else {

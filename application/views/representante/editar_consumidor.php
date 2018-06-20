@@ -71,7 +71,7 @@
                     <small class="text-muted"><?= $value->id_cliente_cliente->email; ?> </small>
                   </div>
                   <div>
-                    <a href="<?= base_url("areacomercial/novo_consumidor/{$value->id_cliente_cliente->id_cliente}"); ?>">Visualizar</a>
+                    <a href="<?= base_url("AreaComercial/novo_consumidor/{$value->id_cliente_cliente->id_cliente}"); ?>">Visualizar</a>
                     <p class="text-muted my-0" style="font-size: 80%;"><?= $value->id_cliente_cliente->ativo == '1' ? 'Ativo' : 'Inativo'; ?></p>
                   </div>
                 </li>
@@ -159,7 +159,7 @@
                   </div>
 
                   <hr class="mb-4">
-                  <a href="<?= base_url("areacomercial/novo_consumidor"); ?>" class="btn btn-warning btn-block" type="submit">Voltar</a>
+                  <a href="<?= base_url("AreaComercial/novo_consumidor"); ?>" class="btn btn-warning btn-block" type="submit">Voltar</a>
 
                 </div>
                 <!-- fim tab item cadastro -->

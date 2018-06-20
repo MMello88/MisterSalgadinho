@@ -32,7 +32,7 @@
 
         <div class="container">
           <div class="row pb-5">
-            <?= form_open('areacomercial/relatorioCompraClientes', array('class' => 'form-inline')) ?>
+            <?= form_open('AreaComercial/relatorioCompraClientes', array('class' => 'form-inline')) ?>
             	<input type="hidden" name="id_cliente_represent" value="<?= $cliente->id_cliente; ?>">
             	<div class="form-group">
 						  	<label class="my-1 mr-2" for="forMesInicial">Mês Inicial</label>

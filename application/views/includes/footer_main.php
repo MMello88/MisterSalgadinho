@@ -393,7 +393,7 @@ function buscarClienteRepresentante(event, tipoHtml){
   
   $.ajax({
     type: "POST",
-    url: "<?php echo base_url("areacomercial/buscaClienteRepresentante"); ?>",
+    url: "<?php echo base_url("AreaComercial/buscaClienteRepresentante"); ?>",
     data: dados,
     success: function(data){
       if (data !== ''){
@@ -414,10 +414,10 @@ function buscarClienteRepresentante(event, tipoHtml){
           item.complemento = (item.complemento == null) ? '' : item.complemento;
 
           if (tipoHtml == 'li'){
-            $("#lista-cliente").append("<li class='list-group-item d-flex justify-content-between lh-condensed'><div><h6 class='my-0'>"+item.nome+"</h6><small class='text-muted'>"+item.email+"</small></div><div><a href='<?= base_url("areacomercial/novo_consumidor/"); ?>"+item.id_cliente+"'>Visualizar</a><p class='text-muted my-0' style='font-size: 80%;'>"+status+"</p></div></li>");
+            $("#lista-cliente").append("<li class='list-group-item d-flex justify-content-between lh-condensed'><div><h6 class='my-0'>"+item.nome+"</h6><small class='text-muted'>"+item.email+"</small></div><div><a href='<?= base_url("AreaComercial/novo_consumidor/"); ?>"+item.id_cliente+"'>Visualizar</a><p class='text-muted my-0' style='font-size: 80%;'>"+status+"</p></div></li>");
           } else if (tipoHtml == 'tabela'){
             var tabela = '';
-            tabela = '<tr><td>'+item.nome+'</td><td>'+item.email+'</td><td>'+item.cpf_cnpj+'</td><td>'+item.endereco+ ', '+ item.numero+' - '+item.bairro+' Compl.:'+item.complemento+'</td><td>'+item.telefone+'</td><td><form action="http://localhost/MisterSalgadinho/index.php/areacomercial/dashboard" id="formSelecionarCliente" method="post" accept-charset="utf-8"><input type="hidden" name="csrf_test_name" value="'+csrf+'"/><input name="selectIdCliente" type="hidden" class="form-control" value="'+item.id_cliente+'"><button class="btn-sm" type="submit" id="pesq-cliente" style="min-width:100%;">Selecionar</button></td></tr>';
+            tabela = '<tr><td>'+item.nome+'</td><td>'+item.email+'</td><td>'+item.cpf_cnpj+'</td><td>'+item.endereco+ ', '+ item.numero+' - '+item.bairro+' Compl.:'+item.complemento+'</td><td>'+item.telefone+'</td><td><form action="http://localhost/MisterSalgadinho/index.php/AreaComercial/dashboard" id="formSelecionarCliente" method="post" accept-charset="utf-8"><input type="hidden" name="csrf_test_name" value="'+csrf+'"/><input name="selectIdCliente" type="hidden" class="form-control" value="'+item.id_cliente+'"><button class="btn-sm" type="submit" id="pesq-cliente" style="min-width:100%;">Selecionar</button></td></tr>';
             $("tbody#tabela-cliente").append(tabela);
           }
         })
@@ -446,7 +446,7 @@ $(document).on('submit','form#formSelecionarCliente', function(){
   
   $.ajax({
     type: "POST",
-    url: "<?php echo base_url("areacomercial/selecionarClienteRepresentante"); ?>",
+    url: "<?php echo base_url("AreaComercial/selecionarClienteRepresentante"); ?>",
     data: dados,
     success: function(data){
       if (data === 'selecionado'){

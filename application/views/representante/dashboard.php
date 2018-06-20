@@ -80,7 +80,7 @@
               </form>
 
               <?php if ($this->session->userdata('cliente_repre_selecionado') !== null) : ?>  
-              <?= form_open('areacomercial/limparPedido', array('id' => 'hashtagFacebook', 'class' => 'card p-3 mt-3')); ?>
+              <?= form_open('AreaComercial/limparPedido', array('id' => 'hashtagFacebook', 'class' => 'card p-3 mt-3')); ?>
                 <button type="submit" class="btn btn-warning mais_menos resgatar" style="min-width: 100%;">Limpar Pedido?</button>
               </form>
               <?php endif; ?>

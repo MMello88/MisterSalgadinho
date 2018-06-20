@@ -38,7 +38,7 @@
             <?php if($cliente->tipo !== "s") : ?>
             <a class="navbar-brand" href="<?= base_url("perfil/index"); ?>">
             <?php else : ?>
-              <a class="navbar-brand" href="<?= base_url("areacomercial/dashboard"); ?>">
+              <a class="navbar-brand" href="<?= base_url("AreaComercial/dashboard"); ?>">
             <?php endif; ?>
           <?php else : ?>
               <a class="navbar-brand" href="<?= base_url("perfil/index"); ?>">

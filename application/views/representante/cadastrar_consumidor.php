@@ -79,7 +79,7 @@
                     <small class="text-muted"><?= $value->id_cliente_cliente->email; ?></small>
                   </div>
                   <div>
-                    <a href="<?= base_url("areacomercial/novo_consumidor/{$value->id_cliente_cliente->id_cliente}"); ?>">Visualizar</a>
+                    <a href="<?= base_url("AreaComercial/novo_consumidor/{$value->id_cliente_cliente->id_cliente}"); ?>">Visualizar</a>
                     <p class="text-muted my-0" style="font-size: 80%;"><?= $value->id_cliente_cliente->ativo == '1' ? 'Ativo' : 'Inativo'; ?></p>
                   </div>
                 </li>
@@ -96,7 +96,7 @@
                 <!-- tab item cadastro -->
                 <div class="tab-pane show active" id="form-registrar">
 
-                  <?= form_open('areacomercial/novo_consumidor'); ?>
+                  <?= form_open('AreaComercial/novo_consumidor'); ?>
                     <input type="hidden" name="situacao" value="a">
                     <input type="hidden" name="ativo" value="1">
 

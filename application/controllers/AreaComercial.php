@@ -97,7 +97,7 @@ class AreaComercial extends MY_Controller {
             	if (is_numeric($id_representante_cliente)){
 					$this->enviarEmailNovaConta($this->cliente->nome, $this->cliente->email, $this->cliente->hash);
 					$this->session->set_flashdata("success_cad_consu","Seu Cliente foi cadastrado com sucesso! <br/> Vai chegar um E-mail para seu cliente ativar a conta!");
-					redirect("areacomercial/novo_consumidor");
+					redirect("AreaComercial/novo_consumidor");
 				} else {
 					$this->session->set_flashdata("erro_cad_consu","Erro ao realizar o cadastro. Erro: " . $id_representante_cliente);
 				}
@@ -142,7 +142,7 @@ class AreaComercial extends MY_Controller {
 	public function limparPedido(){
 		$this->session->unset_userdata('cliente_repre_selecionado');
 		$this->cart->deleteCartBySession($this->session->userdata('id_session'));
-		redirect('areacomercial/index');
+		redirect('AreaComercial/index');
 	}
 
 	private function enviarEmailNovaConta($nome, $email, $senha){
