@@ -37,7 +37,7 @@ class Listaprodutos extends CI_Model {
                    p.situacao, 
                    p.imagem, 
                    cp.cssClass, 
-                   IF('$cidade' = 'Vitrine', '', vp.preco) preco
+                   vp.preco
               FROM tbl_produto p
               LEFT JOIN tbl_categoria_produto cp ON (p.id_categoria_produto = cp.id_categoria_produto)
               LEFT JOIN tbl_valor_produto vp ON (p.id_produto = vp.id_produto)

@@ -240,7 +240,6 @@ function postUpdateQtdProduto(id, qnt){
   var url = "<?= base_url('index.php/Carts/alterar'); ?>"
   var csrf_cookie_name = $("form#formCartDel").find("input[name='csrf_test_name']").val();
   var posting = $.post( url, { id_cart: id, qtde: qnt, csrf_test_name: csrf_cookie_name } );
-  console.log(csrf_cookie_name);
   posting = null;
 }
 

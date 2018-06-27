@@ -3,7 +3,7 @@
         <img class="d-block mx-auto mb-4" src="<?= base_url('assets/img/bonequinho-120.png'); ?>" alt="" width="72" height="72">
         <h2>Mister Salgadinho agradece a confiança que nos deu tornando-se um revendedor.</h2>
         <hr class='mb-3 mt-1'>
-        <p class="lead">Para finalizar a compra precisamos que informe para nós alguns dados importantes. E então tornará membro da equipe Mister.</p>
+        <p class="lead">Para finalizar a compra precisamos que informe para nós alguns dados importantes. E então tornará um revendendor muito importate para nós.</p>
       </div>
 
       <div class="row mx-auto pb-5">
@@ -19,6 +19,14 @@
               <input type="text" class="form-control mb-0 bg-white" id="nome" name="nome" placeholder="Ex.: Nome Completo " value="<?= set_value('nome'); ?>" required>
               <div class="invalid-feedback <?= form_error('nome') !== null ? "d-block":""; ?>">
                 <?= form_error('nome'); ?>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label for="cpf_cnpj">CPF ou CNPJ <span class="text-muted">(*)</span></label>
+              <input type="number" class="form-control mb-0 bg-white" id="cpf_cnpj" name="cpf_cnpj" placeholder="Ex.: 35849945809 ou 43165888000125 " value="<?= set_value('cpf_cnpj'); ?>" maxlength="14" required>
+              <div class="invalid-feedback <?= form_error('cpf_cnpj') !== null ? "d-block":""; ?>">
+                <?= form_error('cpf_cnpj'); ?>
               </div>
             </div>
 
