@@ -114,6 +114,8 @@ class Carts extends CI_Controller {
 						 "    </div> " .
 						 "    <div class='col-12 col-md-2 col-sm-12'> " .
 						 "      <form method='post' action='' id='formCartDel'>" .
+						 "        <input type='hidden' name='id_cart' value='{$Cart->id_cart}'> " .
+						 "        <input type='hidden' name='id_categoria_produto' value='{$Cart->id_categoria_produto}'> " .
 						 "        <input type='hidden' name='id_produto' value='{$Cart->id_produto[0]->id_produto}'> " .
 						 "        <input type='hidden' name='valor_subtotal' id='valor_subtotal' value='{$subtotal}'> " .
 						 "        <p><button type='submit' class='nbtn' id='cart' id='cartDel'>X</button></p> " .

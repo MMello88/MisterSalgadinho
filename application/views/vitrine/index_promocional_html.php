@@ -69,7 +69,7 @@
               <?php endforeach; ?>
             </ul>
           </div>
-          <div class="portfolio-container" style="position: relative; height: 2456.05px;">
+          <div class="portfolio-container">
             <?php foreach ($Produtos as $Produto) : ?>
             <?= form_open('', array('id' => 'formCart')); ?>
               <div class="col-lg-4 col-md-6 portfolio-thumbnail all <?= $Produto->cssClass ?>" >
@@ -79,18 +79,19 @@
                     <h6 class="text-dark text-left"><?= $Produto->nome ?></h6>
                     <h4 class="text-danger text-left">R$<?= $Produto->preco ?></h4>
                     <input type='hidden' name='id_produto' value='<?= $Produto->id_produto ?>'>
+                    <input type='hidden' name='id_categoria_produto' value='<?= $Produto->id_categoria_produto ?>'>
                     <input type='hidden' name='id_session' value='<?= $id_session ?>'>
                     <input type='hidden' name='id_cidade' value='<?= $cidade !== null ? $cidade->id_cidade : ''; ?>'>
                     <input type='hidden' name='situacao' value='a'>
-                    <input type="hidden" name='valor_unitario' value="<?= $Produto->preco ?>" id="valor-<?= $Produto->id_produto ?>">
+                    <input type="hidden" name='valor_unitario' value="<?= $Produto->preco ?>" id="valor-<?= $Produto->id_produto.$Produto->id_categoria_produto ?>">
                     <div class="input-group m-auto pt-5 pb-2 fade-out">
                     <?php if ($cidade !== null) : ?>
                       <div class="input-group-prepend">
-                        <button class="btn mais_menos" type="button" id="btn-menos" data-whatever="<?= $Produto->id_produto ?>">-</button>
+                        <button class="btn mais_menos" type="button" id="btn-menos" data-whatever="<?= $Produto->id_produto.$Produto->id_categoria_produto ?>">-</button>
                       </div>
-                      <input type="number" min="10" name="qtde" id="qnt-<?= $Produto->id_produto; ?>" class="form-control text-center bg-white" value="10" readonly required>
+                      <input type="number" min="10" name="qtde" id="qnt-<?= $Produto->id_produto.$Produto->id_categoria_produto; ?>" class="form-control text-center bg-white" value="10" readonly required>
                       <div class="input-group-append">
-                        <button class="btn mais_menos" type="button" id="btn-mais" data-whatever="<?= $Produto->id_produto ?>">+</button>
+                        <button class="btn mais_menos" type="button" id="btn-mais" data-whatever="<?= $Produto->id_produto.$Produto->id_categoria_produto ?>">+</button>
                       </div>
                     <?php endif; ?>
                     </div>
@@ -98,7 +99,7 @@
                     <button class="btn fade-out" type="button" data-toggle="modal" data-target="#exampleModalCenter">Verificar Disponibilidade</button>
                   <?php else : ?>
                     <button class="btn fade-out" type="submit" type="submit">Adicionar ao Carrinho</button>
-                    <p class="total">Total: <strong id="total-<?= $Produto->id_produto ?>">R$ <?= $Produto->preco*10 ?></strong></p>
+                    <p class="total">Total: <strong id="total-<?= $Produto->id_produto.$Produto->id_categoria_produto ?>">R$ <?= $Produto->preco*10 ?></strong></p>
                   <?php endif; ?>
                   </div>
                 </div>
