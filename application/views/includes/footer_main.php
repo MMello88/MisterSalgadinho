@@ -214,6 +214,7 @@ $(document).on('click','#btn-mais-submit', function(){
 function refreshValorTotal(id, sinal){
   var valor = $('#valor-cart-' + id).val();
   var total = $("#valor_total").text().replace("Total Pedido: ","");
+  valor = valor * 10;
   if (sinal == 'mais')
     total = Number(total) + Number(valor);
   else if (sinal == 'menos')

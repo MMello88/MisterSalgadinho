@@ -41,7 +41,7 @@ class Listaprodutos extends CI_Model {
               FROM tbl_produto p
               LEFT JOIN tbl_produto_categoria pc ON (p.id_produto = pc.id_produto)
               LEFT JOIN tbl_categoria_produto cp ON (cp.id_categoria_produto = pc.id_categoria_produto)
-              LEFT JOIN tbl_valor_produto vp ON (p.id_produto = vp.id_produto)
+              LEFT JOIN tbl_valor_produto vp ON (p.id_produto = vp.id_produto and vp.id_categoria_produto = pc.id_categoria_produto)
               LEFT JOIN tbl_cidade_categoria cc on (cp.id_categoria_produto = cc.id_categoria_produto)
               LEFT JOIN tbl_cidade c on (c.id_cidade = cc.id_cidade)
              WHERE vp.data_atualizacao = (SELECT MAX(tbl_valor_produto.data_atualizacao)

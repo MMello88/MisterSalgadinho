@@ -78,7 +78,7 @@ class Carts extends CI_Controller {
 	
 	public function deletarByProduto(){
 		if ($this->session->userdata('id_session')){
-	        if ($this->cart->deleteByProduto($this->session->userdata('id_session'), $_POST['id_produto']))
+	        if ($this->cart->deleteByProduto($this->session->userdata('id_session'), $_POST['id_produto'], $_POST['id_categoria_produto']))
 	        	echo 'success';
 	        echo 'error';
     	}
