@@ -154,4 +154,5 @@ $autoload['model'] = array(
 'Modelo/pedido'                        => 'pedido',
 'Modelo/item_pedido'                   => 'item_pedido',
 'Modelo/SitemapModel'                  => 'sitemapmodel',
-'Modelo/newsletter'                    => 'newsletter');
+'Modelo/newsletter'                    => 'newsletter',
+'Modelo/Movimentacao_estoque'          => 'movimentacao_estoque');

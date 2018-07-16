@@ -42,6 +42,13 @@ class Perfil extends MY_Controller {
 				    $this->item_pedido->qtde = $value->qtde;
 				    $this->item_pedido->valor_unitario = $value->valor_unitario;
 				    $this->item_pedido->insert();
+
+				    $this->movimentacao_estoque->id_movimentacao_estoque = null;
+				    $this->movimentacao_estoque->id_produto = $value->id_produto[0]->id_produto;
+				    $this->movimentacao_estoque->tipo_movimentacao = 's';
+				    $this->movimentacao_estoque->qtde_movimentacao = $value->qtde;
+				    
+				    $this->movimentacao_estoque->gerarMovimentacao($this->session->userdata('cidade'));
 				}
 
 				//retirando o pedido do carrinho para iniciar uma nova session
