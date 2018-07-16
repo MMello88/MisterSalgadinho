@@ -31,6 +31,7 @@ class Perfil extends MY_Controller {
 			$this->load->view('cliente/painel', $this->data);
 			$this->load->view('includes/footer_main', $this->data);
 		} else {
+			
 			$carts = $this->getCartBySession();
 			if (!empty($carts)){
 				$id_pedido = $this->pedido->insert();
@@ -48,7 +49,7 @@ class Perfil extends MY_Controller {
 				    $this->movimentacao_estoque->tipo_movimentacao = 's';
 				    $this->movimentacao_estoque->qtde_movimentacao = $value->qtde;
 				    
-				    $this->movimentacao_estoque->gerarMovimentacao($this->session->userdata('cidade'));
+				    $this->movimentacao_estoque->gerarMovimentacao($this->data["cidade"]->id_cidade);
 				}
 
 				//retirando o pedido do carrinho para iniciar uma nova session

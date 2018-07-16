@@ -7,7 +7,7 @@ abstract class MY_Model extends CI_Model {
   protected $_model;
   private $_error_db;
 
-  public function __construct($class_model) {
+  public function __construct($class_model = '') {
     parent::__construct();
     $this->_model = $class_model;
     $this->get_config_prop();
