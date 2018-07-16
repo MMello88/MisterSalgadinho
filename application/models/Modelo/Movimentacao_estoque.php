@@ -69,7 +69,7 @@ class Movimentacao_estoque extends MY_Model {
     } else {
   		$this->db->set('qtde_total', 'qtde_total+'.$qtde_movimentacao, FALSE);
   		$this->db->where(array('id_loja' => $this->id_loja,'id_produto' => $this->id_produto,));
-    	$this->db->update('tbl_estoque', $data);
+    	$this->db->update('tbl_estoque');
     }
   }
 }
