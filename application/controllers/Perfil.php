@@ -49,6 +49,7 @@ class Perfil extends MY_Controller {
 				    $this->movimentacao_estoque->id_produto = $value->id_produto[0]->id_produto;
 				    $this->movimentacao_estoque->tipo_movimentacao = 's';
 				    $this->movimentacao_estoque->qtde_movimentacao = $value->qtde;
+				    $this->movimentacao_estoque->id_item_pedido = $this->item_pedido->id_item_pedido;
 				    
 				    $this->movimentacao_estoque->gerarMovimentacao($this->data["cidade"]->id_cidade);
 				}

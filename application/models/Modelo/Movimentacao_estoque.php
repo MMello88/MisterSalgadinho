@@ -12,6 +12,7 @@ class Movimentacao_estoque extends MY_Model {
     public $tipo_movimentacao;
     public $qtde_movimentacao;
     public $data_movimentacao;
+    public $id_item_pedido;
 
   public function get_config_prop(){
 
@@ -30,7 +31,8 @@ class Movimentacao_estoque extends MY_Model {
         'id_produto' => $this->id_produto,
         'tipo_movimentacao' => $this->tipo_movimentacao,
         'data_movimentacao' => $this->data_movimentacao,
-        'qtde_movimentacao' => $this->qtde_movimentacao
+        'qtde_movimentacao' => $this->qtde_movimentacao,
+        'id_item_pedido' => $this->id_item_pedido
 	  );
 
   	$this->db->insert('tbl_movimentacao_estoque', $data);
