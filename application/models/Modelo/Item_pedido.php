@@ -9,6 +9,7 @@ class Item_pedido extends MY_Model {
     public $id_item_pedido;
     public $id_pedido;
     public $id_produto;
+    public $id_categoria_produto;
     public $qtde;
     public $valor_unitario;
 
