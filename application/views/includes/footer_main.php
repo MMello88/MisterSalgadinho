@@ -31,7 +31,7 @@
     </div>
   </div>
 
-  <footer class="footer bg-mister-marrom">
+  <footer class="footer bg-mister-vermelho">
     <div class="container">
   		<div class="row">
   			<div class="col-12 col-md-8 col-sm-12 px-5 pb-3">
@@ -50,29 +50,19 @@
   			</div>
   			<div class="col-12 col-md-4 col-sm-12 px-5 pb-3">
   				<ul class="list-group">
-  				  <li class="list-group-item text-warning bg-mister-marrom" style="padding: 0.25rem .75rem;">LINKS</li>
-  				  <a href="<?= base_url(); ?>" class="list-group-item text-warning bg-mister-marrom">
+  				  <li class="list-group-item text-white bg-mister-vermelho" style="padding: 0.25rem .75rem;">Mapa do Site</li>
+  				  <a href="<?= base_url(); ?>" class="list-group-item text-white bg-mister-vermelho">
   				  Home
-  					  <span class="badge badge-warning float-right">
-  						<span class="oi" data-glyph="chevron-right" title="icon name" aria-hidden="true"></span>
-  					  </span>
   				  </a>
-  				  <a href="<?= base_url("clientes/registrar"); ?>" class="list-group-item text-warning bg-mister-marrom">
+  				  <a href="<?= base_url("clientes/registrar"); ?>" class="list-group-item text-white bg-mister-vermelho">
   				  Registrar
-  					  <span class="badge badge-warning float-right">
-  						<span class="oi" data-glyph="chevron-right" title="icon name" aria-hidden="true"></span>
   					  </span>
   				  </a>
-  				  <a href="<?= base_url("clientes/registrar"); ?>" class="list-group-item text-warning bg-mister-marrom">
+  				  <a href="<?= base_url("clientes/registrar"); ?>" class="list-group-item text-white bg-mister-vermelho">
   				  Loginho
-  					  <span class="badge badge-warning float-right">
-  						<span class="oi" data-glyph="chevron-right" title="icon name" aria-hidden="true"></span>
-  					  </span>
   				  </a>
-  				  <a href="<?= base_url("representante/comercial"); ?>" class="list-group-item text-warning bg-mister-marrom">
+  				  <a href="<?= base_url("representante/comercial"); ?>" class="list-group-item text-white bg-mister-vermelho">
   				  Representante Comercial
-  					  <span class="badge badge-warning float-right">
-  						<span class="oi" data-glyph="chevron-right" title="icon name" aria-hidden="true"></span>
   					  </span>
   				  </a>
   				</ul>
@@ -80,7 +70,7 @@
   			
   			<div class="col-12 col-md-12 col-sm-12 px-5 pb-3 text-center">
   				<h2 class="mt-4 text-light"><b>Mister</b> Salgadinhos</h2>
-  				<hr class="mb-3 mt-1 bg-secondary">
+  				<hr class="mb-3 mt-1 bg-white">
   				<div class="row justify-content-center">
   					<div class="col-md-4">
   						<ul class="nav justify-content-center">
@@ -102,7 +92,7 @@
   						</ul>
   					</div>
   				</div>
-  				<small class="text-muted">Copyright 2018 &#169; - Matheus de Mello</small> 
+  				<small class="text-white">Copyright 2018 &#169; - Matheus de Mello</small> 
   			</div>
   		</div>
   	</div>

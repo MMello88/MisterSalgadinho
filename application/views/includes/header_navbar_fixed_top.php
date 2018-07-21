@@ -25,7 +25,7 @@
   </head>
 <body> 
 
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-mister-marrom">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-mister-vermelho">
     <img class="icon mx-3" src="<?php echo base_url("assets/img/bonequinho-120.png"); ?>" alt="O Mister">
     <a class="navbar-brand mr-auto" href="<?php echo base_url("vitrine"); ?>"><b>Mister</b> Salgadinho</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,8 +50,8 @@
         <li class="nav-item ml-auto">
           <a href="#" class="navbar-brand" id="btnSeuPedido" data-toggle="modal" data-target="#ModalCarrinho">
             Seu Pedido
-            <img class="icon" src="<?php echo base_url("assets/img/media/shopping-cart-amarelo.png"); ?>" alt="Carrinho">
-            <span class="badge badge-danger cart-popover" id="count_cart" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" title="Produto adicionado com sucesso!" data-content="Click no carrinho para finalizar a compra."></span>
+            <img class="icon" src="<?php echo base_url("assets/img/media/shopping-cart-branco.png"); ?>" alt="Carrinho">
+            <span class="badge badge-warning cart-popover" id="count_cart" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" title="Produto adicionado com sucesso!" data-content="Click no carrinho para finalizar a compra."></span>
           </a>
         </li>
       </ul>
@@ -70,8 +70,8 @@
   <div class="modal fade" id="ModalCarrinho" tabindex="-1" role="dialog" aria-labelledby="CarrinhoLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header bg-mister-amarelo">
-          <h5 class="color-marrom" id="exampleModalLabel">CONFIRA SEU PEDIDO</h5>
+        <div class="modal-header bg-mister-vermelho">
+          <h5 class="color-amarelo" id="exampleModalLabel">CONFIRA SEU PEDIDO</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span class="closeX" aria-hidden="true">&times;</span>
           </button>

@@ -11,8 +11,8 @@
 
     <div class="row pb-5">
       <div class="col">
-        <button class="btn desativo" id="btn-registrar">Realizar cadastro</button>
-        <button class="btn ativo" id="btn-loginho">Acessar minha conta</button>
+        <button class="btn bigsize desativo" id="btn-registrar">Realizar cadastro</button>
+        <button class="btn bigsize ativo" id="btn-loginho">Acessar minha conta</button>
       </div>
     </div>
     <!-- formulário -->

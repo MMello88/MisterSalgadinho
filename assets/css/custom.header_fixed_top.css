@@ -21,10 +21,13 @@ h1, h2, h3, h4, h5, h6{
   width: 25px;
   height: 30px;
   vertical-align: text-bottom;
-  stroke: #CAA202;
+  stroke: #fff;
   stroke-width: 2px;
 }
 
+.bg-mister-vermelho{
+	background-color:  #c82428;
+}
 .bg-mister-marrom{
 	background-color:  #402C19;
 }
@@ -34,14 +37,27 @@ h1, h2, h3, h4, h5, h6{
 .bg-mister-mostarda{
 	background-color:  #CAA202;
 }
+.bg-mister-branco{
+	background-color:  #fff;
+}
+.bg-mister-cinza{
+	background-color:  #333;
+}
+
 .color-marrom{
 	color: #402C19;
 }
+.color-amarelo{
+	color: #F9C801;
+}
+.color-branco{
+	color: #fff;
+}
 .navbar-light .navbar-brand{
-	color:  #F9C801;	
+	color:  #fff;	
 }
 .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
-    color: #CAA202;
+    color: #fff;
 }
 .bd-example{
 	position:relative;
@@ -96,7 +112,7 @@ img.icon{
 =            Footer             =
 ===============================*/
 .footer{
-    padding: 80px 0 70px 0;
+    padding: 80px 0 00px 0;
     color: #b6b6b6;
     overflow: visible;
 }
