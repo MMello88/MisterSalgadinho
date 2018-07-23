@@ -71,7 +71,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header bg-mister-vermelho">
-          <h5 class="color-amarelo" id="exampleModalLabel">CONFIRA SEU PEDIDO</h5>
+          <h5 class="color-branco" id="exampleModalLabel">CONFIRA SEU PEDIDO</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span class="closeX" aria-hidden="true">&times;</span>
           </button>
@@ -81,7 +81,7 @@
             <h4 class="mx-5 my-5"> SEU CARRINHO ESTÁ VAZIO </h4>
           </div>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer bg-mister-mostarda">
           <a href="<?= base_url("clientes/registrar") ?>" class="btn btn-warning dark btn-block" role="button"><span>Finalizar Pedido</span></a>
         </div>
       </div>

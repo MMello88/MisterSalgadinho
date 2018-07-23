@@ -34,6 +34,7 @@ class Listaprodutos extends CI_Model {
             "SELECT p.id_produto, 
                    p.nome, 
                    cp.id_categoria_produto, 
+                   cp.nome nome_categoria,
                    p.situacao, 
                    pc.imagem, 
                    cp.cssClass, 
@@ -51,7 +52,8 @@ class Listaprodutos extends CI_Model {
                AND p.situacao = '{$ativo}'
                AND cp.situacao = '{$ativo}'
                AND vp.tipo_cliente = '{$tipo_cliente}'
-               AND (('$cidade' = c.nome) or ('$cidade' = cc.id_cidade))");
+               AND (('$cidade' = c.nome) or ('$cidade' = cc.id_cidade))
+             ORDER BY cp.id_categoria_produto");
         return $query->custom_result_object('produtocategvalor');
     }
 }
