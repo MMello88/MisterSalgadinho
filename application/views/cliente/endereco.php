@@ -58,6 +58,7 @@
                   <input type="hidden" name="numero" value="<?= $end->numero; ?>">
                   <input type="hidden" name="complemento" value="<?= $end->complemento; ?>">
                   <input type="hidden" name="bairro" value="<?= $end->bairro; ?>">
+                  <input type="hidden" name="id_cidade" value="<?= $end->id_cidade; ?>">
 
                   <input type="hidden" name="principal" value="s">
                   <button class="btn" style="padding: 10px; margin: 0px; line-height:10px;">Usar endereço</button>
