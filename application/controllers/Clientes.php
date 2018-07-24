@@ -23,10 +23,11 @@ class Clientes extends MY_Controller {
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[cliente.email]');
 		$this->form_validation->set_rules('senha', 'Senha', 'trim|required|min_length[8]');
 		$this->form_validation->set_rules('nome', 'Nome', 'trim|required');
-		$this->form_validation->set_rules('endereco', 'Endereço', 'trim|required');
+
+		/*$this->form_validation->set_rules('endereco', 'Endereço', 'trim|required');
 		$this->form_validation->set_rules('numero', 'Numero', 'trim|required');
 		$this->form_validation->set_rules('bairro', 'Bairro', 'trim|required');
-		$this->form_validation->set_rules('telefone', 'Telefone', 'trim|required');
+		$this->form_validation->set_rules('telefone', 'Telefone', 'trim|required');*/
 		if ($this->form_validation->run('novo/cliente') === FALSE)
 		{
 			$this->load->view('includes/header_navbar_fixed_top', $this->data);

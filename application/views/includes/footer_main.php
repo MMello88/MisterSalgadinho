@@ -353,7 +353,7 @@ $(document).on('click','input#retirar', function(){
   $("#taxaEntrega").addClass('d-none');
   $("#gridTaxaEntrega").addClass('d-none');
   $("#gridTaxaEntrega").removeClass('d-flex');
-  $("#novo_endereco").addClass('d-none');
+  //$("#novo_endereco").addClass('d-none');
   //calc
   var valor = Number($("input[name='valor']").val());
   $("#ValorTotalPedido").text('R$ ' + valor.toFixed(2));
@@ -366,7 +366,7 @@ $('#entregar').on('click', function(){
   $("#taxaEntrega").removeClass('d-none');  
   $("#gridTaxaEntrega").removeClass('d-none');
   $("#gridTaxaEntrega").addClass('d-flex');
-  $("#novo_endereco").removeClass('d-none');
+  //$("#novo_endereco").removeClass('d-none');
 
   //calc
   var total;

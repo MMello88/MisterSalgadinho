@@ -13,7 +13,7 @@ class Listacidades extends CI_Model {
         $query = $this->db->get_where('cidade', array('id_cidade' => $id_cidade, 'uf !=' => ''));
         if (empty($query))
             $this->set_log_error_db();
-        return $query->custom_result_object('cidade');
+        return $query->result_object('cidade');
     }
 
     public function getByLink($link) {

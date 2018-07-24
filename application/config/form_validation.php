@@ -138,5 +138,28 @@ $config = array(
             'label' => 'Forma de Pagamento',
             'rules' => 'required'
         ),
+    ),
+    'cadastrar/endereco' =>
+    array(
+        array(
+            'field' => 'endereco',
+            'label' => 'Endereço',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'numero',
+            'label' => 'Nr.',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'bairro',
+            'label' => 'Bairro',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'id_cliente',
+            'label' => 'Cliente',
+            'rules' => 'required'
+        )
     )
 );

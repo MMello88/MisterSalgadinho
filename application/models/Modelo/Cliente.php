@@ -18,6 +18,8 @@ class Cliente extends MY_Model {
     public $cpf_cnpj;
     public $hash;
     public $ativo;
+    public $id_cidade;
+    public $dt_cadastro;
 
     public function  __construct() {
         parent::__construct($this);
@@ -26,6 +28,7 @@ class Cliente extends MY_Model {
     public function insert() {
         $this->set_post($this);
         $this->id_cliente = null;
+        $this->dt_cadastro = date("Y-m-d H:i:s");
         $this->senha = do_hash($this->senha, 'md5');
         if ($this->tipo == "s"){
             $this->ganho_unitario = '0.03';

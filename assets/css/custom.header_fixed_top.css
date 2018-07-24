@@ -50,6 +50,9 @@ h1, h2, h3, h4, h5, h6{
 .color-marrom{
 	color: #402C19;
 }
+.color-vermelho{
+	color: #c82428;
+}
 .color-amarelo{
 	color: #F9C801;
 }
@@ -119,7 +122,6 @@ img.icon{
     color: #b6b6b6;
     overflow: visible;
 }
-
 
 footer .icon{
 	width: 20px;
