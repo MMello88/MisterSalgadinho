@@ -81,14 +81,14 @@
 
 
               <div class="card-body text-center">
-                <h6 class="text-dark card-title"><?= $Produto->nome_categoria ?></h6>
-                <h4 class="text-dark card-title"><?= $Produto->nome ?></h4>
+                <h6 class="text-dark card-title mb-0"><?= $Produto->nome_categoria ?></h6>
+                <h4 class="text-dark card-title mb-0"><?= $Produto->nome ?></h4>
                 <p class="text-danger card-text">R$<?= $Produto->preco ?></p>
               </div>
 
               <div class="card-footer">
               <?php if ($cidade !== null) : ?>
-                <div class="input-group m-auto pt-3 pb-2 fade-out">
+                <div class="input-group m-auto fade-out">
                   <div class="input-group-prepend">
                     <button class="btn mais_menos" type="button" id="btn-menos" data-whatever="<?= $Produto->id_produto.$Produto->id_categoria_produto ?>">-</button>
                   </div>
@@ -96,11 +96,11 @@
                   <div class="input-group-append">
                     <button class="btn mais_menos" type="button" id="btn-mais" data-whatever="<?= $Produto->id_produto.$Produto->id_categoria_produto ?>">+</button>
                   </div>
-                <button class="btn fade-out mt-3" type="submit" type="submit">Adicionar ao Carrinho</button>
+                <button class="btn fade-out mt-2"  type="submit" type="submit">Adicionar ao Carrinho</button>
                 </div>
-                <p class="total">Total: <strong id="total-<?= $Produto->id_produto.$Produto->id_categoria_produto ?>">R$ <?= $Produto->preco*10 ?></strong></p>
+                <p class="total" style="margin: 0px;">Total: <strong id="total-<?= $Produto->id_produto.$Produto->id_categoria_produto ?>">R$ <?= $Produto->preco*10 ?></strong></p>
               <?php else : ?>
-                <button class="btn fade-out" type="button" data-toggle="modal" data-target="#exampleModalCenter">Verificar Disponibilidade</button>  
+                <button class="btn fade-out" style="margin: 0px;" type="button" data-toggle="modal" data-target="#exampleModalCenter">Verificar Disponibilidade</button>  
               <?php endif; ?>
               </div>
             </div>
