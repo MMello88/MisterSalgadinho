@@ -37,7 +37,7 @@
   			<div class="col-12 col-md-8 col-sm-12 px-5 pb-3">
           <address class="text-light">
             <img class="icon mr-2" src="<?= base_url("assets/ico/social/mail_light.svg"); ?>" alt="E-mail">
-            E-mail <a class="text-light" href="mailto:mistersalgadinhos@gmail.com">contato@<b>mister</b>salgadinhos.com.br</a><br> 
+            E-mail <a class="text-light" href="mailto:financeiro@mistersalgadinhos.com.br">financeiro@mistersalgadinhos.com.br</a><br> 
 
             <img class="icon mr-2" src="<?= base_url("assets/ico/social/location-pin_light.svg"); ?>" alt="Localização">R. Prudente Morais, n°532<br>
 
@@ -62,9 +62,13 @@
   				  Loginho
   				  </a>
   				  <a href="<?= base_url("representante/comercial"); ?>" class="list-group-item text-white bg-mister-vermelho">
-  				  Representante Comercial
+  				  Representante Mister
   					  </span>
   				  </a>
+            <a href="<?= base_url("revendedor/index"); ?>" class="list-group-item text-white bg-mister-vermelho">
+            Revendedor Comercial
+              </span>
+            </a>
   				</ul>
   			</div>
   			
