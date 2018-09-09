@@ -37,7 +37,7 @@
   			<div class="col-12 col-md-8 col-sm-12 px-5 pb-3">
           <address class="text-light">
             <img class="icon mr-2" src="<?= base_url("assets/ico/social/mail_light.svg"); ?>" alt="E-mail">
-            E-mail <a class="text-light" href="mailto:mistersalgadinhos@gmail.com">contato@<b>mister</b>salgadinhos.com.br</a><br> 
+            E-mail <a class="text-light" href="mailto:financeiro@mistersalgadinhos.com.br">financeiro@<b>mistersalgadinhos</b>.com.br</a><br> 
 
             <img class="icon mr-2" src="<?= base_url("assets/ico/social/location-pin_light.svg"); ?>" alt="Localização">R. Prudente Morais, n°532<br>
 
@@ -52,13 +52,13 @@
   				<ul class="list-group">
   				  <li class="list-group-item text-warning bg-mister-marrom" style="padding: 0.25rem .75rem;">LINKS</li>
   				  <a href="<?= base_url(); ?>" class="list-group-item text-warning bg-mister-marrom">
-  				  Home
+  				  Pagina Inicial
   					  <span class="badge badge-warning float-right">
   						<span class="oi" data-glyph="chevron-right" title="icon name" aria-hidden="true"></span>
   					  </span>
   				  </a>
   				  <a href="<?= base_url("clientes/registrar"); ?>" class="list-group-item text-warning bg-mister-marrom">
-  				  Registrar
+  				  Registra-se
   					  <span class="badge badge-warning float-right">
   						<span class="oi" data-glyph="chevron-right" title="icon name" aria-hidden="true"></span>
   					  </span>
@@ -70,11 +70,17 @@
   					  </span>
   				  </a>
   				  <a href="<?= base_url("representante/comercial"); ?>" class="list-group-item text-warning bg-mister-marrom">
-  				  Representante Comercial
+  				  Representante Mister
   					  <span class="badge badge-warning float-right">
   						<span class="oi" data-glyph="chevron-right" title="icon name" aria-hidden="true"></span>
   					  </span>
   				  </a>
+            <a href="<?= base_url("revendedor/index"); ?>" class="list-group-item text-warning bg-mister-marrom">
+            Revendedor Comercial
+              <span class="badge badge-warning float-right">
+              <span class="oi" data-glyph="chevron-right" title="icon name" aria-hidden="true"></span>
+              </span>
+            </a>
   				</ul>
   			</div>
   			
