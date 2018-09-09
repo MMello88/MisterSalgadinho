@@ -135,6 +135,7 @@ $autoload['language'] = array();
 */
 $autoload['model'] = array(
 'ModeloList/Listaclientes'             => 'listaclientes',
+'ModeloList/Listaenderecos'            => 'listaenderecos',
 'ModeloList/Listacarts'                => 'listacarts',
 'ModeloList/Listacidades'              => 'listacidades',
 'ModeloList/Listapedidos'              => 'listapedidos',
@@ -149,6 +150,7 @@ $autoload['model'] = array(
 'Modelo/representante_cliente'         => 'representante_cliente', 
 'Modelo/representante_recebimento'     => 'representante_recebimento',
 'Modelo/cliente'                       => 'cliente',
+'Modelo/endereco'                      => 'endereco',
 'Modelo/cart'                          => 'cart',
 'Modelo/evento'                        => 'evento',
 'Modelo/pedido'                        => 'pedido',

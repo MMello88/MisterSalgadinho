@@ -15,7 +15,7 @@ class Carts extends CI_Controller {
     }
 
     public function inserir(){
-        $TemProduto = $this->listacarts->getCartByProdutoAndSession($_POST['id_produto'], $_POST['id_session']);
+        $TemProduto = $this->listacarts->getCartByProdutoAndSession($_POST['id_produto'], $_POST['id_categoria_produto'], $_POST['id_session']);
         if(empty($TemProduto)){
         	$this->cart->insert();
         } else {

@@ -10,8 +10,10 @@
 				<div class="container" id="leia-mais">
 					<div class="row featurette">
 	          <div class="col-md-7 my-5">
-	            <h2 class="mt-5">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-	            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+	            <h2 class="mt-5">A nossa especialidade! <span class="text-danger">Surpreendente.</span></h2>
+	            <p class="lead">Salgados com sabor surpreendente com Massa de Mandioca. Delicias como Bolinho de Carne, Bolinha de Queijo, Coxinha e outras gostosuras. Todos feitos com carinho e produto de qualidade! <span class="text-danger">Surpreenda-se!</span></p>
+	            <p class="lead">Surpreenda ao seus clientes levando estes deliciosos salgadinhos. <a class="text-info" href="<?= base_url("revendedor/cadastrar"); ?>">Cadastra-se</a> e torne um revendedor!
+	            </p>
 	          </div>
 	          <div class="col-md-5">
 	            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 500px; height: 500px;" src="<?= base_url('assets/img/revendedor/coxinha.png'); ?>" data-holder-rendered="true">
@@ -22,8 +24,10 @@
 
 					<div class="row featurette my-4">
 	          <div class="col-md-7 order-md-2 my-5">
-	            <h2 class="mt-5">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-	            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+	            <h2 class="mt-5"><span class="text-danger">A Massa de Mandioca.</span></h2>
+	            <p class="lead">A massa ela é saborasa, macia e leve! Com os recheios incriveis dando a combinação perfeita para um delicioso salgado. Ingredientes selecionados para lhe agradar e trazer novas experiências ao seu paladar!</p>
+	            <p class="lead">Leve estas expêriencias ao seus cliente e os surpreenda. <a class="text-info" href="<?= base_url("revendedor/cadastrar"); ?>">Cadastra-se</a> e torne um revendedor!
+	            </p>
 	          </div>
 	          <div class="col-md-5 order-md-1">
 	            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="<?= base_url('assets/img/revendedor/bandeja.jpg'); ?>" data-holder-rendered="true" style="width: 500px; height: 500px;">

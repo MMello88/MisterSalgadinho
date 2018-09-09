@@ -25,7 +25,7 @@
   </head>
 <body> 
 
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-mister-marrom">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-mister-vermelho">
     <img class="icon mx-3" src="<?php echo base_url("assets/img/bonequinho-120.png"); ?>" alt="O Mister">
     <a class="navbar-brand mr-auto" href="<?php echo base_url("vitrine"); ?>"><b>Mister</b> Salgadinho</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,15 +43,16 @@
           <?php else : ?>
               <a class="navbar-brand" href="<?= base_url("perfil/index"); ?>">
           <?php endif; ?>
-            <span class="ml-auto">Sua Conta</span>
+            
             <svg xmlns="http://www.w3.org/2000/svg" fill="none"  stroke-linecap="round" stroke-linejoin="round" class="ml-auto feather"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            <span class="ml-auto">Sua Conta</span>
           </a>
         </li>
         <li class="nav-item ml-auto">
           <a href="#" class="navbar-brand" id="btnSeuPedido" data-toggle="modal" data-target="#ModalCarrinho">
             Seu Pedido
-            <img class="icon" src="<?php echo base_url("assets/img/media/shopping-cart-amarelo.png"); ?>" alt="Carrinho">
-            <span class="badge badge-danger cart-popover" id="count_cart" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" title="Produto adicionado com sucesso!" data-content="Click no carrinho para finalizar a compra."></span>
+            <img class="icon" src="<?php echo base_url("assets/img/media/shopping-cart-branco.png"); ?>" alt="Carrinho">
+            <span class="badge badge-warning cart-popover" id="count_cart" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" title="Produto adicionado com sucesso!" data-content="Click no carrinho para finalizar a compra."></span>
           </a>
         </li>
       </ul>
@@ -70,8 +71,8 @@
   <div class="modal fade" id="ModalCarrinho" tabindex="-1" role="dialog" aria-labelledby="CarrinhoLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header bg-mister-amarelo">
-          <h5 class="color-marrom" id="exampleModalLabel">CONFIRA SEU PEDIDO</h5>
+        <div class="modal-header bg-mister-vermelho">
+          <h5 class="color-branco" id="exampleModalLabel">CONFIRA SEU PEDIDO</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span class="closeX" aria-hidden="true">&times;</span>
           </button>
@@ -81,7 +82,7 @@
             <h4 class="mx-5 my-5"> SEU CARRINHO ESTÁ VAZIO </h4>
           </div>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer bg-mister-mostarda">
           <a href="<?= base_url("clientes/registrar") ?>" class="btn btn-warning dark btn-block" role="button"><span>Finalizar Pedido</span></a>
         </div>
       </div>

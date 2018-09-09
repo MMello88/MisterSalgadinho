@@ -9,6 +9,7 @@ class Perfil extends MY_Controller {
 		$this->data['titulo'] = 'Perfil no Mister Salgadinhos.';
 		$this->data['valoresHoraEntrega'] = $this->getTipoBy("hora_entrega");
 		$this->data['valoresFormaPagto'] = $this->getTipoBy("forma_pgto");
+		$this->data['endereco'] = $this->listaenderecos->getEndPrincipalByCliente($this->session->userdata('id_cliente'));
 	}
 	
 	public function index(){
@@ -85,6 +86,32 @@ class Perfil extends MY_Controller {
 				$this->load->view('cliente/painel', $this->data);
 				$this->load->view('includes/footer_main', $this->data);
 			}
+		}
+	}
+
+	public function enderecos($id_endereco = ''){
+		if ($this->form_validation->run('cadastrar/endereco') === FALSE){
+			$cidades = $this->listacidades->get_all();
+			$option = array('' => 'Selecione a Cidade');
+			foreach ($cidades as $key => $value) {
+				$option[$value->id_cidade] = $value->nome;
+			}
+			$this->data['end_cidades'] = $option;
+			$this->data['endereco'] = $this->endereco;
+			$this->data['enderecos'] = $this->listaenderecos->getByCliente($this->session->userdata('id_cliente'));
+			if (!empty($id_endereco))
+				$this->data['endereco'] = $this->listaenderecos->get($id_endereco);
+			
+			$this->load->view('includes/header_navbar_fixed_top', $this->data);
+			$this->load->view('cliente/navbar_cliente', $this->data);
+			$this->load->view('cliente/endereco', $this->data);
+			$this->load->view('includes/footer_main', $this->data);
+		} else {
+			if (empty($this->input->post('id_endereco')))
+				$this->endereco->insert();
+			else 
+				$this->endereco->update();
+			redirect('Perfil/enderecos');
 		}
 	}
 

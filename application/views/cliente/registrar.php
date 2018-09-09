@@ -11,8 +11,8 @@
 
     <div class="row pb-5">
       <div class="col">
-        <button class="btn desativo" id="btn-registrar">Realizar cadastro</button>
-        <button class="btn ativo" id="btn-loginho">Acessar minha conta</button>
+        <button class="btn bigsize desativo" id="btn-registrar">Realizar cadastro</button>
+        <button class="btn bigsize ativo" id="btn-loginho">Acessar minha conta</button>
       </div>
     </div>
     <!-- formulário -->
@@ -96,6 +96,15 @@
                 </div>
               </div>
 
+              <div class="mb-4">
+                <label for="telefone">Telefone/Celular <span class="text-muted">(*)</span></label>
+                <input type="text" class="form-control mb-0 bg-white" name="telefone" id="telefone" placeholder="Ex.: (16) 99999-9999" value="<?= set_value('telefone'); ?>" required>
+                <div class="invalid-feedback <?= form_error('telefone') !== null ? "d-block":""; ?>">
+                  <?= form_error('telefone'); ?>
+                </div>
+              </div>
+
+              <?php /*
               <div class="row mb-4">
                 <div class="col-md-9">
                   <label for="endereco">Endereço <span class="text-muted">(*)</span></label>
@@ -126,14 +135,7 @@
                   </div>
                 </div>
               </div>
-
-              <div class="mb-4">
-                <label for="telefone">Telefone/Celular <span class="text-muted">(*)</span></label>
-                <input type="text" class="form-control mb-0 bg-white" name="telefone" id="telefone" placeholder="Ex.: (16) 99999-9999" value="<?= set_value('telefone'); ?>" required>
-                <div class="invalid-feedback <?= form_error('telefone') !== null ? "d-block":""; ?>">
-                  <?= form_error('telefone'); ?>
-                </div>
-              </div>
+              */?>
 
               <hr class="mb-4">
               <button class="btn btn-warning btn-lg btn-block" type="submit">Cadastrar</button>

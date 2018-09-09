@@ -91,7 +91,6 @@
             </div>
             <!-- fim do carrinho -->
 
-
           <!-- Cadastro -->
           <div class="col-md-8 order-md-1">
             <?php if(isset($horario_indisponivel)) : ?>
@@ -114,7 +113,14 @@
                 </div>
               <?php endif; ?>
             <?php else : ?>
-
+              <?php if(!empty($endereco->id_endereco)) : ?>
+                <h4>Endereço de Entrega</h4>
+                <h6 class="pt-3"><b>CEP:</b> <?= $endereco->cep; ?> <b>Endereço:</b> <?= $endereco->endereco; ?>, <?= $endereco->numero; ?> - <?= $endereco->nome; ?>, <b>Comp.:</b> <?= $endereco->complemento; ?> <b>Bairro:</b> <?= $endereco->bairro; ?></h6>
+                <p class="pt-2">* Para cadastrar um novo endereço <a class="text-primary font-weight-bold" href="<?= base_url('perfil/enderecos'); ?>">Clique Aqui</a></p>
+              <?php else : ?>
+                <p>Antes de concluir o pedido cadastre o seu endereço! <a href="<?= base_url('perfil/enderecos'); ?>">Clique Aqui</a> </p>
+              <?php endif; ?>
+                <hr class="mb-4">
               <?= form_open('perfil/finalizar', array('id' => 'loja', 'class' => 'visible')); ?>
                 <input type="hidden" name="id_cliente" value="<?= $cliente->id_cliente; ?>">
                 <input type="hidden" name="id_cidade" value="<?= $cidade->id_cidade; ?>">
@@ -159,27 +165,12 @@
                 <div class="mb-4 d-none" id="taxaEntrega">
                   <label for="labelEntrega" class="mb-0">Será cobrado a taxa de entrega de R$ 7.00</label>
                 </div>
-                    
-                <div class="row mb-4 border border-dark p-4 d-none" id="novo_endereco">
-                  <h5>Informar o endereço abaixo caso queira um novo endereço de entrega.</h5>
-                  <hr class="mb-4" style="width:  100%;">
-                  <div class="col-md-9">
-                    <label for="end_entrega" class="mt-2">Novo Endereço de Entrega</label>
-                    <input type="text" class="form-control mb-0 bg-white" id="validationCustom01" name="end_entrega" placeholder="Ex.: Rua Prudente de Morais" value="<?= set_value('end_entrega'); ?>">
-                  </div> 
-                  <div class="col-md-3">
-                    <label for="num_entrega" class="mt-2">Numero</label>
-                    <input type="text" class="form-control mb-0 bg-white" id="validationCustom01" name="num_entrega" placeholder="Ex.: 532" value="<?= set_value('num_entrega'); ?>">
-                  </div>
-                  <div class="col-md-6">
-                    <label for="bairro_entrega" class="mt-2">Bairro</label>
-                    <input type="text" class="form-control mb-0 bg-white" id="validationCustom01" name="bairro_entrega" placeholder="Ex.: Centro" value="<?= set_value('bairro_entrega'); ?>">
-                  </div> 
-                  <div class="col-md-6">
-                    <label for="comp_entrega" class="mt-2">Complemento</label>
-                    <input type="text" class="form-control mb-0 bg-white" id="validationCustom01" name="comp_entrega" placeholder="Ex.: Apto 100, BL 1A" value="<?= set_value('comp_entrega'); ?>">
-                  </div> 
-                </div>
+
+                <input type="hidden" name="end_entrega" value="<?= set_value('end_entrega', $endereco->endereco); ?>">
+                <input type="hidden" name="num_entrega" value="<?= set_value('num_entrega', $endereco->numero); ?>">
+                <input type="hidden" name="bairro_entrega" value="<?= set_value('bairro_entrega', $endereco->bairro); ?>">
+                <input type="hidden" name="comp_entrega" value="<?= set_value('comp_entrega', $endereco->complemento); ?>">
+                <input type="hidden" name="cidade_entrega" value="<?= set_value('comp_entrega', $endereco->nome); ?>">
 
                 <div class="mb-4">
                   <label>Forma de Pagamento (* Pagamento na Entrega)</label><br>
@@ -194,7 +185,13 @@
                 </div>
 
                 <hr class="mb-4">
+                <?php if(!empty($endereco->id_endereco)) : ?>
                 <button class="btn btn-warning btn-block" type="submit">Finalizar Pedido</button>
+                <?php else : ?>
+                <p>* Por favor Cadastre um endereço de entrega para finalizar. <a class="text-primary font-weight-bold" href="<?= base_url('perfil/enderecos'); ?>">Clique Aqui</a> </p>
+                <hr class="mb-4">
+                <button class="btn btn-warning btn-block" disabled>Finalizar Pedido</button>
+                <?php endif; ?>
               </form>
             <?php endif; ?>
             </div>

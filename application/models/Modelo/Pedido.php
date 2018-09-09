@@ -21,6 +21,7 @@ class Pedido extends MY_Model {
     public $data_entrega;
     public $hora_entrega;
     public $end_entrega;
+    public $cidade_entrega;
     public $num_entrega;
     public $bairro_entrega;
     public $comp_entrega; 

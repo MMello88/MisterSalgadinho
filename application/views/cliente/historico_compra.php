@@ -66,7 +66,7 @@
                     <td><?= $Pedido->forma_entrega === 'e' ? 'Entregar' : 'Retirar'; ?></td>
                     <td><?= $Pedido->data_entrega . " " . $Pedido->hora_entrega; ?></td>
                     <td><?= $Pedido->id_cidade[0]->nome; ?></td>
-                    <td><?= $Pedido->end_entrega . ", " . $Pedido->num_entrega . " - " . $Pedido->bairro_entrega . " " . $Pedido->comp_entrega; ?></td>
+                    <td><?= $Pedido->end_entrega . ", " . $Pedido->num_entrega . " - " . $Pedido->bairro_entrega . " - " . $Pedido->cidade_entrega . " " . $Pedido->comp_entrega; ?></td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>
