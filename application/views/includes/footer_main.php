@@ -52,10 +52,10 @@
   				<ul class="list-group">
   				  <li class="list-group-item text-white bg-mister-vermelho" style="padding: 0.25rem .75rem;">Mapa do Site</li>
   				  <a href="<?= base_url(); ?>" class="list-group-item text-white bg-mister-vermelho">
-  				  Home
+  				  Pagina Inicial
   				  </a>
   				  <a href="<?= base_url("clientes/registrar"); ?>" class="list-group-item text-white bg-mister-vermelho">
-  				  Registrar
+  				  Registra-se
   					  </span>
   				  </a>
   				  <a href="<?= base_url("clientes/registrar"); ?>" class="list-group-item text-white bg-mister-vermelho">
@@ -105,10 +105,9 @@
   <!-- Alert Modal -->
   
     <div id="closeCidade" class="alert bg-mister-mostarda navbar fixed-bottom mb-0 fade <?php if ($cidade !== null) echo 'show'; ?>" role="alert">
-      <?= form_open('', array('id' => 'formRetiraCidade','style' => 'display: contents')); ?>
+      <?= form_open(base_url('Vitrine/RetiraCidade'), array('id' => 'formRetiraCidade','style' => 'display: contents')); ?>
+      <input type="hidden" name="remove" value="true">
       <h5><?php if ($cidade !== null) echo 'Cidade Selecionada: <strong>' . $cidade->nome; ?></strong></h5>
-      
-      <input type="hidden" name="teste" value="11">
       <button type="submit" class="close"  data-dismiss="alert" aria-label="Close">
         <span class="closeX" aria-hidden="true">&times;</span>
       </button>
@@ -126,6 +125,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <script src="<?= base_url("assets/js/main.js"); ?>"></script>
+
+<script type="text/javascript">
+  var BaseUrl = "<?= base_url(); ?>";
+  var frmLog  = "<?= $this->session->flashdata('frmLog'); ?>";
+
+</script>
 
 <script src="<?= base_url("assets/js/principal.js"); ?>"></script>
 

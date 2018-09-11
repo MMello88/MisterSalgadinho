@@ -110,7 +110,7 @@
 
 
               <div class="table-responsive mt-3">
-                <?= form_open('', array('id'=>'formPesqClienteRepre')); ?>
+                <?= form_open(base_url("AreaComercial/buscaClienteRepresentante"), array('id'=>'formPesqClienteRepre')); ?>
                   <div class="input-group mb-3" style="width: 100%;">
                     <input id="inputPesqValue" name="pesqValue" type="text" class="form-control" placeholder="Pesquisar por Nome/CPF/CNPJ" value="">
                     <div class="input-group-append">
@@ -140,7 +140,7 @@
                         <td><?= $consumidor->id_cliente_cliente->endereco . ', ' . $consumidor->id_cliente_cliente->numero . ' - ' . $consumidor->id_cliente_cliente->bairro . ' Compl.:' . $consumidor->id_cliente_cliente->complemento; ?></td>
                         <td><?= $consumidor->id_cliente_cliente->telefone; ?></td>
                         <td>
-                          <?= form_open('', array('id'=>'formSelecionarCliente')); ?>
+                          <?= form_open(base_url("AreaComercial/selecionarClienteRepresentante"), array('id'=>'formSelecionarCliente')); ?>
                             <input name="selectIdCliente" type="hidden" class="form-control" value="<?= $consumidor->id_cliente_cliente->id_cliente; ?>">
                             <button class="btn-sm" type="submit" id="pesq-cliente" style="min-width:100%;"><?= isset($this->session->userdata('cliente_repre_selecionado')['id_cliente']) ? 
                       $this->session->userdata('cliente_repre_selecionado')['id_cliente'] == $consumidor->id_cliente_cliente->id_cliente ? 'Deselecionar' : 'Selecionar' : 'Selecionar'; ?></button>

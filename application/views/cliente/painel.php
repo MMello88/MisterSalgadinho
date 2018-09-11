@@ -118,7 +118,7 @@
                 <h6 class="pt-3"><b>CEP:</b> <?= $endereco->cep; ?> <b>Endereço:</b> <?= $endereco->endereco; ?>, <?= $endereco->numero; ?> - <?= $endereco->nome; ?>, <b>Comp.:</b> <?= $endereco->complemento; ?> <b>Bairro:</b> <?= $endereco->bairro; ?></h6>
                 <p class="pt-2">* Para cadastrar um novo endereço <a class="text-primary font-weight-bold" href="<?= base_url('perfil/enderecos'); ?>">Clique Aqui</a></p>
               <?php else : ?>
-                <p>Antes de concluir o pedido cadastre o seu endereço! <a href="<?= base_url('perfil/enderecos'); ?>">Clique Aqui</a> </p>
+                <p class="bg-warning">Antes de concluir o pedido cadastre o seu endereço! <a class="text-primary" href="<?= base_url('perfil/enderecos'); ?>">Clique Aqui</a> </p>
               <?php endif; ?>
                 <hr class="mb-4">
               <?= form_open('perfil/finalizar', array('id' => 'loja', 'class' => 'visible')); ?>
@@ -170,7 +170,7 @@
                 <input type="hidden" name="num_entrega" value="<?= set_value('num_entrega', $endereco->numero); ?>">
                 <input type="hidden" name="bairro_entrega" value="<?= set_value('bairro_entrega', $endereco->bairro); ?>">
                 <input type="hidden" name="comp_entrega" value="<?= set_value('comp_entrega', $endereco->complemento); ?>">
-                <input type="hidden" name="cidade_entrega" value="<?= set_value('comp_entrega', $endereco->nome); ?>">
+                <input type="hidden" name="cidade_entrega" value="<?= set_value('cidade_entrega', $endereco->id_cidade); ?>">
 
                 <div class="mb-4">
                   <label>Forma de Pagamento (* Pagamento na Entrega)</label><br>
@@ -188,7 +188,7 @@
                 <?php if(!empty($endereco->id_endereco)) : ?>
                 <button class="btn btn-warning btn-block" type="submit">Finalizar Pedido</button>
                 <?php else : ?>
-                <p>* Por favor Cadastre um endereço de entrega para finalizar. <a class="text-primary font-weight-bold" href="<?= base_url('perfil/enderecos'); ?>">Clique Aqui</a> </p>
+                <p class="bg-warning">* Por favor Cadastre um endereço de entrega para finalizar. <a class="text-primary font-weight-bold" href="<?= base_url('perfil/enderecos'); ?>">Clique Aqui</a> </p>
                 <hr class="mb-4">
                 <button class="btn btn-warning btn-block" disabled>Finalizar Pedido</button>
                 <?php endif; ?>

@@ -57,7 +57,7 @@
               <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-muted">Lista de Clientes</span>
               </h4>
-              <?= form_open('', array('id'=>'formPesqCliente')); ?>
+              <?= form_open(base_url("AreaComercial/buscaClienteRepresentante"), array('id'=>'formPesqCliente')); ?>
                 <div class="input-group mb-3" style="width: 100%;">
                   <input id="inputPesqValue" name="pesqValue" type="text" class="form-control" placeholder="Pesquisar" value="">
                   <div class="input-group-append">
