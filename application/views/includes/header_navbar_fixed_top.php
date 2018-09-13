@@ -11,22 +11,22 @@
     <title><?= $titulo; ?></title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  	<link href="<?php echo base_url("assets/css/custom.header_fixed_top.css"); ?>" rel="stylesheet">
-  	<link href="<?php echo base_url("assets/css/custom.promocional.index.css"); ?>" rel="stylesheet">
-    <link href="<?php echo base_url("assets/css/custom.style.folio.css"); ?>" rel="stylesheet">
+  	<link href="<?php echo base_url("assets/templateV2/css/custom.header_fixed_top.css"); ?>" rel="stylesheet">
+  	<link href="<?php echo base_url("assets/templateV2/css/custom.promocional.index.css"); ?>" rel="stylesheet">
+    <link href="<?php echo base_url("assets/templateV2/css/custom.style.folio.css"); ?>" rel="stylesheet">
     <!-- Icons -->
-    <link rel="shortcut icon" href="<?php echo base_url("assets/ico/32.png"); ?>" type="image/png">
-    <link rel="apple-touch-icon" sizes="32x32" href="<?php echo base_url("assets/ico/60.png"); ?>" type="image/png">
-    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo base_url("assets/ico/72.png"); ?>" type="image/png">
-    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo base_url("assets/ico/120.png"); ?>" type="image/png">
-    <link rel="apple-touch-icon" sizes="152x152" href="<?php echo base_url("assets/ico/152.png"); ?>" type="image/png">
+    <link rel="shortcut icon" href="<?php echo base_url("assets/templateV2/ico/32.png"); ?>" type="image/png">
+    <link rel="apple-touch-icon" sizes="32x32" href="<?php echo base_url("assets/templateV2/ico/60.png"); ?>" type="image/png">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo base_url("assets/templateV2/ico/72.png"); ?>" type="image/png">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo base_url("assets/templateV2/ico/120.png"); ?>" type="image/png">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?php echo base_url("assets/templateV2/ico/152.png"); ?>" type="image/png">
     <?= $script_google; ?>
 
   </head>
 <body> 
 
   <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-mister-vermelho">
-    <img class="icon mx-3" src="<?php echo base_url("assets/img/bonequinho-120.png"); ?>" alt="O Mister">
+    <img class="icon mx-3" src="<?php echo base_url("assets/templateV2/img/bonequinho-120.png"); ?>" alt="O Mister">
     <a class="navbar-brand mr-auto" href="<?php echo base_url("vitrine"); ?>"><b>Mister</b> Salgadinho</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -51,7 +51,7 @@
         <li class="nav-item ml-auto">
           <a href="#" class="navbar-brand" id="btnSeuPedido" data-toggle="modal" data-target="#ModalCarrinho">
             Seu Pedido
-            <img class="icon" src="<?php echo base_url("assets/img/media/shopping-cart-branco.png"); ?>" alt="Carrinho">
+            <img class="icon" src="<?php echo base_url("assets/templateV2/img/media/shopping-cart-branco.png"); ?>" alt="Carrinho">
             <span class="badge badge-warning cart-popover" id="count_cart" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" title="Produto adicionado com sucesso!" data-content="Click no carrinho para finalizar a compra."></span>
           </a>
         </li>

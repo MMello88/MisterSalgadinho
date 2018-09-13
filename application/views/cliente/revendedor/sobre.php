@@ -16,7 +16,7 @@
 	            </p>
 	          </div>
 	          <div class="col-md-5">
-	            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 500px; height: 500px;" src="<?= base_url('assets/img/revendedor/coxinha.png'); ?>" data-holder-rendered="true">
+	            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 500px; height: 500px;" src="<?= base_url('assets/templateV2/img/revendedor/coxinha.png'); ?>" data-holder-rendered="true">
 	          </div>
 	        </div>
 
@@ -30,7 +30,7 @@
 	            </p>
 	          </div>
 	          <div class="col-md-5 order-md-1">
-	            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="<?= base_url('assets/img/revendedor/bandeja.jpg'); ?>" data-holder-rendered="true" style="width: 500px; height: 500px;">
+	            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="<?= base_url('assets/templateV2/img/revendedor/bandeja.jpg'); ?>" data-holder-rendered="true" style="width: 500px; height: 500px;">
 	          </div>
 	        </div>
 				</div>

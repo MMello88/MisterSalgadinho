@@ -1,6 +1,6 @@
     <div class="container">
       <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="<?= base_url('assets/img/bonequinho-120.png'); ?>" alt="" width="72" height="72">
+        <img class="d-block mx-auto mb-4" src="<?= base_url('assets/templateV2/img/bonequinho-120.png'); ?>" alt="" width="72" height="72">
         <h2>Mister Salgadinho agradece a confiança que nos deu tornando-se um Representante.</h2>
         <hr class='mb-3 mt-1'>
         <p class="lead">Para finalizar a compra precisamos que informe para nós alguns dados importantes. E então tornará membro da equipe Mister.</p>

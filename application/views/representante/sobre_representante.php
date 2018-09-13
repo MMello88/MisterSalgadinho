@@ -13,7 +13,7 @@
 	            <p class="lead">Traga clientes para sua base de dados e ganhe em cada compra realizada. Quanto mais clientes trouxer maior será sua recorrência de compra e mais você vai ganhar.</p>
 	          </div>
 	          <div class="col-md-5">
-	            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 500px; height: 500px;" src="<?= base_url("/assets/img/representante/mais_e_mais.jpeg"); ?>" data-holder-rendered="true">
+	            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 500px; height: 500px;" src="<?= base_url("/assets/templateV2/img/representante/mais_e_mais.jpeg"); ?>" data-holder-rendered="true">
 	          </div>
 	        </div>
 
@@ -25,7 +25,7 @@
 	            <p class="lead">Ser representante não é ir sempre nos cliente realizar venda. Seu trabalho é propectar cliente. E é sua responsabilidade em adicionar na sua base de dados o cliente gerando um cadastro e um loginho para que seu cliente possa começar a realizar as compras através do site.</p>
 	          </div>
 	          <div class="col-md-5 order-md-1">
-	            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="<?= base_url("/assets/img/representante/prospectando.png"); ?>" data-holder-rendered="true" style="width: 500px; height: 447px;">
+	            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="<?= base_url("/assets/templateV2/img/representante/prospectando.png"); ?>" data-holder-rendered="true" style="width: 500px; height: 447px;">
 	          </div>
 	        </div>
 
@@ -37,7 +37,7 @@
 	            <p class="lead">Em seu painel de controle vai poder acompanhar as compras realizadas pelo seus cliente, vai ter acesso aos dados de seus clientes para eventuais comunicações e analise do histórico de compra. E por fim acompanhar seus ganhos pelas compras finalizadas.</p>
 	          </div>
 	          <div class="col-md-5">
-	            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 500px; height: 500px;" src="<?= base_url("/assets/img/representante/dashboard.png"); ?>" data-holder-rendered="true">
+	            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 500px; height: 500px;" src="<?= base_url("/assets/templateV2/img/representante/dashboard.png"); ?>" data-holder-rendered="true">
 	          </div>
 	        </div>
 
@@ -49,7 +49,7 @@
 	            <p class="lead">A margem de seu lucro sobre a compra finalizada é de 3%. Lembre-se que se houver muita recorrência de compra de seus cliente você sempre vai ganhar cada vez mais.</p>
 	          </div>
 	          <div class="col-md-5 order-md-1">
-	            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="<?= base_url("/assets/img/representante/lucro.jpg"); ?>" data-holder-rendered="true" style="width: 500px; height: 447px;">
+	            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="<?= base_url("/assets/templateV2/img/representante/lucro.jpg"); ?>" data-holder-rendered="true" style="width: 500px; height: 447px;">
 	          </div>
 	        </div>
 		</div>

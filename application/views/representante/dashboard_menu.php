@@ -1,4 +1,4 @@
-  <link href="<?php echo base_url("assets/css/custom.dashboard.css"); ?>" rel="stylesheet">
+  <link href="<?php echo base_url("assets/templateV2/css/custom.dashboard.css"); ?>" rel="stylesheet">
 
   <!-- container -->
   <div class="container-fluid">

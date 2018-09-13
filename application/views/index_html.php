@@ -11,11 +11,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?php echo base_url("assets/template/css/owl.carousel.css"); ?>">
-    <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>">
-    <link rel="stylesheet" href="<?php echo base_url("assets/template/css/style-yellow.css"); ?>">
-    <link href="<?php echo base_url("assets/css/open-iconic.css"); ?>" rel="stylesheet">
-    <link href="<?php echo base_url("assets/css/custom.main.css"); ?>" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url("assets/templateV1/css/owl.carousel.css"); ?>">
+    <link rel="stylesheet" href="<?php echo base_url("assets/templateV1/css/bootstrap.min.css"); ?>">
+    <link rel="stylesheet" href="<?php echo base_url("assets/templateV1/css/style-yellow.css"); ?>">
+    <link href="<?php echo base_url("assets/templateV1/css/open-iconic.css"); ?>" rel="stylesheet">
+    <link href="<?php echo base_url("assets/templateV1/css/custom.main.css"); ?>" rel="stylesheet">
     <link rel="shortcut icon" href="<?php echo base_url("assets/ico/32.png"); ?>" type="image/png">
     <link rel="apple-touch-icon" sizes="32x32" href="<?php echo base_url("assets/ico/60.png"); ?>" type="image/png">
     <link rel="apple-touch-icon" sizes="72x72" href="<?php echo base_url("assets/ico/72.png"); ?>" type="image/png">
@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       gtag('config', 'UA-118826942-1');
     </script>
 
-    <script type="text/javascript" src="<?php echo base_url("assets/template/js/modernizr.min.js"); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url("assets/templateV1/js/modernizr.min.js"); ?>"></script>
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -115,14 +115,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row" >
  					<div class="col-sm-6 slider">
             <div id="as-slider" class="owl-carousel" data-autoplay="4000" data-navigation="false" data-dots="true" data-transition="">
-              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/img/cup1.jpg"); ?>)"></div>
-              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/img/cup2.jpg"); ?>)"></div>
-              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/img/cup3.jpg"); ?>)"></div>
-              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/img/cup4.jpg"); ?>)"></div>
-              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/img/cup5.jpg"); ?>)"></div>
-              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/img/cup6.jpg"); ?>)"></div>
-              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/img/cup7.jpg"); ?>)"></div>
-              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/img/sexta.jpg"); ?>)"></div>
+              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/templateV1/img/cup1.jpg"); ?>)"></div>
+              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/templateV1/img/cup2.jpg"); ?>)"></div>
+              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/templateV1/img/cup3.jpg"); ?>)"></div>
+              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/templateV1/img/cup4.jpg"); ?>)"></div>
+              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/templateV1/img/cup5.jpg"); ?>)"></div>
+              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/templateV1/img/cup6.jpg"); ?>)"></div>
+              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/templateV1/img/cup7.jpg"); ?>)"></div>
+              <div class="item m-center" style="background-image:url(<?php echo base_url("assets/templateV1/img/sexta.jpg"); ?>)"></div>
             </div>
           </div> 
           <div class="col-sm-6 bg-shop" style="height:500px;">
@@ -179,16 +179,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="row">
         <div class="col-12 col-md-8 col-sm-12 px-5 pb-3">
           <address class="text-light">
-            <img class="icon mr-2" src="<?php echo base_url("assets/ico/social/mail_light.svg"); ?>" alt="E-mail">
+            <img class="icon mr-2" src="<?php echo base_url("assets/templateV1/ico/social/mail_light.svg"); ?>" alt="E-mail">
             E-mail <a class="text-light" href="mailto:matheus.gnu@gmail.com">contato@<b>mister</b>salgadinho.com.br</a><br> 
 
-            <img class="icon mr-2" src="<?php echo base_url("assets/ico/social/location-pin_light.svg"); ?>" alt="Localização">
+            <img class="icon mr-2" src="<?php echo base_url("assets/templateV1/ico/social/location-pin_light.svg"); ?>" alt="Localização">
             R. Prudente de Morais, 532 - Centro, Ribeirão Preto - SP<br>
 
-            <img class="icon mr-2" src="<?php echo base_url("assets/ico/social/phone.svg"); ?>" alt="Celular">
+            <img class="icon mr-2" src="<?php echo base_url("assets/templateV1/ico/social/phone.svg"); ?>" alt="Celular">
             Matheus (16) 99183-8523<br>
 
-            <img class="icon mr-2" src="<?php echo base_url("assets/ico/social/phone.svg"); ?>" alt="Celular">
+            <img class="icon mr-2" src="<?php echo base_url("assets/templateV1/ico/social/phone.svg"); ?>" alt="Celular">
             Rogerio (16) 99135-2685<br>
 
           </address>
@@ -231,12 +231,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <ul class="nav justify-content-center">
                 <li class="nav-item">
                 <a class="nav-link" href="#">
-                  <img class="icon" src="<?php echo base_url("assets/ico/social/facebook_light.svg"); ?>" alt="Facebook">
+                  <img class="icon" src="<?php echo base_url("assets/templateV1/ico/social/facebook_light.svg"); ?>" alt="Facebook">
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="#">
-                <img class="icon" src="<?php echo base_url("assets/ico/social/instagram_light.svg"); ?>" alt="Instagram">
+                <img class="icon" src="<?php echo base_url("assets/templateV1/ico/social/instagram_light.svg"); ?>" alt="Instagram">
                 </a>
                 </li>
               </ul>
@@ -281,7 +281,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		                <a class="close-modal" href="#" data-dismiss="modal">
 		                    <span class="menu-icon"></span>
 		                </a>
-		                <img src="<?php echo base_url("assets/img/cup1.jpg"); ?>" alt="" class="img-responsive">
+		                <img src="<?php echo base_url("assets/templateV1/img/cup1.jpg"); ?>" alt="" class="img-responsive">
 		            </div>
 		            <div class="modal-body">
 		                <h3 class="text-center"><b>PaperCup - Mockup </b>($5,00)</h3>
@@ -315,18 +315,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url("assets/template/js/core.js"); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url("assets/template/js/menu-overlay.js"); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url("assets/template/js/placeholders.min.js"); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url("assets/templateV1/js/core.js"); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url("assets/templateV1/js/menu-overlay.js"); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url("assets/templateV1/js/placeholders.min.js"); ?>"></script>
     <!-- end core scripts --> 
     <!-- sliders -->
-    <script type="text/javascript" src="<?php echo base_url("assets/template/js/owl.carousel.min.js"); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url("assets/template/js/jquery.waitforimages.min.js"); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url("assets/template/js/sliders.js"); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url("assets/template/js/jquery.counterup.min.js");?>"></script>
-    <script type="text/javascript" src="<?php echo base_url("assets/template/js/numbers.js"); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url("assets/template/js/contact.js"); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url("assets/template/js/parallax.js"); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url("assets/templateV1/js/owl.carousel.min.js"); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url("assets/templateV1/js/jquery.waitforimages.min.js"); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url("assets/templateV1/js/sliders.js"); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url("assets/templateV1/js/jquery.counterup.min.js");?>"></script>
+    <script type="text/javascript" src="<?php echo base_url("assets/templateV1/js/numbers.js"); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url("assets/templateV1/js/contact.js"); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url("assets/templateV1/js/parallax.js"); ?>"></script>
 </body>
 
 </html>

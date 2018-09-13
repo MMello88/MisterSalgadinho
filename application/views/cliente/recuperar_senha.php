@@ -29,7 +29,7 @@
       <div class="col align-self-start">
       </div>
       <div class="col align-self-center py-3 ">
-        <img class="d-block mx-auto mb-4" src="<?= base_url('assets/img/bonequinho-120.png'); ?>" alt="" width="72" height="72">
+        <img class="d-block mx-auto mb-4" src="<?= base_url('assets/templateV2/img/bonequinho-120.png'); ?>" alt="" width="72" height="72">
         <?php if (empty($hash)) : ?>
           <h2 class="text-center">Recuperar a Senha</h2>
           <hr class='mb-3 mt-1'>

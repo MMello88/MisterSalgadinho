@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col m-auto text-center navbar-brand">
             <h2 class="alo">
-              <img class="alo-icon d-inline-block align-top" src="<?= base_url("assets/img/bonequinho-120.png"); ?>" alt="Alô, Mister!">ALÔ, MISTER!
+              <img class="alo-icon d-inline-block align-top" src="<?= base_url("assets/templateV2/img/bonequinho-120.png"); ?>" alt="Alô, Mister!">ALÔ, MISTER!
             </h2>
         </div>
         <svg>
@@ -36,15 +36,15 @@
   		<div class="row">
   			<div class="col-12 col-md-8 col-sm-12 px-5 pb-3">
           <address class="text-light">
-            <img class="icon mr-2" src="<?= base_url("assets/ico/social/mail_light.svg"); ?>" alt="E-mail">
+            <img class="icon mr-2" src="<?= base_url("assets/templateV2/ico/social/mail_light.svg"); ?>" alt="E-mail">
             E-mail <a class="text-light" href="mailto:financeiro@mistersalgadinhos.com.br">financeiro@mistersalgadinhos.com.br</a><br> 
 
-            <img class="icon mr-2" src="<?= base_url("assets/ico/social/location-pin_light.svg"); ?>" alt="Localização">R. Prudente Morais, n°532<br>
+            <img class="icon mr-2" src="<?= base_url("assets/templateV2/ico/social/location-pin_light.svg"); ?>" alt="Localização">R. Prudente Morais, n°532<br>
 
-            <img class="icon mr-2" src="<?= base_url("assets/ico/social/phone.svg"); ?>" alt="Celular">
+            <img class="icon mr-2" src="<?= base_url("assets/templateV2/ico/social/phone.svg"); ?>" alt="Celular">
             Matheus (16) 99167-2820<br>
 
-            <img class="icon mr-2" src="<?= base_url("assets/ico/social/phone.svg"); ?>" alt="Celular">
+            <img class="icon mr-2" src="<?= base_url("assets/templateV2/ico/social/phone.svg"); ?>" alt="Celular">
             Telefone (16) 3325-0364<br>
           </address>
   			</div>
@@ -80,17 +80,17 @@
   						<ul class="nav justify-content-center">
   						  <li class="nav-item">
   							<a class="nav-link" href="https://www.facebook.com/mistersalgadinhos/">
-  								<img class="icon" src="<?= base_url("assets/ico/social/facebook_light.svg"); ?>" alt="Facebook">
+  								<img class="icon" src="<?= base_url("assets/templateV2/ico/social/facebook_light.svg"); ?>" alt="Facebook">
   							</a>
   						  </li>
   						  <li class="nav-item">
   							<a class="nav-link" href="https://www.instagram.com/mistersalgadinhos/">
-							<img class="icon" src="<?= base_url("assets/ico/social/instagram_light.svg"); ?>" alt="Instagram">
+							<img class="icon" src="<?= base_url("assets/templateV2/ico/social/instagram_light.svg"); ?>" alt="Instagram">
 						  </a>
   						  </li>
   						  <li class="nav-item">
   							<a class="nav-link" href="#">
-							<img class="icon" src="<?= base_url("assets/ico/social/youtube_light.svg"); ?>" alt="YouTube">
+							<img class="icon" src="<?= base_url("assets/templateV2/ico/social/youtube_light.svg"); ?>" alt="YouTube">
 						  </a>
   						  </li>
   						</ul>
@@ -117,14 +117,14 @@
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
-<script src="<?= base_url("assets/js/owl.carousel.min.js"); ?>"></script>
-<script src="<?= base_url("assets/js/isotope.pkgd.min.js"); ?>"></script>
+<script src="<?= base_url("assets/templateV2/js/owl.carousel.min.js"); ?>"></script>
+<script src="<?= base_url("assets/templateV2/js/isotope.pkgd.min.js"); ?>"></script>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<script src="<?= base_url("assets/js/main.js"); ?>"></script>
+<script src="<?= base_url("assets/templateV2/js/main.js"); ?>"></script>
 
 <script type="text/javascript">
   var BaseUrl = "<?= base_url(); ?>";
@@ -132,7 +132,7 @@
 
 </script>
 
-<script src="<?= base_url("assets/js/principal.js"); ?>"></script>
+<script src="<?= base_url("assets/templateV2/js/principal.js"); ?>"></script>
 
 </body>
 </html>

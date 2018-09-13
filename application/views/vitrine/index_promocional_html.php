@@ -10,7 +10,7 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <a href="#section-salgados">
-          <img class="d-block w-100" src="<?php echo base_url("assets/img/slide-1.png"); ?>" alt="First slide">
+          <img class="d-block w-100" src="<?php echo base_url("assets/templateV2/img/slide-1.png"); ?>" alt="First slide">
           <div class="carousel-caption d-none d-md-block">
         </a>
           <!--<h5>First slide</h5>
@@ -19,7 +19,7 @@
       </div>
       <div class="carousel-item">
         <a href="#section-salgados">
-          <img class="d-block w-100" src="<?php echo base_url("assets/img/slide-3.png"); ?>" alt="Second slide">
+          <img class="d-block w-100" src="<?php echo base_url("assets/templateV2/img/slide-3.png"); ?>" alt="Second slide">
           <div class="carousel-caption d-none d-md-block">
         </a>
           <!--<h5>Second slide</h5>
@@ -28,7 +28,7 @@
       </div>
       <div class="carousel-item">
         <a href="#section-salgados">
-          <img class="d-block w-100" src="<?php echo base_url("assets/img/slide-2.png"); ?>" alt="Third slide">
+          <img class="d-block w-100" src="<?php echo base_url("assets/templateV2/img/slide-2.png"); ?>" alt="Third slide">
           <div class="carousel-caption d-none d-md-block">
         </a>
           <!--<h5>Third slide</h5>
@@ -65,7 +65,7 @@
           <div class="col-lg-4 col-md-6 mb-5">
             <?= form_open('', array('id' => 'formCart')); ?>
             <div class="card">
-              <img class="card-img" src="<?php echo base_url("assets/img/salgados/$Produto->imagem"); ?>" alt="Card image">
+              <img class="card-img" src="<?php echo base_url("assets/templateV2/img/salgados/$Produto->imagem"); ?>" alt="Card image">
               <div class="card-img-overlay">
                 <h6 class="text-dark text-left"><?= $Produto->nome ?></h6>
                 <h4 class="text-danger text-left">R$<?= $Produto->preco ?></h4>
@@ -126,7 +126,7 @@
             <?= form_open('', array('id' => 'formCart')); ?>
               <div class="col-lg-4 col-md-6 portfolio-thumbnail all <?= $Produto->cssClass ?>" >
                 <div class="hovereffect">
-                  <img class="img-responsive" src="<?php echo base_url("assets/img/salgados/$Produto->imagem"); ?>" alt="">
+                  <img class="img-responsive" src="<?php echo base_url("assets/templateV2/img/salgados/$Produto->imagem"); ?>" alt="">
                   <div class="overlay">
                     <h6 class="text-dark text-left"><?= $Produto->nome ?></h6>
                     <h4 class="text-danger text-left">R$<?= $Produto->preco ?></h4>
@@ -182,7 +182,7 @@
           <div class="modal-body">
             <div class="col pb-3">
               <div class="mx-auto" style="width: 70px;">
-                <img class="alo-icon" src="<?= base_url("assets/img/bonequinho-120.png"); ?>" alt="Mister">
+                <img class="alo-icon" src="<?= base_url("assets/templateV2/img/bonequinho-120.png"); ?>" alt="Mister">
               </div>
             </div>
             <div class="col">
