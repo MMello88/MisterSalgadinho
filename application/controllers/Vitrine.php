@@ -83,7 +83,7 @@ class Vitrine extends MY_Controller {
 						        	<div class='col-12 col-md-2 col-sm-12'>
 						        	   ".form_open('', array('id' => 'formCartDel'))."
 							        		<input type='hidden' name='id_cart' value='{$Cart->id_cart}'>
-							        		<input type='hidden' name='id_categoria_produto' value='{$Cart->id_categoria_produto}'>
+							        		<input type='hidden' name='id_categoria' value='{$Cart->id_categoria}'>
 								        	<input type='hidden' name='id_produto' value='{$Cart->id_produto[0]->id_produto}'> 
 								        	<input type='hidden' name='valor_subtotal-{$Cart->id_cart}' value='{$subtotal}'> 
 							        		<button type='submit' class='btn btn-warning btn-sm mais_menos' id='cart' id='cartDel'>X</button>

@@ -150,6 +150,7 @@ $autoload['model'] = array(
 'Modelo/representante_cliente'         => 'representante_cliente', 
 'Modelo/representante_recebimento'     => 'representante_recebimento',
 'Modelo/cliente'                       => 'cliente',
+'Modelo/ususario'                       => 'usuario',
 'Modelo/endereco'                      => 'endereco',
 'Modelo/cart'                          => 'cart',
 'Modelo/evento'                        => 'evento',

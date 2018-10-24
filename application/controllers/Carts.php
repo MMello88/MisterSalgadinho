@@ -15,7 +15,7 @@ class Carts extends CI_Controller {
     }
 
     public function inserir(){
-        $TemProduto = $this->listacarts->getCartByProdutoAndSession($_POST['id_produto'], $_POST['id_categoria_produto'], $_POST['id_session']);
+        $TemProduto = $this->listacarts->getCartByProdutoAndSession($_POST['id_produto'], $_POST['id_categoria'], $_POST['id_session']);
         if(empty($TemProduto)){
         	$this->cart->insert();
         } else {
@@ -78,7 +78,7 @@ class Carts extends CI_Controller {
 	
 	public function deletarByProduto(){
 		if ($this->session->userdata('id_session')){
-	        if ($this->cart->deleteByProduto($this->session->userdata('id_session'), $_POST['id_produto'], $_POST['id_categoria_produto']))
+	        if ($this->cart->deleteByProduto($this->session->userdata('id_session'), $_POST['id_produto'], $_POST['id_categoria']))
 	        	echo 'success';
 	        echo 'error';
     	}
@@ -115,7 +115,7 @@ class Carts extends CI_Controller {
 						 "    <div class='col-12 col-md-2 col-sm-12'> " .
 						 "      <form method='post' action='' id='formCartDel'>" .
 						 "        <input type='hidden' name='id_cart' value='{$Cart->id_cart}'> " .
-						 "        <input type='hidden' name='id_categoria_produto' value='{$Cart->id_categoria_produto}'> " .
+						 "        <input type='hidden' name='id_categoria' value='{$Cart->id_categoria}'> " .
 						 "        <input type='hidden' name='id_produto' value='{$Cart->id_produto[0]->id_produto}'> " .
 						 "        <input type='hidden' name='valor_subtotal' id='valor_subtotal' value='{$subtotal}'> " .
 						 "        <p><button type='submit' class='nbtn' id='cart' id='cartDel'>X</button></p> " .

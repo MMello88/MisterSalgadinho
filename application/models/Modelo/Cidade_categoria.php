@@ -8,7 +8,7 @@ class Cidade_categoria extends MY_Model {
 
     public $id_cidade_categoria;
     public $id_cidade;
-    public $id_categoria_produto;   
+    public $id_categoria;   
     
     public function  __construct() {
         parent::__construct($this);
@@ -43,7 +43,7 @@ class Cidade_categoria extends MY_Model {
     
 
     protected function get_config_prop(){
-        $this->id_categoria_produto = isset($this->id_categoria_produto) ? $this->get_categoria() : "";
+        $this->id_categoria = isset($this->id_categoria) ? $this->get_categoria() : "";
         $this->id_cidade  = isset($this->id_cidade)  ? $this->get_cidade()  : "";
     }
 

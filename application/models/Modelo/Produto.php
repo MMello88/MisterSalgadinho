@@ -7,7 +7,7 @@ class Produto extends MY_Model {
 
     public $id_produto;
     public $nome;
-    public $id_categoria_produto;
+    public $id_categoria;
     public $situacao;
     public $imagem;
 
@@ -42,12 +42,12 @@ class Produto extends MY_Model {
     }
 
     protected function get_config_prop(){
-        $this->id_categoria_produto = $this->get_categoria_produto();
+        $this->id_categoria = $this->get_categoria();
     }
 
-    private function get_categoria_produto(){
+    private function get_categoria(){
         $ListaCategoriasProduto = new ListaCategoriasProduto();
-        return $ListaCategoriasProduto->get($this->id_categoria_produto);
+        return $ListaCategoriasProduto->get($this->id_categoria);
     }
 
 }

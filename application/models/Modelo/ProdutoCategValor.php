@@ -7,7 +7,7 @@ class ProdutoCategValor extends MY_Model {
 
     public $id_produto;
     public $nome;
-    public $id_categoria_produto;
+    public $id_categoria;
     public $situacao;
     public $imagem;
     public $cssClass;

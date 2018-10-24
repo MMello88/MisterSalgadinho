@@ -41,7 +41,7 @@ class Perfil extends MY_Controller {
 					$this->item_pedido->id_item_pedido = null;
 				    $this->item_pedido->id_pedido = $id_pedido;
 				    $this->item_pedido->id_produto = $value->id_produto[0]->id_produto;
-				    $this->item_pedido->id_categoria_produto = $value->id_categoria_produto;
+				    $this->item_pedido->id_categoria = $value->id_categoria;
 				    $this->item_pedido->qtde = $value->qtde;
 				    $this->item_pedido->valor_unitario = $value->valor_unitario;
 				    $this->item_pedido->insert();

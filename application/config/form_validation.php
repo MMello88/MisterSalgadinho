@@ -1,6 +1,24 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 $config = array(
+    'novo/usuario' =>
+    array(
+        array(
+            'field' => 'nome',
+            'label' => 'Nome',
+            'rules' => 'trim|required'
+        ),
+        array(
+            'field' => 'email',
+            'label' => 'Email',
+            'rules' => 'required|valid_email|is_unique[cliente.email]|'
+        ),
+        array(
+            'field' => 'senha',
+            'label' => 'Senha',
+            'rules' => 'trim|required|min_length[8]'
+        )
+    ),
     'novo/cliente' =>
     array(
         array(
@@ -105,11 +123,6 @@ $config = array(
     ),
     'nova/senha' =>
     array(
-        array(
-            'field' => 'hash',
-            'label' => 'hash',
-            'rules' => 'trim|required'
-        ),
         array(
             'field' => 'senha',
             'label' => 'Senha',

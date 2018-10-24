@@ -29,7 +29,7 @@ class Shop extends CI_Controller {
     	$first = "active";
 		foreach($CategoriasProduto as $CategoriaProduto){
       if ($CategoriaProduto->situacao == "a"){
-        $link = $CategoriaProduto->id_categoria_produto;
+        $link = $CategoriaProduto->id_categoria;
         $html .= "    <a class='nav-item nav-link $first' id='nav-$link-tab' data-toggle='tab' href='#nav-$link' role='tab' aria-controls='nav-$link' aria-expanded='true'>$CategoriaProduto->nome</a> ";
         $first = "";
       }
@@ -40,10 +40,10 @@ class Shop extends CI_Controller {
     $first = "show active";
     foreach($CategoriasProduto as $CategoriaProduto){
       if ($CategoriaProduto->situacao == "a"){
-        $link = $CategoriaProduto->id_categoria_produto;
+        $link = $CategoriaProduto->id_categoria;
         $html .= "  <div class='tab-pane fade $first' id='nav-$link' role='tabpanel' aria-labelledby='nav-$link-tab'> " .
                  "    <div class='row'> " .
-                 $this->monta_view_produto($CategoriaProduto->id_categoria_produto) .
+                 $this->monta_view_produto($CategoriaProduto->id_categoria) .
                  "    </div> " .
                  " </div> " ;
         $first = "";
@@ -53,8 +53,8 @@ class Shop extends CI_Controller {
 		return $html. "</div> ";
 	}
 
-	private function monta_view_produto($id_categoria_produto){
-    	$Produtos = $this->listaprodutos->getProdutoByCategoria_produto($id_categoria_produto);
+	private function monta_view_produto($id_categoria){
+    	$Produtos = $this->listaprodutos->getProdutoByCategoria($id_categoria);
 		$html = "";
 		foreach($Produtos as $Produto)
 			$html .= $this->getHtmlCardProduto($Produto);

@@ -8,7 +8,7 @@ class Cart extends MY_Model {
 
     public $id_cart;
     public $id_session;
-    public $id_categoria_produto;
+    public $id_categoria;
     public $id_produto;
     public $id_cidade;
     public $qtde;
@@ -57,8 +57,8 @@ class Cart extends MY_Model {
       $this->set_response_db('Removido com sucesso');
     }
 
-    public function deleteByProduto($id_session, $id_produto, $id_categoria_produto) {
-        $this->db->delete('cart', array('id_session' => $id_session, 'id_produto' => $id_produto, 'id_categoria_produto' => $id_categoria_produto));
+    public function deleteByProduto($id_session, $id_produto, $id_categoria) {
+        $this->db->delete('cart', array('id_session' => $id_session, 'id_produto' => $id_produto, 'id_categoria' => $id_categoria));
         if ($this->db->error()['code'] > 0) {
           $this->set_log_error_db();
           return false;
@@ -150,7 +150,7 @@ class Cart extends MY_Model {
     }
 
     private function get_imagem_produto(){
-      $query = $this->db->get_where('produto_categoria', array('id_produto' => $this->id_produto, 'id_categoria_produto' => $this->id_categoria_produto));
+      $query = $this->db->get_where('produto_categoria', array('id_produto' => $this->id_produto, 'id_categoria' => $this->id_categoria));
       $row = $query->row();
       if(isset($row))
         return $row->imagem;

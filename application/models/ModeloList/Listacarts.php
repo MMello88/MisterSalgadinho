@@ -23,7 +23,7 @@ class Listacarts extends CI_Model {
         return $query->custom_result_object('cart');
     }
 
-    public function getCartByProdutoAndSession($id_produto, $id_categoria_produto, $id_session) {
+    public function getCartByProdutoAndSession($id_produto, $id_categoria, $id_session) {
         $query = $this->db->get_where('cart', array('id_produto' => $id_produto, 'id_session' => $id_session ));
         return $query->custom_result_object('cart');
     }
@@ -31,7 +31,7 @@ class Listacarts extends CI_Model {
 	public function getCartBySession($id_session = '') {
         $sql = "select id_cart,          " .
                "       id_session,       " .
-               "       id_categoria_produto, " .
+               "       id_categoria, " .
                "       id_produto,       " .
                "       id_cidade,        " .
                "       sum(qtde) qtde,   " .
@@ -41,7 +41,7 @@ class Listacarts extends CI_Model {
                " where id_session = ?    " .
 			         "   and situacao = 'a'    " .
                " group by id_session,    " .
-               "     id_categoria_produto, " . 
+               "     id_categoria, " . 
                "     id_produto,     " .
                "     valor_unitario, " .
                "     situacao        " ;
